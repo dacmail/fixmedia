@@ -4,4 +4,4 @@
 	<? endforeach; ?>
 </ul>
 
-<p><? echo anchor('reports/create', 'Añade un nuevo reporte'); ?></p>
+<p><? echo anchor($this->router->reverseRoute('reports-create'), 'Añade un nuevo reporte'); ?></p>

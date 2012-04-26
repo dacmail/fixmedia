@@ -41,6 +41,8 @@
 $route['default_controller'] = "reports";
 $route['404_override'] = '';
 
+$route['reporte/nuevo'] = array('/reports/create','reports-create');
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
