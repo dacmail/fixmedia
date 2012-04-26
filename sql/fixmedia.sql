@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.0.45)
 # Database: fixmedia
-# Generation Time: 2012-04-26 09:39:33 +0000
+# Generation Time: 2012-04-26 16:35:57 +0000
 # ************************************************************
 
 
@@ -20,14 +20,54 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
+# Dump of table comments
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `comments`;
+
+CREATE TABLE `comments` (
+  `comment_id` bigint(20) unsigned NOT NULL auto_increment,
+  `user_id` bigint(20) default NULL,
+  `report_id` bigint(20) default NULL,
+  `content` text,
+  `PARENT` bigint(20) default NULL,
+  `IP` char(24) default NULL,
+  `created_at` timestamp NULL default NULL,
+  PRIMARY KEY  (`comment_id`),
+  KEY `user_id` (`user_id`),
+  KEY `report_id` (`report_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table fixs
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `fixs`;
+
+CREATE TABLE `fixs` (
+  `fix_id` bigint(20) unsigned NOT NULL auto_increment,
+  `user_id` bigint(20) default NULL,
+  `report_id` bigint(20) default NULL,
+  `ip` char(24) default NULL,
+  `created_at` timestamp NULL default NULL,
+  PRIMARY KEY  (`fix_id`),
+  UNIQUE KEY `ip` (`ip`,`report_id`),
+  UNIQUE KEY `report_id_2` (`report_id`,`user_id`),
+  KEY `user_id` (`user_id`),
+  KEY `report_id` (`report_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+
 # Dump of table reports
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `reports`;
 
 CREATE TABLE `reports` (
-  `report_id` int(11) unsigned NOT NULL auto_increment,
-  `user_id` int(11) unsigned NOT NULL,
+  `report_id` bigint(20) unsigned NOT NULL auto_increment,
+  `user_id` bigint(20) unsigned NOT NULL,
   `url` varchar(250) NOT NULL default '',
   `title` text NOT NULL,
   `screenshot` varchar(100) default NULL,
@@ -49,6 +89,42 @@ VALUES
 
 /*!40000 ALTER TABLE `reports` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+# Dump of table reports_data
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `reports_data`;
+
+CREATE TABLE `reports_data` (
+  `report_data_id` bigint(20) unsigned NOT NULL auto_increment,
+  `report_id` bigint(20) default NULL,
+  `type` varchar(100) default NULL,
+  `type_info` varchar(100) default NULL,
+  `title` varchar(100) default '',
+  `content` text,
+  `urls` text,
+  `created_at` timestamp NULL default NULL,
+  PRIMARY KEY  (`report_data_id`),
+  KEY `report_id` (`report_id`),
+  KEY `type` (`type`),
+  KEY `type_info` (`type_info`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table reports_types
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `reports_types`;
+
+CREATE TABLE `reports_types` (
+  `report_type_id` int(11) unsigned NOT NULL auto_increment,
+  `type` varchar(100) default NULL,
+  `parent` int(11) default NULL,
+  PRIMARY KEY  (`report_type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 
