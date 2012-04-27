@@ -16,7 +16,8 @@
     <meta name="distribution" content="Global" />
     <meta name="resource-type" content="document" />
     <meta http-equiv="content-language" content="es" />
-    <!-- CSS -->
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/default.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styles.css" />
 </head>
 	<header id="header">
