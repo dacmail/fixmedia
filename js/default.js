@@ -1,10 +1,11 @@
 $('document').ready(function() {
-	if ($('.subtype_list').length>0) {
-		$('.subtype_list').hide();
+	if ($('.main_type_radio').length>0) {
 		$('.main_type_radio').click(function() {
-			$('.subtype_list').hide();
-			var subtype = '#subtype_' + $(this).val();
-			$(subtype).show(); 
+			$.ajax({
+			  	url: $(this).data('service') + '/' + $(this).val(),
+			}).done(function ( data ) {
+			  	$('.fields_wrap').html(data);
+			});
 		});		
 	}
 });

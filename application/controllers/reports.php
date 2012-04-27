@@ -1,6 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Reports extends CI_Controller {
+	public function __construct() {
+	   parent::__construct();
+	}
 	public function index() {
 		$data['page_title'] = 'Listado de reportes';
 		$data['main_content'] = 'list_reports';
@@ -24,6 +27,7 @@ class Reports extends CI_Controller {
 		if ($this->form_validation->run() === FALSE) :
 			$data['page_title'] = 'Nuevo reporte';
 			$data['main_content'] = 'create_report';
+			$data['error_url_check'] ='';
 		else :	
 			$data['url_title'] = $this->url_check($this->input->post('url'));
 			if (!empty($data['url_title'])) :
