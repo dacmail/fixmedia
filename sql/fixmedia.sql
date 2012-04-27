@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
-# Host: 127.0.0.1 (MySQL 5.0.45)
+# Host: localhost (MySQL 5.0.45)
 # Database: fixmedia
-# Generation Time: 2012-04-26 16:35:57 +0000
+# Generation Time: 2012-04-27 08:20:11 +0000
 # ************************************************************
 
 
@@ -30,12 +30,13 @@ CREATE TABLE `comments` (
   `user_id` bigint(20) default NULL,
   `report_id` bigint(20) default NULL,
   `content` text,
-  `PARENT` bigint(20) default NULL,
+  `parent` bigint(20) default NULL,
   `IP` char(24) default NULL,
   `created_at` timestamp NULL default NULL,
   PRIMARY KEY  (`comment_id`),
   KEY `user_id` (`user_id`),
-  KEY `report_id` (`report_id`)
+  KEY `report_id` (`report_id`),
+  KEY `parent` (`parent`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -122,9 +123,34 @@ CREATE TABLE `reports_types` (
   `report_type_id` int(11) unsigned NOT NULL auto_increment,
   `type` varchar(100) default NULL,
   `parent` int(11) default NULL,
-  PRIMARY KEY  (`report_type_id`)
+  PRIMARY KEY  (`report_type_id`),
+  KEY `parent` (`parent`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `reports_types` WRITE;
+/*!40000 ALTER TABLE `reports_types` DISABLE KEYS */;
+
+INSERT INTO `reports_types` (`report_type_id`, `type`, `parent`)
+VALUES
+	(1,'Correccion',0),
+	(2,'Ampliación',0),
+	(3,'Corrigiendo datos, cifras, declaraciones, autorías, atribuciones, etc.',1),
+	(4,'Desvinculación de titular y contenido: cuando el titular no se ajusta al contenido de la noticia.\n',1),
+	(5,'Introducción de opinión en textos informativos',1),
+	(6,'Léxico incorrecto: económico, jurídico, étnias, religiones, tendencias sexuales, etc',1),
+	(7,'Errores gramaticales, sintácticos, ortográficos, de puntuación, léxicos, semánticos, etc.\n',1),
+	(8,'Errores de argumentación\n',1),
+	(9,'Añadir imagen o vídeo\n',2),
+	(10,'Añadir documentación, PDF\n',2),
+	(11,'Añadir cifras o datos concretos\n',2),
+	(12,'Añadir enlaces que amplíen o complemente la información.\n',2),
+	(13,'Añadir versiones diferentes a la expuesta en la noticia\n',2),
+	(14,'Añadir autoría de citas, declaraciones, imágenes, gráficos, etc.\n',2),
+	(15,'En caso de informar sobre un conflicto: si solo aparece una de las reacciones, aportar la contraria ',2),
+	(16,'Aportar url para la elaboración de Storify relacionado',2);
+
+/*!40000 ALTER TABLE `reports_types` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 
