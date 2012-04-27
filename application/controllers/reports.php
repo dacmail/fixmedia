@@ -27,6 +27,8 @@ class Reports extends CI_Controller {
 		else :	
 			$data['url_title'] = $this->url_check($this->input->post('url'));
 			if (!empty($data['url_title'])) :
+				$this->load->model('Report_type');
+				$data['reports_types_tree'] = $this->Report_type->get_tree();
 				$data['page_title'] = 'Completa el reporte';
 				$data['url_sent'] = $this->input->post('url');
 				$data['main_content'] = 'complete_report';
