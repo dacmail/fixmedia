@@ -5,7 +5,7 @@
 </div>
 <?php echo form_open('reports/send_url') ?>
 
-	<label for="title">Url de la noticia</label> 
+	<label for="title">Url de la noticia</label>
 	<input type="input" name="url" /><br />
 
 	<input type="submit" name="submit" value="Siguiente" /> 
