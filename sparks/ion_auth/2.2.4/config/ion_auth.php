@@ -121,7 +121,7 @@
 	/**
 	 * Email Activation for registration
 	 **/
-	$config['email_activation']    = false;
+	$config['email_activation']    = true;
 
 	/**
 	 * Manual Activation for registration
