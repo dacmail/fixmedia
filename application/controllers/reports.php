@@ -44,6 +44,10 @@ class Reports extends CI_Controller {
 
 	public function preview() {
 		$data['reporte'] = $this->input->post(NULL, TRUE); 
+		foreach ($this->input->post('type_info') as $type_id) :
+			$types[$type_id] = Reports_type::find($type_id);
+		endforeach;
+		$data['types'] = $types;
 		$data['page_title'] = 'Previsualización del reporte';
 		$data['main_content'] = 'preview_report';
 

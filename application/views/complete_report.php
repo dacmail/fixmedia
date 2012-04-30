@@ -4,7 +4,7 @@
 	<?php echo validation_errors(); ?>	
 </div>
 <? $hidden_fields = array('report_url' => $url_sent, 'report_title' => $url_title); ?>
-<?php echo form_open('reports/preview', '', $hidden_fields) ?>
+<?php echo form_open($this->router->reverseRoute('reports-preview'), '', $hidden_fields) ?>
 	<p>Estás reportando la dirección: <?=$url_sent?> | <?=$url_title?></p>
 	<p><label>Elige el tipo de reporte</label> 
 		<? foreach ($reports_types_tree as $report_type) : ?>
