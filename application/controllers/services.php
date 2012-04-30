@@ -5,8 +5,7 @@ class Services extends CI_Controller {
 	   parent::__construct();
 	}
    	public function get_subtypes_select($parent_id) {
-   		$this->load->model('Report_type');
-		$data['reports_types'] = $this->Report_type->get_items($parent_id);
+        $data['reports_types'] = Reports_type::find_all_by_parent($parent_id);
 		if (empty($data['reports_types'])) :
 			show_404();
 		else :

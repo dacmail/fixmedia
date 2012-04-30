@@ -8,11 +8,6 @@ class Reports extends CI_Controller {
 		$data['page_title'] = 'Listado de reportes';
 		$data['main_content'] = 'list_reports';
 
-		$reports = $this->db->get('reports');
-		$data['reports'] = $reports->result();
-
-		$type = Reports_type::first();		
-		echo $type->type;
 		$this->load->view('includes/template', $data);
 	}
 	public function create() {
@@ -32,8 +27,7 @@ class Reports extends CI_Controller {
 		else :	
 			$data['url_title'] = $this->url_check($this->input->post('url'));
 			if (!empty($data['url_title'])) :
-				$this->load->model('Reports_type');
-				$data['reports_types_tree'] = $this->Reports_type->get_tree();
+				$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
 				$data['page_title'] = 'Completa el reporte';
 				$data['url_sent'] = $this->input->post('url');
 				$data['main_content'] = 'complete_report';
