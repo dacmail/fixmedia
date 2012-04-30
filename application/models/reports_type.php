@@ -1,9 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Report_type extends CI_Model { 
-	public function __construct() {
-	   parent::__construct();
-	}
+class Reports_type extends ActiveRecord\Model { 
 
 	public function get_items($parent=null) {
 		if (!is_null($parent)) :

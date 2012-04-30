@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database', 'form_validation');
+$autoload['libraries'] = array('database', 'form_validation', 'session');
 
 
 /*
@@ -110,6 +110,9 @@ $autoload['language'] = array();
 */
 
 $autoload['model'] = array();
+
+
+$autoload['sparks'] = array('php-activerecord/0.0.2','ion_auth/2.2.4');
 
 
 /* End of file autoload.php */

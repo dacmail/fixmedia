@@ -11,13 +11,14 @@ class Reports extends CI_Controller {
 		$reports = $this->db->get('reports');
 		$data['reports'] = $reports->result();
 
-		
+		$type = Reports_type::first();		
+		echo $type->type;
 		$this->load->view('includes/template', $data);
 	}
 	public function create() {
 		$data['page_title'] = 'Nuevo reporte';
 		$data['main_content'] = 'create_report';
-
+		$data['error_url_check'] = '';
 
 		$this->load->view('includes/template', $data);
 	}
@@ -27,12 +28,12 @@ class Reports extends CI_Controller {
 		if ($this->form_validation->run() === FALSE) :
 			$data['page_title'] = 'Nuevo reporte';
 			$data['main_content'] = 'create_report';
-			$data['error_url_check'] ='';
+			$data['error_url_check'] = '';
 		else :	
 			$data['url_title'] = $this->url_check($this->input->post('url'));
 			if (!empty($data['url_title'])) :
-				$this->load->model('Report_type');
-				$data['reports_types_tree'] = $this->Report_type->get_tree();
+				$this->load->model('Reports_type');
+				$data['reports_types_tree'] = $this->Reports_type->get_tree();
 				$data['page_title'] = 'Completa el reporte';
 				$data['url_sent'] = $this->input->post('url');
 				$data['main_content'] = 'complete_report';

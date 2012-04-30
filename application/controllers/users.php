@@ -7,10 +7,10 @@ class Users extends CI_Controller {
 	}
 
 	public function index() {
-		/*$username = 'edipotrebol@gmail.com';
+		$username = 'edipotrebol@gmail.com';
 		$password = '12345678';
 		$email = 'benedmunds';
-		$this->ion_auth->register($username, $password, $email);*/
+		$this->ion_auth->register($username, $password, $email);
 	}
 
 }
