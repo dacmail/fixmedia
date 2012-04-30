@@ -18,10 +18,10 @@ class Reports_type extends ActiveRecord\Model {
 		$this->db->where('parent',0);
 		$query = $this->db->get('reports_types');
 		foreach ($query->result() as $type) :
-			$this->db->where('parent',$type->report_type_id);
+			$this->db->where('parent',$type->id);
 			$query = $this->db->get('reports_types');
 			$type->childrens = $query->result();
-			$result[$type->report_type_id] = $type;
+			$result[$type->id] = $type;
 		endforeach;
 		return $result;
 	}

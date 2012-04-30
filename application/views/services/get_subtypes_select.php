@@ -2,7 +2,7 @@
 	<label for="type_info">Selecciona una opción: </label>
 	<select size="<?=count($reports_types);?>" name="type_info" id="type_info">
 		<? foreach ($reports_types as $report_type) : ?>
-			<option value="<?=$report_type->report_type_id; ?>"><?=$report_type->type;?></option>
+			<option value="<?=$report_type->id; ?>"><?=$report_type->type;?></option>
 		<? endforeach; ?>
 	</select>
 </p>
