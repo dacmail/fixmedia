@@ -55,6 +55,16 @@ class Reports extends CI_Controller {
 	}
 
 
+	public function save() {
+		$report = Report::create(array('user_id' => 1,
+								'url' => $this->input->post('report_url'),
+								'title' => $this->input->post('report_title')));
+		$data['page_title'] = $report->title;
+		$data['report'] = $report;
+		$data['main_content'] = 'report';
+
+		$this->load->view('includes/template', $data);
+	}
 	// Esta función habría que pasarla a un helper, aquí no tiene sentido.
 	public function url_check($url) {
 		$ch = curl_init($url);
