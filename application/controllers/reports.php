@@ -7,7 +7,8 @@ class Reports extends CI_Controller {
 	public function index() {
 		$data['page_title'] = 'Listado de reportes';
 		$data['main_content'] = 'list_reports';
-
+		$data['reports'] = Report::all();
+		$data['reports_data'] = Reports_data::all();
 		$this->load->view('includes/template', $data);
 	}
 	public function create() {
