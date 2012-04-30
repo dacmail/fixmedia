@@ -41,6 +41,17 @@ class Reports extends CI_Controller {
 		$this->load->view('includes/template', $data);
 
 	}
+
+	public function preview() {
+		$data['reporte'] = $this->input->post(NULL, TRUE); 
+		$data['page_title'] = 'Previsualización del reporte';
+		$data['main_content'] = 'preview_report';
+
+		$this->load->view('includes/template', $data);
+	}
+
+
+	// Esta función habría que pasarla a un helper, aquí no tiene sentido.
 	public function url_check($url) {
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_HEADER, 0);
