@@ -7,17 +7,14 @@ class Reports extends CI_Controller {
 	public function index() {
 		$data['page_title'] = 'Listado de reportes';
 		$data['main_content'] = 'list_reports';
-
-		$reports = $this->db->get('reports');
-		$data['reports'] = $reports->result();
-
-		
+		$data['reports'] = Report::all();
+		$data['reports_data'] = Reports_data::all();
 		$this->load->view('includes/template', $data);
 	}
 	public function create() {
 		$data['page_title'] = 'Nuevo reporte';
 		$data['main_content'] = 'create_report';
-
+		$data['error_url_check'] = '';
 
 		$this->load->view('includes/template', $data);
 	}
@@ -27,12 +24,11 @@ class Reports extends CI_Controller {
 		if ($this->form_validation->run() === FALSE) :
 			$data['page_title'] = 'Nuevo reporte';
 			$data['main_content'] = 'create_report';
-			$data['error_url_check'] ='';
+			$data['error_url_check'] = '';
 		else :	
 			$data['url_title'] = $this->url_check($this->input->post('url'));
 			if (!empty($data['url_title'])) :
-				$this->load->model('Report_type');
-				$data['reports_types_tree'] = $this->Report_type->get_tree();
+				$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
 				$data['page_title'] = 'Completa el reporte';
 				$data['url_sent'] = $this->input->post('url');
 				$data['main_content'] = 'complete_report';
@@ -45,6 +41,31 @@ class Reports extends CI_Controller {
 		$this->load->view('includes/template', $data);
 
 	}
+
+	public function preview() {
+		$data['reporte'] = $this->input->post(NULL, TRUE); 
+		foreach ($this->input->post('type_info') as $type_id) :
+			$types[$type_id] = Reports_type::find($type_id);
+		endforeach;
+		$data['types'] = $types;
+		$data['page_title'] = 'Previsualización del reporte';
+		$data['main_content'] = 'preview_report';
+
+		$this->load->view('includes/template', $data);
+	}
+
+
+	public function save() {
+		$report = Report::create(array('user_id' => 1,
+								'url' => $this->input->post('report_url'),
+								'title' => $this->input->post('report_title')));
+		$data['page_title'] = $report->title;
+		$data['report'] = $report;
+		$data['main_content'] = 'report';
+
+		$this->load->view('includes/template', $data);
+	}
+	// Esta función habría que pasarla a un helper, aquí no tiene sentido.
 	public function url_check($url) {
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_HEADER, 0);

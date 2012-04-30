@@ -3,7 +3,7 @@
 	<?php echo validation_errors(); ?>
 	<?=$error_url_check ?>
 </div>
-<?php echo form_open('reports/send_url') ?>
+<?php echo form_open($this->router->reverseRoute('reports-send_url')) ?>
 
 	<label for="title">Url de la noticia</label>
 	<input type="input" name="url" /><br />

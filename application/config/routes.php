@@ -42,6 +42,9 @@ $route['default_controller'] = "reports";
 $route['404_override'] = '';
 
 $route['reporte/nuevo'] = array('/reports/create','reports-create');
+$route['reporte/enviar'] = array('/reports/send_url','reports-send_url');
+$route['reporte/borrador'] = array('/reports/preview','reports-preview');
+$route['reporte/guardar'] = array('/reports/save','reports-save');
 
 
 /* End of file routes.php */
