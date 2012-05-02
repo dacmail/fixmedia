@@ -47,6 +47,9 @@ class Reports extends CI_Controller {
 		foreach ($this->input->post('type_info') as $type_id) :
 			$types[$type_id] = Reports_type::find($type_id);
 		endforeach;
+		foreach ($data['reporte']['urls'] as $index => $url) :
+			$data['reporte']['urls'][$index] = base64_encode(serialize($data['reporte']['urls'][$index]));
+		endforeach;
 		$data['types'] = $types;
 		$data['page_title'] = 'Previsualización del reporte';
 		$data['main_content'] = 'preview_report';
@@ -76,7 +79,7 @@ class Reports extends CI_Controller {
 								'url' => $post_data['report_url'],
 								'slug' => url_title($post_data['report_title'], 'dash', TRUE),
 								'title' => $post_data['report_title']));
-
+		var_dump($post_data);
 		foreach ($post_data['type_info'] as $index => $type_id) :
 			$types[$type_id] = Reports_type::find($type_id);
 			$subreports[] = Reports_data::create(array(
@@ -85,7 +88,7 @@ class Reports extends CI_Controller {
 													'type_info' => $types[$type_id]->type,
 													'title' => $post_data['title'][$index],
 													'content' => $post_data['content'][$index],
-													'urls' => $post_data['urls'][$index]
+													'urls' => base64_decode($post_data['urls'][$index])
 													)); 
 		endforeach;
 		redirect($this->router->reverseRoute('reports-view', array('slug' => $report->slug)));

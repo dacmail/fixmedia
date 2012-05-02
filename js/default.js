@@ -3,9 +3,14 @@ $('document').ready(function() {
 		$('.main_type_radio').live('click', function() {
 			var wrap = '#fields_' + $(this).data('count');
 			$.ajax({
-			  	url: $(this).data('service') + '/' + $(this).val(),
+			  	url: $(this).data('service') + '/' + $(this).val() + '/' + $('.report_data').length,
 			}).done(function ( data ) {
 			  	$(wrap).html(data);
+			  	$('.add_url').click(function(e) {
+					$(this).closest('.fields_wrap').first().find('.urls').first().clone().insertAfter($(this).closest('.fields_wrap').first().find('.urls').last());
+					if ($(this).closest('.fields_wrap').first().find('.urls').length>=3) { $(this).hide();}
+					e.preventDefault();
+				});		
 			});
 		});		
 	}
@@ -16,11 +21,13 @@ $('document').ready(function() {
 			  	url: $(this).data('service') + '/' + $('.report_data').length,
 			}).done(function ( data ) {
 			  	$('#add_more').before(data);
-			  	if ($('.report_data').length >= 3) {
-			  		$('#add_more').hide();
-			  	}
+			  	if ($('.report_data').length >= 3) {$('#add_more').hide();}
 			});
 			e.preventDefault();
 		});		
+	}
+
+	if ($('.add_url').length>0) {
+
 	}
 });
