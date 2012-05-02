@@ -6,4 +6,13 @@ class Report extends ActiveRecord\Model {
 		array('data', 'class_name' => 'reports_data')
 	);
 
+	static $validates_uniqueness_of = array(
+		array('url'),
+		array('slug')
+    );
+    static $validates_presence_of = array(
+		array('url'),
+		array('title'),
+		array('slug')
+	);
 }	

@@ -7,4 +7,9 @@ class Reports_data extends ActiveRecord\Model {
     	array('report', 'class_name' => 'Report')
 	);
 
+    static $validates_presence_of = array(
+		array('type'),
+		array('type_info'),
+		array('title')
+	);
 }	
