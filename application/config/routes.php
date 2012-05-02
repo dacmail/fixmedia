@@ -45,6 +45,8 @@ $route['reporte/nuevo'] = array('/reports/create','reports-create');
 $route['reporte/enviar'] = array('/reports/send_url','reports-send_url');
 $route['reporte/borrador'] = array('/reports/preview','reports-preview');
 $route['reporte/guardar'] = array('/reports/save','reports-save');
+$route['reporte/(:slug)'] = array('/reports/view/$1','reports-view');
+
 
 
 /* End of file routes.php */

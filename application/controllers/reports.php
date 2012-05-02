@@ -54,16 +54,36 @@ class Reports extends CI_Controller {
 		$this->load->view('includes/template', $data);
 	}
 
+	public function view($slug) {
+		if (!empty($slug)) :
+			$report = Report::find($slug);
+			$data['page_title'] = $report->title;
+			$data['report'] = $report;
+			$data['main_content'] = 'report';
+			$this->load->view('includes/template', $data);
+		else :
+			show_404();
+		endif;
+	}
 
 	public function save() {
+		$post_data = $this->input->post(NULL, TRUE); 
 		$report = Report::create(array('user_id' => 1,
-								'url' => $this->input->post('report_url'),
-								'title' => $this->input->post('report_title')));
-		$data['page_title'] = $report->title;
-		$data['report'] = $report;
-		$data['main_content'] = 'report';
+								'url' => $post_data['report_url'],
+								'title' => $post_data['report_title']));
 
-		$this->load->view('includes/template', $data);
+		foreach ($post_data['type_info'] as $index => $type_id) :
+			$types[$type_id] = Reports_type::find($type_id);
+			$subreports[] = Reports_data::create(array(
+													'report_id' => $report->id,
+													'type' => $types[$type_id]->parent_type->type,
+													'type_info' => $types[$type_id]->type,
+													'title' => $post_data['title'][$index],
+													'content' => $post_data['content'][$index],
+													'urls' => $post_data['urls'][$index]
+													)); 
+		endforeach;
+		redirect($this->router->reverseRoute('reports-view', array('slug' => $report->id)));
 	}
 	// Esta función habría que pasarla a un helper, aquí no tiene sentido.
 	public function url_check($url) {
