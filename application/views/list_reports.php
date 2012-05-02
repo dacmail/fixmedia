@@ -1,6 +1,6 @@
 <ul>
 	<? foreach ($reports as $report) : ?>
-		<li><?=$report->title;?></li>
+		<li><?= anchor($this->router->reverseRoute('reports-view', array('slug' => $report->slug)), $report->title); ?></li>
 	<? endforeach; ?>
 </ul>
 

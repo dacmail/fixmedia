@@ -56,11 +56,15 @@ class Reports extends CI_Controller {
 
 	public function view($slug) {
 		if (!empty($slug)) :
-			$report = Report::find($slug);
-			$data['page_title'] = $report->title;
-			$data['report'] = $report;
-			$data['main_content'] = 'report';
-			$this->load->view('includes/template', $data);
+			$report = Report::find_by_slug($slug);
+			if (!empty($report)) :
+				$data['page_title'] = $report->title;
+				$data['report'] = $report;
+				$data['main_content'] = 'report';
+				$this->load->view('includes/template', $data);
+			else :
+				show_404();
+			endif;
 		else :
 			show_404();
 		endif;
@@ -70,6 +74,7 @@ class Reports extends CI_Controller {
 		$post_data = $this->input->post(NULL, TRUE); 
 		$report = Report::create(array('user_id' => 1,
 								'url' => $post_data['report_url'],
+								'slug' => url_title($post_data['report_title'], 'dash', TRUE),
 								'title' => $post_data['report_title']));
 
 		foreach ($post_data['type_info'] as $index => $type_id) :
@@ -83,7 +88,7 @@ class Reports extends CI_Controller {
 													'urls' => $post_data['urls'][$index]
 													)); 
 		endforeach;
-		redirect($this->router->reverseRoute('reports-view', array('slug' => $report->id)));
+		redirect($this->router->reverseRoute('reports-view', array('slug' => $report->slug)));
 	}
 	// Esta función habría que pasarla a un helper, aquí no tiene sentido.
 	public function url_check($url) {
