@@ -12,5 +12,14 @@ class Services extends CI_Controller {
 			$this->load->view('services/get_subtypes_select', $data);
    		endif;
    	}
+   	public function get_more_data($count=1)	{
+   		$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
+   		if (empty($data['reports_types_tree'])) : 
+   			show_404();
+   		else:
+   			$data['count'] = $count+1;
+   			$this->load->view('services/get_more_data', $data);
+   		endif;
+   	}
 
 }
