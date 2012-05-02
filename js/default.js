@@ -7,7 +7,7 @@ $('document').ready(function() {
 			}).done(function ( data ) {
 			  	$(wrap).html(data);
 			  	$('.add_url').click(function(e) {
-					$(this).closest('.fields_wrap').first().find('.urls').first().clone().insertAfter($(this).closest('.fields_wrap').first().find('.urls').last());
+					$(this).closest('.fields_wrap').first().find('.urls').first().clone().insertAfter($(this).closest('.fields_wrap').first().find('.urls').last()).val('');
 					if ($(this).closest('.fields_wrap').first().find('.urls').length>=3) { $(this).hide();}
 					e.preventDefault();
 				});		
