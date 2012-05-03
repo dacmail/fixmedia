@@ -51,7 +51,7 @@ if ( ! function_exists('get_url_data')) {
             }
         }
 
-        return array('valid' => $url_ok, 'url' => $the_url, 'title' => $url_title);
+        return array('valid' => $url_ok, 'url' => $the_url, 'title' => $url_title,'host' => $url_components['host']);
     }   
 }
 
