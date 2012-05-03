@@ -26,11 +26,13 @@ class Reports extends CI_Controller {
 			$data['main_content'] = 'create_report';
 			$data['error_url_check'] = '';
 		else :	
-			$data['url_title'] = $this->url_check($this->input->post('url'));
-			if (!empty($data['url_title'])) :
+			$this->load->helper('url_validation');
+			$url_data = get_url_data($this->input->post('url'));
+			if ($url_data['valid']) :
+				$data['url_title'] = $url_data['title'];
 				$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
 				$data['page_title'] = 'Completa el reporte';
-				$data['url_sent'] = $this->input->post('url');
+				$data['url_sent'] = $url_data['url'];
 				$data['main_content'] = 'complete_report';
 			else :
 				$data['error_url_check'] = 'La URL no responde o no puede ser obtenida';
@@ -92,17 +94,5 @@ class Reports extends CI_Controller {
 													)); 
 		endforeach;
 		redirect($this->router->reverseRoute('reports-view', array('slug' => $report->slug)));
-	}
-	// Esta función habría que pasarla a un helper, aquí no tiene sentido.
-	public function url_check($url) {
-		$ch = curl_init($url);
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    	$html = curl_exec($ch);
-    	curl_close($ch);
-    	if (preg_match('/<title>(.*)<\/title>/i', $html, $match)) :
-        	return $match[1];
-    	endif;
-    	return false;
 	}
 }
