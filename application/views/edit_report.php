@@ -1,6 +1,6 @@
 <h1><?=$page_title;?></h1>
 
-<? $hidden_fields = array('report_url' => $report['report_url'], 'report_title' => $report['report_title']); ?>
+<? $hidden_fields = array('report_url' => $report['report_url'], 'report_title' => $report['report_title'], 'site' => $report['site']); ?>
 <?php echo form_open($this->router->reverseRoute('reports-preview'), '', $hidden_fields) ?>
 	<p>Estás reportando la dirección: <?=$report['report_url'];?> | <?=$report['report_title'];?></p>
 

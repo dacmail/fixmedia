@@ -31,6 +31,7 @@ class Reports extends CI_Controller {
 				$this->load->helper('url_validation');
 				$url_data = get_url_data($this->input->post('url'));
 				if ($url_data['valid']) :
+					$data['report_site'] = $url_data['host'];
 					$data['url_title'] = $url_data['title'];
 					$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
 					$data['page_title'] = 'Completa el reporte';
@@ -92,7 +93,8 @@ class Reports extends CI_Controller {
 		$report = Report::create(array('user_id' => 1,
 								'url' => $post_data['report_url'],
 								'slug' => url_title($post_data['report_title'], 'dash', TRUE),
-								'title' => $post_data['report_title']));
+								'title' => $post_data['report_title'],
+								'site' => $post_data['site'],));
 		var_dump($post_data);
 		foreach ($post_data['type_info'] as $index => $type_id) :
 			$types[$type_id] = Reports_type::find($type_id);

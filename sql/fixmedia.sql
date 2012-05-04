@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.0.45)
 # Database: fixmedia
-# Generation Time: 2012-05-02 08:50:33 +0000
+# Generation Time: 2012-05-04 08:18:29 +0000
 # ************************************************************
 
 
@@ -95,6 +95,7 @@ CREATE TABLE `reports` (
   `user_id` bigint(20) unsigned NOT NULL,
   `url` varchar(250) NOT NULL default '',
   `title` text NOT NULL,
+  `site` varchar(100) NOT NULL,
   `screenshot` varchar(100) default NULL,
   `slug` varchar(250) default NULL,
   `author_id` int(10) unsigned default NULL,
@@ -104,18 +105,25 @@ CREATE TABLE `reports` (
   UNIQUE KEY `slug` (`slug`),
   KEY `user_id` (`user_id`),
   KEY `url` (`url`),
-  KEY `author_id` (`author_id`)
+  KEY `author_id` (`author_id`),
+  KEY `site` (`site`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `reports` WRITE;
 /*!40000 ALTER TABLE `reports` DISABLE KEYS */;
 
-INSERT INTO `reports` (`id`, `user_id`, `url`, `title`, `screenshot`, `slug`, `author_id`, `author_approved`, `created_at`)
+INSERT INTO `reports` (`id`, `user_id`, `url`, `title`, `site`, `screenshot`, `slug`, `author_id`, `author_approved`, `created_at`)
 VALUES
-	(1,1,'http://fixmedia.org','Fixmedia.org, mejora las noticias',NULL,'fixmedia-org-mejora-las-noticias',NULL,NULL,NULL),
-	(2,1,'http://bottup.com/201204288358/Mexico/la-abolicion-de-las-corridas-en-df.html','La abolición de las corridas en DF no se votará',NULL,'la-abolicin-de-las-corridas-en-df-no-se-votar',NULL,NULL,'2012-05-02 09:44:17'),
-	(5,1,'http://codeigniter.com/user_guide/helpers/url_helper.html','URL Helper : CodeIgniter User Guide',NULL,'url-helper-codeigniter-user-guide',NULL,NULL,'2012-05-02 10:21:27'),
-	(6,1,'http://community-auth.com/','Community Auth - Open Source CodeIgniter Authentication',NULL,'community-auth-open-source-codeigniter-authentication',NULL,NULL,'2012-05-02 10:32:59');
+	(1,1,'http://fixmedia.org','Fixmedia.org, mejora las noticias','fixmedia.org',NULL,'fixmedia.org-mejora-las-noticias',NULL,NULL,NULL),
+	(2,1,'http://bottup.com/201204288358/Mexico/la-abolicion-de-las-corridas-en-df.html','La abolición de las corridas en DF no se votará','bottup.com',NULL,'la-abolicin-de-las-corridas-en-df-no-se-votar',NULL,NULL,'2012-05-02 09:44:17'),
+	(5,1,'http://codeigniter.com/user_guide/helpers/url_helper.html','URL Helper : CodeIgniter User Guide','codeigniter.com',NULL,'url-helper-codeigniter-user-guide',NULL,NULL,'2012-05-02 10:21:27'),
+	(6,1,'http://community-auth.com/','Community Auth - Open Source CodeIgniter Authentication','community-auth.com',NULL,'community-auth-open-source-codeigniter-authentication',NULL,NULL,'2012-05-02 10:32:59'),
+	(7,1,'http://support.google.com/groups/bin/answer.py?hl=es&answer=46601','Te damos la bienvenida a Grupos de Google - Ayuda de Grupos de Google','support.google.com',NULL,'te-damos-la-bienvenida-a-grupos-de-google-ayuda-de-grupos-de-google',NULL,NULL,'2012-05-02 15:56:15'),
+	(8,1,'http://api.jquery.com/first/','.first() &#8211; jQuery API','api.jquery.com',NULL,'first-jquery-api',NULL,NULL,'2012-05-02 17:39:47'),
+	(9,1,'http://php.net/manual/es/function.serialize.php','PHP: serialize - Manual','php.net',NULL,'php-serialize-manual',NULL,NULL,'2012-05-02 17:50:23'),
+	(10,1,'http://webdesign.about.com/od/xhtml/a/aa011507.htm','HTML and DOCTYPE - HTML Versions - Why Different HTML Versions','webdesign.about.com',NULL,'html-and-doctype-html-versions-why-different-html-versions',NULL,NULL,'2012-05-02 18:07:48'),
+	(11,1,'http://codeigniter.com/user_guide/libraries/input.html','Input Class : CodeIgniter User Guide','codeigniter.com',NULL,'input-class-codeigniter-user-guide',NULL,NULL,'2012-05-03 18:56:49'),
+	(13,1,'http://codeigniter.com/user_guide/','Welcome to CodeIgniter : CodeIgniter User Guide','codeigniter.com',NULL,'welcome-to-codeigniter-codeigniter-user-guide',NULL,NULL,'2012-05-04 10:17:46');
 
 /*!40000 ALTER TABLE `reports` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -155,7 +163,20 @@ VALUES
 	(7,5,'Correccion','Introducción de opinión en textos informativos','Valor de prueba','Texto por defecto','Valor de prueba','2012-05-02 10:21:27'),
 	(8,5,'Correccion','Corrigiendo datos, cifras, declaraciones, autorías, atribuciones, etc.','Valor de prueba','Texto por defecto','Valor de prueba','2012-05-02 10:21:27'),
 	(9,6,'Ampliación','Añadir versiones diferentes a la expuesta en la noticia\n','Valor de prueba','Texto por defecto','Valor de prueba','2012-05-02 10:32:59'),
-	(10,6,'Correccion','Introducción de opinión en textos informativos','Valor de prueba','Texto por defecto','Valor de prueba','2012-05-02 10:32:59');
+	(10,6,'Correccion','Introducción de opinión en textos informativos','Valor de prueba','Texto por defecto','Valor de prueba','2012-05-02 10:32:59'),
+	(11,7,'Correccion','Errores de argumentación\n','Valor de prueba','Texto por defecto','Valor de prueba','2012-05-02 15:56:15'),
+	(12,7,'Ampliación','Aportar url para la elaboración de Storify relacionado','Valor de prueba','Texto por defecto','Valor de prueba','2012-05-02 15:56:15'),
+	(13,7,'Correccion','Desvinculación de titular y contenido: cuando el titular no se ajusta al contenido de la noticia.\n','Valor de prueba','Texto por defecto','Valor de prueba','2012-05-02 15:56:15'),
+	(14,8,'Correccion','Léxico incorrecto: económico, jurídico, étnias, religiones, tendencias sexuales, etc','Titular de prueba','Contenido por defecto','a:1:{i:0;s:13:\"URL de prueba\";}','2012-05-02 17:39:48'),
+	(15,8,'Correccion','Léxico incorrecto: económico, jurídico, étnias, religiones, tendencias sexuales, etc','Titular de prueba','Contenido por defecto','a:1:{i:0;s:13:\"URL de prueba\";}','2012-05-02 17:39:48'),
+	(16,9,'Ampliación','Añadir enlaces que amplíen o complemente la información.\n','Titular de prueba','Contenido por defecto','s:88:\"a:3:{i:0;s:15:\"URL de pruebaa1\";i:1;s:15:\"URL de pruebaa2\";i:2;s:16:\"URL de pruebaaa3\";}\";','2012-05-02 17:50:23'),
+	(17,9,'Correccion','Léxico incorrecto: económico, jurídico, étnias, religiones, tendencias sexuales, etc','Titular de prueba','Contenido por defecto','s:14:\"a:3:{i:0;s:14:\";','2012-05-02 17:50:23'),
+	(18,10,'Ampliación','Añadir versiones diferentes a la expuesta en la noticia\n','Titular de prueba','Contenido por defecto','a:3:{i:0;s:14:\"URL de prueba1\";i:1;s:14:\"URL de prueba2\";i:2;s:14:\"URL de prueba3\";}','2012-05-02 18:07:48'),
+	(19,10,'Correccion','Corrigiendo datos, cifras, declaraciones, autorías, atribuciones, etc.','Titular de prueba','Contenido por defecto','a:3:{i:0;s:14:\"URL de prueba4\";i:1;s:14:\"URL de prueba5\";i:2;s:14:\"URL de prueba6\";}','2012-05-02 18:07:48'),
+	(20,11,'Ampliación','Añadir documentación, PDF\n','Titular de prueba ampliacion pdf','Contenido por defecto Ampliacion','a:3:{i:0;s:14:\"URL de prueba1\";i:1;s:5:\"URL 2\";i:2;s:5:\"URL 3\";}','2012-05-03 18:56:50'),
+	(21,11,'Correccion','Léxico incorrecto: económico, jurídico, étnias, religiones, tendencias sexuales, etc','Ctitularntenido por defecto correccion informativo','Contenido por defecto correccion informativo','a:2:{i:0;s:13:\"URL de prueba\";i:1;s:7:\"url 333\";}','2012-05-03 18:56:50'),
+	(22,NULL,'Correccion','Desvinculación de titular y contenido: cuando el titular no se ajusta al contenido de la noticia.\n','Titular de prueba','Contenido por defecto','a:2:{i:0;s:13:\"URL de prueba\";i:1;s:4:\"Otra\";}','2012-05-04 10:13:17'),
+	(23,13,'Correccion','Errores de argumentación\n','Titular de prueba','Contenido por defecto','a:1:{i:0;s:13:\"URL de prueba\";}','2012-05-04 10:17:46');
 
 /*!40000 ALTER TABLE `reports_data` ENABLE KEYS */;
 UNLOCK TABLES;

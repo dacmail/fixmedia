@@ -3,7 +3,7 @@
 <div class="validation_errors">
 	<?php echo validation_errors(); ?>	
 </div>
-<? $hidden_fields = array('report_url' => $url_sent, 'report_title' => $url_title); ?>
+<? $hidden_fields = array('report_url' => $url_sent, 'report_title' => $url_title, 'site' => $report_site); ?>
 <?php echo form_open($this->router->reverseRoute('reports-preview'), '', $hidden_fields) ?>
 	<p>Estás reportando la dirección: <?=$url_sent?> | <?=$url_title?></p>
 	<div class="report_data">
