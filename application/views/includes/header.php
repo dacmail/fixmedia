@@ -20,7 +20,7 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/default.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styles.css" />
 </head>
-	<header id="header">
-		<p class="main_title"><a href="<?php echo base_url(); ?>">Fixmedia.org, mejora las noticias</a></p>
-	</header>
 <body>
+    <header id="header">
+        <p class="main_title"><a href="<?php echo base_url(); ?>">Fixmedia.org, mejora las noticias</a></p>
+    </header>
