@@ -1,1 +1,5 @@
 select,textarea,input[type=text] {display:block;width:600px;}
+
+input#username, input#email, input#password, input#repassword {display:block;width:300px;}
+
+.menu li {display: inline;list-style-type: none;padding-right: 20px;}

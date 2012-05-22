@@ -23,4 +23,9 @@
 <body>
     <header id="header">
         <p class="main_title"><a href="<?php echo base_url(); ?>">Fixmedia.org, mejora las noticias</a></p>
+        <ul class="menu">
+            <li><a href="<?php echo base_url("index.php/users/register"); ?>">Registro</a></li>
+            <li><a href="<?php echo base_url("index.php/users/login"); ?>">Entrar</a></li>
+            <li><a href="<?php echo base_url("index.php/users/logout"); ?>">Salir</a></li>
+        </ul>
     </header>
