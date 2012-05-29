@@ -1,21 +1,36 @@
-<h1>Paso 2: Completa tu reporte</h1>
+<div id="container" class="sending columns">
+	<div id="content">
+		<p class="step">Paso 2 de 3: Completa tu reporte</p>
+		<h1 class="title"><?=$url_title?></h1>
 
-<div class="validation_errors">
-	<?php echo validation_errors(); ?>	
-</div>
-<? $hidden_fields = array('report_url' => $url_sent, 'report_title' => $url_title, 'site' => $report_site); ?>
-<?php echo form_open($this->router->reverseRoute('reports-preview'), '', $hidden_fields) ?>
-	<p>Estás reportando la dirección: <?=$url_sent?> | <?=$url_title?></p>
-	<div class="report_data">
-		<p><label>Elige el tipo de reporte</label> 
-		<? foreach ($reports_types_tree as $report_type) : ?>
-			<input data-count="1" data-service="<?php echo site_url('services/get_subtypes_select'); ?>" type="radio" name="type[1]" class="main_type_radio" id="type_<?=$report_type->id;?>" value="<?=$report_type->id;?>" /> 
-			<label for="type_<?=$report_type->id;?>"><?=$report_type->type;?></label>
-		<? endforeach; ?>
-		</p>
-		<div class="fields_wrap" id="fields_1"></div>
+		<div class="validation_errors">
+			<?php echo validation_errors(); ?>	
+		</div>
+		<? $hidden_fields = array('report_url' => $url_sent, 'report_title' => $url_title, 'site' => $report_site); ?>
+		<?php echo form_open($this->router->reverseRoute('reports-preview'), '', $hidden_fields) ?>
+			<div class="report_data">
+				<p><label class="label">Elige el tipo de reporte</label> 
+				<div class="wrap_types clearfix">
+				<? foreach ($reports_types_tree as $report_type) : ?>
+					<span class="wrap_type">
+						<input data-count="1" data-service="<?php echo site_url('services/get_subtypes_select'); ?>" type="radio" name="type[1]" class="main_type_radio" id="type_<?=$report_type->id;?>" value="<?=$report_type->id;?>" /> 
+						<label for="type_<?=$report_type->id;?>"><?=$report_type->type;?></label>
+					</span>
+				<? endforeach; ?>
+				</div>
+				</p>
+				<div class="fields_wrap" id="fields_1"></div>
+			</div>
+
+			<a href="#" id="add_more" data-service="<?php echo site_url('services/get_more_data'); ?>" class="button submit add">Añadir otra corrección/ampliación</a>
+			<input type="submit" name="submit" value="Veamos como queda" /> 
+		</form>
 	</div>
 
-	<a href="#" id="add_more" data-service="<?php echo site_url('services/get_more_data'); ?>" class="button submit add">Añadir otra corrección/ampliación</a>
-	<input type="submit" name="submit" value="Veamos como queda" /> 
-</form>
+	<aside id="sidebar">
+		<div class="counter"><span class="count">000</span> personas quieren mejorar así esta noticia</div>
+		<p class="url_sent"><a href="<?=$url_sent?>" target="blank">Ir a la noticia original</a></p>
+
+		<img src="<?php echo base_url(); ?>fakes/screenshot.gif" alt="Captura de <?=$url_title?>" />
+	</aside>
+</div>

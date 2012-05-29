@@ -2,10 +2,16 @@ $('document').ready(function() {
 	if ($('.main_type_radio').length>0) {
 		$('.main_type_radio').live('click', function() {
 			var wrap = '#fields_' + $(this).data('count');
+			var input = $(this);
 			$.ajax({
 			  	url: $(this).data('service') + '/' + $(this).val() + '/' + $('.report_data').length,
 			}).done(function ( data ) {
+				// Cambio color de la caja que contiene al radio button
+				input.closest('.wrap_types').find('.wrap_type').removeClass('active');
+	    		input.parent('.wrap_type').addClass('active');
+	    		//Introducimos los datos en 'wrap' y los mostramos
 			  	$(wrap).html(data);
+			  	$(wrap).show();
 			  	$('.add_url').click(function(e) {
 					$(this).closest('.fields_wrap').first().find('.urls').first().clone().insertAfter($(this).closest('.fields_wrap').first().find('.urls').last()).val('');
 					if ($(this).closest('.fields_wrap').first().find('.urls').length>=3) { $(this).hide();}
@@ -30,4 +36,5 @@ $('document').ready(function() {
 	if ($('.add_url').length>0) {
 
 	}
+
 });

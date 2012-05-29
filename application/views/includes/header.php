@@ -27,5 +27,6 @@
             <li><a href="<?php echo base_url("index.php/users/register"); ?>">Registro</a></li>
             <li><a href="<?php echo base_url("index.php/users/login"); ?>">Entrar</a></li>
             <li><a href="<?php echo base_url("index.php/users/logout"); ?>">Salir</a></li>
+            <li><? echo anchor($this->router->reverseRoute('reports-create'), 'Añade un nuevo reporte'); ?></li>
         </ul>
     </header>
