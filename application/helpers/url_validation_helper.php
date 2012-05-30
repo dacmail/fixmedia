@@ -81,15 +81,15 @@ if ( ! function_exists('get_url')) {
 	    curl_setopt($session, CURLOPT_CONNECTTIMEOUT, 20);
 	    curl_setopt($session, CURLOPT_RETURNTRANSFER, 1);
 	    curl_setopt($session, CURLOPT_HEADER , true );
-	    curl_setopt($session, CURLOPT_FOLLOWLOCATION, 1);
+	    //curl_setopt($session, CURLOPT_FOLLOWLOCATION, 1);
 	    curl_setopt($session, CURLOPT_MAXREDIRS, 20);
 	    curl_setopt($session, CURLOPT_TIMEOUT, 25);
 	    curl_setopt($session, CURLOPT_FAILONERROR, true);
 	    curl_setopt($session, CURLOPT_SSL_VERIFYPEER, false);
 	    curl_setopt($session, CURLOPT_SSL_VERIFYHOST, 2);
 	    curl_setopt($session, CURLOPT_COOKIESESSION, true);
-	    curl_setopt($session, CURLOPT_COOKIEFILE, "/dev/null");
-	    curl_setopt($session, CURLOPT_COOKIEJAR, "/dev/null");
+	    //curl_setopt($session, CURLOPT_COOKIEFILE, "/dev/null");
+	    //curl_setopt($session, CURLOPT_COOKIEJAR, "/dev/null");
 	    $response = @curl_exec($session);
 	    if (!$response) {
 	            return false;

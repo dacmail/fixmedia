@@ -47,8 +47,8 @@
 					</div>
 				</div>
 			<? endforeach; ?>
-			<a href="#" id="add_more" data-service="<?php echo site_url('services/get_more_data'); ?>" class="button submit add">Añadir otra corrección/ampliación</a>
-			<input type="submit" name="submit" value="Veamos como queda" /> 
+			<a href="#" id="add_more" data-service="<?php echo site_url('services/get_more_data'); ?>" class="add">+ Añadir otra corrección/ampliación</a>
+			<input type="submit" class="button submit" name="submit" value="Veamos como queda" /> 
 		</form>
 	</div>
 

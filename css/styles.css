@@ -21,7 +21,7 @@
 
 /* END FIXES */
 
-body {}
+body { font-family:"Asap", "Helvetica", "Arial", sans-serif; }
 a {text-decoration:none;}
 a:hover {text-decoration:underline;}
 
@@ -80,7 +80,6 @@ a:hover {text-decoration:underline;}
 	    display:block;
 	    background:#CCA100;
 	    font-size:20px;
-	    font-weight:bold;
 	    line-height:70px;
 	    width:319px;
 	    color:#ffffff;
@@ -125,7 +124,14 @@ a:hover {text-decoration:underline;}
 			color:#3D87B7;
 			font-size:15px;
 		}
-
+		.sending .submit {float:right;}
+		.sending .add {
+			color:#EAC000;
+			font-size:15px;
+			margin:10px 0px;
+			display:block;
+			float:left;
+		}
 #sidebar .counter {
 	border-bottom:1px solid #CBCBCB;
 	padding-bottom:40px;
@@ -145,6 +151,24 @@ a:hover {text-decoration:underline;}
 	margin-bottom:30px;
 	display:block;
 }
+
+
+/* Botones */
+.button {
+	display:block;
+	font-size:17px;
+	color:#ffffff;
+	border:0px;
+	border-radius:6px;
+	background:#EAC000;
+	padding:0px 15px;
+	line-height:40px;
+	margin:10px 0px;
+}
+.button.submit {
+	background:#3C87B6;
+}
+
 /* Desarrollo */
 
 select,textarea,input[type=text] {display:block;width:600px;}
