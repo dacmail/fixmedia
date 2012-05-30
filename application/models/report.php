@@ -3,7 +3,7 @@
 class Report extends ActiveRecord\Model { 
 
 	static $has_many = array(
-		array('data', 'class_name' => 'reports_data')
+		array('data', 'class_name' => 'Reports_data')
 	);
 
 	static $validates_uniqueness_of = array(
