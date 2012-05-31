@@ -4,6 +4,9 @@ if ( ! function_exists('get_url_data')) {
     function get_url_data($url, $maxlen = 150000, $check_local = true) {
         $url=trim($url);
         $url_components = @parse_url($url);
+        $html='';
+        $url_title = '';
+        $url_ok = false;
 
 
         if (($response = get_url($url)) ) {

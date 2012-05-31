@@ -12,6 +12,5 @@ class MY_form_validation extends CI_form_validation {
 
             return TRUE;
     }
-    
 
 } 

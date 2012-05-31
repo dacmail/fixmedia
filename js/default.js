@@ -36,7 +36,11 @@ $('document').ready(function() {
 	}
 
 	if ($('.add_url').length>0) {
-
+		$('.add_url').click(function(e) {
+			$(this).closest('.fields_wrap').first().find('.urls').first().clone().insertAfter($(this).closest('.fields_wrap').first().find('.urls').last()).val('').attr('placeholder','http://');
+			if ($(this).closest('.fields_wrap').first().find('.urls').length>=3) { $(this).hide();}
+			e.preventDefault();
+		});	
 	}
 
 });

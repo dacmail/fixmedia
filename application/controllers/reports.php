@@ -58,18 +58,34 @@ class Reports extends CI_Controller {
 	}
 
 	public function preview() {
-		$data['report'] = $this->input->post(NULL, TRUE); 
-		foreach ($this->input->post('type_info') as $type_id) :
-			$types[$type_id] = Reports_type::find($type_id);
-		endforeach;
-		foreach ($data['report']['urls'] as $index => $url) :
-			$data['report']['urls'][$index] = base64_encode(serialize($data['report']['urls'][$index]));
-		endforeach;
-		$data['types'] = $types;
-		$data['page_title'] = 'Previsualización del reporte';
-		$data['main_content'] = 'preview_report';
+		foreach ($this->input->post('type') as $i => $value) {
+			$this->form_validation->set_rules('content['.$i.']', 'contenido', 'required');
+			$this->form_validation->set_rules('title['.$i.']', 'título', 'required');
+		}
+		foreach ($this->input->post('urls') as $i => $urls) {
+			foreach ($urls as $k => $url) {
+				$this->form_validation->set_rules('urls['.$i.']['.$k.']', 'URL', 'valid_url');
+			}		
+		} 
+		if ($this->form_validation->run() === FALSE) :
+			$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
+			$data['report'] = $this->input->post(NULL, TRUE); 
+			$data['page_title'] = 'Corrige el reporte';
+			$data['main_content'] = 'error_report';
+		else :
+			$data['report'] = $this->input->post(NULL, TRUE); 
+			foreach ($this->input->post('type_info') as $type_id) :
+				$types[$type_id] = Reports_type::find($type_id);
+			endforeach;
+			foreach ($data['report']['urls'] as $index => $url) :
+				$data['report']['urls'][$index] = base64_encode(serialize($data['report']['urls'][$index]));
+			endforeach;
+			$data['types'] = $types;
+			$data['page_title'] = 'Previsualización del reporte';
+			$data['main_content'] = 'preview_report';
+		endif; 
+			$this->load->view('includes/template', $data);
 
-		$this->load->view('includes/template', $data);
 	}
 
 	public function view($slug) {

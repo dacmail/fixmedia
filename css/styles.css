@@ -147,7 +147,7 @@ a:hover {text-decoration:underline;}
 			display:none;
 			float:left;
 		}
-		.sending.editing .add, .sending.editing .submit {display:block;}
+		.sending.editing .add, .sending.editing .submit, .sending.new .submit {display:block;}
 #sidebar .counter {
 	border-bottom:1px solid #CBCBCB;
 	padding-bottom:40px;

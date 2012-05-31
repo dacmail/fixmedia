@@ -1,4 +1,4 @@
-<h1>Confirma tu reporte</h1>
+<h1>Paso 3 de 3: Confirma tu reporte</h1>
 <div>
 	<h2><?=$report['report_title'];?></h2>
 	<p><?=$report['report_url'];?></p>
