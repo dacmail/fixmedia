@@ -72,15 +72,16 @@ class Users extends CI_Controller {
 
 	public function do_register() {
 		if (!$this->ion_auth->logged_in()) {
-			$this->form_validation->set_rules('username', 'Username', 'required');
-			$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+			$this->form_validation->set_rules('username', 'Username', 'required|is_unique[users.username]');
+			$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users.email]');
 			$this->form_validation->set_rules('password', 'Password', 'required|matches[repassword]');
 			$this->form_validation->set_rules('repassword', 'Repite Password', 'required');
-			//$this->form_validation->set_rules('password', 'password', 'callback_user_login['.$this->input->post('username').']');
 			if ($this->form_validation->run() != FALSE) {
-				/*$user = $this->ion_auth->user()->row();
-				echo gravatar($user->email, 300);
-				echo '<a href="'.base_url().'">Volver</a>';*/
+				if ($this->ion_auth->register($this->input->post('username'), $this->input->post('password'), $this->input->post('email'))) {
+					//echo $this->ion_auth->messages();
+				} else {
+					//echo $this->ion_auth->errors();
+				}
 				redirect(base_url());
 			} else {
 				$data['page_title'] = 'Register form';
