@@ -12,8 +12,10 @@ $('document').ready(function() {
 	    		//Introducimos los datos en 'wrap' y los mostramos
 			  	$(wrap).html(data);
 			  	$(wrap).show();
+			  	$('#add_more').show();
+				$('#submit').show();
 			  	$('.add_url').click(function(e) {
-					$(this).closest('.fields_wrap').first().find('.urls').first().clone().insertAfter($(this).closest('.fields_wrap').first().find('.urls').last()).val('');
+					$(this).closest('.fields_wrap').first().find('.urls').first().clone().insertAfter($(this).closest('.fields_wrap').first().find('.urls').last()).val('').attr('placeholder','http://');
 					if ($(this).closest('.fields_wrap').first().find('.urls').length>=3) { $(this).hide();}
 					e.preventDefault();
 				});		

@@ -1,4 +1,4 @@
-<div id="container" class="sending columns">
+<div id="container" class="sending editing columns">
 	<div id="content">
 		<p class="step">Paso 2 de 3: Modifica tu reporte</p>
 		<h1 class="title"><?=$report['report_title']?></h1>
@@ -19,7 +19,7 @@
 					</div>
 					</p>
 					<div class="fields_wrap open" id="fields_<?=$count;?>">
-						<p>
+						<p class="row wrap_type_info">
 							
 							<label class="label" for="type_info">Selecciona una opción: </label>
 							<select class="select" size="<?=count($report_type->childrens);?>" name="type_info[]" id="type_info_<?=$count;?>">
@@ -27,21 +27,25 @@
 										<option <? echo (($report['type_info'][$index]==$children->id) ? 'selected="selected"' : ''); ?> value="<?=$children->id; ?>"><?=$children->type;?></option>
 								<? endforeach; ?>
 							</select>
+							<span class="help">A magna risus a adipiscing, ac? Ridiculus facilisis, urna auctor? Dapibus ridiculus pid, vut ac purus, turpis nascetur integer enim mattis. Nisi, tristique, rhoncus nunc odio pulvinar phasellus</span>
 						</p>
-						<p>
+						<p class="row wrap_content">
 							<label class="label" for="content">Explica tu corrección o ampliación</label>
 							<textarea class="textarea" id="content_<?=$count;?>" name="content[]" maxlength="350"><?=$report['content'][$index];?></textarea>
+							<span class="help">A magna risus a adipiscing, ac? Ridiculus facilisis, urna auctor? Dapibus ridiculus pid, vut ac purus, turpis nascetur integer enim mattis. Nisi, tristique, rhoncus nunc odio pulvinar phasellus</span>
 						</p>
-						<p>
+						<p class="row wrap_urls">
 							<label class="label" for="urls">Añade una URL a la fuente de tu correción o al archivo de tu ampliación</label>
 							<? foreach ($report['urls'][$index] as $url) : ?>
 								<input type="text" class="urls text" id="urls_<?=$count;?>" name="urls[<?=$count;?>][]" value="<?=$url?>"/>
 							<? endforeach; ?>
+							<span class="help">A magna risus a adipiscing, ac? Ridiculus facilisis, urna auctor? Dapibus ridiculus pid, vut ac purus, turpis nascetur integer enim mattis. Nisi, tristique, rhoncus nunc odio pulvinar phasellus</span>
 							<? if (count($report['urls'][$index])<3) : ?><a href="#" class="add_url">Agregar otra URL</a><? endif; ?>
 						</p>
-						<p>
+						<p class="row wrap_title">
 							<label class="label" for="title">Titula esta aportación</label>
 							<input class="text" type="text" id="title_<?=$count;?>" name="title[]" value="<?=$report['title'][$index];?>" />
+							<span class="help">A magna risus a adipiscing, ac? Ridiculus facilisis, urna auctor? Dapibus ridiculus pid, vut ac purus, turpis nascetur integer enim mattis. Nisi, tristique, rhoncus nunc odio pulvinar phasellus</span>
 						</p>
 
 					</div>

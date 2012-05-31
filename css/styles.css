@@ -102,9 +102,10 @@ a:hover {text-decoration:underline;}
 		background:#F6F6F6;
 		padding:30px;
 		display:none;
+		margin-bottom:20px;
 	}
 		.sending .fields_wrap.open {display:block;}
-		.sending .fields_wrap p {
+		.sending .fields_wrap .row {
 			margin-bottom:20px;
 		}
 		.sending .fields_wrap .text {
@@ -127,14 +128,26 @@ a:hover {text-decoration:underline;}
 			color:#3D87B7;
 			font-size:15px;
 		}
-		.sending .submit {float:right;}
+		.sending .fields_wrap .help {
+			font-size:12px;
+			color:#333333;
+			display:block;
+			background:#DCDCDC;
+			padding:10px;
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			margin-top:5px;
+		}
+			.sending .fields_wrap .wrap_urls .help { margin-top:-5px; margin-bottom:10px;} 
+		.sending .submit {display:none; float:right;}
 		.sending .add {
 			color:#EAC000;
 			font-size:15px;
 			margin:10px 0px;
-			display:block;
+			display:none;
 			float:left;
 		}
+		.sending.editing .add, .sending.editing .submit {display:block;}
 #sidebar .counter {
 	border-bottom:1px solid #CBCBCB;
 	padding-bottom:40px;
