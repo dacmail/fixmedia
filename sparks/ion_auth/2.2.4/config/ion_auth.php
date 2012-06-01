@@ -77,12 +77,12 @@
 	/**
 	 * Site Title, example.com
 	 */
-	$config['site_title']		   = "Example.com";
+	$config['site_title']		   = "Fixmedia.org";
 	
 	/**
 	 * Admin Email, admin@example.com
 	 */
-	$config['admin_email']		   = "admin@example.com";
+	$config['admin_email']		   = "no-reply@fixmedia.org";
 	
 	/**
 	 * Default group, use name
@@ -147,7 +147,7 @@
 	 * Send Email using the builtin CI email class
 	 * if false it will return the code and the identity
 	 **/
-	$config['use_ci_email']= false;
+	$config['use_ci_email']= true;
 
 	/**
 	 * Email config - 
