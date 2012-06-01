@@ -43,4 +43,27 @@ $('document').ready(function() {
 		});	
 	}
 
+	if ($('.sending .fields_wrap .wrap_error').length>0) {
+		$('.sending .fields_wrap .wrap_error input').focus(function() {
+			console.log('Focus');
+			$(this).nextAll('.error').first().hide();
+			$(this).nextAll('.help').first().show().css('display','block');
+		});
+		$('.sending .fields_wrap .wrap_error textarea').focus(function() {
+			console.log('Focus');
+			$(this).nextAll('.error').first().hide();
+			$(this).nextAll('.help').first().show().css('display','block');
+		});
+	}
+
+	if ($('#form_report').length>0) {
+		$('#form_report').validate({
+			rules:{
+			    "type_info[]": "required"
+			},
+			messages: {
+			    "type_info[]": "Debes seleccionar un tipo de corrección o ampliación"
+			}, errorElement: "span", errorClass: "error"
+		});
+	}
 });

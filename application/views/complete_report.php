@@ -7,7 +7,7 @@
 			<?php echo validation_errors(); ?>	
 		</div>
 		<? $hidden_fields = array('report_url' => $url_sent, 'report_title' => $url_title, 'site' => $report_site); ?>
-		<?php echo form_open($this->router->reverseRoute('reports-preview'), '', $hidden_fields) ?>
+		<?php echo form_open($this->router->reverseRoute('reports-preview'), array('id' => 'form_report'), $hidden_fields) ?>
 			<div class="report_data">
 				<p><label class="label">Elige el tipo de reporte</label> 
 				<div class="wrap_types clearfix">

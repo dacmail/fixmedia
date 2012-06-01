@@ -1,6 +1,6 @@
-<div id="container" class="sending editing columns">
+<div id="container" class="clearfix sending editing columns">
 	<div id="content">
-		<p class="step">Paso 2 de 3: Modifica tu reporte</p>
+		<p class="step">Paso 2 de 3: Corrige tu reporte</p>
 		<h1 class="title"><?=$report['report_title']?></h1>
 		<? $hidden_fields = array('report_url' => $report['report_url'], 'report_title' => $report['report_title'], 'site' => $report['site']); ?>
 		<?php echo form_open($this->router->reverseRoute('reports-preview'), array('id' => 'form_report'), $hidden_fields) ?>
@@ -10,7 +10,7 @@
 					<div class="wrap_types clearfix">
 					<? foreach ($reports_types_tree as $report_type) : ?>
 						<span class="wrap_type <? echo (($type==$report_type->id) ? 'active' : '');?>">
-							<input data-count="<?=$count?>" data-service="<?php echo site_url('services/get_subtypes_select'); ?>" type="radio" name="type[<?=$count-1;?>]" class="main_type_radio" id="type_<?=$report_type->id;?>" value="<?=$report_type->id;?>"  <? echo (($type==$report_type->id) ? 'checked' : '');?>/> 
+							<input data-count="<?=$count?>" data-service="<?php echo site_url('services/get_subtypes_select'); ?>" type="radio" name="type[<?=$count-1?>]" class="main_type_radio" id="type_<?=$report_type->id;?>" value="<?=$report_type->id;?>"  <? echo (($type==$report_type->id) ? 'checked' : '');?>/> 
 							<label for="type_<?=$report_type->id;?>"><?=$report_type->type;?></label>
 						</span>
 						<? if ($type==$report_type->id) { $selected_type=$report_type; } ?>
@@ -28,27 +28,35 @@
 							</select>
 							<span class="help">A magna risus a adipiscing, ac? Ridiculus facilisis, urna auctor? Dapibus ridiculus pid, vut ac purus, turpis nascetur integer enim mattis. Nisi, tristique, rhoncus nunc odio pulvinar phasellus</span>
 						</p>
-						<p class="row wrap_content">
+						<p class="row wrap_content <?php  echo (form_error('content[' . $index . ']') ? 'wrap_error' : ''); ?>">
 							<label class="label" for="content">Explica tu corrección o ampliación</label>
-							<textarea class="textarea" id="content_<?=$count;?>" name="content[]" maxlength="350"><?=$report['content'][$index];?></textarea>
+							<textarea class="textarea" id="content_<?=$count;?>" name="content[]" maxlength="350"><?php echo set_value('content[' . $index . ']'); ?></textarea>
 							<span class="help">A magna risus a adipiscing, ac? Ridiculus facilisis, urna auctor? Dapibus ridiculus pid, vut ac purus, turpis nascetur integer enim mattis. Nisi, tristique, rhoncus nunc odio pulvinar phasellus</span>
+							<?php echo form_error('content[' . $index . ']', '<span class="error">', '</span>'); ?>
 						</p>
-						<p class="row wrap_urls">
+						<? $classes=''; ?>
+						<? foreach ($report['urls'][$index] as $k => $url) : ?>
+							<? $classes .= form_error('urls[' . $index . '][' . $k .']') ?  ' wrap_error' : ''; ?>
+						<? endforeach; ?>
+						<p class="row wrap_urls <? echo $classes; ?>">
 							<label class="label" for="urls">Añade una URL a la fuente de tu correción o al archivo de tu ampliación</label>
 							<? if ($report['urls'][$index]) :?>
-								<? foreach ($report['urls'][$index] as $url) : ?>
+								<? foreach ($report['urls'][$index] as $k => $url) : ?>
 									<input type="text" class="urls text" id="urls_<?=$count;?>" name="urls[<?=$count-1;?>][]" value="<?=$url?>"/>
+									<?php echo form_error('urls[' . $index . '][' . $k .']', '<span class="error">', '</span>'); ?>
 								<? endforeach; ?>
 							<? else : ?>
 								<input type="text" class="urls text" id="urls_<?=$count;?>" name="urls[<?=$count-1;?>][]" value=""/>
 							<? endif; ?>
 							<span class="help">A magna risus a adipiscing, ac? Ridiculus facilisis, urna auctor? Dapibus ridiculus pid, vut ac purus, turpis nascetur integer enim mattis. Nisi, tristique, rhoncus nunc odio pulvinar phasellus</span>
+
 							<? if (count($report['urls'][$index])<3) : ?><a href="#" class="add_url">Agregar otra URL</a><? endif; ?>
 						</p>
-						<p class="row wrap_title">
+						<p class="row wrap_title <?php  echo (form_error('title[' . $index . ']') ? 'wrap_error' : ''); ?>">
 							<label class="label" for="title">Titula esta aportación</label>
-							<input class="text" type="text" id="title_<?=$count;?>" name="title[]" value="<?=$report['title'][$index];?>" />
+							<input class="text" type="text" id="title_<?=$count;?>" name="title[]" value="<?php echo set_value('title[' . $index . ']'); ?>" />
 							<span class="help">A magna risus a adipiscing, ac? Ridiculus facilisis, urna auctor? Dapibus ridiculus pid, vut ac purus, turpis nascetur integer enim mattis. Nisi, tristique, rhoncus nunc odio pulvinar phasellus</span>
+							<?php echo form_error('title[' . $index . ']', '<span class="error">', '</span>'); ?>
 						</p>
 
 					</div>
@@ -65,4 +73,6 @@
 
 		<img src="<?php echo base_url(); ?>fakes/screenshot.gif" alt="Captura de <?=$report['report_title']?>" />
 	</aside>
+
+	
 </div>
