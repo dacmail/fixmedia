@@ -3,6 +3,10 @@
 class Reports_data extends ActiveRecord\Model { 
 	static $table_name = 'reports_data';
 
+	public function get_urls() {
+		return unserialize($this->read_attribute('urls'));
+	}
+
 	static $belongs_to = array(
     	array('report', 'class_name' => 'Report')
 	);

@@ -12,7 +12,7 @@ $('document').ready(function() {
 	    		//Introducimos los datos en 'wrap' y los mostramos
 			  	$(wrap).html(data);
 			  	$(wrap).show();
-			  	$('#add_more').show();
+			  	if ($('.report_data').length < 3) { $('#add_more').show(); }
 				$('#submit').show();
 			  	$('.add_url').click(function(e) {
 					$(this).closest('.fields_wrap').first().find('.urls').first().clone().insertAfter($(this).closest('.fields_wrap').first().find('.urls').last()).val('').attr('placeholder','http://');
@@ -22,23 +22,34 @@ $('document').ready(function() {
 			});
 		});		
 	}
-
+	if ($('.sending .fields_wrap .option input').length>0) {
+		$('.sending .fields_wrap .option input').live('click', function() {
+			$(this).closest('.row').find('.option').removeClass('checked');
+			$(this).parent().addClass('checked');
+		});
+	}
 	if ($('#add_more').length>0) {
 		$('#add_more').click(function(e) {
 			$.ajax({
 			  	url: $(this).data('service') + '/' + $('.report_data').length,
 			}).done(function ( data ) {
 			  	$('#add_more').before(data);
-			  	if ($('.report_data').length >= 3) {$('#add_more').hide();}
+			  	$('#add_more').hide();
 			});
 			e.preventDefault();
 		});		
 	}
 
+	if ($('.toggle_info').length>0) {
+		$('.toggle_info').click(function(e) {
+			$(this).next('.subreport_content').toggle();
+			e.preventDefault();
+		});
+	}
 	if ($('.add_url').length>0) {
 		$('.add_url').click(function(e) {
 			$(this).closest('.fields_wrap').first().find('.urls').first().clone().insertAfter($(this).closest('.fields_wrap').first().find('.urls').last()).val('').attr('placeholder','http://');
-			if ($(this).closest('.fields_wrap').first().find('.urls').length>=3) { $(this).hide();}
+			if ($(this).closest('.fields_wrap').first().find('.urls').length>=3) { $(this).hide(); }
 			e.preventDefault();
 		});	
 	}

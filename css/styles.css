@@ -108,6 +108,15 @@ a:hover {text-decoration:underline;}
 		.sending .fields_wrap .row {
 			margin-bottom:20px;
 		}
+		.sending .fields_wrap .option {margin-bottom:5px;}
+		.sending .fields_wrap .option input {float:left;}
+		.sending .fields_wrap .option label {
+			margin-left:10px;
+			font-size:14px;
+			float:left;
+			width:550px;
+		}
+			.sending .fields_wrap .option.checked label {font-weight:bold;}
 		.sending .fields_wrap .text {
 			width:560px;
 		}
@@ -160,8 +169,68 @@ a:hover {text-decoration:underline;}
 			margin:10px 0px;
 			display:none;
 			float:left;
+			border:0px;
+			background:transparent;
+			cursor:pointer;
 		}
-		.sending.editing .add, .sending.editing .submit, .sending.new .submit {display:block;}
+		.sending.report .submit, .sending.report .add, .sending.editing .add, .sending.editing .submit, .sending.new .submit {display:block;}
+		#add_more {display:none;}
+
+
+		.subreport {
+			margin-bottom:30px;
+		}
+		.subreport .subreport_type {
+			margin-bottom:20px;
+			font-size:14px;
+			color:#333333;
+			padding:10px 10px 10px 10px;
+			background:#EAC000;
+		}
+		.subreport .subreport_type.type2 {color:#ffffff; background:#7F7F7F;}
+		.subreport .counter {
+			float:left;
+			font-size:50px;
+			color:#CCCCCC;
+			width:125px;
+			text-align:center;
+			font-weight:700;
+		}
+		.subreport .subreport_info {
+			width:515px;
+			float:right;
+		}
+		.subreport .subreport_title {
+			font-size:20px;
+			color:#333333;
+			font-weight:700;
+			margin-bottom:20px;
+			line-height:25px;
+			margin-top:10px;
+		}
+		.subreport .toggle_info {
+			font-size:15px;
+			margin-bottom:20px;
+			display:block;
+		}
+
+		.subreport .subreport_content {
+			font-size:14px;
+			color:#7F7F7F;
+			line-height:21px;
+			display:none;
+		}
+		.subreport .subreport_urls {
+			font-size:15px;
+			color:#333333;
+			font-weight:bold;
+			margin:20px 0px 10px 0px;
+		}
+		
+		.subreport .source {
+			display:block;
+			margin-bottom:5px;
+		}
 #sidebar .counter {
 	border-bottom:1px solid #CBCBCB;
 	padding-bottom:40px;

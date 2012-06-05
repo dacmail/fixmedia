@@ -64,7 +64,7 @@ class Reports extends CI_Controller {
 		}
 		foreach ($this->input->post('urls') as $i => $urls) {
 			foreach ($urls as $k => $url) {
-				$this->form_validation->set_rules('urls['.$i.']['.$k.']', 'URL', 'valid_url');
+				$this->form_validation->set_rules('urls['.$i.']['.$k.']', 'URL', 'valid_url|prep_url');
 			}		
 		} 
 		if ($this->form_validation->run() === FALSE) :
@@ -79,6 +79,9 @@ class Reports extends CI_Controller {
 			endforeach;
 			foreach ($data['report']['urls'] as $index => $url) :
 				$data['report']['urls'][$index] = base64_encode(serialize($data['report']['urls'][$index]));
+			endforeach;
+			foreach ($data['report']['type_info'] as $index => $type_id) :
+				$data['report']['urls_decode'][$index] = unserialize(base64_decode($data['report']['urls'][$index]));
 			endforeach;
 			$data['types'] = $types;
 			$data['page_title'] = 'Previsualización del reporte';
