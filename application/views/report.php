@@ -20,6 +20,11 @@
 				</div>
 			</div>
 		<? $count++; endforeach; ?>
+
+		<div class="clearfix fixme">
+			<h3 class="title">Estoy de acuerdo</h3>
+			<a class="fix_button clearfix" href="#"><span class="fix">Fix</span> <span class="counter">Contador <strong>9999</strong></span></a>
+		</div>
 	</div>
 
 	<aside id="sidebar">

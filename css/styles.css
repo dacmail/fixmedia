@@ -231,6 +231,52 @@ a:hover {text-decoration:underline;}
 			display:block;
 			margin-bottom:5px;
 		}
+
+		.fixme {
+			text-align:center;
+			border-bottom:1px solid #CBCBCB;
+			padding-bottom:30px;
+		}
+			.fixme .title {
+				border-bottom:0px;
+				margin-bottom:10px;
+				font-weight:700;
+			}
+			.fixme .fix_button {
+				width:200px;
+				margin:0px auto;
+			}
+				.fixme .fix_button .fix {
+					background:#EAC000;
+					border-radius:10px;
+					width:100px;
+					height:72px;
+					display:block;
+					float:left;
+					line-height:72px;
+					text-transform:uppercase;
+					color:#ffffff;
+					font-size:50px;
+					letter-spacing:-4px;
+					margin-right:5px;
+				}
+				.fixme .fix_button:hover .fix {background:#CCA100;}
+				.fixme .fix_button .counter {
+					display:block;
+					float:left;
+					background:#F1F1F1;
+					height:60px;
+					padding:12px 15px 0px 15px;
+					border-radius:10px;
+					color:#7F7F7F;
+					font-size:12px;
+					line-height:20px;
+					text-transform:lowercase;
+				}
+					.fixme .fix_button .counter strong {
+						display:block;
+						font-size:30px;
+					}
 #sidebar .counter {
 	border-bottom:1px solid #CBCBCB;
 	padding-bottom:40px;
