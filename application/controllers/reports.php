@@ -111,7 +111,7 @@ class Reports extends CI_Controller {
 		$post_data = $this->input->post(NULL, TRUE); 
 		$report = Report::create(array('user_id' => 1,
 								'url' => $post_data['report_url'],
-								'slug' => url_title($post_data['report_title'], 'dash', TRUE),
+								'slug' => preg_replace('/[^a-z0-9]+/i','-',$post_data['report_title']),
 								'title' => $post_data['report_title'],
 								'site' => $post_data['site'],));
 		var_dump($post_data);

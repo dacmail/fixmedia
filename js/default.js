@@ -22,7 +22,7 @@ $('document').ready(function() {
 			});
 		});		
 	}
-	if ($('.sending .fields_wrap .option input').length>0) {
+	if ($('.sending .fields_wrap').length>0) {
 		$('.sending .fields_wrap .option input').live('click', function() {
 			$(this).closest('.row').find('.option').removeClass('checked');
 			$(this).parent().addClass('checked');
