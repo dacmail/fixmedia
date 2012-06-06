@@ -24,12 +24,24 @@
 							<? foreach ($selected_type->childrens as $children) : ?>
 								<p class="<? echo (($report['type_info'][$index]==$children->id) ? 'checked' : ''); ?> option clearfix"><input type="radio" name="type_info[<?=$count-1;?>]" id="type<?=$children->id; ?>-<?=$count-1;?>" value="<?=$children->id; ?>" <? echo (($report['type_info'][$index]==$children->id) ? 'checked' : ''); ?> /><label for="type<?=$children->id; ?>-<?=$count-1;?>"><?=$children->type;?></label></p>
 							<? endforeach; ?>
-							<span class="help">A magna risus a adipiscing, ac? Ridiculus facilisis, urna auctor? Dapibus ridiculus pid, vut ac purus, turpis nascetur integer enim mattis. Nisi, tristique, rhoncus nunc odio pulvinar phasellus</span>
+							<span class="help">
+								<? if ($type==1) : ?>
+									Escoge la opción que mejor se ajuste al tipo de corrección que deseas realizar sobre esta noticia. [+] aprender más
+								<? else : ?>
+									Escoge la opción que mejor se ajuste al tipo de ampliación que deseas realizar sobre esta noticia. [+] aprender más
+								<? endif ?>
+							</span>
 						</div>
 						<div class="row wrap_content">
 							<label class="label" for="content">Explica tu corrección o ampliación</label>
 							<textarea class="textarea" id="content_<?=$count;?>" name="content[]" maxlength="350"><?=$report['content'][$index];?></textarea>
-							<span class="help">A magna risus a adipiscing, ac? Ridiculus facilisis, urna auctor? Dapibus ridiculus pid, vut ac purus, turpis nascetur integer enim mattis. Nisi, tristique, rhoncus nunc odio pulvinar phasellus</span>
+							<span class="help">
+								<? if ($type==1) : ?>
+								Identifica en breves palabras la parte de la noticia que consideras que debe ser corregida, por qué debe serlo y cuál es tu alternativa. [+] aprender más
+								<? else : ?>
+								Identifica en breves palabras por qué crees que a esta noticia la falta más contenido y cuál es. [+] aprender más
+								<? endif ?>
+							</span>
 						</div>
 						<div class="row wrap_urls">
 							<label class="label" for="urls">Añade una URL a la fuente de tu correción o al archivo de tu ampliación</label>
@@ -40,13 +52,25 @@
 							<? else : ?>
 								<input type="text" class="urls text" id="urls_<?=$count;?>" name="urls[<?=$count-1;?>][]" value=""/>
 							<? endif; ?>
-							<span class="help">A magna risus a adipiscing, ac? Ridiculus facilisis, urna auctor? Dapibus ridiculus pid, vut ac purus, turpis nascetur integer enim mattis. Nisi, tristique, rhoncus nunc odio pulvinar phasellus</span>
+							<span class="help">
+								<? if ($type==1) : ?>
+								Por ejemplo, un enlace a otra noticia sobre el mismo asunto o un enlace a un documento, fotografía o archivo que justifiquen tu corrección. [+] aprender más
+								<? else : ?>
+								Por ejemplo, un enlace a otra noticia sobre el mismo asunto pero más completa o un enlace a un documento, fotografía, gráfico o archivo que contengan la ampliación. [+] aprender más
+								<? endif ?>
+							</span>
 							<? if (count($report['urls'][$index])<3) : ?><a href="#" class="add_url">Agregar otra URL</a><? endif; ?>
 						</div>
 						<div class="row wrap_title">
 							<label class="label" for="title">Titula esta aportación</label>
 							<input class="text" type="text" id="title_<?=$count;?>" name="title[]" value="<?=htmlspecialchars($report['title'][$index]);?>" />
-							<span class="help">A magna risus a adipiscing, ac? Ridiculus facilisis, urna auctor? Dapibus ridiculus pid, vut ac purus, turpis nascetur integer enim mattis. Nisi, tristique, rhoncus nunc odio pulvinar phasellus</span>
+							<span class="help">
+								<? if ($type==1) : ?>
+								Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu corrección. [+] aprender más
+								<? else : ?>
+								Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu ampliación. [+] aprender más
+								<? endif ?>
+							</span>
 						</div>
 
 					</div>

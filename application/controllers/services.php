@@ -10,6 +10,7 @@ class Services extends CI_Controller {
    			show_404();
    		else :
             $data['count'] = $count-1;
+            $data['type'] = $parent_id;
    			$this->load->view('services/get_subtypes_select', $data);
       	endif;
    	}

@@ -281,6 +281,15 @@ a:hover {text-decoration:underline;}
 						display:block;
 						font-size:30px;
 					}
+				.fixme .popup {
+					text-align:left;
+					font-size: 14px;
+					color: #7F7F7F;
+					line-height: 21px;
+					display:none;
+					margin:20px 100px;
+				}
+				.fixme .popup p {margin:10px 0px;}
 #sidebar .counter {
 	border-bottom:1px solid #CBCBCB;
 	padding-bottom:40px;

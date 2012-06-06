@@ -24,6 +24,10 @@
 		<div class="clearfix fixme">
 			<h3 class="title">Estoy de acuerdo</h3>
 			<a class="fix_button clearfix" href="#"><span class="fix">Fix</span> <span class="counter">Contador <strong>9999</strong></span></a>
+			<div class="popup">
+			 	<p>Al estar Fixmedia todavía en su primera beta, esta funcionalidad aún no está disponible. Esta acción que acabas de hacer (click en "Fix") es la más importante del proceso y tenemos que seguir afinando mucho.</p> 
+			 	<p>En alguna versión posterior lo activaremos internamente para probarlo, y podrás ver todo su potencial cuando Fixmedia ya esté en abierto :)</p>
+			</div>
 		</div>
 	</div>
 

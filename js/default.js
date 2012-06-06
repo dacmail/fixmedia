@@ -78,4 +78,12 @@ $('document').ready(function() {
 			}, errorElement: "span", errorClass: "error"
 		});
 	}
+
+	if ($('.fixme .fix_button').length>0) {
+		$('.fixme .fix_button').click(function(e) {
+			$(this).next('.popup').show();
+			e.preventDefault();
+		});
+
+	}
 });
