@@ -45,7 +45,7 @@
 						</div>
 						<div class="row wrap_title">
 							<label class="label" for="title">Titula esta aportación</label>
-							<input class="text" type="text" id="title_<?=$count;?>" name="title[]" value="<?=$report['title'][$index];?>" />
+							<input class="text" type="text" id="title_<?=$count;?>" name="title[]" value="<?=htmlspecialchars($report['title'][$index]);?>" />
 							<span class="help">A magna risus a adipiscing, ac? Ridiculus facilisis, urna auctor? Dapibus ridiculus pid, vut ac purus, turpis nascetur integer enim mattis. Nisi, tristique, rhoncus nunc odio pulvinar phasellus</span>
 						</div>
 

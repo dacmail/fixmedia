@@ -22,6 +22,7 @@ $('document').ready(function() {
 			});
 		});		
 	}
+	if ($('.report_data').length < 3) { $('#add_more').show(); }
 	if ($('.sending .fields_wrap').length>0) {
 		$('.sending .fields_wrap .option input').live('click', function() {
 			$(this).closest('.row').find('.option').removeClass('checked');
