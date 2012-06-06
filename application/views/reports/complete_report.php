@@ -31,6 +31,6 @@
 		<div class="counter"><span class="count">000</span> personas quieren mejorar así esta noticia</div>
 		<p class="url_sent"><a href="<?=$url_sent?>" target="blank">Ir a la noticia original</a></p>
 
-		<img src="<?php echo base_url(); ?>fakes/screenshot.gif" alt="Captura de <?=$url_title?>" />
+		<img src="<?php echo base_url(); ?>fakes/screenshot.jpg" alt="Captura de <?=$url_title?>" />
 	</aside>
 </div>

@@ -85,6 +85,6 @@
 		<div class="counter"><span class="count">000</span> personas quieren mejorar así esta noticia</div>
 		<p class="url_sent"><a href="<?=$report['report_url']?>" target="blank">Ir a la noticia original</a></p>
 
-		<img src="<?php echo base_url(); ?>fakes/screenshot.gif" alt="Captura de <?=$report['report_title']?>" />
+		<img src="<?php echo base_url(); ?>fakes/screenshot.jpg" alt="Captura de <?=$report['report_title']?>" />
 	</aside>
 </div>
