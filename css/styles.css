@@ -322,11 +322,12 @@ a:hover {text-decoration:underline;}
 	padding:0px 15px;
 	line-height:40px;
 	margin:10px 0px;
+	cursor:pointer;
 }
 .button.submit {
 	background:#3C87B6;
 }
-
+	.button:hover {text-decoration:none;}
 /* Desarrollo */
 
 .reports_list {
