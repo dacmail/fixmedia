@@ -15,7 +15,6 @@ class Reports extends CI_Controller {
 		$data['page_title'] = 'Nuevo reporte';
 		$data['main_content'] = 'reports/create_report';
 		$data['error_url_check'] = '';
-
 		$this->load->view('includes/template', $data);
 	}
 

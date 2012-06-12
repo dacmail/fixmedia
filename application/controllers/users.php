@@ -88,6 +88,10 @@ class Users extends CI_Controller {
 				$data['main_content'] = 'users/register_form';
 				$this->load->view('includes/template', $data);
 			}
+		} else {
+			$user = $this->ion_auth->user()->row();
+			echo gravatar($user->email, 300);
+			echo '<a href="'.base_url().'">Volver</a>';
 		}
 	}
 

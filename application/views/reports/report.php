@@ -27,6 +27,7 @@
 			<div class="popup">
 			 	<p>Al estar Fixmedia todavía en su primera beta, esta funcionalidad aún no está disponible. Esta acción que acabas de hacer (click en "Fix") es la más importante del proceso y tenemos que seguir afinando mucho.</p> 
 			 	<p>En alguna versión posterior lo activaremos internamente para probarlo, y podrás ver todo su potencial cuando Fixmedia ya esté en abierto :)</p>
+			 	<p><a href="<?=base_url()?>index.php/reporte/nuevo">Reportar otra noticia ahora</a></p>
 			</div>
 		</div>
 	</div>
