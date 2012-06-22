@@ -1,12 +1,12 @@
 <div class='mainInfo'>
 
-	<div class="pageTitle"><? echo $page_title; ?></div>
+	<div class="pageTitle">Login</div>
     <div class="pageTitleBorder"></div>
 	<p>Please login with your email/username and password below.</p>
 	
 	<div id="infoMessage"><?php echo $message;?></div>
 	
-    <?php echo form_open("auth/login");  ////$this->router->reverseRoute('reports-send_url') ?>
+    <?php echo form_open("auth/login");?>
     	
       <p>
       	<label for="identity">Email/Username:</label>

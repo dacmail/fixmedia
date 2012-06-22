@@ -340,7 +340,7 @@ input#username, input#email, input#password, input#repassword {display:block;wid
 .menu {
 	background:#EAC000;
 	list-style:none;
-	display:none;
+	/*display:none;*/
 }
 	.menu li {
 		display:inline;

@@ -112,7 +112,7 @@ $autoload['language'] = array();
 $autoload['model'] = array();
 
 
-$autoload['sparks'] = array('php-activerecord/0.0.2','ion_auth/2.2.4', 'gravatar/1.1.1');
+$autoload['sparks'] = array('php-activerecord/0.0.2', 'gravatar/1.1.1');
 
 
 /* End of file autoload.php */

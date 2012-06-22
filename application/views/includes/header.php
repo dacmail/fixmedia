@@ -26,9 +26,9 @@
     <header id="header">
         <p class="main_title"><a href="<?php echo base_url(); ?>">Fixmedia.org, mejora las noticias</a></p>
         <ul class="menu">
-            <li><a href="<?php echo base_url("index.php/users/register"); ?>">Registro</a></li>
-            <li><a href="<?php echo base_url("index.php/users/login"); ?>">Entrar</a></li>
-            <li><a href="<?php echo base_url("index.php/users/logout"); ?>">Salir</a></li>
+            <li><a href="<?php echo base_url("index.php/auth/create_user"); ?>">Registro</a></li>
+            <li><a href="<?php echo base_url("index.php/auth/login"); ?>">Entrar</a></li>
+            <li><a href="<?php echo base_url("index.php/auth/logout"); ?>">Salir</a></li>
             <li><? echo anchor($this->router->reverseRoute('reports-create'), 'Añade un nuevo reporte'); ?></li>
         </ul>
     </header>
