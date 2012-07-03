@@ -23,7 +23,7 @@
 				</div>
 			</div>
 		<? $count++; endforeach; ?>
-		<?php echo form_open($this->router->reverseRoute('reports-send_url'), '', array_merge($report,array('edit_draft' => true))) ?>
+		<?php echo form_open($this->router->reverseRoute('reports-send'), '', array_merge($report,array('edit_draft' => true))) ?>
 			<input type="submit" name="submit" class="add" value="&larr; Hacer modificaciones" /> 
 		</form>
 

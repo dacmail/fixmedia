@@ -12,48 +12,59 @@ class Reports extends CI_Controller {
 		$this->load->view('includes/template', $data);
 	}
 	public function create() {
-		$data['page_title'] = 'Nuevo reporte';
-		$data['main_content'] = 'reports/create_report';
-		$data['error_url_check'] = '';
+		$this->form_validation->set_rules('url', 'URL', 'required|prep_url|valid_url');
+		if ($this->form_validation->run() === FALSE) :
+			$data['page_title'] = 'Nuevo reporte';
+			$data['main_content'] = 'reports/create_report';
+			$data['error_url_check'] = '';
+		else :
+			$this->load->helper('url_validation');
+			$url_data = get_url_data($this->input->post('url'));
+			if ($url_data['valid']) :
+				$report = Report::find_by_url($url_data['url']);
+				if (empty($report)) : //Si la URL no existe, la creamos en la BD 
+					$report = Report::create(array('user_id' => 1,
+							'url' => $url_data['url'],
+							'slug' => preg_replace('/[^a-z0-9]+/i','-',$url_data['title']),
+							'title' => $url_data['title'],
+							'site' => $url_data['host']));
+					$data['report'] = $report;
+					$data['page_title'] = 'Noticia enviada';
+					$data['main_content'] = 'reports/sent_url_report';
+				else : // Si existe, redirigimos a la página del reporte
+					redirect($this->router->reverseRoute('reports-view', array('slug' => $report->slug)));
+				endif;
+			else :
+				$data['error_url_check'] = 'La URL no responde o no puede ser obtenida';
+				$data['page_title'] = 'Nuevo reporte';
+				$data['main_content'] = 'reports/create_report';
+			endif;
+		endif; 
 		$this->load->view('includes/template', $data);
 	}
 
-	public function send_url() {
-		$edit_draf = $this->input->post('edit_draft');
-		if (!$edit_draf) : //si es un envío nuevo
-			$this->form_validation->set_rules('url', 'URL', 'required|prep_url|is_unique[reports.url]|valid_url');
-			if ($this->form_validation->run() === FALSE) :
-				$data['page_title'] = 'Nuevo reporte';
-				$data['main_content'] = 'reports/create_report';
-				$data['error_url_check'] = '';
-			else :	
-				$this->load->helper('url_validation');
-				$url_data = get_url_data($this->input->post('url'));
-				if ($url_data['valid']) :
-					$data['report_site'] = $url_data['host'];
-					$data['url_title'] = $url_data['title'];
-					$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
-					$data['page_title'] = 'Completa el reporte';
-					$data['url_sent'] = $url_data['url'];
-					$data['main_content'] = 'reports/complete_report';
-				else :
-					$data['error_url_check'] = 'La URL no responde o no puede ser obtenida';
-					$data['page_title'] = 'Nuevo reporte';
-					$data['main_content'] = 'reports/create_report';
-				endif;
+	public function send($id) {
+		$report = Report::find($id);
+		if (!empty($report)) :
+	 		$edit_draf = $this->input->post('edit_draft');
+			if (!$edit_draf) : //si es un envío nuevo
+				$data['report'] = $report;
+				$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
+				$data['page_title'] = 'Completa el reporte';
+				$data['main_content'] = 'reports/complete_report';
+			else : // si se va a editar el envío
+				$data['page_title'] = 'Modificar reporte';
+				$data['main_content'] = 'reports/edit_report';
+				$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
+				$data['report'] = $this->input->post(NULL, TRUE);
+				foreach ($data['report']['type_info'] as $index => $type_id) :
+					$data['report']['urls'][$index] = unserialize(base64_decode($data['report']['urls'][$index]));
+				endforeach;
 			endif;
 			$this->load->view('includes/template', $data);
-		else : // si se va a editar el envío
-			$data['page_title'] = 'Modificar reporte';
-			$data['main_content'] = 'reports/edit_report';
-			$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
-			$data['report'] = $this->input->post(NULL, TRUE);
-			foreach ($data['report']['type_info'] as $index => $type_id) :
-				$data['report']['urls'][$index] = unserialize(base64_decode($data['report']['urls'][$index]));
-			endforeach;
-			$this->load->view('includes/template', $data);
+		else :
+			show_404();
 		endif;
-
 	}
 
 	public function preview() {
@@ -108,23 +119,23 @@ class Reports extends CI_Controller {
 
 	public function save() {
 		$post_data = $this->input->post(NULL, TRUE); 
-		$report = Report::create(array('user_id' => 1,
-								'url' => $post_data['report_url'],
-								'slug' => preg_replace('/[^a-z0-9]+/i','-',$post_data['report_title']),
-								'title' => $post_data['report_title'],
-								'site' => $post_data['site'],));
-		var_dump($post_data);
-		foreach ($post_data['type_info'] as $index => $type_id) :
-			$types[$type_id] = Reports_type::find($type_id);
-			$subreports[] = Reports_data::create(array(
-													'report_id' => $report->id,
-													'type' => $types[$type_id]->parent_type->type,
-													'type_info' => $types[$type_id]->type,
-													'title' => $post_data['title'][$index],
-													'content' => $post_data['content'][$index],
-													'urls' => base64_decode($post_data['urls'][$index])
-													)); 
-		endforeach;
-		redirect($this->router->reverseRoute('reports-view', array('slug' => $report->slug)));
+		// buscar en la tabla report si el ID del reporte principal existe.
+		$report = Report::find($post_data['report_id']);
+		if (!empty($report)) :
+			foreach ($post_data['type_info'] as $index => $type_id) :
+				$types[$type_id] = Reports_type::find($type_id);
+				$subreports[] = Reports_data::create(array(
+														'report_id' => $report->id,
+														'type' => $types[$type_id]->parent_type->type,
+														'type_info' => $types[$type_id]->type,
+														'title' => $post_data['title'][$index],
+														'content' => $post_data['content'][$index],
+														'urls' => base64_decode($post_data['urls'][$index])
+														)); 
+			endforeach;
+			redirect($this->router->reverseRoute('reports-view', array('slug' => $report->slug)));
+		else :
+			show_404();
+		endif;
 	}
 }

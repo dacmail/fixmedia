@@ -3,7 +3,7 @@
 	<?php echo validation_errors(); ?>
 </div>
 <ul>
-<?php echo form_open('users/do_login'); //$this->router->reverseRoute('reports-send_url') ?>
+<?php echo form_open('users/do_login'); //$this->router->reverseRoute('reports-send') ?>
 	<li>
 		<?php
 			echo form_label('Username', 'username');

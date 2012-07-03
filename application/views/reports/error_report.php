@@ -2,7 +2,7 @@
 	<div id="content">
 		<p class="step">Paso 2 de 3: Corrige tu reporte</p>
 		<h1 class="title"><?=$report['report_title']?></h1>
-		<? $hidden_fields = array('report_url' => $report['report_url'], 'report_title' => $report['report_title'], 'site' => $report['site']); ?>
+		<? $hidden_fields = array('report_id' => $report->id, 'report_url' => $report['report_url'], 'report_title' => $report['report_title'], 'site' => $report['site']); ?>
 		<?php echo form_open($this->router->reverseRoute('reports-preview'), array('id' => 'form_report'), $hidden_fields) ?>
 			<? foreach ($report['type'] as $index => $type) : $count=$index+1;?>
 				<div class="report_data">
