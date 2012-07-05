@@ -2,7 +2,7 @@
 	<div id="content">
 		<p class="step">Paso 2 de 3: Modifica tu reporte</p>
 		<h1 class="title"><?=$report['report_title']?></h1>
-		<? $hidden_fields = array('report_id' => $report->id, 'report_url' => $report['report_url'], 'report_title' => $report['report_title'], 'site' => $report['site']); ?>
+		<? $hidden_fields = array('report_id' => $report['report_id'], 'report_url' => $report['report_url'], 'report_title' => $report['report_title'], 'site' => $report['site']); ?>
 		<?php echo form_open($this->router->reverseRoute('reports-preview'), array('id' => 'form_report'), $hidden_fields) ?>
 			<? foreach ($report['type'] as $index => $type) : $count=$index+1;?>
 				<div class="report_data">
@@ -18,17 +18,14 @@
 					</div>
 					</p>
 					<div class="fields_wrap open" id="fields_<?=$count;?>">
-						<div class="row wrap_type_info">
-							
-							<label class="label" for="type_info">Selecciona una opción: </label>
-							<? foreach ($selected_type->childrens as $children) : ?>
-								<p class="<? echo (($report['type_info'][$index]==$children->id) ? 'checked' : ''); ?> option clearfix"><input type="radio" name="type_info[<?=$count-1;?>]" id="type<?=$children->id; ?>-<?=$count-1;?>" value="<?=$children->id; ?>" <? echo (($report['type_info'][$index]==$children->id) ? 'checked' : ''); ?> /><label for="type<?=$children->id; ?>-<?=$count-1;?>"><?=$children->type;?></label></p>
-							<? endforeach; ?>
+						<div class="row wrap_title">
+							<label class="label" for="title">Titula esta aportación</label>
+							<input class="text" type="text" id="title_<?=$count;?>" name="title[]" value="<?=htmlspecialchars($report['title'][$index]);?>" />
 							<span class="help">
 								<? if ($type==1) : ?>
-									Escoge la opción que mejor se ajuste al tipo de corrección que deseas realizar sobre esta noticia. [+] aprender más
+								Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu corrección. [+] aprender más
 								<? else : ?>
-									Escoge la opción que mejor se ajuste al tipo de ampliación que deseas realizar sobre esta noticia. [+] aprender más
+								Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu ampliación. [+] aprender más
 								<? endif ?>
 							</span>
 						</div>
@@ -61,18 +58,22 @@
 							</span>
 							<? if (count($report['urls'][$index])<3) : ?><a href="#" class="add_url">Agregar otra URL</a><? endif; ?>
 						</div>
-						<div class="row wrap_title">
-							<label class="label" for="title">Titula esta aportación</label>
-							<input class="text" type="text" id="title_<?=$count;?>" name="title[]" value="<?=htmlspecialchars($report['title'][$index]);?>" />
+
+						<div class="row wrap_type_info">
+							
+							<label class="label" for="type_info">Selecciona una opción: </label>
+								<p class="<? echo (($report['type_info'][$index]==0) ? 'checked' : ''); ?> option clearfix"><input type="radio" name="type_info[<?=$count-1;?>]" value="0" id="type0-<?=$count-1;?>" checked /><label for="type0-<?=$count-1;?>">Ninguna</label></p>
+							<? foreach ($selected_type->childrens as $children) : ?>
+								<p class="<? echo (($report['type_info'][$index]==$children->id) ? 'checked' : ''); ?> option clearfix"><input type="radio" name="type_info[<?=$count-1;?>]" id="type<?=$children->id; ?>-<?=$count-1;?>" value="<?=$children->id; ?>" <? echo (($report['type_info'][$index]==$children->id) ? 'checked' : ''); ?> /><label for="type<?=$children->id; ?>-<?=$count-1;?>"><?=$children->type;?></label></p>
+							<? endforeach; ?>
 							<span class="help">
 								<? if ($type==1) : ?>
-								Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu corrección. [+] aprender más
+									Escoge la opción que mejor se ajuste al tipo de corrección que deseas realizar sobre esta noticia. [+] aprender más
 								<? else : ?>
-								Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu ampliación. [+] aprender más
+									Escoge la opción que mejor se ajuste al tipo de ampliación que deseas realizar sobre esta noticia. [+] aprender más
 								<? endif ?>
 							</span>
-						</div>
-
+						</div>						
 					</div>
 				</div>
 			<? endforeach; ?>

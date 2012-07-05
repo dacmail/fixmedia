@@ -1,15 +1,15 @@
-<div class="row wrap_type_info">
-	<label class="label" for="type_info">Selecciona una opción: </label>
-	<? foreach ($reports_types as $report_type) : ?>
-			<p class="option clearfix"><input type="radio" name="type_info[<?=$count;?>]" value="<?=$report_type->id; ?>" id="type<?=$report_type->id; ?>-<?=$count;?>" /><label for="type<?=$report_type->id; ?>-<?=$count;?>"><?=$report_type->type;?></label></p>
-	<? endforeach; ?>
+
+<div class="row wrap_title">
+	<label class="label" for="title">Titula esta aportación</label>
+	<input type="text" id="title_<?=$count;?>" name="title[]"  class="text" />
 	<span class="help">
 		<? if ($type==1) : ?>
-			Escoge la opción que mejor se ajuste al tipo de corrección que deseas realizar sobre esta noticia. [+] aprender más
+		Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu corrección. [+] aprender más
 		<? else : ?>
-			Escoge la opción que mejor se ajuste al tipo de ampliación que deseas realizar sobre esta noticia. [+] aprender más
+		Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu ampliación. [+] aprender más
 		<? endif ?>
 	</span>
+
 </div>
 <div class="row wrap_content">
 	<label class="label" for="content">Explica tu corrección o ampliación</label>
@@ -35,15 +35,18 @@
 	</span>
 	<a href="#" class="add_url">Agregar otra URL</a>
 </div>
-<div class="row wrap_title">
-	<label class="label" for="title">Titula esta aportación</label>
-	<input type="text" id="title_<?=$count;?>" name="title[]"  class="text" />
+
+<div class="row wrap_type_info">
+	<label class="label" for="type_info">Selecciona una opción: </label>
+			<p class="option clearfix checked"><input type="radio" name="type_info[<?=$count;?>]" value="0" id="type0-<?=$count;?>" checked /><label for="type0-<?=$count;?>">Ninguna</label></p>
+	<? foreach ($reports_types as $report_type) : ?>
+			<p class="option clearfix"><input type="radio" name="type_info[<?=$count;?>]" value="<?=$report_type->id; ?>" id="type<?=$report_type->id; ?>-<?=$count;?>" /><label for="type<?=$report_type->id; ?>-<?=$count;?>"><?=$report_type->type;?></label></p>
+	<? endforeach; ?>
 	<span class="help">
 		<? if ($type==1) : ?>
-		Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu corrección. [+] aprender más
+			Escoge la opción que mejor se ajuste al tipo de corrección que deseas realizar sobre esta noticia. [+] aprender más
 		<? else : ?>
-		Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu ampliación. [+] aprender más
+			Escoge la opción que mejor se ajuste al tipo de ampliación que deseas realizar sobre esta noticia. [+] aprender más
 		<? endif ?>
 	</span>
-
 </div>

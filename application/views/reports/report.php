@@ -20,9 +20,12 @@
 				</div>
 			</div>
 		<? $count++; endforeach; ?>
-
+		<? $hidden_fields = array('report_id' => $report->id, 'report_url' => $report->url, 'report_title' => $report->title, 'site' => $report->site); ?>
+		<?php echo form_open($this->router->reverseRoute('reports-send' , array('id' => $report->id)), array('class' => 'clearfix'), $hidden_fields) ?>
+			<input class="submit button" type="submit" name="submit" value="Realiza una aportación" /> 
+		</form>
 		<div class="clearfix fixme">
-			<h3 class="title">Estoy de acuerdo</h3>
+			<h3 class="title">Quiero que lo arreglen</h3>
 			<a class="fix_button clearfix" href="#"><span class="fix">Fix</span> <span class="counter">Contador <strong>9999</strong></span></a>
 			<div class="popup">
 			 	<p>Al estar Fixmedia todavía en su primera beta, esta funcionalidad aún no está disponible. Esta acción que acabas de hacer (click en "Fix") es la más importante del proceso y tenemos que seguir afinando mucho.</p> 

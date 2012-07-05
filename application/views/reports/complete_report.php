@@ -1,4 +1,4 @@
-<div id="container" class="sending columns">
+<div id="container" class="sending adding columns">
 	<div id="content">
 		<p class="step">Paso 2 de 3: Completa tu reporte</p>
 		<h1 class="title"><?=$report->title?></h1>

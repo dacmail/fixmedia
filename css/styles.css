@@ -53,7 +53,7 @@ a:hover {text-decoration:underline;}
 		width:300px;
 		float:left;
 	}
-
+	.sending_url .submit {display:inline;}
 	.sending .step {
 		color:#333333;
 		font-size:30px;
@@ -179,7 +179,6 @@ a:hover {text-decoration:underline;}
 		}
 		.sending.report .submit, .sending.report .add, .sending.editing .add, .sending.editing .submit, .sending.new .submit {display:block;}
 		#add_more {display:none;}
-
 
 		.subreport {
 			margin-bottom:30px;

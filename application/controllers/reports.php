@@ -83,9 +83,14 @@ class Reports extends CI_Controller {
 			$data['page_title'] = 'Corrige el reporte';
 			$data['main_content'] = 'reports/error_report';
 		else :
-			$data['report'] = $this->input->post(NULL, TRUE); 
-			foreach ($this->input->post('type_info') as $type_id) :
-				$types[$type_id] = Reports_type::find($type_id);
+			$data['report'] = $this->input->post(NULL, TRUE);
+			$types = array();
+			foreach ($this->input->post('type_info') as $index => $type_id) :
+				if ($type_id) :
+					$types[$index] = Reports_type::find($type_id);
+				else :
+					$types[$index] = Reports_type::find($data['report']['type'][$index]);
+				endif;
 			endforeach;
 			foreach ($data['report']['urls'] as $index => $url) :
 				$data['report']['urls'][$index] = base64_encode(serialize($data['report']['urls'][$index]));
@@ -123,11 +128,15 @@ class Reports extends CI_Controller {
 		$report = Report::find($post_data['report_id']);
 		if (!empty($report)) :
 			foreach ($post_data['type_info'] as $index => $type_id) :
-				$types[$type_id] = Reports_type::find($type_id);
+				if ($type_id) :
+					$types[$index] = Reports_type::find($type_id);
+				else :
+					$types[$index] = Reports_type::find($post_data['type'][$index]);
+				endif;
 				$subreports[] = Reports_data::create(array(
 														'report_id' => $report->id,
-														'type' => $types[$type_id]->parent_type->type,
-														'type_info' => $types[$type_id]->type,
+														'type' => $types[$index]->parent_type ? $types[$index]->parent_type->type : $types[$index]->type,
+														'type_info' => $types[$index]->type,
 														'title' => $post_data['title'][$index],
 														'content' => $post_data['content'][$index],
 														'urls' => base64_decode($post_data['urls'][$index])

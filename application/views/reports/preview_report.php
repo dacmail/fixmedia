@@ -6,7 +6,8 @@
 		<h1></h1>
 		<? $count=1; foreach ($report['type_info'] as $index => $type) :  ?>
 			<div class="subreport">
-				<p class="subreport_type type<?=$types[$type]->parent_type->id;?>"><?=$types[$type]->type;?> </p>
+				<p class="subreport_type type<? echo ($types[$index]->parent_type ? $types[$index]->parent_type->id : $types[$index]->id);?>"><?=$types[$index]->type;?> </p>
+
 				<div class="clearfix">
 					<span class="counter"><?=$count;?></span>
 					<div class="subreport_info">
@@ -23,7 +24,7 @@
 				</div>
 			</div>
 		<? $count++; endforeach; ?>
-		<?php echo form_open($this->router->reverseRoute('reports-send'), '', array_merge($report,array('edit_draft' => true))) ?>
+		<?php echo form_open($this->router->reverseRoute('reports-send', array('id' => $report['report_id'])), '', array_merge($report,array('edit_draft' => true))) ?>
 			<input type="submit" name="submit" class="add" value="&larr; Hacer modificaciones" /> 
 		</form>
 
