@@ -24,13 +24,17 @@
 				</div>
 			</div>
 		<? $count++; endforeach; ?>
-		<?php echo form_open($this->router->reverseRoute('reports-send', array('id' => $report['report_id'])), '', array_merge($report,array('edit_draft' => true))) ?>
-			<input type="submit" name="submit" class="add" value="&larr; Hacer modificaciones" /> 
-		</form>
 
-		<?php echo form_open($this->router->reverseRoute('reports-save'), '', $report) ?>
+		<? $hidden_fields = form_hidden(array_merge($report, array('edit_draft' => true))); ?>
+		<?php echo form_open($this->router->reverseRoute('reports-send', array('id' => $report['report_id'])), '') ?>
+			<? echo $hidden_fields; ?>
+			<input type="submit" name="submit" class="add" value="&larr; Hacer modificaciones" /> 
+		<? echo form_close(); ?>
+
+		<?php echo form_open($this->router->reverseRoute('reports-save'), '') ?>
+			<? echo $hidden_fields; ?>
 			<input type="submit" name="submit" class="button submit" value="Enviar reporte" /> 
-		</form>		
+		<? echo form_close(); ?>		
 	</div>
 
 	<aside id="sidebar">
