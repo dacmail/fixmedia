@@ -86,4 +86,21 @@ $('document').ready(function() {
 		});
 
 	}
+
+	if ($('.fix_vote').length>0) {
+		$('.fix_vote').click(function(e) {
+			$.ajax({
+			  	url: $(this).attr('href'),
+			  	dataType: 'json'
+			}).done(function ( data ) {
+			  	if (data.valid) {
+			  		alert("Voto válido");
+			  	} else {
+			  		alert(data.error);
+			  	}
+			});
+			e.preventDefault();
+
+		})
+	}
 });
