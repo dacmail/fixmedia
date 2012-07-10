@@ -42,11 +42,11 @@ class Services extends CI_Controller {
                                  'ip' => $this->input->ip_address()
                               ));
             if ($vote->is_valid()) :
-               $report->votes++;
+               $report->votes_count++;
                $report->save();
                $data['result']['valid'] = true;
                $data['result']['vote'] = $vote;
-               $data['result']['total_votes'] = $report->votes;
+               $data['result']['total_votes'] = $report->votes_count;
             else :
                $data['result']['error'] = "Se ha producido un error";
             endif;

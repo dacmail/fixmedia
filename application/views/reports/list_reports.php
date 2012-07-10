@@ -5,7 +5,11 @@
 			<? foreach ($reports as $report) : ?>
 				<li>
 					<?= anchor($this->router->reverseRoute('reports-view', array('slug' => $report->slug)), $report->title); ?>
-					[<a href="<?php echo site_url(array('services/fix_vote', 1 ,$report->id)); ?>" id="vote-<?= $report->id ?>" class="fix_vote">¡<span id="vote-count-<?= $report->id ?>"><?= $report->votes; ?></span> Fixs!</a>]
+					<? if (is_object($user) && !$report->is_voted($user->id)) : ?>
+					[<a href="<?php echo site_url(array('services/fix_vote', $user->id ,$report->id)); ?>" id="vote-<?= $report->id ?>" class="fix_vote">¡<span class="count-vote-<?= $report->id ?>"><?= $report->votes_count; ?></span> Fixs!</a>]
+					<? else : ?>
+					[<span>¡<span class="count-vote-<?= $report->id ?>"><?= $report->votes_count; ?></span> Fixs!</span>]
+					<? endif; ?>
 				</li>
 			<? endforeach; ?>
 		</ul>

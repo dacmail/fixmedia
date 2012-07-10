@@ -9,6 +9,7 @@ class Reports extends CI_Controller {
 		$data['main_content'] = 'reports/list_reports';
 		$data['reports'] = Report::all();
 		$data['reports_data'] = Reports_data::all();
+		$data['user'] = $this->ion_auth->user()->row();
 		$this->load->view('includes/template', $data);
 	}
 	public function create() {
@@ -111,6 +112,8 @@ class Reports extends CI_Controller {
 	}
 
 	public function view($slug) {
+		$data['user'] = $this->ion_auth->user()->row();
+
 		if (!empty($slug)) :
 			$report = Report::find_by_slug($slug);
 			if (!empty($report)) :

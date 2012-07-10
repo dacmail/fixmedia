@@ -26,7 +26,12 @@
 		</form>
 		<div class="clearfix fixme">
 			<h3 class="title">Quiero que lo arreglen</h3>
-			<a class="fix_button clearfix" href="#"><span class="fix">Fix</span> <span class="counter">Contador <strong>9999</strong></span></a>
+			<? if (is_object($user) && !$report->is_voted($user->id)) : ?>
+			<a href="<?php echo site_url(array('services/fix_vote', $user->id ,$report->id)); ?>" id="vote-<?= $report->id ?>" class="fix_vote fix_button clearfix"> <span class="fix">Fix</span> <span class="counter">Contador <strong class="count-vote-<?= $report->id ?>"><?= $report->votes_count ?></strong></a>
+			<? else : ?>
+			<span id="vote-<?= $report->id ?>" class="fix_vote fix_button clearfix"> <span class="fix">Fix</span> <span class="counter">Contador <strong class="count-vote-<?= $report->id ?>"><?= $report->votes_count ?></strong></span>
+			<? endif; ?>
+
 			<div class="popup">
 			 	<p>Al estar Fixmedia todavía en su primera beta, esta funcionalidad aún no está disponible. Esta acción que acabas de hacer (click en "Fix") es la más importante del proceso y tenemos que seguir afinando mucho.</p> 
 			 	<p>En alguna versión posterior lo activaremos internamente para probarlo, y podrás ver todo su potencial cuando Fixmedia ya esté en abierto :)</p>
@@ -36,7 +41,7 @@
 	</div>
 
 	<aside id="sidebar">
-		<div class="counter"><span class="count">000</span> personas quieren mejorar así esta noticia</div>
+		<div class="counter"><span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span> personas quieren mejorar así esta noticia</div>
 		<p class="url_sent"><a href="<?=$report->url; ?>" target="blank">Ir a la noticia original</a></p>
 
 		<img src="<?php echo base_url(); ?>fakes/screenshot.jpg" alt="Captura de <?=$report->title;?>" />

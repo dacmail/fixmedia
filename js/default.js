@@ -79,22 +79,24 @@ $('document').ready(function() {
 		});
 	}
 
-	if ($('.fixme .fix_button').length>0) {
+	/*if ($('.fixme .fix_button').length>0) {
 		$('.fixme .fix_button').click(function(e) {
 			$(this).next('.popup').show();
 			e.preventDefault();
 		});
 
-	}
+	}*/
 
-	if ($('.fix_vote').length>0) {
-		$('.fix_vote').click(function(e) {
+	if ($('a.fix_vote').length>0) {
+		$('a.fix_vote').click(function(e) {
+			link = $(this);
 			$.ajax({
 			  	url: $(this).attr('href'),
 			  	dataType: 'json'
 			}).done(function ( data ) {
 			  	if (data.valid) {
-			  		alert("Voto válido");
+			  		link.replaceWith($('<span class="' + link.attr('class') + '">' + link.html() + '</span>'));
+			  		$('.count-' + link.attr('id')).text(data.total_votes);
 			  	} else {
 			  		alert(data.error);
 			  	}

@@ -8,6 +8,6 @@ ALTER TABLE `votes` DROP INDEX `report_id_2`;
 ALTER TABLE `votes` DROP INDEX `ip`;
 ALTER TABLE `votes` ADD UNIQUE INDEX `vote` (`user_id`, `item_id`, `vote_type`);
 
-ALTER TABLE `reports_data` ADD `votes` SMALLINT  NULL  DEFAULT '0'  AFTER `urls`;
-ALTER TABLE `reports` ADD `votes` SMALLINT(4)  NULL  DEFAULT '0'  AFTER `author_approved`;
+ALTER TABLE `reports_data` ADD `votes_count` SMALLINT  NULL  DEFAULT '0'  AFTER `urls`;
+ALTER TABLE `reports` ADD `votes_count` SMALLINT(4)  NULL  DEFAULT '0'  AFTER `author_approved`;
 
