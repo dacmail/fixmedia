@@ -16,4 +16,9 @@ class Reports_data extends ActiveRecord\Model {
 		array('type_info'),
 		array('title')
 	);
+
+	public function is_voted($user_id=0) {
+		if (empty($user_id)) return true;
+		return Vote::exists(array('conditions' => array("item_id = ? AND user_id = ? AND vote_type LIKE 'REPORT'", $this->id, $user_id)));
+	}
 }	

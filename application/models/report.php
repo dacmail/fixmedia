@@ -2,7 +2,7 @@
 
 class Report extends ActiveRecord\Model { 
 	static $has_many = array(
-		array('data', 'class_name' => 'Reports_data'),
+		array('data', 'order' => 'votes_count desc, created_at desc', 'class_name' => 'Reports_data'),
 		array('votes', 'foreign_key' => 'item_id' ,'conditions' => "vote_type LIKE 'FIX'")
 	);
 	static $validates_uniqueness_of = array(

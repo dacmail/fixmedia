@@ -5,7 +5,15 @@
 			<div class="subreport">
 				<p class="subreport_type type<?=$subreport->type;?>"><?=$subreport->type_info;?> </p>
 				<div class="clearfix">
-					<span class="counter"><?=$count;?></span>
+					<span class="counter">
+						<? if (is_object($user) && !$subreport->is_voted($user->id)) : ?>
+							<a href="<?php echo site_url(array('services/report_vote', $user->id ,$subreport->id, 1)); ?>" id="vote-up-<?= $subreport->id ?>" class="report_vote up clearfix vote-<?= $subreport->id ?>">+</a>
+						<? endif; ?>
+						<strong class="count-vote-up-<?= $subreport->id ?> count-vote-down-<?= $subreport->id ?>"><?= $subreport->votes_count ?></strong>
+						<? if (is_object($user) && !$subreport->is_voted($user->id)) : ?>
+							<a href="<?php echo site_url(array('services/report_vote', $user->id ,$subreport->id, -1)); ?>" id="vote-down-<?= $subreport->id ?>" class="report_vote down clearfix vote-<?= $subreport->id ?>">-</a>
+						<? endif; ?>
+					</span>
 					<div class="subreport_info">
 						<h3 class="subreport_title"><?=$subreport->title; ?></h3>
 						<a href="#" class="toggle_info">Mostrar u ocultar detalles y fuentes</a>

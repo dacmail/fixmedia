@@ -4,23 +4,23 @@ $('document').ready(function() {
 			var wrap = '#fields_' + $(this).data('count');
 			var input = $(this);
 			$.ajax({
-			  	url: $(this).data('service') + '/' + $(this).val() + '/' + $('.report_data').length,
+				url:$(this).data('service')+'/'+$(this).val()+'/'+$('.report_data').length
 			}).done(function ( data ) {
 				// Cambio color de la caja que contiene al radio button
 				input.closest('.wrap_types').find('.wrap_type').removeClass('active');
-	    		input.parent('.wrap_type').addClass('active');
-	    		//Introducimos los datos en 'wrap' y los mostramos
-			  	$(wrap).html(data);
-			  	$(wrap).show();
-			  	if ($('.report_data').length < 3) { $('#add_more').show(); }
-				$('#submit').show();		
+				input.parent('.wrap_type').addClass('active');
+				//Introducimos los datos en 'wrap' y los mostramos
+				$(wrap).html(data);
+				$(wrap).show();
+				if ($('.report_data').length < 3) { $('#add_more').show(); }
+				$('#submit').show();
 			});
-		});	
+		});
 		$('.add_url').live('click', function(e) {
 			$(this).closest('.fields_wrap').first().find('.urls').first().clone().insertAfter($(this).closest('.fields_wrap').first().find('.urls').last()).val('').attr('placeholder','http://');
 			if ($(this).closest('.fields_wrap').first().find('.urls').length>=3) { $(this).hide(); }
 			e.preventDefault();
-		});	
+		});
 	}
 	if ($('.editing .report_data').length < 3 && $('.editing .report_data').length > 0) { $('#add_more').show();}
 	if ($('.sending .fields_wrap').length>0) {
@@ -32,13 +32,13 @@ $('document').ready(function() {
 	if ($('#add_more').length>0) {
 		$('#add_more').click(function(e) {
 			$.ajax({
-			  	url: $(this).data('service') + '/' + $('.report_data').length,
+				url: $(this).data('service') + '/' + $('.report_data').length
 			}).done(function ( data ) {
-			  	$('#add_more').before(data);
-			  	$('#add_more').hide();
+				$('#add_more').before(data);
+				$('#add_more').hide();
 			});
 			e.preventDefault();
-		});		
+		});
 	}
 
 	if ($('.toggle_info').length>0) {
@@ -52,7 +52,7 @@ $('document').ready(function() {
 			$(this).closest('.fields_wrap').first().find('.urls').first().clone().insertAfter($(this).closest('.fields_wrap').first().find('.urls').last()).val('').attr('placeholder','http://');
 			if ($(this).closest('.fields_wrap').first().find('.urls').length>=3) { $(this).hide(); }
 			e.preventDefault();
-		});	
+		});
 	}
 
 	if ($('.sending .fields_wrap .wrap_error').length>0) {
@@ -71,37 +71,47 @@ $('document').ready(function() {
 	if ($('#form_report').length>0) {
 		$('#form_report').validate({
 			rules:{
-			    "type_info[]": "required"
+				"type_info[]": "required"
 			},
 			messages: {
-			    "type_info[]": "Debes seleccionar un tipo de corrección o ampliación"
+				"type_info[]": "Debes seleccionar un tipo de corrección o ampliación"
 			}, errorElement: "span", errorClass: "error"
 		});
 	}
-
-	/*if ($('.fixme .fix_button').length>0) {
-		$('.fixme .fix_button').click(function(e) {
-			$(this).next('.popup').show();
-			e.preventDefault();
-		});
-
-	}*/
 
 	if ($('a.fix_vote').length>0) {
 		$('a.fix_vote').click(function(e) {
 			link = $(this);
 			$.ajax({
-			  	url: $(this).attr('href'),
-			  	dataType: 'json'
+				url: $(this).attr('href'),
+				dataType: 'json'
 			}).done(function ( data ) {
-			  	if (data.valid) {
-			  		link.replaceWith($('<span class="' + link.attr('class') + '">' + link.html() + '</span>'));
-			  		$('.count-' + link.attr('id')).text(data.total_votes);
-			  	} else {
-			  		alert(data.error);
-			  	}
+				if (data.valid) {
+					link.replaceWith($('<span class="' + link.attr('class') + '">' + link.html() + '</span>'));
+					$('.count-' + link.attr('id')).text(data.total_votes);
+				} else {
+					alert(data.error);
+				}
 			});
 			e.preventDefault();
-		})
+		});
+	}
+
+	if ($('a.report_vote').length>0) {
+		$('a.report_vote').click(function(e) {
+			link = $(this);
+			$.ajax({
+				url: $(this).attr('href'),
+				dataType: 'json'
+			}).done(function ( data ) {
+				if (data.valid) {
+					$('.vote-'+data.item_id).remove();
+					$('.count-' + link.attr('id')).text(data.total_votes);
+				} else {
+					alert(data.error);
+				}
+			});
+			e.preventDefault();
+		});
 	}
 });

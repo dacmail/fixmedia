@@ -54,4 +54,36 @@ class Services extends CI_Controller {
          $this->load->view('services/fix_vote', $data);
       }
 
+      public function report_vote($user_id, $report_data_id, $value) {
+         $data['result']['valid'] = false;
+         //Checkear que el user_id se corresponde con el usuario logueado
+         try { $user = User::find($user_id); } catch (\ActiveRecord\RecordNotFound $e) {
+            $data['result']['error'] = "Usuario no válido";
+         }
+         try { $report = Reports_data::find($report_data_id); } catch (\ActiveRecord\RecordNotFound $e) {
+            $data['result']['error'] = "Envío no válido";
+         }
+         if (empty($data['result']['error'])) :
+            $value = ($value<=0 ? -1 : 1);
+            $vote = Vote::create(array(
+                                 'user_id' => $user->id,
+                                 'item_id' => $report->id,
+                                 'vote_type' => 'REPORT',
+                                 'vote_value' => $value,
+                                 'ip' => $this->input->ip_address()
+                              ));
+            if ($vote->is_valid()) :
+               $report->votes_count=$report->votes_count+$value;
+               $report->save();
+               $data['result']['valid'] = true;
+               $data['result']['vote'] = $vote;
+               $data['result']['item_id'] = $report->id;
+               $data['result']['total_votes'] = $report->votes_count;
+            else :
+               $data['result']['error'] = "Se ha producido un error";
+            endif;
+         endif;
+         $this->load->view('services/fix_vote', $data);
+      }
+
 }
