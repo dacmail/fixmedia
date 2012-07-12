@@ -6,12 +6,12 @@
 				<p class="subreport_type type<?=$subreport->type;?>"><?=$subreport->type_info;?> </p>
 				<div class="clearfix">
 					<span class="counter">
-						<? if (is_object($user) && !$subreport->is_voted($user->id)) : ?>
-							<a href="<?php echo site_url(array('services/report_vote', $user->id ,$subreport->id, 1)); ?>" id="vote-up-<?= $subreport->id ?>" class="report_vote up clearfix vote-<?= $subreport->id ?>">+</a>
+						<? if ($logged_in && !$subreport->is_voted($the_user->id)) : ?>
+							<a href="<?php echo site_url(array('services/report_vote', $the_user->id ,$subreport->id, 1)); ?>" id="vote-up-<?= $subreport->id ?>" class="report_vote up clearfix vote-<?= $subreport->id ?>">+</a>
 						<? endif; ?>
 						<strong class="count-vote-up-<?= $subreport->id ?> count-vote-down-<?= $subreport->id ?>"><?= $subreport->votes_count ?></strong>
-						<? if (is_object($user) && !$subreport->is_voted($user->id)) : ?>
-							<a href="<?php echo site_url(array('services/report_vote', $user->id ,$subreport->id, -1)); ?>" id="vote-down-<?= $subreport->id ?>" class="report_vote down clearfix vote-<?= $subreport->id ?>">-</a>
+						<? if ($logged_in && !$subreport->is_voted($the_user->id)) : ?>
+							<a href="<?php echo site_url(array('services/report_vote', $the_user->id ,$subreport->id, -1)); ?>" id="vote-down-<?= $subreport->id ?>" class="report_vote down clearfix vote-<?= $subreport->id ?>">-</a>
 						<? endif; ?>
 					</span>
 					<div class="subreport_info">
@@ -34,8 +34,8 @@
 		</form>
 		<div class="clearfix fixme">
 			<h3 class="title">Quiero que lo arreglen</h3>
-			<? if (is_object($user) && !$report->is_voted($user->id)) : ?>
-			<a href="<?php echo site_url(array('services/fix_vote', $user->id ,$report->id)); ?>" id="vote-<?= $report->id ?>" class="fix_vote fix_button clearfix"> <span class="fix">Fix</span> <span class="counter">Contador <strong class="count-vote-<?= $report->id ?>"><?= $report->votes_count ?></strong></a>
+			<? if ($logged_in && !$report->is_voted($the_user->id)) : ?>
+			<a href="<?php echo site_url(array('services/fix_vote', $the_user->id ,$report->id)); ?>" id="vote-<?= $report->id ?>" class="fix_vote fix_button clearfix"> <span class="fix">Fix</span> <span class="counter">Contador <strong class="count-vote-<?= $report->id ?>"><?= $report->votes_count ?></strong></a>
 			<? else : ?>
 			<span id="vote-<?= $report->id ?>" class="fix_vote fix_button clearfix"> <span class="fix">Fix</span> <span class="counter">Contador <strong class="count-vote-<?= $report->id ?>"><?= $report->votes_count ?></strong></span>
 			<? endif; ?>

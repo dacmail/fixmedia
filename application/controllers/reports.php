@@ -1,23 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Reports extends CI_Controller {
-	protected $the_user;
+class Reports extends MY_Controller {
 
 	public function __construct() {
 	   parent::__construct();
-
-	   if($this->ion_auth->logged_in()) {
-            $data->the_user = $this->ion_auth->user()->row();
-            $this->the_user = $data->the_user;
-            $this->load->vars($data);
-       }
 	}
 	public function index() {
 		$data['page_title'] = 'Listado de reportes';
 		$data['main_content'] = 'reports/list_reports';
 		$data['reports'] = Report::all();
 		$data['reports_data'] = Reports_data::all();
-		$data['user'] = $this->ion_auth->user()->row();
 		$this->load->view('includes/template', $data);
 	}
 	public function create() {
@@ -33,8 +25,7 @@ class Reports extends CI_Controller {
 			if ($url_data['valid']) :
 				$report = Report::find_by_url($url_data['url']);
 				if (empty($report)) : //Si la URL no existe, la creamos en la BD 
-					$user = $this->ion_auth->user()->row();
-					$report = Report::create(array('user_id' => $user->id,
+					$report = Report::create(array('user_id' => $this->the_user->id,
 							'url' => $url_data['url'],
 							'slug' => preg_replace('/[^a-z0-9]+/i','-',$url_data['title']),
 							'title' => $url_data['title'],
@@ -120,8 +111,6 @@ class Reports extends CI_Controller {
 	}
 
 	public function view($slug) {
-		$data['user'] = $this->ion_auth->user()->row();
-
 		if (!empty($slug)) :
 			$report = Report::find_by_slug($slug);
 			if (!empty($report)) :
@@ -143,7 +132,6 @@ class Reports extends CI_Controller {
 		// buscar en la tabla report si el ID del reporte principal existe.
 		$report = Report::find($post_data['report_id']);
 		if (!empty($report)) :
-			$user = $this->ion_auth->user()->row();
 			foreach ($post_data['type_info'] as $index => $type_id) :
 				if ($type_id) :
 					$types[$index] = Reports_type::find($type_id);
@@ -157,7 +145,7 @@ class Reports extends CI_Controller {
 														'title' => $post_data['title'][$index],
 														'content' => $post_data['content'][$index],
 														'urls' => base64_decode($post_data['urls'][$index]),
-														'user_id' => $user->id
+														'user_id' => $this->the_user->id
 														)); 
 			endforeach;
 			redirect($this->router->reverseRoute('reports-view', array('slug' => $report->slug)));

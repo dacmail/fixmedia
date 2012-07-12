@@ -27,7 +27,7 @@
         <p class="main_title"><a href="<?php echo base_url(); ?>">Fixmedia.org, mejora las noticias</a></p>
         <ul class="menu clearfix">
             <li><? echo anchor($this->router->reverseRoute('reports-create'), 'Añade un nuevo reporte'); ?></li>
-            <? if (!$this->ion_auth->logged_in()) : ?>
+            <? if (!$logged_in) : ?>
             <li><a href="<?php echo base_url("index.php/auth/create_user"); ?>">Registro</a></li>
             <li><a href="<?php echo base_url("index.php/auth/login"); ?>">Entrar</a></li>
             <? else :?>

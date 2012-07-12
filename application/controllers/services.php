@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Services extends CI_Controller {
+class Services extends MY_Controller {
 	public function __construct() {
 	   parent::__construct();
 	}
@@ -26,10 +26,10 @@ class Services extends CI_Controller {
 
       public function fix_vote($user_id, $report_id) {
          $data['result']['valid'] = false;
-         //Checkear que el user_id se corresponde con el usuario logueado
          try { $user = User::find($user_id); } catch (\ActiveRecord\RecordNotFound $e) {
             $data['result']['error'] = "Usuario no válido";
          }
+         if (!$this->logged_in || $user_id!=$this->the_user->id) { $data['result']['error'] = "Usuario no está logueado o no se corresponde"; }
          try { $report = Report::find($report_id); } catch (\ActiveRecord\RecordNotFound $e) {
             $data['result']['error'] = "Envío no válido";
          }
@@ -56,10 +56,10 @@ class Services extends CI_Controller {
 
       public function report_vote($user_id, $report_data_id, $value) {
          $data['result']['valid'] = false;
-         //Checkear que el user_id se corresponde con el usuario logueado
          try { $user = User::find($user_id); } catch (\ActiveRecord\RecordNotFound $e) {
             $data['result']['error'] = "Usuario no válido";
          }
+         if (!$this->logged_in || $user_id!=$this->the_user->id) { $data['result']['error'] = "Usuario no está logueado o no se corresponde"; }
          try { $report = Reports_data::find($report_data_id); } catch (\ActiveRecord\RecordNotFound $e) {
             $data['result']['error'] = "Envío no válido";
          }
