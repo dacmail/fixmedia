@@ -61,60 +61,52 @@ class Auth extends CI_Controller {
 	}
 
 	//log the user in
-	function login()
-	{
-		if (!$this->ion_auth->logged_in())
-		{
+	function login() {
+		if (!$this->ion_auth->logged_in()) {
 			$this->data['page_title'] = "Login";
 
 			//validate form input
-			$this->form_validation->set_rules('identity', 'Identity', 'required');
-			$this->form_validation->set_rules('password', 'Password', 'required');
-
-			if ($this->form_validation->run() == true)
-			{ //check to see if the user is logging in
+			$this->form_validation->set_rules('identity', 'Usuario', 'required');
+			$this->form_validation->set_rules('password', 'Contraseña', 'required');
+			$this->data['identity'] = array('name' => 'identity',
+				'id' => 'identity',
+				'type' => 'text',
+				'maxlength' => '100',
+          		'size' => '30',
+			);
+			$this->data['password'] = array('name' => 'password',
+				'id' => 'password',
+				'type' => 'password',
+				'maxlength' => '40',
+          		'size' => '30',
+			);
+			if ($this->form_validation->run() == true) { //check to see if the user is logging in
 				//check for "remember me"
 				$remember = (bool) $this->input->post('remember');
 
-				if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
-				{ //if the login is successful
+				if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) { //if the login is successful
 					//redirect them back to the home page
 					$this->session->set_flashdata('message', $this->ion_auth->messages());
 					redirect($this->config->item('base_url'), 'refresh');
 				}
-				else
-				{ //if the login was un-successful
+				else { //if the login was un-successful
 					//redirect them back to the login page
 					$this->session->set_flashdata('message', $this->ion_auth->errors());
+					$this->data['message'] = $this->ion_auth->errors();
+
 					$this->data['main_content'] = 'auth/login';
 					$this->load->view('includes/template', $this->data);
 				}
 			}
-			else
-			{  //the user is not logging in so display the login page
+			else {  //the user is not logging in so display the login page
 				//set the flash data error message if there is one
 				$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
-				$this->data['identity'] = array('name' => 'identity',
-					'id' => 'identity',
-					'type' => 'text',
-					'value' => $this->form_validation->set_value('identity'),
-					'maxlength' => '100',
-              		'size' => '30',
-				);
-				$this->data['password'] = array('name' => 'password',
-					'id' => 'password',
-					'type' => 'password',
-					'maxlength' => '40',
-              		'size' => '30',
-				);
 
 				$this->data['main_content'] = 'auth/login';
 				$this->load->view('includes/template', $this->data);
 			}
 		}
-		else
-		{
+		else {
 			redirect($this->config->item('base_url'), 'refresh');
 		}
 	}

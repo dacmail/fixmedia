@@ -343,9 +343,14 @@ input#username, input#email, input#password, input#repassword {display:block;wid
 	/*display:none;*/
 }
 	.menu li {
-		display:inline;
+		display:block;
+		float:left;
 		font-size:18px;
 		text-transform:uppercase;
 		padding:5px 10px;
+		color:#ffffff;
 	}
+		.menu .right {
+			float:right;
+		}
 		.menu li a {color:#ffffff;}
