@@ -7,7 +7,7 @@
   	
   	<div id="infoMessage"><?php echo $message;?></div>
   	
-      <?php echo form_open("auth/login");?>
+      <?php echo form_open("auth/login",'', array("prev" => $this->session->userdata('prev_url')));?>
       	
         <p>
         	<label for="identity">Username:</label>

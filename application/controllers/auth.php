@@ -63,7 +63,7 @@ class Auth extends MY_Controller {
 	//log the user in
 	function login() {
 		if (!$this->ion_auth->logged_in()) {
-			$this->data['page_title'] = "Login";
+			$this->data['page_title'] = "Iniciar sesión";
 
 			//validate form input
 			$this->form_validation->set_rules('identity', 'Usuario', 'required');
@@ -80,6 +80,11 @@ class Auth extends MY_Controller {
 				'maxlength' => '40',
           		'size' => '30',
 			);
+			if (strpos($this->input->server('HTTP_REFERER'), base_url()) === 0) {
+			    $this->session->set_userdata('prev_url', $this->input->server('HTTP_REFERER'));
+			} else {
+			    $this->session->set_userdata('prev_url', base_url());
+			}
 			if ($this->form_validation->run() == true) { //check to see if the user is logging in
 				//check for "remember me"
 				$remember = (bool) $this->input->post('remember');
@@ -87,7 +92,7 @@ class Auth extends MY_Controller {
 				if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) { //if the login is successful
 					//redirect them back to the home page
 					$this->session->set_flashdata('message', $this->ion_auth->messages());
-					redirect($this->config->item('base_url'), 'refresh');
+					redirect($this->input->post('prev'), 'refresh'); 
 				}
 				else { //if the login was un-successful
 					//redirect them back to the login page
