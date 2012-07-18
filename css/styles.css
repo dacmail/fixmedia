@@ -47,13 +47,15 @@ a:hover {text-decoration:underline;}
 }
 	#container.columns #content {
 		width:640px;
-		float:right;
-	}
-	#container.columns #sidebar {
-		width:300px;
 		float:left;
 	}
-	.sending_url .submit {display:inline;}
+	#container.columns #sidebar {
+		width:280px;
+		float:right;
+		margin:0 10px;
+		background:#F6F6F6;
+		height:500px;
+	}
 	.sending .step {
 		color:#333333;
 		font-size:30px;
@@ -62,11 +64,8 @@ a:hover {text-decoration:underline;}
 	}
 	.title {
 		color:#333333;
-		font-size:23px;
+		font-size:30px;
 		font-weight:normal;
-		border-top:1px solid #CBCBCB;
-		border-bottom:1px solid #CBCBCB;
-		padding:20px 0px;
 		margin-bottom:20px;
 	}
 		.title .submit {
@@ -79,6 +78,51 @@ a:hover {text-decoration:underline;}
 			display:block;
 			margin-bottom:10px;
 		}
+	.report_info {
+		position: relative;
+		border-bottom:7px solid #F1F1F1;
+		padding-bottom:15px;
+		margin-bottom:20px;
+	}
+		.report_info .screenshot {
+			float:left;
+			text-align:center;
+			width:180px;
+			margin-right:20px;
+		}
+		.report_info .screenshot .url_sent {
+			color:#999999;
+			display:block;
+			font-size:14px;
+			margin:10px 0;
+		}
+		.report_info .title {
+			position:absolute;
+			left:200px;
+			bottom:67px;
+		}
+		.report_info .report_meta {
+			position:absolute;
+			left:200px;
+			bottom:51px;
+			font-size:14px;
+		}
+	.sending_actions {
+
+	}
+		.sending_actions .action_title {
+			font-size:20px;
+			font-weight:normal;
+			color:#999999;
+			text-align:center;
+			font-style:italic;
+			margin:30px 0;
+		}
+			.sending_actions .action_title strong {
+				display:block;
+				font-size:25px;
+				color:#666666;
+			}
 	.sending .wrap_type {
 	    display:block;
 	    background:#CCA100;
@@ -228,7 +272,7 @@ a:hover {text-decoration:underline;}
 			font-size:15px;
 			color:#333333;
 			font-weight:bold;
-			margin:20px 0px 10px 0px;
+			margin:20px 0 10px 0;
 		}
 		
 		.subreport .source {
@@ -289,26 +333,27 @@ a:hover {text-decoration:underline;}
 					display:none;
 					margin:20px 100px;
 				}
-				.fixme .popup p {margin:10px 0px;}
+				.fixme .popup p {margin:10px 0;}
 #sidebar .counter {
-	border-bottom:1px solid #CBCBCB;
-	padding-bottom:40px;
-	margin-bottom:20px;
-	font-size:20px;
-	color:#7F7F7F;
-
+	font-size:17px;
+	color:#ffffff;
+	background:#B2B2B2;
+	width:280px;
+	padding:10px 10px 20px 10px;
+	margin:0 -10px 20px -10px;
+	border-radius:10px;
+	text-align:center;
 }
 	#sidebar .counter .count {
-		font-size:70px;
-		color:#E5E5E5;
+		font-size:60px;
+		color:#ffffff;
 		display:block;
 	}
-#sidebar .url_sent a {
-	font-size:20px;
-	color:#3D87B7;
-	margin-bottom:30px;
-	display:block;
-}
+	#sidebar .counter .count:after {
+		content:" personas";
+		font-size:25px;
+	}
+
 
 
 /* Botones */
@@ -316,18 +361,43 @@ a:hover {text-decoration:underline;}
 	display:block;
 	font-size:17px;
 	color:#ffffff;
-	border:0px;
+	border:1px solid #2760BF;
+	box-shadow: 0 0 0 1px #ffffff inset; 
 	border-radius:6px;
-	background:#EAC000;
-	padding:0px 15px;
+	padding:0 15px;
 	line-height:40px;
-	margin:10px 0px;
+	margin:10px 0;
 	cursor:pointer;
+	position:relative;
+	background: url('../images/icons-button.png') left 0 no-repeat;
+
 }
-.button.submit {
-	background:#3C87B6;
+.button.icon {
+	background-position:right 0;
+	padding:0 80px 0 20px;
+	line-height:56px;
+	font-size:21px;
+	text-transform:uppercase;	
 }
+	.button.icon.add_report {
+		background-position: right bottom;
+		border-color:#CCA100;
+	}
+	.button .subtitle {
+		position:absolute;
+		width:100%;
+		text-align:center;
+		bottom:-20px;
+		left:0;
+		color:#446D92;
+		font-size:14px;
+		text-transform:none;
+		line-height:14px;
+	}
+		.button.icon.add_report	.subtitle {color:#CCA100;}
 	.button:hover {text-decoration:none;}
+.sending_url .button {float:left;}
+.sending_url .button.share {margin:10px 50px 10px 60px;}
 /* Desarrollo */
 
 .reports_list {

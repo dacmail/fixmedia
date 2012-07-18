@@ -1,7 +1,13 @@
 <div id="container" class="sending adding columns">
 	<div id="content">
-		<p class="step">Paso 2 de 3: Completa tu reporte</p>
-		<h1 class="title"><?=$report->title?></h1>
+		<section class="report_info clearfix">
+			<div class="screenshot">
+				<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" alt="Captura de <?=$report->title;?>" />
+				<a class="url_sent" href="<?=$report->url; ?>" target="blank">Ver noticia original</a>
+			</div>
+			<h1 class="title"><?=$report->title;?></h1>
+			<p class="report_meta">Fuente: <?= $report->site; ?> | En Fixmedia desde: <?= $report->created_at->format('d/m/Y'); ?></p>
+		</section>
 
 		<div class="validation_errors">
 			<?php echo validation_errors(); ?>	
@@ -26,11 +32,7 @@
 			<input id="submit" type="submit" class="button submit" name="submit" value="Veamos como queda" /> 
 		</form>
 	</div>
-
 	<aside id="sidebar">
-		<div class="counter"><span class="count">000</span> personas quieren mejorar así esta noticia</div>
-		<p class="url_sent"><a href="<?=$report->url?>" target="blank">Ir a la noticia original</a></p>
-
-		<img src="<?php echo base_url(); ?>fakes/screenshot.jpg" alt="Captura de <?=$report->title?>" />
+		<div class="counter"><span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span> quieren mejorar así esta noticia</div>
 	</aside>
 </div>

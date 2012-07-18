@@ -1,7 +1,13 @@
 <div id="container" class="sending editing columns">
 	<div id="content">
-		<p class="step">Paso 2 de 3: Modifica tu reporte</p>
-		<h1 class="title"><?=$report['report_title']?></h1>
+		<section class="report_info clearfix">
+			<div class="screenshot">
+				<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" alt="Captura de <?=$report->title;?>" />
+				<a class="url_sent" href="<?=$report->url; ?>" target="blank">Ver noticia original</a>
+			</div>
+			<h1 class="title"><?=$report->title;?></h1>
+			<p class="report_data">Fuente: <?= $report->site; ?> | En Fixmedia desde: <?= $report->created_at->format('d/m/Y'); ?></p>
+		</section>
 		<? $hidden_fields = array('report_id' => $report['report_id'], 'report_url' => $report['report_url'], 'report_title' => $report['report_title'], 'site' => $report['site']); ?>
 		<?php echo form_open($this->router->reverseRoute('reports-preview'), array('id' => 'form_report'), $hidden_fields) ?>
 			<? foreach ($report['type'] as $index => $type) : $count=$index+1;?>
@@ -83,9 +89,6 @@
 	</div>
 
 	<aside id="sidebar">
-		<div class="counter"><span class="count">000</span> personas quieren mejorar así esta noticia</div>
-		<p class="url_sent"><a href="<?=$report['report_url']?>" target="blank">Ir a la noticia original</a></p>
-
-		<img src="<?php echo base_url(); ?>fakes/screenshot.jpg" alt="Captura de <?=$report['report_title']?>" />
+		<div class="counter"><span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span> quieren mejorar así esta noticia</div>
 	</aside>
 </div>

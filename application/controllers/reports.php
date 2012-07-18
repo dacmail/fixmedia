@@ -83,7 +83,8 @@ class Reports extends MY_Controller {
 		} 
 		if ($this->form_validation->run() === FALSE) :
 			$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
-			$data['report'] = $this->input->post(NULL, TRUE); 
+			$data['report_sent'] = Report::find($this->input->post('report_id', TRUE)); 
+			$data['report'] = $this->input->post(NULL, TRUE);
 			$data['page_title'] = 'Corrige el reporte';
 			$data['main_content'] = 'reports/error_report';
 		else :

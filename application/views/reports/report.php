@@ -1,6 +1,14 @@
 <div id="container" class="sending report columns">
 	<div id="content">
-		<h1 class="title"><?=$report->title;?></h1>
+		<section class="report_info clearfix">
+			<div class="screenshot">
+				<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" alt="Captura de <?=$report->title;?>" />
+				<a class="url_sent" href="<?=$report->url; ?>" target="blank">Ver noticia original</a>
+			</div>
+			<h1 class="title"><?=$report->title;?></h1>
+			<p class="report_meta">Fuente: <?= $report->site; ?> | En Fixmedia desde: <?= $report->created_at->format('d/m/Y'); ?></p>
+		</section>
+		
 		<? $count=1; foreach ($report->data as $subreport) :  ?>
 			<div class="subreport">
 				<p class="subreport_type type<?=$subreport->type;?>"><?=$subreport->type_info;?> </p>
