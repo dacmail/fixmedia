@@ -75,9 +75,15 @@ a:hover {text-decoration:underline;}
 		.sending .label {
 			color:#333333;
 			font-size:17px;
+			font-weight:bold;
 			display:block;
 			margin-bottom:10px;
 		}
+			.sending .label .tip {
+				font-size:12px;
+				color:#7F7F7F;
+				font-weight:normal;
+			}
 	.report_info {
 		position: relative;
 		border-bottom:7px solid #F1F1F1;
@@ -185,8 +191,8 @@ a:hover {text-decoration:underline;}
 			color:#3D87B7;
 			font-size:15px;
 		}
-		.sending  span {display:block;}
-		.sending  .help {
+		.sending span {display:block;}
+		.sending .help {
 			font-size:12px;
 			color:#333333;
 			display:block;
@@ -195,7 +201,7 @@ a:hover {text-decoration:underline;}
 			border-bottom-left-radius: 10px;
 			border-bottom-right-radius: 10px;
 			margin-top:5px;
-			display:block;
+			display:none;
 		}
 			.sending .wrap_urls .help { margin-top:-5px; margin-bottom:10px;} 
 		.sending span.error {

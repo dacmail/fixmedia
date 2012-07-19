@@ -14,6 +14,23 @@ $('document').ready(function() {
 				$(wrap).show();
 				if ($('.report_data').length < 3) { $('#add_more').show(); }
 				$('#submit').show();
+
+				//Mostramos las ayudas en el focus y las ocultamos en blur
+				$('.sending .fields_wrap .row input').live('focus', function() {
+					$(this).nextAll('.error').first().hide();
+					$(this).nextAll('.help').first().show().css('display','block');
+				});
+				$('.sending .fields_wrap .row textarea').live('focus', function() {
+					$(this).nextAll('.error').first().hide();
+					$(this).nextAll('.help').first().show().css('display','block');
+				});
+
+				$('.sending .fields_wrap .row input').live('blur', function() {
+					$(this).nextAll('.help').first().hide();
+				});
+				$('.sending .fields_wrap .row textarea').live('blur', function() {
+					$(this).nextAll('.help').first().hide();
+				});
 			});
 		});
 		$('.add_url').live('click', function(e) {
@@ -55,16 +72,20 @@ $('document').ready(function() {
 		});
 	}
 
-	if ($('.sending .fields_wrap .wrap_error').length>0) {
-		$('.sending .fields_wrap .wrap_error input').focus(function() {
-			console.log('Focus');
+	if ($('.sending .fields_wrap .row').length>0) {
+		$('.sending .fields_wrap .row input').live('focus', function() {
 			$(this).nextAll('.error').first().hide();
 			$(this).nextAll('.help').first().show().css('display','block');
 		});
-		$('.sending .fields_wrap .wrap_error textarea').focus(function() {
-			console.log('Focus');
+		$('.sending .fields_wrap .row textarea').live('focus', function() {
 			$(this).nextAll('.error').first().hide();
 			$(this).nextAll('.help').first().show().css('display','block');
+		});
+		$('.sending .fields_wrap .row input').live('blur', function() {
+			$(this).nextAll('.help').first().hide();
+		});
+		$('.sending .fields_wrap .row textarea').live('blur', function() {
+			$(this).nextAll('.help').first().hide();
 		});
 	}
 

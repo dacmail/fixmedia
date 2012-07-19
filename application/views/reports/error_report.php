@@ -25,7 +25,7 @@
 					</p>
 					<div class="fields_wrap open" id="fields_<?=$count;?>">
 						<div class="row wrap_title <?php  echo (form_error('title[' . $index . ']') ? 'wrap_error' : ''); ?>">
-							<label class="label" for="title">Titula esta aportación</label>
+							<label class="label" for="title">¿Qué quieres arreglar? <span class="tip">Dilo en un titular, recuerda que al final puedes seguir añadiendo reportes a esta misma noticia</span></label>
 							<input class="text" type="text" id="title_<?=$count;?>" name="title[]" value="<?php echo set_value('title[' . $index . ']'); ?>" />
 							<span class="help">
 								<? if ($type==1) : ?>
@@ -38,7 +38,7 @@
 						</div>
 
 						<div class="row wrap_content <?php  echo (form_error('content[' . $index . ']') ? 'wrap_error' : ''); ?>">
-							<label class="label" for="content">Explica tu corrección o ampliación</label>
+							<label class="label" for="content">Explícalo <span class="tip">Si es necesario</span></label>
 							<textarea class="textarea" id="content_<?=$count;?>" name="content[]" maxlength="350"><?php echo set_value('content[' . $index . ']'); ?></textarea>
 							<span class="help">
 								<? if ($type==1) : ?>
@@ -54,7 +54,7 @@
 							<? $classes .= form_error('urls[' . $index . '][' . $k .']') ?  ' wrap_error' : ''; ?>
 						<? endforeach; ?>
 						<div class="row wrap_urls <? echo $classes; ?>">
-							<label class="label" for="urls">Añade una URL a la fuente de tu correción o al archivo de tu ampliación</label>
+							<label class="label" for="urls">Fuentes o archivos <span class="tip">Si es necesario añadie URL a fuentes directas, otras noticias, enlaces, etc.</span></label>
 							<? if ($report['urls'][$index]) :?>
 								<? foreach ($report['urls'][$index] as $k => $url) : ?>
 									<input type="text" class="urls text" id="urls_<?=$count;?>" name="urls[<?=$count-1;?>][]" value="<?=$url?>"/>
@@ -77,7 +77,7 @@
 
 						<div class="row wrap_type_info">
 							
-							<label class="label" for="type_info">Selecciona una opción: </label>
+							<label class="label" for="type_info">Clasifica tu reporte <span class="tip">Ayuda a la comunidad a comprender rápidamente cual es el problema en esta noticia</span></label>
 								<p class="<? echo (($report['type_info'][$index]==0) ? 'checked' : ''); ?> option clearfix"><input type="radio" name="type_info[<?=$count-1;?>]" value="0" id="type0-<?=$count-1;?>" checked /><label for="type0-<?=$count-1;?>">Ninguna</label></p>
 							<? foreach ($selected_type->childrens as $children) : ?>
 								<p class="<? echo (($report['type_info'][$index]==$children->id) ? 'checked' : ''); ?> option clearfix"><input type="radio" name="type_info[<?=$count-1;?>]" id="type<?=$children->id; ?>-<?=$count-1;?>" value="<?=$children->id; ?>" <? echo (($report['type_info'][$index]==$children->id) ? 'checked' : ''); ?> /><label for="type<?=$children->id; ?>-<?=$count-1;?>"><?=$children->type;?></label></p>
