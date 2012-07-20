@@ -61,6 +61,8 @@ $('document').ready(function() {
 	if ($('.toggle_info').length>0) {
 		$('.toggle_info').click(function(e) {
 			$(this).next('.subreport_content').toggle();
+			$(this).text($(this).text() == 'Mostrar detalles y fuentes' ? 'Ocultar detalles y fuentes' : 'Mostrar detalles y fuentes');
+			$(this).toggleClass('show');
 			e.preventDefault();
 		});
 	}
@@ -108,7 +110,8 @@ $('document').ready(function() {
 				dataType: 'json'
 			}).done(function ( data ) {
 				if (data.valid) {
-					link.replaceWith($('<span class="' + link.attr('class') + '">' + link.html() + '</span>'));
+					link.remove();
+					link.replaceWith($('<div class="' + link.attr('class') + '">' + link.html() + '</div>'));		
 					$('.count-' + link.attr('id')).text(data.total_votes);
 				} else {
 					alert(data.error);
@@ -135,4 +138,11 @@ $('document').ready(function() {
 			e.preventDefault();
 		});
 	}
+	offset = $('#sidebar').offset();
+	$(window).scroll(function(){	
+		if( $(window).scrollTop() > (offset.top-10) ) 		
+			$('#sidebar').css({'position':'fixed', 'margin-left':'680px', 'top':'10px'});
+		else
+			$('#sidebar').css({'position':'relative', 'margin-left':'0px', 'top':'0px'});				
+	});
 });

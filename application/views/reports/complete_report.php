@@ -6,7 +6,10 @@
 				<a class="url_sent" href="<?=$report->url; ?>" target="blank">Ver noticia original</a>
 			</div>
 			<h1 class="title"><?=$report->title;?></h1>
-			<p class="report_meta">Fuente: <?= $report->site; ?> | En Fixmedia desde: <?= $report->created_at->format('d/m/Y'); ?></p>
+			<div class="report_meta">
+				<p class="authorship">Enviado por <?= $report->user->username; ?> el <?= $report->created_at->format('d/m/Y'); ?></p>
+				<p class="source">Fuente: <?= $report->site; ?></p>
+			</div>
 		</section>
 
 		<div class="validation_errors">
@@ -28,7 +31,7 @@
 				<div class="fields_wrap" id="fields_1"></div>
 			</div>
 
-			<a href="#" id="add_more" data-service="<?php echo site_url('services/get_more_data'); ?>" class="add">+ Añadir otra corrección/ampliación</a>
+			<a href="#" id="add_more" data-service="<?php echo site_url('services/get_more_data'); ?>" class="add">Añadir otra corrección/ampliación</a>
 			<input id="submit" type="submit" class="button submit" name="submit" value="Veamos como queda" /> 
 		</form>
 	</div>

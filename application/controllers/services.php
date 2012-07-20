@@ -24,18 +24,18 @@ class Services extends MY_Controller {
    		endif;
    	}
 
-      public function fix_vote($user_id, $report_id) {
+      public function fix_vote($report_id) {
+         if (!$this->logged_in) :
+            redirect('auth', 'refresh');
+         endif;
          $data['result']['valid'] = false;
-         try { $user = User::find($user_id); } catch (\ActiveRecord\RecordNotFound $e) {
-            $data['result']['error'] = "Usuario no válido";
-         }
-         if (!$this->logged_in || $user_id!=$this->the_user->id) { $data['result']['error'] = "Usuario no está logueado o no se corresponde"; }
+         if (!$this->logged_in) { $data['result']['error'] = "Usuario no está logueado o no se corresponde"; }
          try { $report = Report::find($report_id); } catch (\ActiveRecord\RecordNotFound $e) {
             $data['result']['error'] = "Envío no válido";
          }
          if (empty($data['result']['error'])) :
             $vote = Vote::create(array(
-                                 'user_id' => $user->id,
+                                 'user_id' => $this->the_user->id,
                                  'item_id' => $report->id,
                                  'vote_type' => 'FIX',
                                  'vote_value' => 1,

@@ -2,11 +2,14 @@
 	<div id="content">
 		<section class="report_info clearfix">
 			<div class="screenshot">
-				<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" alt="Captura de <?=$report->title;?>" />
-				<a class="url_sent" href="<?=$report->url; ?>" target="blank">Ver noticia original</a>
+				<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" alt="Captura de <?=$report_sent->title;?>" />
+				<a class="url_sent" href="<?=$report_sent->url; ?>" target="blank">Ver noticia original</a>
 			</div>
-			<h1 class="title"><?=$report->title;?></h1>
-			<p class="report_data">Fuente: <?= $report->site; ?> | En Fixmedia desde: <?= $report->created_at->format('d/m/Y'); ?></p>
+			<h1 class="title"><?=$report_sent->title;?></h1>
+			<div class="report_meta">
+				<p class="authorship">Enviado por <?= $report_sent->user->username; ?> el <?= $report_sent->created_at->format('d/m/Y'); ?></p>
+				<p class="source">Fuente: <?= $report_sent->site; ?></p>
+			</div>
 		</section>
 		<? $hidden_fields = array('report_id' => $report['report_id'], 'report_url' => $report['report_url'], 'report_title' => $report['report_title'], 'site' => $report['site']); ?>
 		<?php echo form_open($this->router->reverseRoute('reports-preview'), array('id' => 'form_report'), $hidden_fields) ?>
@@ -83,12 +86,12 @@
 					</div>
 				</div>
 			<? endforeach; ?>
-			<a href="#" id="add_more" data-service="<?php echo site_url('services/get_more_data'); ?>" class="add">+ Añadir otra corrección/ampliación</a>
+			<a href="#" id="add_more" data-service="<?php echo site_url('services/get_more_data'); ?>" class="add">Añadir otra corrección/ampliación</a>
 			<input type="submit" class="button submit" name="submit" value="Veamos como queda" /> 
 		</form>
 	</div>
 
 	<aside id="sidebar">
-		<div class="counter"><span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span> quieren mejorar así esta noticia</div>
+		<div class="counter"><span class="count count-vote-<?= $report_sent->id ?>"><?= $report_sent->votes_count ?></span> quieren mejorar así esta noticia</div>
 	</aside>
 </div>

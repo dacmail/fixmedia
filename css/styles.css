@@ -31,30 +31,34 @@ a:hover {text-decoration:underline;}
 }
 	#header .main_title {
 		display:block;
-		height:200px;
+		height:150px;
 		width:980px;
-		background:url('../images/header.png') no-repeat;
+		background:url('../images/header.jpg') 0 40px no-repeat;
+		border-bottom:7px solid #F1F1F1;
 	}
 		#header .main_title a {
 			display:block;
-			height:200px;
+			height:150px;
 			width:980px;
 			text-indent:-9999999px;
 		}
 #container {
 	width:980px;
 	margin:10px auto;
+	position:relative;
 }
 	#container.columns #content {
 		width:640px;
 		float:left;
 	}
 	#container.columns #sidebar {
-		width:280px;
+		width:300px;
 		float:right;
-		margin:0 10px;
+		margin:0;
 		background:#F6F6F6;
-		height:500px;
+	}
+	#container.report #sidebar {
+		position:relative;
 	}
 	.sending .step {
 		color:#333333;
@@ -97,7 +101,6 @@ a:hover {text-decoration:underline;}
 			margin-right:20px;
 		}
 		.report_info .screenshot .url_sent {
-			color:#999999;
 			display:block;
 			font-size:14px;
 			margin:10px 0;
@@ -105,7 +108,8 @@ a:hover {text-decoration:underline;}
 		.report_info .title {
 			position:absolute;
 			left:200px;
-			bottom:67px;
+			bottom:85px;
+			font-weight:bold;
 		}
 		.report_info .report_meta {
 			position:absolute;
@@ -113,10 +117,13 @@ a:hover {text-decoration:underline;}
 			bottom:51px;
 			font-size:14px;
 		}
-	.sending_actions {
-
-	}
-		.sending_actions .action_title {
+			.report_info .report_meta .authorship {
+				margin-bottom:10px;
+				background:url('../images/icons.png') no-repeat 0 -52px;
+				padding-left:17px;
+				line-height:11px;
+			}
+		.action_title {
 			font-size:20px;
 			font-weight:normal;
 			color:#999999;
@@ -124,7 +131,7 @@ a:hover {text-decoration:underline;}
 			font-style:italic;
 			margin:30px 0;
 		}
-			.sending_actions .action_title strong {
+			.action_title strong {
 				display:block;
 				font-size:25px;
 				color:#666666;
@@ -220,11 +227,25 @@ a:hover {text-decoration:underline;}
 		.sending .add {
 			color:#EAC000;
 			font-size:15px;
-			margin:10px 0px;
+			margin:10px 0;
 			display:none;
 			float:left;
-			border:0px;
+			border:0;
+			background:url('../images/icons.png') 0 -20px no-repeat;
+			line-height:20px;
+			padding-left:25px;
+			cursor:pointer;
+		}
+		.sending .edit {
+			color:#EAC000;
+			font-size:15px;
+			margin:10px 0;
+			display:block;
+			float:left;
+			border:0;
 			background:transparent;
+			line-height:20px;
+			padding-left:25px;
 			cursor:pointer;
 		}
 		.sending.report .submit, .sending.report .add, .sending.editing .add, .sending.editing .submit, .sending.new .submit {display:block;}
@@ -232,47 +253,94 @@ a:hover {text-decoration:underline;}
 
 		.subreport {
 			margin-bottom:30px;
-		}
-		.subreport .subreport_type {
-			margin-bottom:20px;
-			font-size:14px;
+			border-top:1px solid #CBCBCB;
+			padding-top:20px;
 			color:#333333;
-			padding:10px 10px 10px 10px;
-			background:#EAC000;
-		}
-		.subreport .subreport_type.type2 {color:#ffffff; background:#7F7F7F;}
-		.subreport .counter {
-			float:left;
-			font-size:50px;
-			color:#CCCCCC;
-			width:125px;
-			text-align:center;
-			font-weight:700;
-		}
-			.subreport .counter .report_vote {font-size:20px;}
-		.subreport .subreport_info {
-			width:515px;
-			float:right;
+			font-size:14px;
 		}
 		.subreport .subreport_title {
 			font-size:20px;
-			color:#333333;
 			font-weight:700;
-			margin-bottom:20px;
+			margin-bottom:15px;
 			line-height:25px;
-			margin-top:10px;
 		}
-		.subreport .toggle_info {
-			font-size:15px;
+		.subreport .authorship {
+			margin-bottom:15px;
+			background:url('../images/icons.png') no-repeat 0 -52px;
+			padding-left:17px;
+			line-height:11px;
+		}
+		.subreport .subreport_types {
 			margin-bottom:20px;
-			display:block;
+			color:#ffffff;
+			font-size:13px;
+			line-height:31px;
+		}
+			.subreport .subreport_types .type {
+				background:#EAC000;
+				text-transform:uppercase;
+				float:left;
+				padding:0 10px;
+				font-weight:bold;
+				border-bottom-left-radius: 4px;
+				border-top-left-radius: 4px;
+			}
+			.subreport .subreport_types .type_info {
+				border-bottom-right-radius: 4px;
+				border-top-right-radius: 4px;
+				float:left;
+				padding:0 10px;
+				background:#CCA100;
+
+			}
+		.subreport .counter {
+			float:left;
+			font-size:30px;
+			color:#999999;
+			width:110px;
+			font-weight:700;
+		}
+			.subreport .counter strong {
+				float:left;
+				margin-left:10px
+			}
+			.subreport .counter .votes_buttons {
+				float:left;
+			}
+			.subreport .counter .report_vote {
+				width:14px;
+				height:6px;
+				background:url('../images/icons.png') no-repeat 0 -46px;
+				text-indent:-999999px;
+				display:block;
+				margin:10px;
+			}
+			.subreport .counter .up {
+				margin-top:6px;
+				background-position:0 -40px;
+			}	
+		.subreport .subreport_info {
+			width:530px;
+			float:right;
 		}
 
+		
+		.subreport .toggle_info {
+			margin-bottom:20px;
+			display:block;
+			background:url('../images/icons.png') no-repeat 0 -100px;
+			padding-left:20px;
+			line-height:14px;
+		}
+			.subreport .toggle_info.show {
+				background-position:0 -85px; 
+			}
 		.subreport .subreport_content {
-			font-size:14px;
 			color:#7F7F7F;
 			line-height:21px;
 			display:none;
+			background:#F6F6F6;
+			padding:15px;
 		}
 		.subreport .subreport_urls {
 			font-size:15px;
@@ -286,80 +354,30 @@ a:hover {text-decoration:underline;}
 			margin-bottom:5px;
 		}
 
-		.fixme {
-			text-align:center;
-			border-bottom:1px solid #CBCBCB;
-			padding-bottom:30px;
-		}
-			.fixme .title {
-				border-bottom:0px;
-				margin-bottom:10px;
-				font-weight:700;
-			}
-			.fixme .fix_button {
-				width:200px;
-				margin:0px auto;
-			}
-				.fixme .fix_button .fix {
-					background:#EAC000;
-					border-radius:10px;
-					width:100px;
-					height:72px;
-					display:block;
-					float:left;
-					line-height:72px;
-					text-transform:uppercase;
-					color:#ffffff;
-					font-size:50px;
-					letter-spacing:-4px;
-					margin-right:5px;
-				}
-				.fixme .fix_button:hover .fix {background:#CCA100;}
-				.fixme .fix_button .counter {
-					display:block;
-					float:left;
-					background:#F1F1F1;
-					height:60px;
-					padding:12px 15px 0px 15px;
-					border-radius:10px;
-					color:#7F7F7F;
-					font-size:12px;
-					line-height:20px;
-					text-transform:lowercase;
-				}
-					.fixme .fix_button .counter strong {
-						display:block;
-						font-size:30px;
-					}
-				.fixme .popup {
-					text-align:left;
-					font-size: 14px;
-					color: #7F7F7F;
-					line-height: 21px;
-					display:none;
-					margin:20px 100px;
-				}
-				.fixme .popup p {margin:10px 0;}
+		
 #sidebar .counter {
 	font-size:17px;
 	color:#ffffff;
-	background:#B2B2B2;
-	width:280px;
-	padding:10px 10px 20px 10px;
-	margin:0 -10px 20px -10px;
-	border-radius:10px;
+	background:#656565;
+	padding:10px 45px 20px 45px;
 	text-align:center;
+	margin-bottom:30px;
+	font-weight:bold;
+	font-style:italic;
 }
 	#sidebar .counter .count {
-		font-size:60px;
+		font-size:75px;
 		color:#ffffff;
 		display:block;
+		font-style:none;
 	}
-	#sidebar .counter .count:after {
-		content:" personas";
-		font-size:25px;
+	#sidebar .counter .action-title {
+		font-weight:normal;
+		font-size:20px;
+		border-top:1px dashed #F2F2F2;
+		margin-top:15px;
+		padding-top:15px;
 	}
-
 
 
 /* Botones */
@@ -368,26 +386,31 @@ a:hover {text-decoration:underline;}
 	font-size:17px;
 	color:#ffffff;
 	border:1px solid #2760BF;
-	box-shadow: 0 0 0 1px #ffffff inset; 
+	box-shadow: 0 0 0 1px rgba(255,255,255,0.3) inset; 
 	border-radius:6px;
 	padding:0 15px;
 	line-height:40px;
 	margin:10px 0;
 	cursor:pointer;
 	position:relative;
-	background: url('../images/icons-button.png') left 0 no-repeat;
+	background: url('../images/icons-button.png') left -110px no-repeat;
 
 }
 .button.icon {
 	background-position:right 0;
 	padding:0 80px 0 20px;
-	line-height:56px;
+	line-height:55px;
 	font-size:21px;
 	text-transform:uppercase;	
+	border-color:#CCA100;
 }
+	.button.icon.share { 
+		background-position: right -110px;
+		border-color:#2760BF;
+	}
 	.button.icon.add_report {
-		background-position: right bottom;
-		border-color:#CCA100;
+		background-position: right -220px;
+		border-color:#F47316;
 	}
 	.button .subtitle {
 		position:absolute;
@@ -395,15 +418,19 @@ a:hover {text-decoration:underline;}
 		text-align:center;
 		bottom:-20px;
 		left:0;
-		color:#446D92;
+		color:#999999;
 		font-size:14px;
 		text-transform:none;
 		line-height:14px;
+		font-style:italic;
 	}
-		.button.icon.add_report	.subtitle {color:#CCA100;}
 	.button:hover {text-decoration:none;}
 .sending_url .button {float:left;}
 .sending_url .button.share {margin:10px 50px 10px 60px;}
+.report #sidebar .button {
+	width:125px;
+	margin:0px auto 50px auto;
+}
 /* Desarrollo */
 
 .reports_list {
@@ -414,19 +441,22 @@ select,textarea,input[type=text] {display:block;width:600px;}
 input#username, input#email, input#password, input#repassword {display:block;width:300px;}
 
 .menu {
-	background:#EAC000;
+	background:#ffffff;
 	list-style:none;
+	border-bottom:7px solid #f1f1f1;
+	margin-bottom:20px;
 	/*display:none;*/
 }
 	.menu li {
 		display:block;
 		float:left;
-		font-size:18px;
+		font-size:15px;
 		text-transform:uppercase;
 		padding:5px 10px;
-		color:#ffffff;
+		color:#777777;
+
 	}
 		.menu .right {
 			float:right;
 		}
-		.menu li a {color:#ffffff;}
+		.menu li a {color:#777777;}

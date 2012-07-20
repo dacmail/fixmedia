@@ -59,6 +59,7 @@ class Reports extends MY_Controller {
 				$data['page_title'] = 'Modificar reporte';
 				$data['main_content'] = 'reports/edit_report';
 				$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
+				$data['report_sent'] = $report;
 				$data['report'] = $this->input->post(NULL, TRUE);
 				foreach ($data['report']['type_info'] as $index => $type_id) :
 					$data['report']['urls'][$index] = unserialize(base64_decode($data['report']['urls'][$index]));
@@ -104,6 +105,8 @@ class Reports extends MY_Controller {
 				$data['report']['urls_decode'][$index] = unserialize(base64_decode($data['report']['urls'][$index]));
 			endforeach;
 			$data['types'] = $types;
+			$data['report_sent'] = Report::find($this->input->post('report_id', TRUE)); 
+
 			$data['page_title'] = 'Previsualización del reporte';
 			$data['main_content'] = 'reports/preview_report';
 		endif; 

@@ -1,9 +1,17 @@
 
 <div id="container" class="sending report columns">
 	<div id="content">
-		<p class="step">Paso 3 de 3: Confirma tu reporte</p>
-		<h1 class="title"><?=$report['report_title'];?></h1>
-		<h1></h1>
+		<section class="report_info clearfix">
+			<div class="screenshot">
+				<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" alt="Captura de <?=$report_sent->title;?>" />
+				<a class="url_sent" href="<?=$report_sent->url; ?>" target="blank">Ver noticia original</a>
+			</div>
+			<h1 class="title"><?=$report_sent->title;?></h1>
+			<div class="report_meta">
+				<p class="authorship">Enviado por <?= $report_sent->user->username; ?> el <?= $report_sent->created_at->format('d/m/Y'); ?></p>
+				<p class="source">Fuente: <?= $report_sent->site; ?></p>
+			</div>
+		</section>
 		<? $count=1; foreach ($report['type_info'] as $index => $type) :  ?>
 			<div class="subreport">
 				<p class="subreport_type type<? echo ($types[$index]->parent_type ? $types[$index]->parent_type->id : $types[$index]->id);?>"><?=$types[$index]->type;?> </p>
@@ -28,7 +36,7 @@
 		<? $hidden_fields = form_hidden(array_merge($report, array('edit_draft' => true))); ?>
 		<?php echo form_open($this->router->reverseRoute('reports-send', array('id' => $report['report_id'])), '') ?>
 			<? echo $hidden_fields; ?>
-			<input type="submit" name="submit" class="add" value="&larr; Hacer modificaciones" /> 
+			<input type="submit" name="submit" class="edit" value="&larr; Hacer modificaciones" /> 
 		<? echo form_close(); ?>
 
 		<?php echo form_open($this->router->reverseRoute('reports-save'), '') ?>
@@ -38,9 +46,6 @@
 	</div>
 
 	<aside id="sidebar">
-		<div class="counter"><span class="count">000</span> personas quieren mejorar así esta noticia</div>
-		<p class="url_sent"><a href="<?=$report['report_url'];?>" target="blank">Ir a la noticia original</a></p>
-
-		<img src="<?php echo base_url(); ?>fakes/screenshot.jpg" alt="Captura de <?=$report['report_title'];?>" />
+		<div class="counter"><span class="count count-vote-<?= $report_sent->id ?>"><?= $report_sent->votes_count ?></span> quieren mejorar así esta noticia</div>
 	</aside>
 </div>

@@ -14,7 +14,9 @@ class Report extends ActiveRecord\Model {
 		array('title'),
 		array('slug')
 	);
-
+    static $belongs_to = array(
+    	array('user', 'class_name' => 'User')
+	);
 	public function is_voted($user_id=0) {
 		if (empty($user_id)) return true;
 		return Vote::exists(array('conditions' => array("item_id = ? AND user_id = ? AND vote_type LIKE 'FIX'", $this->id, $user_id)));

@@ -8,7 +8,8 @@ class Reports_data extends ActiveRecord\Model {
 	}
 
 	static $belongs_to = array(
-    	array('report', 'class_name' => 'Report')
+    	array('report', 'class_name' => 'Report'),
+    	array('user', 'class_name' => 'User')
 	);
 
     static $validates_presence_of = array(
