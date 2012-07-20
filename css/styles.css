@@ -248,7 +248,7 @@ a:hover {text-decoration:underline;}
 			padding-left:25px;
 			cursor:pointer;
 		}
-		.sending.preview .submit, .sending.preview .add, .sending.editing .add, .sending.editing .submit, .sending.new .submit {display:block;}
+		.sending.login .submit, .sending.preview .submit, .sending.preview .add, .sending.editing .add, .sending.editing .submit, .sending.new .submit {display:block;}
 		#add_more {display:none;}
 
 		.subreport {
@@ -438,8 +438,10 @@ a:hover {text-decoration:underline;}
 }
 select,textarea,input[type=text] {display:block;width:600px;}
 
-input#username, input#email, input#password, input#repassword {display:block;width:300px;}
-
+input#identity, input#username, input#email, input#password, input#repassword, input#password_confirm {display:block;width:300px;}
+.login p {
+	margin-bottom:20px;
+}
 .menu {
 	background:#ffffff;
 	list-style:none;

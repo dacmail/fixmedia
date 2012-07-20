@@ -27,12 +27,14 @@ class Auth extends MY_Controller {
 				'value' => $this->form_validation->set_value('identity'),
 				'maxlength' => '100',
           		'size' => '30',
+          		'class' => 'text'
 			);
 			$this->data['password'] = array('name' => 'password',
 				'id' => 'password',
 				'type' => 'password',
 				'maxlength' => '40',
           		'size' => '30',
+          		'class' => 'text'
 			);
 			$this->load->view('includes/template', $this->data);
 		}
@@ -73,12 +75,14 @@ class Auth extends MY_Controller {
 				'type' => 'text',
 				'maxlength' => '100',
           		'size' => '30',
+          		'class' => 'text'
 			);
 			$this->data['password'] = array('name' => 'password',
 				'id' => 'password',
 				'type' => 'password',
 				'maxlength' => '40',
           		'size' => '30',
+          		'class' => 'text'
 			);
 			if (strpos($this->input->server('HTTP_REFERER'), base_url()) === 0) {
 			    $this->session->set_userdata('prev_url', $this->input->server('HTTP_REFERER'));
@@ -434,23 +438,27 @@ class Auth extends MY_Controller {
 				'id' => 'first_name',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('first_name'),
+				'class' => 'text'
 			);
 			$this->data['last_name'] = array('name' => 'last_name',
 				'id' => 'last_name',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('last_name'),
+				'class' => 'text'
 			);*/
 			$this->data['username'] = array(
 				'name' => 'username',
 				'id' => 'username',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('username'),
+				'class' => 'text'
 			);
 			$this->data['email'] = array(
 				'name' => 'email',
 				'id' => 'email',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('email'),
+				'class' => 'text'
 			);
 			/*$this->data['company'] = array(
 				'name' => 'company',
@@ -462,11 +470,13 @@ class Auth extends MY_Controller {
 				'id' => 'password',
 				'type' => 'password',
 				'value' => $this->form_validation->set_value('password'),
+				'class' => 'text'
 			);
 			$this->data['password_confirm'] = array('name' => 'password_confirm',
 				'id' => 'password_confirm',
 				'type' => 'password',
 				'value' => $this->form_validation->set_value('password_confirm'),
+				'class' => 'text'
 			);
 			$this->data['main_content'] = 'auth/create_user';
 			$this->load->view('includes/template', $this->data);

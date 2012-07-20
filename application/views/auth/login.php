@@ -1,36 +1,35 @@
-<div id="container">
+<div id="container" class="sending login clearfix">
   <div id="content">
 
-  	<h3 class="pageTitle">Login</h3>
-      <div class="pageTitleBorder"></div>
+    <h1 class="title">Iniciar sesión</h1>
   	
   	
   	<div id="infoMessage"><?php echo $message;?></div>
   	
       <?php echo form_open("auth/login",'', array("prev" => $this->session->userdata('prev_url')));?>
       	
-        <p>
-        	<label for="identity">Username:</label>
+        <p class="row">
+        	<label for="identity" class="label">Usuario</label>
         	<?php echo form_input($identity);?>
         </p>
         
-        <p>
-        	<label for="password">Password:</label>
+        <p class="row">
+        	<label for="password" class="label">Contraseña</label>
         	<?php echo form_input($password);?>
         </p>
         
-        <p>
-  	      <label for="remember">Remember Me:</label>
+        <p class="row">
   	      <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
-  	  </p>
+          <label for="remember">Recuerdame:</label>
+        </p>
         
         
-        <p><?php echo form_submit('submit', 'Login');?></p>
+      <p><?php echo form_submit('submit', 'Iniciar sesión', 'class="submit button"');?></p>
 
         
       <?php echo form_close();?>
 
-      <p><a href="forgot_password">Forgot your password?</a></p>
+      <p><a href="forgot_password">¿Olvidaste tu contraseña?</a></p>
 
   </div>
 </div>
