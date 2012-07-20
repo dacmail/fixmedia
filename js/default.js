@@ -138,11 +138,11 @@ $('document').ready(function() {
 			e.preventDefault();
 		});
 	}
-	offset = $('#sidebar').offset();
+	offset = $('.report #sidebar').offset();
 	$(window).scroll(function(){	
 		if( $(window).scrollTop() > (offset.top-10) ) 		
-			$('#sidebar').css({'position':'fixed', 'margin-left':'680px', 'top':'10px'});
+			$('.report #sidebar').css({'position':'fixed', 'margin-left':'680px', 'top':'10px'});
 		else
-			$('#sidebar').css({'position':'relative', 'margin-left':'0px', 'top':'0px'});				
+			$('.report #sidebar').css({'position':'relative', 'margin-left':'0px', 'top':'0px'});				
 	});
 });

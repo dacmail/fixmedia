@@ -1,5 +1,5 @@
 
-<div id="container" class="sending report columns">
+<div id="container" class="sending preview columns">
 	<div id="content">
 		<section class="report_info clearfix">
 			<div class="screenshot">
@@ -12,25 +12,42 @@
 				<p class="source">Fuente: <?= $report_sent->site; ?></p>
 			</div>
 		</section>
+		<h2 class="action_title"><strong>¿Qué es mejorable en esta noticia?</strong> Listado de reportes recibidos</h2>
+
 		<? $count=1; foreach ($report['type_info'] as $index => $type) :  ?>
 			<div class="subreport">
-				<p class="subreport_type type<? echo ($types[$index]->parent_type ? $types[$index]->parent_type->id : $types[$index]->id);?>"><?=$types[$index]->type;?> </p>
-
 				<div class="clearfix">
-					<span class="counter"><?=$count;?></span>
+					<span class="counter">
+						<strong>0</strong>
+					</span>
 					<div class="subreport_info">
 						<h3 class="subreport_title"><?=$report['title'][$index]; ?></h3>
-						<a href="#" class="toggle_info">Mostrar u ocultar detalles y fuentes</a>
+						<p class="authorship">Enviado por <?= $the_user->username; ?> el <?= date('d/m/Y'); ?></p>
+						<p class="clearfix subreport_types">
+							<? if ($types[$index]->parent_type) : ?>
+							<span class="type"><?=$types[$index]->parent_type->type ;?></span> 
+							<span class="type_info"><?= $types[$index]->type; ?></span>
+							<? else : ?>
+								<span class="type"><?= $types[$index]->type; ?></span>
+							<? endif; ?> 
+						</p>
+
+						<a href="#" class="toggle_info show">Mostrar detalles y fuentes</a>
 						<div class="subreport_content">
 							<?=$report['content'][$index];?>
-							<h4 class="subreport_urls">Fuentes:</h4>
-							<? foreach($report['urls_decode'][$index] as $url) : ?>
-							<a href="<?=$url?>" target="_blank" class="source"><?=$url; ?></a>
-							<? endforeach; ?>
+							<? if (count(array_filter($report['urls_decode'][$index]))>0) : ?>
+								<h4 class="subreport_urls">Fuentes:</h4>
+								<? foreach($report['urls_decode'][$index] as $url) : ?>
+								<a href="<?=$url?>" target="_blank" class="source"><?=$url; ?></a>
+								<? endforeach; ?>
+							<? endif; ?>
 						</div>
 					</div>
 				</div>
 			</div>
+
+
+
 		<? $count++; endforeach; ?>
 
 		<? $hidden_fields = form_hidden(array_merge($report, array('edit_draft' => true))); ?>

@@ -248,7 +248,7 @@ a:hover {text-decoration:underline;}
 			padding-left:25px;
 			cursor:pointer;
 		}
-		.sending.report .submit, .sending.report .add, .sending.editing .add, .sending.editing .submit, .sending.new .submit {display:block;}
+		.sending.preview .submit, .sending.preview .add, .sending.editing .add, .sending.editing .submit, .sending.new .submit {display:block;}
 		#add_more {display:none;}
 
 		.subreport {
