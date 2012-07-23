@@ -26,7 +26,7 @@
 						<p class="clearfix subreport_types">
 							<? if ($types[$index]->parent_type) : ?>
 							<span class="type"><?=$types[$index]->parent_type->type ;?></span> 
-							<span class="type_info"><?= $types[$index]->type; ?></span>
+							<span class="type_info" title="<?= $types[$index]->type; ?>"><?= character_limiter($types[$index]->type,50); ?></span>
 							<? else : ?>
 								<span class="type"><?= $types[$index]->type; ?></span>
 							<? endif; ?> 
@@ -63,6 +63,13 @@
 	</div>
 
 	<aside id="sidebar">
-		<div class="counter"><span class="count count-vote-<?= $report_sent->id ?>"><?= $report_sent->votes_count ?></span> quieren mejorar así esta noticia</div>
+		<div class="counter"><span class="count count-vote-<?= $report_sent->id ?>"><?= $report_sent->votes_count ?></span>
+			<span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span> 
+			<? if ($report_sent->votes_count==1 &&  $report_sent->is_voted($the_user->id)) : ?>
+			persona (tu) quiere que alguien la arregle
+			<? else : ?>
+			personas  quieren que alguien la arregle
+			<? endif; ?>
+		</div>
 	</aside>
 </div>

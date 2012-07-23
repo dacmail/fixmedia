@@ -210,6 +210,10 @@ a:hover {text-decoration:underline;}
 			margin-top:5px;
 			display:none;
 		}
+			.sending .help .charcount { 
+				color:#AE1E1E;
+				display:inline;
+			}
 			.sending .wrap_urls .help { margin-top:-5px; margin-bottom:10px;} 
 		.sending span.error {
 			font-size:12px;

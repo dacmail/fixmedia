@@ -14,13 +14,14 @@
 <div class="row wrap_content">
 	<label class="label" for="content">Explícalo <span class="tip">Si es necesario</span></label>
 	<textarea class="textarea" id="content_<?=$count;?>" name="content[]" maxlength="350"></textarea>
-	<span class="help">
+	<div class="help">
 		<? if ($type==1) : ?>
 		Identifica en breves palabras la parte de la noticia que consideras que debe ser corregida, por qué debe serlo y cuál es tu alternativa. [+] aprender más
 		<? else : ?>
 		Identifica en breves palabras por qué crees que a esta noticia la falta más contenido y cuál es. [+] aprender más
 		<? endif ?>
-	</span>
+		<span class="charcount">350</span>
+	</div>
 
 </div>
 <div class="row wrap_urls">

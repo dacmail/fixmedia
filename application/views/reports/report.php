@@ -33,7 +33,7 @@
 						<p class="clearfix subreport_types type_<?=$subreport->type;?>">
 							<span class="type"><?=$subreport->type;?></span> 
 							<? if ($subreport->type_info!=$subreport->type) : ?>
-							<span class="type_info"><?= $subreport->type_info; ?></span>
+							<span class="type_info" title="<?= $subreport->type_info; ?>"><?= character_limiter($subreport->type_info,50); ?></span>
 							<? endif; ?> 
 						</p>
 
@@ -58,7 +58,11 @@
 	<aside id="sidebar">
 		<div class="counter">
 			<span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span> 
-			personas quieren que alguien la arregle
+			<? if ($report->votes_count==1 &&  $report->is_voted($the_user->id)) : ?>
+			persona (tu) quiere que alguien la arregle
+			<? else : ?>
+			personas  quieren que alguien la arregle
+			<? endif; ?>
 			<span class="action-title">¿Qué quieres hacer con ella ahora?</span>
 		</div>
 		<? if ($logged_in && !$report->is_voted($the_user->id)) : ?>
