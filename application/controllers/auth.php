@@ -226,11 +226,12 @@ class Auth extends MY_Controller {
 			}
 			else
 			{
-				$this->session->set_flashdata('message', $this->ion_auth->errors());
+				$this->data['message'] = $this->ion_auth->errors();
 				//setup the input
 				$this->data['email'] = array(
 					'name' => 'email',
 					'id' => 'email',
+					'class' => 'text'
 				);
 				$this->data['main_content'] = 'auth/forgot_password';
 				$this->load->view('includes/template', $this->data);

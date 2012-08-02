@@ -1,20 +1,21 @@
-<div id="container">
+<div id="container" class="sending login clearfix">
 	<div id="content">
 		
-		<h3>Forgot Password</h3>
-		<p>Please enter your email address so we can send you an email to reset your password.</p>
+		<h3>Recuperar contraseña</h3>
 
 		<div id="infoMessage"><?php echo $message;?></div>
 
 		<?php echo form_open("auth/forgot_password");?>
 
-		      <p>Email Address:<br />
-		      <?php echo form_input($email);?>
+		      <p class="row">
+		      	<label class="label">Email:</label>
+		      	<?php echo form_input($email);?>
 		      </p>
 		      
-		      <p><?php echo form_submit('submit', 'Submit');?></p>
+		      <p><?php echo form_submit('submit', 'Recuperar contraseña', 'class="submit button"');?></p>
 		      
 		<?php echo form_close();?>
+
 
 	</div>
 </div>

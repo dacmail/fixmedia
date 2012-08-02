@@ -20,7 +20,7 @@
         
         <p class="row">
   	      <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
-          <label for="remember">Recuerdame:</label>
+          <label for="remember">Recuérdame</label>
         </p>
         
         
