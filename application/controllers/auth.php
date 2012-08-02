@@ -205,9 +205,11 @@ class Auth extends MY_Controller {
 		if ($this->form_validation->run() == false)
 		{
 			//setup the input
+			$this->data['page_title'] = "Recuperar contraseña";
 			$this->data['email'] = array(
 				'name' => 'email',
 				'id' => 'email',
+				'class' => 'text'
 			);
 			//set any errors and display the form
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
@@ -226,6 +228,7 @@ class Auth extends MY_Controller {
 			}
 			else
 			{
+				$this->data['page_title'] = "Recuperar contraseña";
 				$this->data['message'] = $this->ion_auth->errors();
 				//setup the input
 				$this->data['email'] = array(
