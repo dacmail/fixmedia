@@ -58,8 +58,10 @@
 	<aside id="sidebar">
 		<div class="counter">
 			<span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span> 
-			<? if ($report->votes_count==1 &&  $report->is_voted($the_user->id)) : ?>
+			<? if ($report->votes_count==1 && ($logged_in && $report->is_voted($the_user->id))) : ?>
 			persona (tu) quiere que alguien la arregle
+			<? elseif ($report->votes_count==1) :?>
+			persona quiere que alguien la arregle
 			<? else : ?>
 			personas  quieren que alguien la arregle
 			<? endif; ?>
@@ -75,12 +77,13 @@
 			</a>
 		<? endif; ?>
 	
+		<a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->slug))); ?>" class="button icon share">
+			Compártela <span class="subtitle">Para arreglarla entre todos</span>
+			</a>
 
 		<a href="<?= site_url($this->router->reverseRoute('reports-send' , array('id' => $report->id))); ?>" class="button icon add_report">
 			Arréglala <span class="subtitle">Añade tu propio reporte</span>	
 			</a>
-		<a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->slug))); ?>" class="button icon share">
-			Compártela <span class="subtitle">Para arreglarla entre todos</span>
-			</a>
+		
 	</aside>
 </div>

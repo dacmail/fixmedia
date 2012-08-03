@@ -23,6 +23,8 @@
 		
 	</div>
 	<aside id="sidebar">
-		<div class="counter"><span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span> quieren mejorar así esta noticia</div>
+		<div class="counter"><span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span> 
+			persona (tu) quiere que alguien la arregle
+		</div>
 	</aside>
 </div>
