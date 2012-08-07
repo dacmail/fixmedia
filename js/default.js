@@ -98,20 +98,20 @@ $('document').ready(function() {
 	            $(this).nextAll('.help').first().children('.charcount').text('Te quedan ' + char + ' caracteres.');
 	        }
 	    });
-		$('.sending .row input').live('focus', function() {
+		$('.sending .fields_wrap .row input').live('focus', function() {
 			$(this).nextAll('.error').first().hide();
 			$(this).nextAll('.help').first().show().css('display','block');
 		});
-		$('.sending .row textarea').live('focus', function() {
+		$('.sending .fields_wrap .row textarea').live('focus', function() {
 			$(this).nextAll('.error').first().hide();
 			$(this).nextAll('.help').first().show().css('display','block');
 			var char = 350 - $(this).val().length;
 			$(this).nextAll('.help').first().children('.charcount').text('Te quedan ' + char + ' caracteres.');
 		});
-		$('.sending .row input').live('blur', function() {
+		$('.sending .fields_wrap .row input').live('blur', function() {
 			$(this).nextAll('.help').first().hide();
 		});
-		$('.sending .row textarea').live('blur', function() {
+		$('.sending .fields_wrap .row textarea').live('blur', function() {
 			$(this).nextAll('.help').first().hide();
 		});
 	}

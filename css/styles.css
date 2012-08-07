@@ -210,6 +210,7 @@ a:hover {text-decoration:underline;}
 			margin-top:5px;
 			display:none;
 		}
+			.sending.new .help {display:block;}
 			.sending .help .charcount { 
 				color:#AE1E1E;
 				display:inline;
