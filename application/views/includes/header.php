@@ -4,7 +4,7 @@
     <link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title><?=$page_title?> - Fixmedia</title>
-    <!-- Meta Tags -->
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>/images/favicon.png">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />

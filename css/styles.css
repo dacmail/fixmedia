@@ -31,9 +31,9 @@ a:hover {text-decoration:underline;}
 }
 	#header .main_title {
 		display:block;
-		height:150px;
+		height:100px;
 		width:980px;
-		background:url('../images/header.jpg') 0 40px no-repeat;
+		background:url('../images/header.jpg') 0 0px no-repeat;
 		border-bottom:7px solid #F1F1F1;
 	}
 		#header .main_title a {
@@ -360,7 +360,19 @@ a:hover {text-decoration:underline;}
 			margin-bottom:5px;
 		}
 
-		
+		.cancel {
+			margin:20px 0;
+			display:block;
+			background:url('../images/icons.png') no-repeat 0 0;
+			padding-left:25px;
+			line-height:20px;
+			color:#D83939;
+		}
+		#form_report {
+			padding-bottom:30px;
+			border-bottom:1px solid #CBCBCB;
+
+		}
 #sidebar .counter {
 	font-size:17px;
 	color:#ffffff;

@@ -12,7 +12,7 @@
 			</div>
 		</section>
 		<? $hidden_fields = array('report_id' => $report['report_id'], 'report_url' => $report['report_url'], 'report_title' => $report['report_title'], 'site' => $report['site']); ?>
-		<?php echo form_open($this->router->reverseRoute('reports-preview'), array('id' => 'form_report'), $hidden_fields) ?>
+		<?php echo form_open($this->router->reverseRoute('reports-preview'), array('id' => 'form_report', 'class' => 'clearfix'), $hidden_fields) ?>
 			<? foreach ($report['type'] as $index => $type) : $count=$index+1;?>
 				<div class="report_data">
 					<p><label class="label">Elige el tipo de reporte</label>
@@ -101,6 +101,7 @@
 			<a href="#" id="add_more" data-service="<?php echo site_url('services/get_more_data'); ?>" class="add">Añadir otra corrección/ampliación</a>
 			<input type="submit" class="button submit" name="submit" value="Veamos como queda" /> 
 		</form>
+		<a href="<?= site_url(); ?>" id="cancel" class="cancel">Cancelar</a>
 	</div>
 
 	<aside id="sidebar">

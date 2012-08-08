@@ -16,7 +16,7 @@
 			<?php echo validation_errors(); ?>	
 		</div>
 		<? $hidden_fields = array('report_id' => $report->id, 'report_url' => $report->url, 'report_title' => $report->title, 'site' => $report->site); ?>
-		<?php echo form_open($this->router->reverseRoute('reports-preview'), array('id' => 'form_report'), $hidden_fields) ?>
+		<?php echo form_open($this->router->reverseRoute('reports-preview'), array('id' => 'form_report', 'class' => 'clearfix'), $hidden_fields) ?>
 			<div class="report_data">
 				<p><label class="label">Elige el tipo de reporte</label> 
 				<div class="wrap_types clearfix">
@@ -34,6 +34,7 @@
 			<a href="#" id="add_more" data-service="<?php echo site_url('services/get_more_data'); ?>" class="add">Añadir otra corrección/ampliación</a>
 			<input id="submit" type="submit" class="button submit" name="submit" value="Veamos como queda" /> 
 		</form>
+		<a href="<?= site_url(); ?>" id="cancel" class="cancel">Cancelar</a>
 	</div>
 	<aside id="sidebar">
 		<div class="counter">
