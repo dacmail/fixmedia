@@ -12,7 +12,7 @@
 				<p class="source">Fuente: <?= $report_sent->site; ?></p>
 			</div>
 		</section>
-		<h2 class="action_title"><strong>¿Qué es mejorable en esta noticia?</strong> Listado de reportes recibidos</h2>
+		<h2 class="action_title"><strong>Este es el reporte que vas a publicar</strong> Así es como se verá si lo envías</h2>
 
 		<? $count=1; foreach ($report['type_info'] as $index => $type) :  ?>
 			<div class="subreport">

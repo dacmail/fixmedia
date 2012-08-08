@@ -36,6 +36,7 @@
 								<? else : ?>
 								Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu ampliación. [+] aprender más
 								<? endif ?>
+								<span class="charcount">150</span>
 							</span>
 							<?php echo form_error('title[' . $index . ']', '<span class="error">', '</span>'); ?>
 						</div>
