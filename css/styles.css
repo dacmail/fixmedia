@@ -214,7 +214,6 @@ a:hover {text-decoration:underline;}
 			.sending .help .charcount { 
 				color:#AE1E1E;
 				display:inline;
-				font-weight:bold;
 			}
 			.sending .wrap_urls .help { margin-top:-5px; margin-bottom:10px;} 
 		.sending span.error {

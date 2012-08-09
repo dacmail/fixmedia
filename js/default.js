@@ -20,13 +20,13 @@ $('document').ready(function() {
 					$(this).nextAll('.error').first().hide();
 					$(this).nextAll('.help').first().show().css('display','block');
 					var char = 150 - $(this).val().length;
-					$(this).nextAll('.help').first().children('.charcount').text('Te quedan ' + char + ' caracteres.');
+					$(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
 				});
 				$('.sending .fields_wrap .row textarea').live('focus', function() {
 					$(this).nextAll('.error').first().hide();
 					$(this).nextAll('.help').first().show().css('display','block');
 					var char = 350 - $(this).val().length;
-					$(this).nextAll('.help').first().children('.charcount').text('Te quedan ' + char + ' caracteres.');
+					$(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
 				});
 
 				$('.sending .fields_wrap .row input').live('blur', function() {
@@ -40,20 +40,20 @@ $('document').ready(function() {
 			        var max = 350;
 			        var len = $(this).val().length;
 			        if (len >= max) {
-			            $(this).nextAll('.help').first().children('.charcount').text('Has llegado al máximo de caracteres.');
+			            $(this).nextAll('.help').first().children('.charcount').html('Has llegado al máximo de caracteres.');
 			        }else {
 			            var char = max - len;
-			            $(this).nextAll('.help').first().children('.charcount').text('Te quedan ' + char + ' caracteres.');
+			            $(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
 			        }
 			    });
 			    $('.text').live('keyup', function() {
 			        var max = 150;
 			        var len = $(this).val().length;
 			        if (len >= max) {
-			            $(this).nextAll('.help').first().children('.charcount').text('Has llegado al máximo de caracteres.');
+			            $(this).nextAll('.help').first().children('.charcount').html('Has llegado al máximo de caracteres.');
 			        }else {
 			            var char = max - len;
-			            $(this).nextAll('.help').first().children('.charcount').text('Te quedan ' + char + ' caracteres.');
+			            $(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
 			        }
 			    });
 			});
