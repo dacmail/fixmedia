@@ -49,7 +49,7 @@
                                 </p>
                             </div>
                         </div>
-                        <a class="log_out" href="<?php echo base_url("index.php/auth/logout"); ?>">Cerrar sesión</a>
+                        <a class="log_out" href="<?= site_url($this->router->reverseRoute('logout')); ?>">Cerrar sesión</a>
                     </div>
                 </section>
             <? endif; ?>  
@@ -57,7 +57,7 @@
     </header>
     <nav class="main-menu">
         <ul class="menu clearfix">
-            <li><a href="<?= $this->router->reverseRoute('reports-create') ?>" class="button icon fixit">FIX</a></li>
+            <li><a href="<?= site_url($this->router->reverseRoute('reports-create')); ?>" class="button icon fixit">FIX</a></li>
             <li class="current"><a class="link" href="#">Más urgentes</a></li>
             <li><a class="link" href="#">Pendientes</a></li>
             <li><a class="link" href="#">Recientes</a></li>

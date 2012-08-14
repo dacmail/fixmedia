@@ -223,15 +223,21 @@ a:hover {text-decoration:underline;}
 		margin-bottom:40px;
 	}
 	.title {
-		color:#333333;
+		color:#666666;
 		font-size:30px;
-		font-weight:normal;
+		font-weight:bold;
+		font-style:italic;
 		margin-bottom:20px;
 	}
-		.title .submit {
-			float:right;
-			margin-top:-7px;
-		}
+	.sub_title {
+		font-size:17px;
+		font-weight: normal;
+		font-style: italic;
+		color:#999999;
+		margin-bottom:20px;
+		margin-top:-12px;
+	}
+	.sep {border-bottom:1px solid #E5E5E5; padding-bottom:20px;}
 		.sending .label {
 			color:#333333;
 			font-size:17px;
@@ -266,6 +272,7 @@ a:hover {text-decoration:underline;}
 			left:200px;
 			bottom:85px;
 			font-weight:bold;
+			font-style:normal;
 		}
 		.report_info .report_meta {
 			position:absolute;
@@ -292,6 +299,54 @@ a:hover {text-decoration:underline;}
 				font-size:25px;
 				color:#666666;
 			}
+		.reports_list .report_info {border-bottom-width: 1px;}
+		.reports_list .report_info .screenshot {width:150px;}
+		.reports_list .report_info .title {
+			position:relative;
+			left:0px;
+			top:0px;
+			float:left;
+			width:470px;
+		}
+		.reports_list .report_info .title a { color:#333333; }
+		.reports_list .report_info .report_meta {
+			position:relative;
+			left:0px;
+			top:0px;
+			float:left;
+			width:470px;
+		}
+	.fix_reports_counters {
+		background:#B2B2B2;
+		width:150px;
+		height:35px;
+		color:#FFFFFF;
+		font-weight: bold;
+		font-style: italic;
+		font-size: 13px;
+		text-align: center;
+		line-height: 13px;
+		padding:10px 0px;
+		border-radius: 15px;
+		margin-top:10px;
+	}
+	.fix_reports_counters .count {
+		font-size:25px;
+		display:block;
+		line-height:25px;
+	}
+	.fix_reports_counters .fixes {
+		float:left;
+		width:74px;
+		border-right: 1px solid #989898;
+	}
+	.fix_reports_counters .fixes .count
+	.fix_reports_counters .reports {
+		float:left;
+		width:74px;
+		border-left: 1px solid #CBCBCB;
+	}
+	.fix_reports_counters .reports .count {font-size:20px;}
 	.sending .wrap_type {
 	    display:block;
 	    background:#CCA100;
@@ -553,7 +608,25 @@ a:hover {text-decoration:underline;}
 		padding-top:15px;
 	}
 
+#sidebar .block {
+	width:260px;
+	margin:20px;
+	font-size:14px;
+	color:#7F7F7F;
+	line-height:21px;
+}
+#sidebar p {margin:10px 0;}
+#sidebar .block .title {
+	font-size: 21px;
+	color:#3D87B7;
+}
+#sidebar .share {
+	background:#ffffff;
+	height:50px;
+}
 
+	#sidebar .share .twitter-follow-button {float:right;}
+	#sidebar .share .fb-like {float:left}
 /* Botones */
 .button {
 	display:block;
