@@ -165,7 +165,7 @@ a:hover {text-decoration:underline;}
 	.main-menu {
 		border-bottom:7px solid #F6F6F6;
 		width:980px;
-		margin:15px auto;
+		margin:15px auto 25px auto;
 		padding-bottom:10px;
 	}
 		.main-menu .menu {
@@ -620,13 +620,41 @@ a:hover {text-decoration:underline;}
 	font-size: 21px;
 	color:#3D87B7;
 }
-#sidebar .share {
+#sidebar .likes {
 	background:#ffffff;
 	height:50px;
 }
 
-	#sidebar .share .twitter-follow-button {float:right;}
-	#sidebar .share .fb-like {float:left}
+	#sidebar .likes .twitter-follow-button {float:right;}
+	#sidebar .likes .fb-like {float:left}
+#sidebar .ranking .row {
+	border-bottom:1px solid #CBCBCB;
+	padding-bottom:10px;
+	margin-bottom:10px;
+	font-size:14px;
+	color:#4c4c4c;
+}
+	#sidebar .ranking .row:last-child {border:0px;}
+	#sidebar .ranking .row .pos {
+		font-size:15px;
+		font-weight: bold;
+		width:20px;
+		float:left;
+		display:block;
+	}
+	#sidebar .ranking .row .site {
+		width:190px;
+		float:left;
+		display:block;
+	}
+	#sidebar .ranking .row .votes {
+		font-weight: bold;
+		font-style: italic;
+		width:50px;
+		float:left;
+		display:block;
+		text-align:right;
+	}
 /* Paginacion */
 .pagination {margin:30px 0;}
 .pagination a {
