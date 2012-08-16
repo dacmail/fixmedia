@@ -721,6 +721,74 @@ a:hover {text-decoration:underline;}
 	width:125px;
 	margin:0px auto 50px auto;
 }
+/* Footer */
+#footer {
+	width: 100%;
+}
+#footer .wrap {
+	width:980px;
+	margin:0px auto;
+	padding:30px 0;
+}
+	.main-footer {
+		padding-top:1px;
+		width: 100%;
+		background:#323232;
+		border-bottom:1px solid #1D1D1D;
+	}
+		.main-footer .block {
+			width:280px;
+			float:left;
+		}
+			.main-footer .block .logo a {
+				display:block;
+				width:239px;
+				height:64px;
+				background:url('../images/logo-footer.jpg') no-repeat;
+				text-indent:-99999999px;
+				margin:20px 0;
+			}
+			.main-footer .block p {
+				font-style: italic;
+				font-size: 14px;
+				color:#7F7F7F;
+			}
+				.main-footer .block p a {color:#CCCCCC;}
+		.main-footer .menus {
+			width:650px;
+			float:right;
+			margin-top:10px;
+		}
+			.main-footer .menus .menu {
+				float:left;
+				width:165px;
+				margin-left:40px;
+				list-style:none;
+			}
+				.main-footer .menus .menu .name {
+					font-weight: bold;
+					font-style: italic;
+					font-size: 17px;
+					color:#ffffff;
+					margin-bottom:15px;
+				}
+				.main-footer .menus .menu li {margin-bottom:5px;}
+				.main-footer .menus .menu li a {
+					font-size:14px;
+					color:#B2B2B2;
+				}
+	.logos-footer {
+		width:100%;
+		background:#272727;
+		border-top:1px solid #323232;
+	}
+		.logos-footer .title {
+			font-size:14px;
+			color:#CCCCCC;
+		}
+		.logos-footer .develop {float:left;width:300px;}
+		.logos-footer .cofin {float:right; width:571px;}
+		.logos-footer .cofin img {margin-right:40px;}
 /* Desarrollo */
 
 .reports_list {
