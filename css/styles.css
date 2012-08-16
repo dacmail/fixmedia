@@ -627,6 +627,49 @@ a:hover {text-decoration:underline;}
 
 	#sidebar .share .twitter-follow-button {float:right;}
 	#sidebar .share .fb-like {float:left}
+/* Paginacion */
+.pagination {margin:30px 0;}
+.pagination a {
+	display:block;
+	width:50px;
+	height:40px;
+	line-height: 40px;
+	background: #F1F7F8;
+	border:1px solid #DCEBF1;
+	font-size:17px;
+	color:#79B4CC;
+	text-align: center;
+	margin-right:10px;
+	float:left;
+}
+.pagination strong {
+	display:block;
+	width:50px;
+	height:40px;
+	line-height: 40px;
+	background: #79B4CB;
+	border:1px solid #DCEBF1;
+	font-size:17px;
+	color:#ffffff;
+	text-align: center;
+	margin-right:10px;
+	float:left;
+	font-weight: normal;
+}
+.pagination .first, .pagination .last {float:left;}
+.pagination .first a, .pagination .last a {
+	width:auto;
+	padding:0px 10px;
+	border:0px;
+	background:transparent;
+	font-weight: bold;
+	font-style:italic;
+	color:#79B4CC;
+	font-size: 15px;
+	text-transform: lowercase;
+}
+.pagination a:hover {background:#DCEBF1; text-decoration: none;}
+.pagination .first a:hover, .pagination .last a:hover {background:transparent;}
 /* Botones */
 .button {
 	display:block;
