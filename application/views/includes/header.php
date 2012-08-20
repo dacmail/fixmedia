@@ -9,10 +9,6 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="robots" content="index, follow" />
-    <meta name="revisit-after" content="30 days" />
-    <meta name="rating" content="Safe for kids" />
-    <meta name="copyright" content="" />
-    <meta name="author" content="" />
     <meta name="contact_addr" content="" />
     <meta name="distribution" content="Global" />
     <meta name="resource-type" content="document" />
@@ -24,16 +20,54 @@
 </head>
 <body>
     <header id="header">
-        <p class="main_title"><a href="<?php echo base_url(); ?>">Fixmedia.org, mejora las noticias</a></p>
-        <ul class="menu clearfix">
-            <li><? echo anchor($this->router->reverseRoute('reports-create'), 'Añade un nuevo reporte'); ?></li>
+        <div class="wrap clearfix">
+            <p class="main_title"><a href="<?php echo base_url(); ?>">Fixmedia.org, arregla las noticias</a></p>
+            <nav class="top-menu">
+                <ul class="menu clearfix">
+                    <li><a href="#">¿Qué es fixmedia?</a></li>
+                    <li><a href="#">Prueba nuestro marcador</a></li>
+                </ul>
+            </nav>
             <? if (!$logged_in) : ?>
-            <li><a href="<?php echo base_url("index.php/auth/create_user"); ?>">Registro</a></li>
-            <li><a href="<?php echo base_url("index.php/auth/login"); ?>">Entrar</a></li>
+                <a class="log_in" href="<?php echo base_url("index.php/auth/login"); ?>">Iniciar sesión</a>
             <? else :?>
-            <li class="right"><a href="<?php echo base_url("index.php/auth/logout"); ?>">Salir</a></li>
-            <li class="right">Hola <?= $the_user->username; ?></li>
-            <? endif; ?>
-            
-        </ul>
+                <section class="user">
+                    <a class="welcome" href="#"><span class="user_name"><?= $the_user->username; ?></span> <?=gravatar( $the_user->email, 40 )?></a>
+                    <div class="user_info">
+                        <span class="indicator"></span>
+                        <div class="clearfix">
+                            <div class="user_avatar">
+                                <?=gravatar( $the_user->email, 100 )?>
+                                <a href="#">Ver perfil</a>
+                            </div>
+                            
+                            <div class="user_data">
+                                <h2 class="name"><?= $the_user->username; ?></h2>
+                                <p class="counters">
+                                    <span class="fix_count">345</span> fixes
+                                    <span class="report_count">25</span> reportes
+                                </p>
+                            </div>
+                        </div>
+                        <a class="log_out" href="<?= site_url($this->router->reverseRoute('logout')); ?>">Cerrar sesión</a>
+                    </div>
+                </section>
+            <? endif; ?>  
+        </div>
     </header>
+    <nav class="main-menu">
+        <ul class="menu clearfix">
+            <li><a href="<?= site_url($this->router->reverseRoute('reports-create')); ?>" class="button icon fixit">FIX</a></li>
+            <li class="current"><a class="link" href="#">Más urgentes</a></li>
+            <li><a class="link" href="#">Pendientes</a></li>
+            <li><a class="link" href="#">Recientes</a></li>
+            <li><a class="link" href="#">Top usuarios</a></li>
+            <li><a class="link" href="#">Top fuentes</a></li>
+            <li><a class="link" href="#">Estadísticas</a></li>
+            <li class="search">
+                <form action="#">
+                    <input type="text" />
+                </form>
+            </li>
+        </ul>
+    </nav>

@@ -5,10 +5,29 @@ class Reports extends MY_Controller {
 	public function __construct() {
 	   parent::__construct();
 	}
-	public function index() {
+	public function index($page=1) {
+		$this->load->library('pagination');
+
+		$config['base_url'] = site_url('page/');
+		$config['total_rows'] = Report::count_all();
+		$config['first_url'] = site_url();
+		$this->pagination->initialize($config); 
+		$data['pagination_links'] = $this->pagination->create_links();
 		$data['page_title'] = 'Listado de reportes';
 		$data['main_content'] = 'reports/list_reports';
-		$data['reports'] = Report::all();
+		$data['reports'] = Report::all(array(
+										'limit' => $this->pagination->per_page, 
+										'offset' => $this->pagination->per_page*($page-1), 
+										'order' => 'created_at desc, votes_count desc'));
+		$data['sites_most_fixes'] = Report::find_by_sql('
+									SELECT site, SUM(votes_count) as votes
+									FROM reports GROUP BY site
+									ORDER BY votes DESC LIMIT 0,5');
+		$data['sites_most_reported'] = Report::find_by_sql('
+									SELECT site, COUNT(reports_data.id) as reports
+									FROM reports INNER JOIN reports_data
+									ON reports.id = reports_data.report_id GROUP BY site
+									ORDER BY reports DESC LIMIT 0,5');
 		$data['reports_data'] = Reports_data::all();
 		$this->load->view('includes/template', $data);
 	}

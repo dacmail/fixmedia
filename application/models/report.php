@@ -21,4 +21,9 @@ class Report extends ActiveRecord\Model {
 		if (empty($user_id)) return true;
 		return Vote::exists(array('conditions' => array("item_id = ? AND user_id = ? AND vote_type LIKE 'FIX'", $this->id, $user_id)));
 	}
+
+	public static function count_all() {
+        $array = self::first(array('select' => 'count(*) AS num_rows'))->attributes();
+        return $array['num_rows'];
+    }
 }	

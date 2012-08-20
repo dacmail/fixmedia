@@ -193,4 +193,23 @@ $('document').ready(function() {
 		});
 	}	
 
+
+	if ($('#header .user .welcome').length>0) {
+		$('#header .user .welcome').click(function (e) {
+			e.preventDefault();
+			$('#header .user .user_info').toggle();
+			$("#header .user .welcome").toggleClass("menu-open");
+		});
+
+		$("#header .user .user_info").mouseup(function() {
+        	return false
+        });
+        $(document).mouseup(function(e) {
+            if ($(e.target).parent("#header .user .welcome").length==0) {
+                $("#header .user .welcome").removeClass("menu-open");
+                $("#header .user .user_info").hide();
+            }
+        });	
+	}
+
 });

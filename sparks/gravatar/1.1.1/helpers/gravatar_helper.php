@@ -33,7 +33,7 @@
  */
 if ( ! function_exists('gravatar'))
 { 
-	function gravatar( $email, $s = 80, $img = true, $d = 'identicon', $r = 'x', $atts = array() )
+	function gravatar( $email, $s = 80, $img = true, $d = 'mm', $r = 'x', $atts = array() )
 	{
 		$url = ( isset($_SERVER['HTTPS']) ) ? 'https://secure.' : 'http://www.';
 		$url .= 'gravatar.com/avatar/';
