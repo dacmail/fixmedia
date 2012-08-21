@@ -5,6 +5,7 @@
 
 		<div class="fb-like" data-href="http://fixmedia.org" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false"></div>
 	</section>
+	<? if (isset($sites_most_fixes)) :?>
 	<section class="block ranking">
 		<h3 class="title">Fuentes con más fixes</h3>
 		<? foreach ($sites_most_fixes as $site) :?>
@@ -13,6 +14,8 @@
 			</div>
 		<? endforeach; ?> 
 	</section>
+	<? endif; ?>
+	<? if (isset($sites_most_reported)) :?>
 	<section class="block ranking">
 		<h3 class="title">Fuentes con más reportes</h3>
 		<? foreach ($sites_most_reported as $site) :?>
@@ -21,6 +24,7 @@
 			</div>
 		<? endforeach; ?> 
 	</section>
+	<? endif; ?>
 	<section class="block">
 		<h3 class="title">¿Qué es fixmedia.org?</h3>
 		<div class="text">

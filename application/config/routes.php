@@ -48,7 +48,7 @@ $route['reporte/guardar'] = array('/reports/save','reports-save');
 $route['reporte/(:slug)'] = array('/reports/view/$1','reports-view');
 $route['usuario/salir'] = array('/auth/logout','logout');
 $route['page/(:page)'] = array('reports/index/$1','home-page');
-
+$route['usuario/(:username)'] = array('/member/index/$1','user-profile');
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
