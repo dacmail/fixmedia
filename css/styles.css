@@ -330,6 +330,7 @@ a:hover {text-decoration:underline;}
 		border-radius: 15px;
 		margin-top:10px;
 	}
+
 	.fix_reports_counters .count {
 		font-size:25px;
 		display:block;
@@ -340,12 +341,12 @@ a:hover {text-decoration:underline;}
 		width:74px;
 		border-right: 1px solid #989898;
 	}
-	.fix_reports_counters .fixes .count
 	.fix_reports_counters .reports {
 		float:left;
 		width:74px;
 		border-left: 1px solid #CBCBCB;
 	}
+
 	.fix_reports_counters .reports .count {font-size:20px;}
 	.sending .wrap_type {
 	    display:block;
@@ -653,6 +654,20 @@ a:hover {text-decoration:underline;}
 		float:left;
 		display:block;
 		text-align:right;
+	}
+	#sidebar .fix_reports_counters { 
+		height:65px; 
+		width:300px; 
+	}
+	#sidebar .fix_reports_counters .reports, #sidebar .fix_reports_counters .fixes  {width:149px;}
+	#sidebar .fix_reports_counters .count {
+		font-size:40px; 
+		line-height:50px;
+	}
+	#sidebar .fix_reports_counters .reports .count {font-size:50px;}
+	#sidebar .user_info {
+		background:#ffffff;
+		padding:20px 0;
 	}
 /* Paginacion */
 .pagination {margin:30px 0;}
