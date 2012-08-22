@@ -1,5 +1,5 @@
 
-<div id="container" class="sending preview columns">
+<div id="container" class="clearfix sending preview columns">
 	<div id="content">
 		<section class="report_info clearfix">
 			<div class="screenshot">

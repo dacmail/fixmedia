@@ -1,4 +1,4 @@
-<div id="container" class="sending new clearfix">
+<div id="container" class="clearfix sending new clearfix">
 	<div id="content">
 		<h1 class="title sep">Enviar nuevo reporte</h1>
 		<?php echo form_open($this->router->reverseRoute('reports-create')) ?>

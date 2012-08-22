@@ -642,6 +642,23 @@ a:hover {text-decoration:underline;}
 				.tabs .tabs_items .ui-state-active a {color:#ffffff;}
 			.tabs .tabs_items li a:hover {text-decoration: none;}
 		.tabs .ui-tabs-hide {display:none;}
+	.chart_wrap {margin-bottom:30px;}
+	.chart_wrap .chart {float:left;}
+	.chart_wrap .explanation {
+		float:right;
+		width:260px;
+		padding:20px;
+		background: #F6F6F6;
+	}
+		.chart_wrap .explanation .title {
+			font-size:21px;
+			font-style: normal;
+			color:#333333;
+		}
+		.chart_wrap .explanation .hint {
+			color:#7F7F7F;
+			line-height: 21px;
+		}
 #sidebar .counter {
 	font-size:17px;
 	color:#ffffff;

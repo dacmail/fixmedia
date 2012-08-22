@@ -18,11 +18,105 @@
 				<li><a href="#stats">Estadísticas</a></li>
 				<li><a href="#fixes">Noticias mejoradas por <?= $user->username; ?></a></li>
 			</ul>
-			<div id="stats">
-				<p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+			<div id="stats">	
+			    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			    <script type="text/javascript">
+			    	google.load('visualization', '1.0', {'packages':['corechart']});
+					google.setOnLoadCallback(draw_charts);
+					function fix_vs_report() {
+						var data = new google.visualization.DataTable();
+						data.addColumn('string', 'Type');
+						data.addColumn('number', 'Count');
+						data.addRows([
+						  ['Reportes', <?= count($user->subreports); ?>],
+						  ['Fixes', <?= count($user->fixes); ?>],
+						]);
+						var options = {'title':'',
+						               'width':320,
+						               'height':200};
+
+						var chart = new google.visualization.PieChart(document.getElementById('fix_vs_rep'));
+						chart.draw(data, options);
+					}
+					function other_chart() {
+						var data = new google.visualization.DataTable();
+						data.addColumn('string', 'Type');
+						data.addColumn('number', 'Count');
+						data.addRows([
+						  ['Reportes', <?= count($user->subreports); ?>],
+						  ['Fixes', <?= count($user->fixes); ?>],
+						]);
+						var options = {'title':'',
+						               'width':320,
+						               'height':200};
+
+						var chart = new google.visualization.PieChart(document.getElementById('other_chart'));
+						chart.draw(data, options);
+					}
+					function another_chart() {
+						var data = new google.visualization.DataTable();
+						data.addColumn('string', 'Type');
+						data.addColumn('number', 'Count');
+						data.addRows([
+						  ['Reportes', <?= count($user->subreports); ?>],
+						  ['Fixes', <?= count($user->fixes); ?>],
+						]);
+						var options = {'title':'',
+						               'width':320,
+						               'height':200};
+
+						var chart = new google.visualization.PieChart(document.getElementById('another_chart'));
+						chart.draw(data, options);
+					}
+					function draw_charts() {
+						fix_vs_report();
+						other_chart();
+						another_chart();
+					}
+			    </script>
+
+
+			    <div class="chart_wrap clearfix">
+			    	<div class="chart" id="fix_vs_rep"></div>
+			    	<div class="explanation">
+			    		<h3 class="title"><?= round(count($user->fixes)/count($user->subreports),1); ?> fixes por cada reporte</h3>
+			    		<p class="hint">El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.</p>
+			    	</div>
+			    </div>
+			    <div class="chart_wrap clearfix">
+			    	<div class="chart" id="other_chart"></div>
+			    	<div class="explanation">
+			    		<h3 class="title"><?= round(count($user->fixes)/count($user->subreports),1); ?> fixes por cada reporte</h3>
+			    		<p class="hint">El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.</p>
+			    	</div>
+			    </div>
+			    <div class="chart_wrap clearfix">
+			    	<div class="chart" id="another_chart"></div>
+			    	<div class="explanation">
+			    		<h3 class="title"><?= round(count($user->fixes)/count($user->subreports),1); ?> fixes por cada reporte</h3>
+			    		<p class="hint">El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.</p>
+			    	</div>
+			    </div>
+			    
+
 			</div>
-			<div id="fixes">
-				<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+			<div class="reports_list" id="fixes">
+			<? foreach ($user->subreports as $subreport) : ?>
+				<article class="report_info clearfix">
+					<div class="screenshot">
+						<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" width="150" alt="Captura de <?=$subreport->report->title;?>" />
+						<div class="clearfix fix_reports_counters">
+							<div class="fixes"><span class="count"><?= $subreport->report->votes_count; ?></span> fixes</div>
+							<div class="reports"><span class="count"><?= count($subreport->report->data); ?></span> reportes</div>
+						</div>
+					</div>
+					<h1 class="title"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $subreport->report->slug))); ?>"><?=$subreport->report->title;?></a></h1>
+					<div class="report_meta">
+						<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $subreport->report->user->username))); ?>"><?= $subreport->report->user->username; ?></a> el <?= $subreport->report->created_at->format('d/m/Y'); ?></p>
+						<p class="source">Fuente: <?= $subreport->report->site; ?></p>
+					</div>
+				</article>
+			<? endforeach; ?>
 			</div>
 		</section>
 	</div>

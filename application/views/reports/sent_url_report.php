@@ -1,4 +1,4 @@
-<div id="container" class="sending_url columns">
+<div id="container" class="clearfix sending_url columns">
 	<div id="content">
 		<section class="report_info clearfix">
 			<div class="screenshot">
