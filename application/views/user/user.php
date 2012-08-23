@@ -5,10 +5,10 @@
 			  <div class="data">
 			  		<h1 class="name"><?= $user->username; ?></h1>
 			  		<p class="when">Mejorando noticias desde el <?= date('d/m/Y', $user->created_on); ?></p>
-			  		<p class="bio">Nunc vel turpis, vut habitasse enim rhoncus nec ridiculus duis purus amet, duis dapibus enim, elementum scelerisque ac? Porta? Magnis? Vut a nisi adipiscing eros quis odio! Lorem odio penatibus, sit!</p>
-			 		<p class="url">Web: <a href="#">http://google.com/</a></p>
+			  		<p class="bio"><?= $user->bio ?></p>
+			 		<p class="url">Web: <a href="#"><?= $user->url ?></a></p>
 			 		<p class="follow">
-			 			<a href="https://twitter.com/<?=$user->username;?>" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @<?=$user->username;?></a>
+			 			<a href="https://twitter.com/<?=$user->twitter;?>" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @<?=$user->twitter;?></a>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 			 		</p>
 			  </div>

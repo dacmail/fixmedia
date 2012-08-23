@@ -18,4 +18,24 @@ class Member extends MY_Controller {
 		endif;
 	}
 
+	public function edit() {
+		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
+		$data['user'] = $this->the_user;
+		$data['page_title'] = 'Editar perfil';
+		$data['main_content'] = 'user/edit';
+		$this->load->view('includes/template', $data);
+	}
+
+	public function save() {
+		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
+		$user = $this->the_user;
+		$post_data = $this->input->post(NULL, TRUE); 
+		$user->name = $post_data['name'];
+		$user->bio = $post_data['bio'];
+		$user->url = $post_data['url'];
+		$user->twitter = $post_data['twitter'];
+		$user->save();
+		redirect($this->router->reverseRoute('user-profile', array('username' => $user->username)));
+	}
+
 }

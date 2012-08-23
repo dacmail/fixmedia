@@ -604,7 +604,7 @@ a:hover {text-decoration:underline;}
 		.profile .user_info .data .bio {color:#7F7F7F;}
 		.tabs .tabs_items {
 			list-style:none;
-			height:70px;
+			height:80px;
 		}
 			.tabs .tabs_items li {
 				float:left;
@@ -642,6 +642,7 @@ a:hover {text-decoration:underline;}
 				.tabs .tabs_items .ui-state-active a {color:#ffffff;}
 			.tabs .tabs_items li a:hover {text-decoration: none;}
 		.tabs .ui-tabs-hide {display:none;}
+		.tabs .reports_list {margin-top:30px;}
 	.chart_wrap {margin-bottom:30px;}
 	.chart_wrap .chart {float:left;}
 	.chart_wrap .explanation {

@@ -12,7 +12,7 @@ class MY_Controller extends CI_Controller {
             $data->logged_in=true;
             $this->logged_in=$data->logged_in;
             $data->the_user = $this->ion_auth->user()->row();
-            $this->the_user = $data->the_user;
+            $this->the_user = $data->the_user = User::find($data->the_user->id);
         }
         $this->load->vars($data);
 
