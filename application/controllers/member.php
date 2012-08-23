@@ -30,12 +30,20 @@ class Member extends MY_Controller {
 		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 		$user = $this->the_user;
 		$post_data = $this->input->post(NULL, TRUE); 
-		$user->name = $post_data['name'];
-		$user->bio = $post_data['bio'];
-		$user->url = $post_data['url'];
-		$user->twitter = $post_data['twitter'];
-		$user->save();
-		redirect($this->router->reverseRoute('user-profile', array('username' => $user->username)));
+		$this->form_validation->set_rules('url', 'URL', 'required|prep_url|valid_url');
+		if ($this->form_validation->run() === FALSE) :
+			$data['user'] = $user;
+			$data['page_title'] = 'Editar perfil';
+			$data['main_content'] = 'user/edit';
+			$this->load->view('includes/template', $data);
+		else :
+			$user->name = empty($post_data['name']) ? $user->username : $post_data['name'];
+			$user->bio = $post_data['bio'];
+			$user->url = $post_data['url'];
+			$user->twitter = $post_data['twitter'];
+			$user->save();
+			redirect($this->router->reverseRoute('user-profile', array('username' => $user->username)));
+		endif;
 	}
 
 }

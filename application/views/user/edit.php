@@ -15,11 +15,11 @@
 				</div>
 				<div class="row wrap_title">
 					<label class="label" for="name">Sobre tí<span class="tip">Puedes escribir una pequeña biografía sobre tí.</span></label>
-					<textarea class="textarea" maxlength="350" id="" name="bio"><?=htmlspecialchars($user->bio);?> </textarea>
+					<textarea class="textarea" maxlength="350" id="" name="bio"><?=$user->bio;?> </textarea>
 				</div>
 				<div class="row wrap_title">
 					<label class="label" for="name">Página web <span class="tip">Escribe la url de tu blog, web, twitter o lo que quieras.</span></label>
-					<input class="text" type="text" id="" name="url" value="<?=htmlspecialchars($user->url);?>" />
+					<input class="text" type="text" id="" name="url" value="<?php echo (form_error('url') ? set_value('url') : $user->url); ?>" />
 					<?php echo form_error('url', '<span class="error">', '</span>'); ?>
 				</div>
 				<div class="row wrap_title">

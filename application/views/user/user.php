@@ -3,7 +3,7 @@
 		<section class="user_info clearfix">
 			  <?=gravatar( $user->email, 150 )?>
 			  <div class="data">
-			  		<h1 class="name"><?= $user->username; ?></h1>
+			  		<h1 class="name"><?= $user->name; ?></h1>
 			  		<p class="when">Mejorando noticias desde el <?= date('d/m/Y', $user->created_on); ?></p>
 			  		<p class="bio"><?= $user->bio ?></p>
 			 		<p class="url">Web: <a href="#"><?= $user->url ?></a></p>
