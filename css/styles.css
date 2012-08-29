@@ -202,7 +202,6 @@ a:hover {text-decoration:underline;}
 #container {
 	width:980px;
 	margin:10px auto;
-	position:relative;
 }
 	#container.columns #content {
 		width:640px;

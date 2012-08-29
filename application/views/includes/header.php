@@ -16,6 +16,7 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-ui-1.8.23.custom.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-scrolltofixed-min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/default.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styles.css" />
 </head>

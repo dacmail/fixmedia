@@ -2,7 +2,7 @@
 	<div id="content">
 		<section class="report_info clearfix">
 			<div class="screenshot">
-				<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" alt="Captura de <?=$report->title;?>" />
+				<img src="<?php echo base_url(); ?>fakes/screenshot-med.jpg" alt="Captura de <?=$report->title;?>" />
 				<a class="url_sent" href="<?=$report->url; ?>" target="blank">Ver noticia original</a>
 			</div>
 			<h1 class="title"><?=$report->title;?></h1>
