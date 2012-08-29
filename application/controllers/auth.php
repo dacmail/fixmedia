@@ -406,12 +406,8 @@ class Auth extends MY_Controller {
 			redirect('auth', 'refresh');
 		}
 
-		//validate form input
-		//$this->form_validation->set_rules('first_name', 'First Name', 'required|xss_clean');
-		//$this->form_validation->set_rules('last_name', 'Last Name', 'required|xss_clean');
-		$this->form_validation->set_rules('username', 'Username', 'required|unique');
-		$this->form_validation->set_rules('email', 'Email Address', 'required|unique|valid_email');
-		//$this->form_validation->set_rules('company', 'Company Name', 'required|xss_clean');
+		$this->form_validation->set_rules('username', 'Usuario', 'required|unique');
+		$this->form_validation->set_rules('email', 'Email', 'required|unique|valid_email');
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
 		$this->form_validation->set_rules('password_confirm', 'Password Confirmation', 'required');
 
@@ -430,6 +426,9 @@ class Auth extends MY_Controller {
 		if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email))
 		{ //check to see if we are creating the user
 			//redirect them back to the admin page
+			$user = User::find_by_username($username);
+			$user->name = $username;
+			$user->save;
 			$this->session->set_flashdata('message', "User Created");
 			redirect("auth", 'refresh');
 		}
@@ -438,18 +437,6 @@ class Auth extends MY_Controller {
 			//set the flash data error message if there is one
 			$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
-			/*$this->data['first_name'] = array('name' => 'first_name',
-				'id' => 'first_name',
-				'type' => 'text',
-				'value' => $this->form_validation->set_value('first_name'),
-				'class' => 'text'
-			);
-			$this->data['last_name'] = array('name' => 'last_name',
-				'id' => 'last_name',
-				'type' => 'text',
-				'value' => $this->form_validation->set_value('last_name'),
-				'class' => 'text'
-			);*/
 			$this->data['username'] = array(
 				'name' => 'username',
 				'id' => 'username',
@@ -464,12 +451,6 @@ class Auth extends MY_Controller {
 				'value' => $this->form_validation->set_value('email'),
 				'class' => 'text'
 			);
-			/*$this->data['company'] = array(
-				'name' => 'company',
-				'id' => 'company',
-				'type' => 'text',
-				'value' => $this->form_validation->set_value('company'),
-			);*/
 			$this->data['password'] = array('name' => 'password',
 				'id' => 'password',
 				'type' => 'password',

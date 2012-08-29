@@ -14,7 +14,7 @@
 					</div>
 					<h1 class="title"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->slug))); ?>"><?=$report->title;?></a></h1>
 					<div class="report_meta">
-						<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $report->user->username))); ?>"><?= $report->user->username; ?></a> el <?= $report->created_at->format('d/m/Y'); ?></p>
+						<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $report->user->username))); ?>"><?= $report->user->name; ?></a> el <?= $report->created_at->format('d/m/Y'); ?></p>
 						<p class="source">Fuente: <?= $report->site; ?></p>
 					</div>
 				</article>

@@ -33,7 +33,7 @@
                 <a class="log_in" href="<?php echo base_url("index.php/auth/login"); ?>">Iniciar sesión</a>
             <? else :?>
                 <section class="user">
-                    <a class="welcome" href="#"><span class="user_name"><?= $the_user->username; ?></span> <?=gravatar( $the_user->email, 40 )?></a>
+                    <a class="welcome" href="#"><span class="user_name"><?= $the_user->name; ?></span> <?=gravatar( $the_user->email, 40 )?></a>
                     <div class="user_info">
                         <span class="indicator"></span>
                         <div class="clearfix">
@@ -43,7 +43,7 @@
                             </div>
                             
                             <div class="user_data">
-                                <h2 class="name"><?= $the_user->username; ?></h2>
+                                <h2 class="name"><?= $the_user->name; ?></h2>
                                 <p class="counters">
                                     <span class="fix_count">345</span> fixes
                                     <span class="report_count">25</span> reportes

@@ -8,7 +8,7 @@
 			</div>
 			<h1 class="title"><?=$report_sent->title;?></h1>
 			<div class="report_meta">
-				<p class="authorship">Enviado por <?= $report_sent->user->username; ?> el <?= $report_sent->created_at->format('d/m/Y'); ?></p>
+				<p class="authorship">Enviado por <?= $report_sent->user->name; ?> el <?= $report_sent->created_at->format('d/m/Y'); ?></p>
 				<p class="source">Fuente: <?= $report_sent->site; ?></p>
 			</div>
 		</section>
@@ -22,7 +22,7 @@
 					</span>
 					<div class="subreport_info">
 						<h3 class="subreport_title"><?=$report['title'][$index]; ?></h3>
-						<p class="authorship">Enviado por <?= $the_user->username; ?> el <?= date('d/m/Y'); ?></p>
+						<p class="authorship">Enviado por <?= $the_user->name; ?> el <?= date('d/m/Y'); ?></p>
 						<p class="clearfix subreport_types">
 							<? if ($types[$index]->parent_type) : ?>
 							<span class="type"><?=$types[$index]->parent_type->type ;?></span> 

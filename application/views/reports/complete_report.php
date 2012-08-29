@@ -7,7 +7,7 @@
 			</div>
 			<h1 class="title"><?=$report->title;?></h1>
 			<div class="report_meta">
-				<p class="authorship">Enviado por <?= $report->user->username; ?> el <?= $report->created_at->format('d/m/Y'); ?></p>
+				<p class="authorship">Enviado por <?= $report->user->name; ?> el <?= $report->created_at->format('d/m/Y'); ?></p>
 				<p class="source">Fuente: <?= $report->site; ?></p>
 			</div>
 		</section>

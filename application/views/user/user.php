@@ -3,20 +3,26 @@
 		<section class="user_info clearfix">
 			  <?=gravatar( $user->email, 150 )?>
 			  <div class="data">
-			  		<h1 class="name"><?= $user->name; ?></h1>
+			  		<h1 class="name"><?= $user->name; ?> 
+			  			<? if ($logged_in && $user->id=$the_user->id) : ?>
+			  				<a class="edit_profile_link" href="<?=site_url($this->router->reverseRoute('user-edit'));?>">Editar perfil</a>
+			  			<? endif; ?>
+			  		</h1>
 			  		<p class="when">Mejorando noticias desde el <?= date('d/m/Y', $user->created_on); ?></p>
 			  		<p class="bio"><?= $user->bio ?></p>
-			 		<p class="url">Web: <a href="#"><?= $user->url ?></a></p>
+			 		<? if ($user->url) : ?><p class="url">Web: <a href="#"><?= $user->url ?></a></p><? endif; ?>
+			 		<? if ($user->twitter) : ?>
 			 		<p class="follow">
 			 			<a href="https://twitter.com/<?=$user->twitter;?>" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @<?=$user->twitter;?></a>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 			 		</p>
+			 		<? endif; ?>
 			  </div>
 		</section>
 		<section class="tabs">
 			<ul class="tabs_items">
 				<li><a href="#stats">Estadísticas</a></li>
-				<li><a href="#fixes">Noticias mejoradas por <?= $user->username; ?></a></li>
+				<li class="<?= (($page>1) ? 'ui-tabs-selected' : ''); ?>"><a href="#fixes">Noticias mejoradas por <?= $user->name; ?></a></li>
 			</ul>
 			<div id="stats">	
 			    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -101,23 +107,32 @@
 
 			</div>
 			<div class="reports_list" id="fixes">
-			<? foreach ($user->subreports as $subreport) : ?>
-				<article class="report_info clearfix">
+			<? foreach ($votes as $vote) : ?>
+				<article class="report_info clearfix vote-<?=$vote->id;?> <?= $vote->report->has_subreport($user->id) ? 'has_reported' : 'only_fix'; ?> <?= $vote->report->user_id==$user->id ? 'first_fix' : ''; ?>">
 					<div class="screenshot">
-						<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" width="150" alt="Captura de <?=$subreport->report->title;?>" />
+						<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" width="150" alt="Captura de <?=$vote->report->title;?>" />
 						<div class="clearfix fix_reports_counters">
-							<div class="fixes"><span class="count"><?= $subreport->report->votes_count; ?></span> fixes</div>
-							<div class="reports"><span class="count"><?= count($subreport->report->data); ?></span> reportes</div>
+							<div class="fixes"><span class="count"><?= $vote->report->votes_count; ?></span> fixes</div>
+							<div class="reports"><span class="count"><?= count($vote->report->data); ?></span> reportes</div>
 						</div>
 					</div>
-					<h1 class="title"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $subreport->report->slug))); ?>"><?=$subreport->report->title;?></a></h1>
+					<h1 class="title"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $vote->report->slug))); ?>"><?=$vote->report->title;?></a></h1>
 					<div class="report_meta">
-						<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $subreport->report->user->username))); ?>"><?= $subreport->report->user->username; ?></a> el <?= $subreport->report->created_at->format('d/m/Y'); ?></p>
-						<p class="source">Fuente: <?= $subreport->report->site; ?></p>
+						<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $vote->report->user->username))); ?>"><?= $vote->report->user->name; ?></a> el <?= $vote->report->created_at->format('d/m/Y'); ?></p>
+						<p class="source">Fuente: <a href="#"><?= $vote->report->site; ?></a></p>
+						<? if ($vote->report->has_subreport($user->id)) : ?>
+							<p class="action_type report"><?=$user->name;?> reportó su propia mejora en esta noticia</p>			
+						<? elseif ($vote->report->user_id==$user->id) : ?>
+							<p class="action_type fix"><?=$user->name;?> fue el primero en hacer fix en esta noticia</p>
+						<? endif; ?>
 					</div>
+
+
 				</article>
 			<? endforeach; ?>
+			<div class="pagination clearfix"><?=$pagination_links;?></div>
 			</div>
+
 		</section>
 	</div>
 	<?php $this->load->view('includes/sidebar-user'); ?>

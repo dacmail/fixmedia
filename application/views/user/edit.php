@@ -24,7 +24,7 @@
 				</div>
 				<div class="row wrap_title">
 					<label class="label" for="name">Twitter <span class="tip">Escribe tu nombre de usuario de twitter.</span></label>
-					<input class="text" type="text" id="" name="twitter" value="<?=htmlspecialchars($user->twitter);?>" />
+					<span class="prefix">@</span><input class="text wprefix" type="text" id="" name="twitter" value="<?=htmlspecialchars($user->twitter);?>" />
 					<?php echo form_error('twitter', '<span class="error">', '</span>'); ?>
 				</div>
 			</div>

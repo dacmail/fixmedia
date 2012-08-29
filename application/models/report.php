@@ -26,4 +26,9 @@ class Report extends ActiveRecord\Model {
         $array = self::first(array('select' => 'count(*) AS num_rows'))->attributes();
         return $array['num_rows'];
     }
+
+    public function has_subreport($user_id=0) {
+		if (empty($user_id)) return false;
+		return Reports_data::exists(array('conditions' => array("report_id = ? AND user_id = ?", $this->id, $user_id)));
+	}
 }	

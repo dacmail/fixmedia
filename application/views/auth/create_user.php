@@ -24,7 +24,7 @@
       </p>
       
       
-      <p><?php echo form_submit('submit', 'Create User', 'class="submit button"');?></p>
+      <p><?php echo form_submit('submit', 'Registrar', 'class="submit button"');?></p>
 
       
     <?php echo form_close();?>
