@@ -37,9 +37,12 @@
 						  ['Reportes', <?= count($user->subreports); ?>],
 						  ['Fixes', <?= count($user->fixes); ?>],
 						]);
-						var options = {'title':'',
-						               'width':320,
-						               'height':200};
+						var options = { chartArea : {
+						               		width:250, 
+						               		height:170,
+						               		top: 0,
+						               		left: 10	
+						               }};
 
 						var chart = new google.visualization.PieChart(document.getElementById('fix_vs_rep'));
 						chart.draw(data, options);
@@ -52,9 +55,12 @@
 						  ['Reportes', <?= count($user->subreports); ?>],
 						  ['Fixes', <?= count($user->fixes); ?>],
 						]);
-						var options = {'title':'',
-						               'width':320,
-						               'height':200};
+						var options = { chartArea : {
+						               		width:250, 
+						               		height:170,
+						               		top: 0,
+						               		left: 10	
+						               }};
 
 						var chart = new google.visualization.PieChart(document.getElementById('other_chart'));
 						chart.draw(data, options);
@@ -67,9 +73,12 @@
 						  ['Reportes', <?= count($user->subreports); ?>],
 						  ['Fixes', <?= count($user->fixes); ?>],
 						]);
-						var options = {'title':'',
-						               'width':320,
-						               'height':200};
+						var options = { chartArea : {
+						               		width:250, 
+						               		height:170,
+						               		top: 0,
+						               		left: 10	
+						               }};
 
 						var chart = new google.visualization.PieChart(document.getElementById('another_chart'));
 						chart.draw(data, options);

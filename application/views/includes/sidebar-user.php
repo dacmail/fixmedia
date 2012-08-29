@@ -5,6 +5,14 @@
 			<div class="reports"><span class="count"><?= count($user->subreports); ?></span> reportes</div>
 		</div>
 	</section>
+	<section class="block ranking users">
+		<h3 class="title">Posición de <?= $user->name; ?> en Fixmedia</h3>
+		<? foreach ($users_ranking as $user_rank) :?>
+			<div class="row <?= $user_rank->id==$user->id ? 'user' : 'clearfix'; ?>">
+				<span class="pos"><?= $user_rank->id; ?></span> <span class="site"><?= $user_rank->name; ?></span>
+			</div>
+		<? endforeach; ?> 
+	</section>
 	<section class="block">
 		<h3 class="title">¿Qué es fixmedia.org?</h3>
 		<div class="side_text">

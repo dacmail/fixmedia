@@ -103,6 +103,7 @@ a:hover {text-decoration:underline;}
 				background:#ffffff;
 				z-index:100;
 				display:none;
+				box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 			}	
 				#header .user .user_info .indicator {
 					width:23px;
@@ -637,8 +638,10 @@ a:hover {text-decoration:underline;}
 			line-height:34px;
 		}
 			.profile .user_info .data .name .edit_profile_link {
-				font-size:14px;
+				font-size:12px;
 				font-weight: normal;
+				text-transform:lowercase;
+				padding-left:20px;
 			}
 		.profile .user_info .data .bio {color:#7F7F7F;}
 		.tabs .tabs_items {
@@ -683,7 +686,7 @@ a:hover {text-decoration:underline;}
 		.tabs .ui-tabs-hide {display:none;}
 		.tabs .reports_list {margin-top:30px;}
 	.chart_wrap {margin-bottom:30px;}
-	.chart_wrap .chart {float:left;}
+	.chart_wrap .chart {width:320px; float:left;}
 	.chart_wrap .explanation {
 		float:right;
 		width:260px;
@@ -749,6 +752,46 @@ a:hover {text-decoration:underline;}
 	font-size:14px;
 	color:#4c4c4c;
 }
+	#sidebar .ranking .row.user {
+		background:#79B4CB;
+		padding-top:10px;
+		margin-top:-11px;
+		width:270px;
+		margin-left:-25px;
+		padding:10px 20px;
+		color:#ffffff;
+		font-weight: bold;
+		font-style: italic;
+		font-size:17px;
+		position:relative;
+		height:17px;
+	}
+		#sidebar .ranking .row.user:before {
+			position:absolute;
+			content: " ";
+			border-left: 5px solid transparent;
+			border-bottom: 5px solid transparent;
+			border-right: 7px solid #366F79;
+			height:0px;
+			width:0px;
+			bottom:-5px;
+			left:-5px;
+			display:block;
+		}
+		#sidebar .ranking .row.user:after {
+			position:absolute;
+			content: " ";
+			border-right: 5px solid transparent;
+			border-bottom: 5px solid transparent;
+			border-left: 7px solid #366F79;
+			height:0px;
+			width:0px;
+			bottom:-5px;
+			right:-5px;
+			display:block;
+		}
+		
+
 	#sidebar .ranking .row:last-child {border:0px;}
 	#sidebar .ranking .row .pos {
 		font-size:15px;
@@ -757,6 +800,7 @@ a:hover {text-decoration:underline;}
 		float:left;
 		display:block;
 	}
+		#sidebar .ranking.users .row .pos {width:40px;}
 	#sidebar .ranking .row .site {
 		width:190px;
 		float:left;

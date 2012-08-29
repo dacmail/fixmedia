@@ -28,7 +28,7 @@ class Member extends MY_Controller {
 											'limit' => $this->pagination->per_page, 
 											'offset' => $this->pagination->per_page*($page-1)
 											));
-
+			$data['users_ranking'] = User::all(array('limit' => 5));
 			$data['main_content'] = 'user/user';
 			$this->load->view('includes/template', $data);
 		else :

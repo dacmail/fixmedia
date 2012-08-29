@@ -45,8 +45,8 @@
                             <div class="user_data">
                                 <h2 class="name"><?= $the_user->name; ?></h2>
                                 <p class="counters">
-                                    <span class="fix_count">345</span> fixes
-                                    <span class="report_count">25</span> reportes
+                                    <span class="fix_count"><?= count($the_user->fixes); ?></span> fixes
+                                    <span class="report_count"><?= count($the_user->subreports); ?></span> reportes
                                 </p>
                             </div>
                         </div>
