@@ -9,9 +9,7 @@ class Member extends MY_Controller {
 	public function index($username,$page=1) {
 		$user = User::find_by_username($username);
 		if (!empty($user)) :
-			$data['page_title'] = $user->name;
 			$data['user'] = $user;
-			$data['actions'] = $user->subreports;
 			
 			$this->load->library('pagination');
 			$config['base_url'] = site_url($this->router->reverseRoute('user-profile', array('username' => $user->username)) . '/page/');
@@ -20,10 +18,6 @@ class Member extends MY_Controller {
 			$config['uri_segment'] = 4;
 			$this->pagination->initialize($config); 
 			$data['pagination_links'] = $this->pagination->create_links();
-
-			$data['page_title'] = 'Listado de reportes';
-			$data['main_content'] = 'reports/list_reports';
-			$data['page'] = $page;
 
 			$data['votes'] = Vote::all(array(
 											'conditions' => "vote_type LIKE 'FIX' AND user_id = $user->id",
@@ -46,7 +40,10 @@ class Member extends MY_Controller {
 			$data['actions_by_month'] = $actions_by_month;
 
 			$data['fixes_by_sites'] = Vote::find_by_sql("select count(votes.id) as fixes, site from votes inner join reports on (votes.item_id=reports.id) where votes.user_id=" . $user->id . " AND vote_type LIKE '%FIX%' group by site order by fixes desc limit 5");
-
+			
+			$data['page_title'] = 'Perfil de ' . $user->name;
+			$data['main_content'] = 'reports/list_reports';
+			$data['page'] = $page;
 			$data['main_content'] = 'user/user';
 			$this->load->view('includes/template', $data);
 		else :

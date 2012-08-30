@@ -31,6 +31,8 @@
 								<span class="type"><?= $types[$index]->type; ?></span>
 							<? endif; ?> 
 						</p>
+						
+						<? if (!empty($report['content'][$index]) || !empty($report['urls_decode'][$index][0])) : ?>
 
 						<a href="#" class="toggle_info show">Mostrar detalles y fuentes</a>
 						<div class="subreport_content">
@@ -42,6 +44,7 @@
 								<? endforeach; ?>
 							<? endif; ?>
 						</div>
+						<? endif; ?>
 					</div>
 				</div>
 			</div>

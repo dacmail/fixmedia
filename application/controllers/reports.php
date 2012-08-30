@@ -100,7 +100,7 @@ class Reports extends MY_Controller {
 	public function preview() {
 		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 		foreach ($this->input->post('type') as $i => $value) {
-			$this->form_validation->set_rules('content['.$i.']', 'contenido', 'required');
+			//$this->form_validation->set_rules('content['.$i.']', 'contenido', 'required');
 			$this->form_validation->set_rules('title['.$i.']', 'título', 'required');
 		}
 		foreach ($this->input->post('urls') as $i => $urls) {

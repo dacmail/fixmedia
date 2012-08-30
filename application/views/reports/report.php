@@ -36,7 +36,7 @@
 							<span class="type_info" title="<?= $subreport->type_info; ?>"><?= character_limiter($subreport->type_info,50); ?></span>
 							<? endif; ?> 
 						</p>
-
+						<? if (!empty($subreport->content) || !empty($subreport->urls[0])) : ?>
 						<a href="#" class="toggle_info show">Mostrar detalles y fuentes</a>
 						<div class="subreport_content">
 							<?=$subreport->content;?>
@@ -47,6 +47,7 @@
 								<? endforeach; ?>
 							<? endif; ?>
 						</div>
+						<? endif; ?>
 					</div>
 				</div>
 			</div>
