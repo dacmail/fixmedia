@@ -100,7 +100,7 @@
 			    <div class="chart_wrap clearfix">
 			    	<div class="chart" id="actions_by_month"></div>
 			    	<div class="explanation">
-			    		<h3 class="title">Actividad en los ultimos meses</h3>
+			    		<h3 class="title">Actividad por meses</h3>
 			    		<p class="hint">El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.</p>
 			    	</div>
 			    </div>

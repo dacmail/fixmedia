@@ -28,7 +28,8 @@ class Member extends MY_Controller {
 			$data['votes'] = Vote::all(array(
 											'conditions' => "vote_type LIKE 'FIX' AND user_id = $user->id",
 											'limit' => $this->pagination->per_page, 
-											'offset' => $this->pagination->per_page*($page-1)
+											'offset' => $this->pagination->per_page*($page-1),
+											'order' => 'created_at desc'
 											));
 
 			$data['users_ranking'] = User::all(array('limit' => 5));
