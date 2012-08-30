@@ -40,7 +40,7 @@
                         <div class="clearfix">
                             <div class="user_avatar">
                                 <?=gravatar( $the_user->email, 100 )?>
-                                <a href="#">Ver perfil</a>
+                                <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $the_user->username))); ?>">Ver perfil</a>
                             </div>
                             
                             <div class="user_data">

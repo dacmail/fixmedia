@@ -7,7 +7,7 @@
 			</div>
 			<h1 class="title"><?=$report->title;?></h1>
 			<div class="report_meta">
-				<p class="authorship">Enviado por <?= $report->user->username; ?> el <?= $report->created_at->format('d/m/Y'); ?></p>
+				<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $report->user->name))); ?>"><?= $report->user->name; ?></a> el <?= $report->created_at->format('d/m/Y'); ?></p>
 				<p class="source">Fuente: <?= $report->site; ?></p>
 			</div>
 		</section>
@@ -29,7 +29,7 @@
 					</span>
 					<div class="subreport_info">
 						<h3 class="subreport_title"><?=$subreport->title; ?></h3>
-						<p class="authorship">Enviado por <?= $subreport->user->username; ?> el <?= $subreport->created_at->format('d/m/Y'); ?></p>
+						<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $subreport->user->name))); ?>"><?= $subreport->user->name; ?></a> el <?= $subreport->created_at->format('d/m/Y'); ?></p>
 						<p class="clearfix subreport_types type_<?=$subreport->type;?>">
 							<span class="type"><?=$subreport->type;?></span> 
 							<? if ($subreport->type_info!=$subreport->type) : ?>

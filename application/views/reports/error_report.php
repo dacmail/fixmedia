@@ -7,7 +7,7 @@
 			</div>
 			<h1 class="title"><?=$report_sent->title;?></h1>
 			<div class="report_meta">
-				<p class="authorship">Enviado por <?= $report_sent->user->name; ?> el <?= $report_sent->created_at->format('d/m/Y'); ?></p>
+				<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $report_sent->user->name))); ?>"><?= $report_sent->user->name; ?></a> el <?= $report_sent->created_at->format('d/m/Y'); ?></p>
 				<p class="source">Fuente: <?= $report_sent->site; ?></p>
 			</div>
 		</section>

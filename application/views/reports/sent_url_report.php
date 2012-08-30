@@ -6,7 +6,10 @@
 				<a class="url_sent" href="<?=$report->url; ?>" target="blank">Ver noticia original</a>
 			</div>
 			<h1 class="title"><?=$report->title;?></h1>
-			<p class="report_meta">Fuente: <?= $report->site; ?> | En Fixmedia desde: <?= $report->created_at->format('d/m/Y'); ?></p>
+			<div class="report_meta">
+				<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $report->user->name))); ?>"><?= $report->user->name; ?></a> el <?= $report->created_at->format('d/m/Y'); ?></p>
+				<p class="source">Fuente: <?= $report->site; ?></p>
+			</div>
 		</section>
 
 		<section class="sending_actions clearfix">
