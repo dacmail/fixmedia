@@ -274,6 +274,8 @@ a:hover {text-decoration:underline;}
 			bottom:85px;
 			font-weight:bold;
 			font-style:normal;
+			font-size:25px;
+			line-height:27px;
 		}
 		.report_info .report_meta {
 			position:absolute;
