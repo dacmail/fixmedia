@@ -19,13 +19,13 @@ $('document').ready(function() {
 				$('.sending .fields_wrap .row input').live('focus', function() {
 					$(this).nextAll('.error').first().hide();
 					$(this).nextAll('.help').first().show().css('display','block');
-					var char = 150 - $(this).val().length;
+					var char = 120 - $(this).val().length;
 					$(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
 				});
 				$('.sending .fields_wrap .row textarea').live('focus', function() {
 					$(this).nextAll('.error').first().hide();
 					$(this).nextAll('.help').first().show().css('display','block');
-					var char = 350 - $(this).val().length;
+					var char = 400 - $(this).val().length;
 					$(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
 				});
 
@@ -37,7 +37,7 @@ $('document').ready(function() {
 				});
 
 				$('.textarea').live('keyup', function() {
-			        var max = 350;
+			        var max = 400;
 			        var len = $(this).val().length;
 			        if (len >= max) {
 			            $(this).nextAll('.help').first().children('.charcount').html('Has llegado al máximo de caracteres.');
@@ -47,7 +47,7 @@ $('document').ready(function() {
 			        }
 			    });
 			    $('.text').live('keyup', function() {
-			        var max = 150;
+			        var max = 120;
 			        var len = $(this).val().length;
 			        if (len >= max) {
 			            $(this).nextAll('.help').first().children('.charcount').html('Has llegado al máximo de caracteres.');
@@ -101,7 +101,7 @@ $('document').ready(function() {
 
 	if ($('.sending .row').length>0) {
 		$('.textarea').live('keyup', function() {
-	        var max = 350;
+	        var max = 400;
 	        var len = $(this).val().length;
 	        if (len >= max) {
 	            $(this).nextAll('.help').first().children('.charcount').text('Has llegado al máximo de caracteres.');
@@ -117,7 +117,7 @@ $('document').ready(function() {
 		$('.sending .fields_wrap .row textarea').live('focus', function() {
 			$(this).nextAll('.error').first().hide();
 			$(this).nextAll('.help').first().show().css('display','block');
-			var char = 350 - $(this).val().length;
+			var char = 400 - $(this).val().length;
 			$(this).nextAll('.help').first().children('.charcount').text('Te quedan ' + char + ' caracteres.');
 		});
 		$('.sending .fields_wrap .row input').live('blur', function() {

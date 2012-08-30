@@ -1,27 +1,27 @@
 
 <div class="row wrap_title">
 	<label class="label" for="title">¿Qué quieres arreglar? <span class="tip">Dilo en un titular, recuerda que al final puedes seguir añadiendo reportes a esta misma noticia</span></label>
-	<input type="text" id="title_<?=$count;?>" name="title[]"  class="text" />
+	<input type="text" id="title_<?=$count;?>" name="title[]"  class="text" maxlength="120" />
 	<span class="help">
 		<? if ($type==1) : ?>
 		Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu corrección. [+] aprender más
 		<? else : ?>
 		Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu ampliación. [+] aprender más
 		<? endif ?>
-		<span class="charcount">150</span>
+		<span class="charcount">120</span>
 	</span>
 
 </div>
 <div class="row wrap_content">
 	<label class="label" for="content">Explícalo <span class="tip">Si es necesario</span></label>
-	<textarea class="textarea" id="content_<?=$count;?>" name="content[]" maxlength="350"></textarea>
+	<textarea class="textarea" id="content_<?=$count;?>" name="content[]" maxlength="400"></textarea>
 	<div class="help">
 		<? if ($type==1) : ?>
 		Identifica en breves palabras la parte de la noticia que consideras que debe ser corregida, por qué debe serlo y cuál es tu alternativa. [+] aprender más
 		<? else : ?>
 		Identifica en breves palabras por qué crees que a esta noticia la falta más contenido y cuál es. [+] aprender más
 		<? endif ?>
-		<span class="charcount">350</span>
+		<span class="charcount">400</span>
 	</div>
 
 </div>
