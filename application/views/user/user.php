@@ -47,13 +47,12 @@
 						var chart = new google.visualization.PieChart(document.getElementById('fix_vs_rep'));
 						chart.draw(data, options);
 					}
-					function other_chart() {
-						var data = new google.visualization.DataTable();
-						data.addColumn('string', 'Type');
-						data.addColumn('number', 'Count');
-						data.addRows([
-						  ['Reportes', <?= count($user->subreports); ?>],
-						  ['Fixes', <?= count($user->fixes); ?>],
+					function fixes_by_sources() {
+						var data = google.visualization.arrayToDataTable([
+						  	['Fuentes', 'Fixes'],
+						 	<? foreach ($fixes_by_sites as $site) :?>
+								[<?= "'". $site->site ."'";?>, <?=$site->fixes?>],
+							<? endforeach; ?>
 						]);
 						var options = { chartArea : {
 						               		width:250, 
@@ -62,34 +61,34 @@
 						               		left: 10	
 						               }};
 
-						var chart = new google.visualization.PieChart(document.getElementById('other_chart'));
+						var chart = new google.visualization.ColumnChart(document.getElementById('fixes_by_sources'));
 						chart.draw(data, options);
 					}
-					function another_chart() {
-						var data = new google.visualization.DataTable();
-						data.addColumn('string', 'Type');
-						data.addColumn('number', 'Count');
-						data.addRows([
-						  ['Reportes', <?= count($user->subreports); ?>],
-						  ['Fixes', <?= count($user->fixes); ?>],
-						]);
+					function actions_by_month() {
+						var data = google.visualization.arrayToDataTable([
+							['Mes', 'Fixes', 'Reportes'],
+							<? foreach ($actions_by_month as $mes => $action) :?>
+								[<?= "'".date('F', mktime(0,0,0,$mes,1))."'";?>,<?=$action['fixes']?>,<?=$action['reports']?>],
+							<? endforeach; ?>
+							]);
+
 						var options = { chartArea : {
 						               		width:250, 
-						               		height:170,
+						               		height:140,
 						               		top: 0,
 						               		left: 10	
 						               }};
 
-						var chart = new google.visualization.PieChart(document.getElementById('another_chart'));
+						var chart = new google.visualization.LineChart(document.getElementById('actions_by_month'));
 						chart.draw(data, options);
 					}
+    
 					function draw_charts() {
 						fix_vs_report();
-						other_chart();
-						another_chart();
+						actions_by_month();
+						fixes_by_sources();
 					}
 			    </script>
-
 
 			    <div class="chart_wrap clearfix">
 			    	<div class="chart" id="fix_vs_rep"></div>
@@ -99,16 +98,16 @@
 			    	</div>
 			    </div>
 			    <div class="chart_wrap clearfix">
-			    	<div class="chart" id="other_chart"></div>
+			    	<div class="chart" id="actions_by_month"></div>
 			    	<div class="explanation">
-			    		<h3 class="title"><?= round(count($user->fixes)/count($user->subreports),1); ?> fixes por cada reporte</h3>
+			    		<h3 class="title">Actividad en los ultimos meses</h3>
 			    		<p class="hint">El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.</p>
 			    	</div>
 			    </div>
 			    <div class="chart_wrap clearfix">
-			    	<div class="chart" id="another_chart"></div>
+			    	<div class="chart" id="fixes_by_sources"></div>
 			    	<div class="explanation">
-			    		<h3 class="title"><?= round(count($user->fixes)/count($user->subreports),1); ?> fixes por cada reporte</h3>
+			    		<h3 class="title">Fixes por fuentes</h3>
 			    		<p class="hint">El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.</p>
 			    	</div>
 			    </div>

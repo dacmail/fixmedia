@@ -44,7 +44,7 @@
 				<img src="<?= base_url(); ?>/images/logos/nxt.jpg"/>
 			</div>
 			<div class="cofin">
-				<h3 class="title">Cofinanciado por:</h3>
+				<h3 class="title">Cofinanciadores destacados:</h3>
 				<img src="<?= base_url(); ?>/images/logos/cof1.jpg"/> 
 				<img src="<?= base_url(); ?>/images/logos/cof2.jpg"/>  
 				<img src="<?= base_url(); ?>/images/logos/cof3.jpg"/> 

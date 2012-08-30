@@ -216,6 +216,7 @@ a:hover {text-decoration:underline;}
 	#container.report #sidebar {
 		position:relative;
 	}
+	#container.sending_url { margin-bottom:50px; }
 	.sending .step {
 		color:#333333;
 		font-size:30px;
@@ -923,6 +924,7 @@ a:hover {text-decoration:underline;}
 		font-style:italic;
 	}
 	.button:hover {text-decoration:none;}
+
 .sending_url .button {float:left;}
 .sending_url .button.share {margin:10px 50px 10px 60px;}
 .report #sidebar .button {

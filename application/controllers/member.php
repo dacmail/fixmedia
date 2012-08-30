@@ -20,15 +20,32 @@ class Member extends MY_Controller {
 			$config['uri_segment'] = 4;
 			$this->pagination->initialize($config); 
 			$data['pagination_links'] = $this->pagination->create_links();
+
 			$data['page_title'] = 'Listado de reportes';
 			$data['main_content'] = 'reports/list_reports';
 			$data['page'] = $page;
+
 			$data['votes'] = Vote::all(array(
 											'conditions' => "vote_type LIKE 'FIX' AND user_id = $user->id",
 											'limit' => $this->pagination->per_page, 
 											'offset' => $this->pagination->per_page*($page-1)
 											));
+
 			$data['users_ranking'] = User::all(array('limit' => 5));
+			//TODO: Limitar consultas solo a los últimos 6 meses
+			$reports_by_month = Reports_data::find_by_sql("select count(id) as reports, month(created_at) as mes from reports_data where user_id=" . $user->id . " group by mes");
+			$fixes_by_month = Vote::find_by_sql("select count(id) as fixes, month(created_at) as mes from votes where user_id=" . $user->id . " AND vote_type LIKE '%FIX%' group by mes");
+			$actions_by_month = array();
+			foreach ($reports_by_month as $rep) :
+				$actions_by_month[$rep->mes]['reports'] = $rep->reports;
+			endforeach;
+			foreach ($fixes_by_month as $fix) :
+				$actions_by_month[$fix->mes]['fixes'] = $fix->fixes;
+			endforeach;
+			$data['actions_by_month'] = $actions_by_month;
+
+			$data['fixes_by_sites'] = Vote::find_by_sql("select count(votes.id) as fixes, site from votes inner join reports on (votes.item_id=reports.id) where votes.user_id=" . $user->id . " AND vote_type LIKE '%FIX%' group by site order by fixes desc limit 5");
+
 			$data['main_content'] = 'user/user';
 			$this->load->view('includes/template', $data);
 		else :
