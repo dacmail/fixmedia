@@ -30,6 +30,7 @@
 			</div>
 			<input type="submit" class="button submit" name="submit" value="Guardar los cambios" /> 
 		</form>
+		<a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>" id="cancel" class="cancel">Volver al perfil</a>
 	</div>
 	<?php $this->load->view('includes/sidebar-user'); ?>
 </div>
