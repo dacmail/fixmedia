@@ -419,6 +419,7 @@ a:hover {text-decoration:underline;}
 		.sending .fields_wrap .row {
 			margin-bottom:20px;
 		}
+			.sending .fields_wrap .row.wrap_twitter {margin-bottom:50px;}
 		.sending .fields_wrap .option {margin-bottom:5px;}
 		.sending .fields_wrap .option input {float:left;}
 		.sending .fields_wrap .option label {

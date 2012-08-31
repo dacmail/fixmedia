@@ -54,6 +54,7 @@ class Member extends MY_Controller {
 	public function edit() {
 		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 		$data['user'] = $this->the_user;
+		$data['users_ranking'] = User::all(array('limit' => 5));
 		$data['page_title'] = 'Editar perfil';
 		$data['main_content'] = 'user/edit';
 		$this->load->view('includes/template', $data);

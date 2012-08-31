@@ -18,11 +18,11 @@
 					<textarea class="textarea" maxlength="350" id="" name="bio"><?=$user->bio;?> </textarea>
 				</div>
 				<div class="row wrap_title">
-					<label class="label" for="name">Página web <span class="tip">Escribe la url de tu blog, web, twitter o lo que quieras.</span></label>
+					<label class="label" for="name">Página web <span class="tip">Escribe la url de tu blog, web, facebook o lo que quieras.</span></label>
 					<input class="text" type="text" id="" name="url" value="<?php echo (form_error('url') ? set_value('url') : $user->url); ?>" />
 					<?php echo form_error('url', '<span class="error">', '</span>'); ?>
 				</div>
-				<div class="row wrap_title">
+				<div class="row wrap_twitter">
 					<label class="label" for="name">Twitter <span class="tip">Escribe tu nombre de usuario de twitter.</span></label>
 					<span class="prefix">@</span><input class="text wprefix" type="text" id="" name="twitter" value="<?=htmlspecialchars($user->twitter);?>" />
 					<?php echo form_error('twitter', '<span class="error">', '</span>'); ?>
