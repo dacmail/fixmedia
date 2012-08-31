@@ -1,14 +1,14 @@
 <div id="container" class="sending login clearfix">
 	<div id="content">
 		
-		<h3>Recuperar contraseña</h3>
+    <h1 class="title">Recuperar contraseña</h1>
 
 		<div id="infoMessage"><?php echo $message;?></div>
 
 		<?php echo form_open("auth/forgot_password");?>
 
 		      <p class="row">
-		      	<label class="label">Email:</label>
+		      	<label class="label">Nombre de usuario:</label>
 		      	<?php echo form_input($email);?>
 		      </p>
 		      

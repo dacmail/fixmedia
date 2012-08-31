@@ -29,7 +29,7 @@
         
       <?php echo form_close();?>
 
-      <p><a href="forgot_password">¿Olvidaste tu contraseña?</a></p>
+      <p><a href="<?= site_url('auth/forgot_password'); ?>">¿Olvidaste tu contraseña?</a></p>
 
   </div>
 </div>
