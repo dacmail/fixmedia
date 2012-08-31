@@ -4,7 +4,7 @@
 			  <?=gravatar( $user->email, 150 )?>
 			  <div class="data">
 			  		<h1 class="name"><?= $user->name; ?> 
-			  			<? if ($logged_in && $user->id=$the_user->id) : ?>
+			  			<? if ($logged_in && $user->id==$the_user->id) : ?>
 			  				<a class="edit_profile_link" href="<?=site_url($this->router->reverseRoute('user-edit'));?>">Editar perfil</a>
 			  			<? endif; ?>
 			  		</h1>
@@ -68,7 +68,7 @@
 						var data = google.visualization.arrayToDataTable([
 							['Mes', 'Fixes', 'Reportes'],
 							<? foreach ($actions_by_month as $mes => $action) :?>
-								[<?= "'".date('F', mktime(0,0,0,$mes,1))."'";?>,<?=$action['fixes']?>,<?=$action['reports']?>],
+								[<?= "'".date('F', mktime(0,0,0,$mes,1))."'";?>,<?= isset($action['fixes']) ? $action['fixes'] : 0; ?>,<?= isset($action['reports']) ? $action['reports'] : 0; ?>],
 							<? endforeach; ?>
 							]);
 
@@ -93,7 +93,11 @@
 			    <div class="chart_wrap clearfix">
 			    	<div class="chart" id="fix_vs_rep"></div>
 			    	<div class="explanation">
-			    		<h3 class="title"><?= round(count($user->fixes)/count($user->subreports),1); ?> fixes por cada reporte</h3>
+			    		<? if (count($user->subreports)>0) : ?>
+			    			<h3 class="title"><?= round(count($user->fixes)/count($user->subreports),1); ?> fixes por cada reporte</h3>
+			    		<? else: ?> 
+			    			<h3 class="title"><?= count($user->fixes); ?> fixes por cada reporte</h3>
+			    		<? endif; ?>
 			    		<p class="hint">El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.</p>
 			    	</div>
 			    </div>
