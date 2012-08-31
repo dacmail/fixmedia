@@ -138,8 +138,6 @@
 							<p class="action_type fix"><?=$user->name;?> fue el primero en hacer fix en esta noticia</p>
 						<? endif; ?>
 					</div>
-
-
 				</article>
 			<? endforeach; ?>
 			<div class="pagination clearfix"><?=$pagination_links;?></div>
