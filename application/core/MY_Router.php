@@ -32,8 +32,8 @@ class MY_Router extends CI_Router
 		{
 			// Convert wild-cards to RegEx
             //echo "$key --> ";
-			$key = preg_replace('/\:\w+/', '[\w\-_]+', $key);
-            //echo "$key <br />";
+			$key = preg_replace('/\:\w+/', '[\w\-_.]+', $key);
+            //echo "#^$key$# </br> $uri </br>";
 			// Does the RegEx match?
 			if (preg_match('#^'.$key.'$#', $uri))
 			{
@@ -41,6 +41,7 @@ class MY_Router extends CI_Router
 				if (strpos($val[self::ARR_ROUTE_POS], '$') !== FALSE AND strpos($key, '(') !== FALSE)
 				{
 					$val = preg_replace('#^'.$key.'$#', $val[self::ARR_ROUTE_POS], $uri);   
+
 				}
  
 				$this->_set_request(explode('/', $val));
@@ -50,6 +51,7 @@ class MY_Router extends CI_Router
  
 		// If we got this far it means we didn't encounter a
 		// matching route so we'll set the site default route
+
 		$this->_set_request($this->uri->segments);
     }
  
@@ -65,7 +67,7 @@ class MY_Router extends CI_Router
             $name = $info[self::ARR_ROUTE_NAME_POS];
             $reverse_routes[$name] = $route;
         }
- 
+
         $this->_reverseRoutes = & $reverse_routes;
     }
  
@@ -83,7 +85,7 @@ class MY_Router extends CI_Router
         {
             $route = str_replace("(:$key)", $val, $route);
         }
- 
+
         return $route;
     }
 }

@@ -49,9 +49,11 @@ $route['reporte/(:slug)'] = array('/reports/view/$1','reports-view');
 $route['usuario/salir'] = array('/auth/logout','logout');
 $route['page/(:page)'] = array('reports/index/$1','home-page');
 $route['usuario/(:username)'] = array('/member/index/$1','user-profile');
-$route['usuario/(:username)/page/(:page)'] = array('/member/index/$1/$2','user-profile2');
+$route['usuario/(:username)/page/(:page)'] = array('/member/index/$1/$2','user-profile-paged');
 $route['usuario/editar'] = array('/member/edit','user-edit');
 $route['usuario/guardar'] = array('/member/save','user-save');
+$route['fuente/(:sitename)'] = array('/source/index/$1','source-profile');
+$route['fuente/(:sitename)/page/(:page)'] = array('/source/index/$1/$2','source-profile-paged');
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
