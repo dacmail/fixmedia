@@ -1,7 +1,7 @@
 <div id="container" class="clearfix profile columns">
 	<div id="content">
 		<section class="user_info clearfix">
-			  <img src="<?php echo base_url(); ?>fakes/screenshot-med.jpg" alt="Imagen de <?=$site;?>" />
+			  <img src="<?php echo base_url(); ?>fakes/screenshot-med.jpg" width="150" alt="Imagen de <?=$site;?>" />
 			  <div class="data">
 			  		<h1 class="name"><?= $site; ?> </h1>
 			  </div>
