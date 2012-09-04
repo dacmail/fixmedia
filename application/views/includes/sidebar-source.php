@@ -9,8 +9,9 @@
 	<section class="block ranking users">
 		<h3 class="title">Posición en Fixmedia</h3>
 		<? foreach ($sites_ranking as $site_rank) :?>
+			<?$sites_ranking_position++;?>
 			<div class="row <?= $site_rank->site==$site ? 'user' : 'clearfix'; ?>">
-				<span class="pos"><?= $site_rank->cont; ?></span> <span class="site"><?= $site_rank->site; ?></span>
+				<span class="pos"><?= $sites_ranking_position ?></span> <span class="site"><?= $site_rank->site; ?></span>
 			</div>
 		<? endforeach; ?> 
 	</section>
