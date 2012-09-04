@@ -1,17 +1,8 @@
 
 <div id="container" class="clearfix sending preview columns">
 	<div id="content">
-		<section class="report_info clearfix">
-			<div class="screenshot">
-				<img src="<?php echo base_url(); ?>fakes/screenshot-med.jpg" alt="Captura de <?=$report_sent->title;?>" />
-				<a class="url_sent" href="<?=$report_sent->url; ?>" target="blank">Ver noticia original</a>
-			</div>
-			<h1 class="title"><?=$report_sent->title;?></h1>
-			<div class="report_meta">
-				<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $report_sent->user->name))); ?>"><?= $report_sent->user->name; ?></a> el <?= $report_sent->created_at->format('d/m/Y'); ?></p>
-				<p class="source">Fuente: <?= $report_sent->site; ?></p>
-			</div>
-		</section>
+		<? $data['report'] = $report_sent; ?>
+		<?php $this->load->view('includes/report-info',$data); ?>
 		<h2 class="action_title"><strong>Este es el reporte que vas a publicar</strong> Así es como se verá si lo envías</h2>
 
 		<? $count=1; foreach ($report['type_info'] as $index => $type) :  ?>

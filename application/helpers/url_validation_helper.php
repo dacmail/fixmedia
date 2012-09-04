@@ -53,8 +53,17 @@ if ( ! function_exists('get_url_data')) {
                 $url_title=$url_tit;
             }
         }
-
-        return array('valid' => $url_ok, 'url' => $the_url, 'title' => $url_title,'host' => $url_components['host']);
+        $url_description = "";
+        if(preg_match('/< *meta +name=[\'"]description[\'"] +content=[\'"]([^<>]+)[\'"] *\/*>/si', $html, $matches)) {
+            $url_description = clean_text($matches[1]);
+            $url_description = html_entity_decode($url_description, ENT_COMPAT, 'UTF-8');
+            $url_description = strip_tags($url_description);
+            $url_description = @htmlspecialchars($url_description, ENT_COMPAT, 'UTF-8');
+            if (mb_strlen($url_description) > 20) {
+                $url_description = $url_description;
+            }
+        }
+        return array('valid' => $url_ok, 'url' => $the_url, 'title' => $url_title,'host' => $url_components['host'], 'description' => $url_description);
     }   
 }
 

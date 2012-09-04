@@ -766,6 +766,7 @@ a:hover {text-decoration:underline;}
 	font-size:14px;
 	color:#4c4c4c;
 }
+	#sidebar .ranking .row a {color:#4c4c4c;}
 	#sidebar .ranking .row.user {
 		background:#79B4CB;
 		padding-top:10px;
@@ -807,6 +808,7 @@ a:hover {text-decoration:underline;}
 		
 
 	#sidebar .ranking .row:last-child {border:0px;}
+	#sidebar .ranking .row.user a {color:#ffffff;}
 	#sidebar .ranking .row .pos {
 		font-size:15px;
 		font-weight: bold;

@@ -70,6 +70,9 @@ class Source extends MY_Controller {
 			$data["sites_ranking_position"] = $position = ($position<2) ? $position : $position-2; //muestra las dos fuentes que están por delante
 			$data["sites_ranking"] = array_slice($sites_ranking, $position, 5); 
  			$data['actions_by_month'] = $actions_by_month;
+ 			
+ 			$this->load->helper('url_validation');
+ 			$data['url_data'] = get_url_data('http://' . $site);
 
 			$data['subreports'] =  Report::all(array(
 										'joins' => array('data'),

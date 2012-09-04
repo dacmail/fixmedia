@@ -4,6 +4,7 @@
 			  <img src="<?php echo base_url(); ?>fakes/screenshot-med.jpg" width="150" alt="Imagen de <?=$site;?>" />
 			  <div class="data">
 			  		<h1 class="name"><?= $site; ?> </h1>
+			  		<p class="bio"><?= $url_data['description']; ?></p>
 			  </div>
 		</section>
 		<section class="tabs">

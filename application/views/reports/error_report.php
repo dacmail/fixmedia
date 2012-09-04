@@ -1,16 +1,7 @@
 <div id="container" class="clearfix sending editing columns">
 	<div id="content">
-		<section class="report_info clearfix">
-			<div class="screenshot">
-				<img src="<?php echo base_url(); ?>fakes/screenshot-med.jpg" alt="Captura de <?=$report_sent->title;?>" />
-				<a class="url_sent" href="<?=$report_sent->url; ?>" target="blank">Ver noticia original</a>
-			</div>
-			<h1 class="title"><?=$report_sent->title;?></h1>
-			<div class="report_meta">
-				<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $report_sent->user->name))); ?>"><?= $report_sent->user->name; ?></a> el <?= $report_sent->created_at->format('d/m/Y'); ?></p>
-				<p class="source">Fuente: <?= $report_sent->site; ?></p>
-			</div>
-		</section>
+		<? $data['report'] = $report_sent; ?>
+		<?php $this->load->view('includes/report-info',$data); ?>
 		<? $hidden_fields = array('report_id' => $report['report_id'], 'report_url' => $report['report_url'], 'report_title' => $report['report_title'], 'site' => $report['site']); ?>
 		<?php echo form_open($this->router->reverseRoute('reports-preview'), array('id' => 'form_report', 'class' => 'clearfix'), $hidden_fields) ?>
 			<? foreach ($report['type'] as $index => $type) : $count=$index+1;?>

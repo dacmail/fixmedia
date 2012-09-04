@@ -10,7 +10,7 @@
 		<h3 class="title">Fuentes con más fixes</h3>
 		<? foreach ($sites_most_fixes as $site) :?>
 			<div class="row clearfix">
-				<span class="pos">1</span> <span class="site"><?= $site->site; ?></span> <span class="votes"><?= $site->votes; ?></span>
+				<span class="pos">1</span> <span class="site"><a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $site->site))); ?>"><?= $site->site; ?></a></span> <span class="votes"><?= $site->votes; ?></span>
 			</div>
 		<? endforeach; ?> 
 	</section>
@@ -20,7 +20,7 @@
 		<h3 class="title">Fuentes con más reportes</h3>
 		<? foreach ($sites_most_reported as $site) :?>
 			<div class="row clearfix">
-				<span class="pos">1</span> <span class="site"><?= $site->site; ?></span> <span class="votes"><?= $site->reports; ?></span>
+				<span class="pos">1</span> <span class="site"><a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $site->site))); ?>"><?= $site->site; ?></a></span> <span class="votes"><?= $site->reports; ?></span>
 			</div>
 		<? endforeach; ?> 
 	</section>

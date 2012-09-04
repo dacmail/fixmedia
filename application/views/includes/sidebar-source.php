@@ -11,7 +11,7 @@
 		<? foreach ($sites_ranking as $site_rank) :?>
 			<?$sites_ranking_position++;?>
 			<div class="row <?= $site_rank->site==$site ? 'user' : 'clearfix'; ?>">
-				<span class="pos"><?= $sites_ranking_position ?></span> <span class="site"><?= $site_rank->site; ?></span>
+				<span class="pos"><?= $sites_ranking_position ?></span> <span class="site"><a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $site_rank->site))); ?>"><?= $site_rank->site; ?></a></span>
 			</div>
 		<? endforeach; ?> 
 	</section>
