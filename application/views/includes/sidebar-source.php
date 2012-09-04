@@ -1,0 +1,18 @@
+<aside id="sidebar">
+	<section class="user_info">
+		<div class="clearfix fix_reports_counters">
+			<div class="fixes"><span class="count"><?= count($all_reports); ?></span> noticias</div>
+			<div class="reports"><span class="count"><?= count($subreports); ?></span> reportes</div>
+		</div>
+		<div class="total_fixes_counter"><span class="count"><?= $total_fixes[0]->total; ?></span> fixes totales</div>
+	</section>
+	<section class="block ranking users">
+		<h3 class="title">Posición en Fixmedia</h3>
+		<? foreach ($sites_ranking as $site_rank) :?>
+			<div class="row <?= $site_rank->site==$site ? 'user' : 'clearfix'; ?>">
+				<span class="pos"><?= $site_rank->cont; ?></span> <span class="site"><?= $site_rank->site; ?></span>
+			</div>
+		<? endforeach; ?> 
+	</section>
+	<? $this->load->view('includes/mini-faqs'); ?>
+</aside>
