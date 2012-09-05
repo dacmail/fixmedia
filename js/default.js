@@ -147,8 +147,7 @@ $('document').ready(function() {
 				dataType: 'json'
 			}).done(function ( data ) {
 				if (data.valid) {
-					link.remove();
-					link.replaceWith($('<div class="' + link.attr('class') + '">' + link.html() + '</div>'));		
+					link.replaceWith($('<div class="fix_done">¡Hecho!</div>'));		
 					$('.count-' + link.attr('id')).text(data.total_votes);
 				} else {
 					alert(data.error);

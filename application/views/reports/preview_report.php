@@ -14,10 +14,10 @@
 					<div class="subreport_info">
 						<h3 class="subreport_title"><?=$report['title'][$index]; ?></h3>
 						<p class="authorship">Enviado por <?= $the_user->name; ?> el <?= date('d/m/Y'); ?></p>
-						<p class="clearfix subreport_types">
+						<p class="clearfix subreport_types type_<?= preg_replace('/[^a-z0-9]+/i','-',strtolower($types[$index]->parent_type->type));?>">
 							<? if ($types[$index]->parent_type) : ?>
-							<span class="type"><?=$types[$index]->parent_type->type ;?></span> 
-							<span class="type_info" title="<?= $types[$index]->type; ?>"><?= character_limiter($types[$index]->type,50); ?></span>
+							<span class="type"><?=$types[$index]->parent_type->type ;?></span>,  
+							<span class="type_info" title="<?= $types[$index]->type; ?>"><?= character_limiter($types[$index]->type,120); ?></span>
 							<? else : ?>
 								<span class="type"><?= $types[$index]->type; ?></span>
 							<? endif; ?> 
