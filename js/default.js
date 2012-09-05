@@ -149,6 +149,7 @@ $('document').ready(function() {
 				if (data.valid) {
 					link.replaceWith($('<div class="fix_done">¡Hecho!</div>'));		
 					$('.count-' + link.attr('id')).text(data.total_votes);
+					$('.action-title').html('<strong>¡Ya has hecho FIX!</strong> ¿Qué quieres hacer ahora?');
 				} else {
 					alert(data.error);
 				}

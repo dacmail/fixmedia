@@ -72,7 +72,12 @@
 				<? endif; ?>
 			</div>
 		</div>
-		<span class="action-title">También puedes</span>
+		<? if ($logged_in && $report->is_voted($the_user->id)) : ?>
+			<span class="action-title"><strong>¡Ya has hecho FIX!</strong> ¿Qué quieres hacer ahora?</span>
+		<? else: ?>
+			<span class="action-title">También puedes...</span>
+		<? endif; ?>
+		
 		
 	
 		<a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->slug))); ?>" class="action-button share">Compártela</a>

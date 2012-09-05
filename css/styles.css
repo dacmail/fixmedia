@@ -101,7 +101,7 @@ a:hover {text-decoration:underline;}
 				border:1px solid #F1F1F1;
 				padding:30px;
 				background:#ffffff;
-				z-index:100;
+				z-index:10000;
 				display:none;
 				box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 			}	
@@ -747,7 +747,7 @@ a:hover {text-decoration:underline;}
 	padding:10px 45px 20px 45px;
 	text-align:center;
 	margin-bottom:0px;
-	font-weight:bold;
+	
 	font-style:italic;
 	width:210px;
 	margin-left:-20px;
@@ -757,6 +757,7 @@ a:hover {text-decoration:underline;}
 		color:#ffffff;
 		display:block;
 		font-style:none;
+		font-weight:bold;
 	}
 	#sidebar .counter .wrap-counter {
 		border-bottom:1px solid #CCA100;
@@ -773,7 +774,7 @@ a:hover {text-decoration:underline;}
 		font-size:25px;
 		margin:0px auto;
 	}
-		#sidebar .counter .wrap-fix .fix_done {font-size:35px;}
+		#sidebar .counter .wrap-fix .fix_done {font-weight:bold; font-size:35px;}
 	#sidebar .action-title {
 		font-weight:normal;
 		text-align:center;
@@ -785,6 +786,9 @@ a:hover {text-decoration:underline;}
 		font-style:italic;
 		position:relative;
 	}
+		#sidebar .action-title strong {
+			display:block;
+		}
 		#sidebar .action-title:after {
 			content:" ";
 			position: absolute;
