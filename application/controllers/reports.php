@@ -168,16 +168,24 @@ class Reports extends MY_Controller {
 				else :
 					$types[$index] = Reports_type::find($post_data['type'][$index]);
 				endif;
-				$subreports[] = Reports_data::create(array(
+				$subreports[] = $last = Reports_data::create(array(
 														'report_id' => $report->id,
 														'type' => $types[$index]->parent_type ? $types[$index]->parent_type->type : $types[$index]->type,
 														'type_info' => $types[$index]->type,
 														'title' => $post_data['title'][$index],
 														'content' => $post_data['content'][$index],
 														'urls' => base64_decode($post_data['urls'][$index]),
-														'user_id' => $this->the_user->id
+														'user_id' => $this->the_user->id,
+														'votes_count' => 1
 														)); 
+				$vote = Vote::create(array(
+							'user_id' => $this->the_user->id,
+							'item_id' => $last->id,
+							'vote_type' => 'REPORT',
+							'vote_value' => 1,
+							'ip' => $this->input->ip_address()));
 			endforeach;
+
 			redirect($this->router->reverseRoute('reports-view', array('slug' => $report->slug)));
 		else :
 			show_404();

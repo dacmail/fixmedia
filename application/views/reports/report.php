@@ -19,7 +19,7 @@
 					</span>
 					<div class="subreport_info">
 						<h3 class="subreport_title"><?=$subreport->title; ?></h3>
-						<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $subreport->user->name))); ?>"><?= $subreport->user->name; ?></a> el <?= $subreport->created_at->format('d/m/Y'); ?></p>
+						<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $subreport->user->username))); ?>"><?= $subreport->user->name; ?></a> el <?= $subreport->created_at->format('d/m/Y'); ?></p>
 						<p class="clearfix subreport_types type_<?= preg_replace('/[^a-z0-9]+/i','-',strtolower($subreport->type));?>">
 							<span class="type"><?=$subreport->type;?></span>,
 							<? if ($subreport->type_info!=$subreport->type) : ?>
