@@ -8,6 +8,7 @@ class Source extends MY_Controller {
 
 
 	public function index($site,$page=1) {
+		$this->output->cache(5);
 		$reports = Report::find_all_by_site($site);
 		if (!empty($reports)) :
 			$data['site'] = $site;
