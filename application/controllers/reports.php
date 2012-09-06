@@ -140,13 +140,16 @@ class Reports extends MY_Controller {
 
 	}
 
-	public function view($slug) {
+	public function view($slug, $share=null) {
 		if (!empty($slug)) :
 			$report = Report::find_by_slug($slug);
 			if (!empty($report)) :
 				$data['page_title'] = $report->title;
 				$data['report'] = $report;
 				$data['main_content'] = 'reports/report';
+				if (isset($share)) :
+					$data['autoshare'] = true;
+				endif;
 				$this->load->view('includes/template', $data);
 			else :
 				show_404();

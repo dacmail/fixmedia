@@ -215,5 +215,10 @@ $('document').ready(function() {
 		$('.tabs').tabs();
 	}
 	
-
+	if ($(".action-button.share").length>0) {
+		$(".action-button.share").colorbox({iframe:true, width:"490px", height:"250px"});
+		if ($(".action-button.share").hasClass('autoload')) {
+			$(".action-button.share").click();
+		}
+	}
 });

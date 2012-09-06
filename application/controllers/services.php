@@ -86,4 +86,13 @@ class Services extends MY_Controller {
          $this->load->view('services/fix_vote', $data);
       }
 
+      public function share($slug, $fix=0) {
+         if (!empty($slug)) :
+            $data['url'] = site_url($this->router->reverseRoute('reports-view' , array('slug' => $slug)));;
+            $this->load->view('services/share', $data);
+         else :
+            show_404();
+         endif;
+      }
+
 }
