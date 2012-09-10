@@ -189,7 +189,7 @@ class Reports extends MY_Controller {
 							'ip' => $this->input->ip_address()));
 			endforeach;
 
-			redirect($this->router->reverseRoute('reports-view', array('slug' => $report->slug)));
+			redirect($this->router->reverseRoute('reports-view-share', array('slug' => $report->slug, 'share' => 'share')));
 		else :
 			show_404();
 		endif;

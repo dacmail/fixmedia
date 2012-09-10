@@ -150,6 +150,7 @@ $('document').ready(function() {
 					link.replaceWith($('<div class="fix_done">¡Hecho!</div>'));		
 					$('.count-' + link.attr('id')).text(data.total_votes);
 					$('.action-title').html('<strong>¡Ya has hecho FIX!</strong> ¿Qué quieres hacer ahora?');
+					$(".action-button.share").click();
 				} else {
 					alert(data.error);
 				}
@@ -175,13 +176,6 @@ $('document').ready(function() {
 			e.preventDefault();
 		});
 	}
-
-	if ($('.button.icon.share').length>0) {
-		$('.button.icon.share').click(function() {
-			alert('Este botón mostrará las opciones para compartir el envío. Estará disponible en la próxima versión.');
-		});
-	}
-
 
 	if ($('.report #sidebar').length>0) {
 		if ($('#container').outerHeight()>$('#sidebar').outerHeight()) {
@@ -215,11 +209,12 @@ $('document').ready(function() {
 		$('.tabs').tabs();
 	}
 	
-	/*
+	
 	if ($(".action-button.share").length>0) {
-		$(".action-button.share").colorbox({iframe:true, width:"490px", height:"250px"});
+		$(".action-button.share").colorbox({iframe:true, width:"490px", height:"250px", opacity: "0.5"});
 		if ($(".action-button.share").hasClass('autoload')) {
 			$(".action-button.share").click();
 		}
-	}*/
+	}
+
 });

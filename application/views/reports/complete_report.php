@@ -25,7 +25,7 @@
 		</form>
 		<a href="<?= site_url(); ?>" id="cancel" class="cancel">Cancelar</a>
 	</div>
-	<aside id="sidebar">
+	<aside id="sidebar" class="report">
 		<div class="counter">
 			<span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span> 
 			<? if ($report->votes_count==1 && ($logged_in && $report->is_voted($the_user->id))) : ?>

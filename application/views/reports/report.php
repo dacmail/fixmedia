@@ -78,9 +78,7 @@
 			<span class="action-title">También puedes...</span>
 		<? endif; ?>
 		
-		
-		<a href="#" class="action-button share">Compártela</a>
-		<!--a href="<?= site_url('services/share/' . $report->slug); ?>" class="action-button share <?= (isset($autoshare) ? 'autoload' : ''); ?>">Compártela</a-->
+		<a href="<?= site_url('services/share/' . $report->slug); ?>" class="action-button share <?= (isset($autoshare) ? 'autoload' : ''); ?>">Compártela</a>
 		<hr class="sep"/>
 		<a href="<?= site_url($this->router->reverseRoute('reports-send' , array('id' => $report->id))); ?>" class="action-button add_report">Arréglala</a>
 		
