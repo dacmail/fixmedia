@@ -256,8 +256,9 @@ a:hover {text-decoration:underline;}
 		border-bottom:7px solid #F1F1F1;
 		padding-bottom:15px;
 		margin-bottom:20px;
-		height:220px;
+		
 	}
+		.report .report_info {height:220px;}
 		.report_info .screenshot {
 			float:left;
 			text-align:center;
@@ -1032,6 +1033,7 @@ a:hover {text-decoration:underline;}
 	text-transform:uppercase;	
 	border-color:#CCA100;
 }
+	.button.icon:hover {background-position: right -55px;}
 	.button.icon.share { 
 		background-position: right -110px;
 		border-color:#2760BF;
