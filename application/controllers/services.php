@@ -102,4 +102,13 @@ class Services extends MY_Controller {
          endif;
       }
 
+
+      public function calculate_karma_users() {
+         if( $this->input->is_cli_request() ) {
+             echo "CrON";
+         } else {
+            echo "Usuario";
+         }
+      }
+
 }
