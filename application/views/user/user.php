@@ -1,7 +1,7 @@
 <div id="container" class="clearfix profile columns">
 	<div id="content">
 		<section class="user_info clearfix">
-			  <?=gravatar( $user->email, 150 )?>
+			  <?=gravatar( $user->email, 150, true, 'mm', 'x', array('title' => 'Reputación ' . $user->karma) )?>
 			  <div class="data">
 			  		<h1 class="name"><?= $user->name; ?> 
 			  			<? if ($logged_in && $user->id==$the_user->id) : ?>

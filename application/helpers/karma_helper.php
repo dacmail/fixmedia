@@ -99,7 +99,7 @@
 		endif;
 
 		echo "karma final -> $user->karma </br>"; 
-		//$user->save();
+		$user->save();
 	}
 	function calculate_karma_reports() {
          $reports = Report::all(array('conditions' => 'created_at > date_sub(now(), interval 2 hour) OR karma_value>1'));

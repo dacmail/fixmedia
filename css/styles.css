@@ -143,7 +143,8 @@ a:hover {text-decoration:underline;}
                 		color:#3D87B7;
                 		font-weight:bold;
                 		font-style:italic;
-                	}           
+                	}    
+
                         #header .user .user_info .user_data .counters .fix_count {
                         	font-size:25px;
                         }
@@ -151,6 +152,7 @@ a:hover {text-decoration:underline;}
                         	font-size:20px;
                         	margin-left:15px;
                         }
+                        #header .user .user_info .user_data .karma {margin:10px 0px;}  
                 #header .user .user_info .log_out {
                 	width:340px;
                 	border-top:1px solid #E5E5E5;

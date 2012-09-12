@@ -35,12 +35,12 @@
                 <a class="log_in" href="<?php echo base_url("index.php/auth/login"); ?>">Iniciar sesión</a>
             <? else :?>
                 <section class="user">
-                    <a class="welcome" href="#"><span class="user_name"><?= $the_user->name; ?></span> <?=gravatar( $the_user->email, 40 )?></a>
+                    <a class="welcome" href="#"><span class="user_name"><?= $the_user->name; ?></span> <?=gravatar( $the_user->email, 40, true, 'mm', 'x', array('title' => 'Reputación ' . $the_user->karma) )?></a>
                     <div class="user_info">
                         <span class="indicator"></span>
                         <div class="clearfix">
                             <div class="user_avatar">
-                                <?=gravatar( $the_user->email, 100 )?>
+                                <?=gravatar( $the_user->email, 100, true, 'mm', 'x', array('title' => 'Reputación ' . $the_user->karma) )?>
                                 <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $the_user->username))); ?>">Ver perfil</a>
                             </div>
                             
@@ -50,6 +50,7 @@
                                     <span class="fix_count"><?= count($the_user->fixes); ?></span> fixes
                                     <span class="report_count"><?= count($the_user->subreports); ?></span> reportes
                                 </p>
+                                <p class="karma">Reputación: <?= $the_user->karma; ?></p>
                             </div>
                         </div>
                         <a class="log_out" href="<?= site_url($this->router->reverseRoute('logout')); ?>">Cerrar sesión</a>
