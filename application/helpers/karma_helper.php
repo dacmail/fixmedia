@@ -102,7 +102,7 @@
 		//$user->save();
 	}
 	function calculate_karma_reports() {
-         $reports = Report::all(array('conditions' => 'created_at > date_sub(now(), interval 2 hour)'));
+         $reports = Report::all(array('conditions' => 'created_at > date_sub(now(), interval 2 hour) OR karma_value>1'));
          $karma=0;
          echo "=======INICIANDO PROCESO======= </br>";
          foreach ($reports as $report) :
