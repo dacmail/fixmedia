@@ -6,7 +6,7 @@
 			<? foreach ($reports as $report) : ?>
 				<article class="report_info clearfix">
 					<div class="screenshot">
-						<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" width="150" alt="Captura de <?=$report->title;?>" />
+						<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" width="150" alt="Captura de <?=$report->title;?>" title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>" />
 						<div class="clearfix fix_reports_counters">
 							<div class="fixes"><span class="count"><?= $report->votes_count; ?></span> fixes</div>
 							<div class="reports"><span class="count"><?= count($report->data); ?></span> reportes</div>

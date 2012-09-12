@@ -1,6 +1,6 @@
 <section class="report_info clearfix">
 	<div class="screenshot">
-		<img src="<?php echo base_url(); ?>fakes/screenshot-med.jpg" alt="Captura de <?=$report->title;?>" />
+		<img src="<?php echo base_url(); ?>fakes/screenshot-med.jpg" alt="Captura de <?=$report->title;?> "  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/>
 		<a class="url_sent" href="<?=$report->url; ?>" target="blank">Ver noticia original</a>
 	</div>
 	<h1 class="title"><?=$report->title;?></h1>

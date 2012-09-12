@@ -123,6 +123,14 @@ class Services extends MY_Controller {
          endif;*/
       }
 
+      public function karma_value() {
+         //if ($this->input->is_cli_request() ) :
+            $this->load->helper('karma');
+            calculate_karma_reports();
+         //else :
+            //show_404();
+         //endif;
+      }
       public function karma_reports() {
          $this->db->update('reports', array('karma' => 0));
          $reports = Report::all();
@@ -133,8 +141,14 @@ class Services extends MY_Controller {
             endforeach;
                $report->karma = $karma;
                $karma = 0;
+               $interval = time()-$report->created_at->getTimestamp();
+               if ($interval < 7200  && $interval > 600) {
+                  $report->karma_value = 2 - $interval/7200;
+               } else {
+                  $report->karma_value = 1;
+               }
                $report->save();
-         endforeach;
+         endforeach; 
       }
 
 }

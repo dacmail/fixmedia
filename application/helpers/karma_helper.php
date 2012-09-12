@@ -101,4 +101,19 @@
 		echo "karma final -> $user->karma </br>"; 
 		//$user->save();
 	}
+	function calculate_karma_reports() {
+         $reports = Report::all(array('conditions' => 'created_at > date_sub(now(), interval 2 hour)'));
+         $karma=0;
+         echo "=======INICIANDO PROCESO======= </br>";
+         foreach ($reports as $report) :
+           	$interval = time()-$report->created_at->getTimestamp();
+           	if ($interval < 7200  && $interval > 600) {
+              	$report->karma_value = 2 - $interval/7200;
+           	} else {
+              	$report->karma_value = 1;
+           	}
+           	echo "***el valor para la noticia con ID '$report->id' es '$report->karma_value'";
+           	$report->save();
+         endforeach; 
+	}
 ?>
