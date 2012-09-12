@@ -88,13 +88,13 @@ class Services extends MY_Controller {
 
       public function share($slug, $fix=0) {
          if (!empty($slug)) :
-            if ($fix) {
+            if ($fix) :
                $data['title'] = "¡Acabas de mejorar esta noticia!";
                $data['content'] = "Enséñaselo a tus amigos para que valoren positivamente tu reporte";
-            } else {
+            else :
                $data['title'] = "¡Compártela!";
                $data['content'] = "Cuanta más gente conozca esta noticia y haga FIX en ella, más posibilidades de arreglarla entre todos";
-            }
+            endif;
             $data['url'] = site_url($this->router->reverseRoute('reports-view' , array('slug' => $slug)));;
             $this->load->view('services/share', $data);
          else :
@@ -103,12 +103,23 @@ class Services extends MY_Controller {
       }
 
 
-      public function calculate_karma_users() {
-         if( $this->input->is_cli_request() ) {
-             echo "CrON";
-         } else {
-            echo "Usuario";
-         }
+      public function karma_users() {
+         //if ($this->input->is_cli_request() ) :
+            $this->load->helper('karma');
+            
+            //media de fixes por noticia
+            $this->db->select('AVG(votes_count) as avg');
+            $query = $this->db->get('reports'); 
+            $row=$query->row();
+            $avg_votes=$row->avg-1; 
+
+            $users = User::find_all_by_active(1);
+            foreach ($users as $user) :
+               calculate_karma_users($user, $avg_votes);
+            endforeach;
+         /*else :
+            show_404();
+         endif;*/
       }
 
 }
