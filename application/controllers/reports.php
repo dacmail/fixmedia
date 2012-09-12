@@ -18,7 +18,7 @@ class Reports extends MY_Controller {
 		$data['reports'] = Report::all(array(
 										'limit' => $this->pagination->per_page, 
 										'offset' => $this->pagination->per_page*($page-1), 
-										'order' => 'created_at desc, votes_count desc'));
+										'order' => 'karma desc, created_at desc, votes_count desc'));
 		$data['sites_most_fixes'] = Report::find_by_sql('
 									SELECT site, SUM(votes_count) as votes
 									FROM reports GROUP BY site

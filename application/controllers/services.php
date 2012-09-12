@@ -43,6 +43,7 @@ class Services extends MY_Controller {
                               ));
             if ($vote->is_valid()) :
                $report->votes_count++;
+               $report->karma = $report->karma + $this->the_user->karma;
                $report->save();
                $data['result']['valid'] = true;
                $data['result']['vote'] = $vote;
@@ -120,6 +121,20 @@ class Services extends MY_Controller {
          /*else :
             show_404();
          endif;*/
+      }
+
+      public function karma_reports() {
+         $this->db->update('reports', array('karma' => 0));
+         $reports = Report::all();
+         $karma=0;
+         foreach ($reports as $report) :
+            foreach ($report->votes as $fix) :
+               $karma += $fix->vote_value * $fix->user->karma;
+            endforeach;
+               $report->karma = $karma;
+               $karma = 0;
+               $report->save();
+         endforeach;
       }
 
 }
