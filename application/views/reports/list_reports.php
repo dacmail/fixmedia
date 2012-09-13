@@ -1,7 +1,7 @@
 <div id="container" class="clearfix columns">
 	<div id="content">
-		<h1 class="title">Más urgentes</h1>
-		<p class="sub_title sep">Noticias con más personas solicitando que alguien las arregle</p>
+		<h1 class="title"><?=$title?></h1>
+		<p class="sub_title sep"><?=$subtitle?></p>
 		<section class="reports_list">
 			<? foreach ($reports as $report) : ?>
 				<article class="report_info clearfix">

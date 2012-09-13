@@ -7,19 +7,20 @@ class Reports extends MY_Controller {
 	}
 	public function index($page=1) {
 		$this->load->library('pagination');
-
-		$config['base_url'] = site_url('page/');
+		$config['base_url'] = site_url('pagina/');
 		$config['total_rows'] = Report::count_all();
 		$config['first_url'] = site_url();
 		$this->pagination->initialize($config); 
 		$data['pagination_links'] = $this->pagination->create_links();
 		$data['page_title'] = 'Listado de reportes';
+		$data['title'] = "Más urgentes";
+		$data['subtitle'] = "Noticias que necesitan arreglarse con más urgencia";
 		$data['main_content'] = 'reports/list_reports';
 		$data['reports'] = Report::all(array(
-										'select' => '*, (karma*karma_value) as value',
-										'limit' => $this->pagination->per_page, 
-										'offset' => $this->pagination->per_page*($page-1), 
-										'order' => 'value desc, karma desc, created_at desc, votes_count desc'));
+									'select' => '*, (karma*karma_value) as value',
+									'limit' => $this->pagination->per_page, 
+									'offset' => $this->pagination->per_page*($page-1), 
+									'order' => 'value desc, karma desc, created_at desc, votes_count desc'));
 		$data['sites_most_fixes'] = Report::find_by_sql('
 									SELECT site, SUM(votes_count) as votes
 									FROM reports GROUP BY site
@@ -32,6 +33,68 @@ class Reports extends MY_Controller {
 		$data['reports_data'] = Reports_data::all();
 		$this->load->view('includes/template', $data);
 	}
+	public function recents($page=1) {
+		$this->load->library('pagination');
+		$config['base_url'] = site_url('recientes/pagina/');
+		$config['total_rows'] = Report::count_all();
+		$config['first_url'] = site_url();
+		$config['uri_segment'] = 3;
+		$this->pagination->initialize($config); 
+		$data['pagination_links'] = $this->pagination->create_links();
+		$data['page_title'] = 'Listado de reportes';
+		$data['title'] = "Recientes";
+		$data['subtitle'] = "Últimas noticias enviadas";
+		$data['main_content'] = 'reports/list_reports';
+		$data['reports'] = Report::all(array(
+									'select' => '*, (karma*karma_value) as value',
+									'limit' => $this->pagination->per_page, 
+									'offset' => $this->pagination->per_page*($page-1), 
+									'order' => 'created_at desc, value desc, karma desc, votes_count desc'));
+		$data['sites_most_fixes'] = Report::find_by_sql('
+									SELECT site, SUM(votes_count) as votes
+									FROM reports GROUP BY site
+									ORDER BY votes DESC LIMIT 0,5');
+		$data['sites_most_reported'] = Report::find_by_sql('
+									SELECT site, COUNT(reports_data.id) as reports
+									FROM reports INNER JOIN reports_data
+									ON reports.id = reports_data.report_id GROUP BY site
+									ORDER BY reports DESC LIMIT 0,5');
+		$data['reports_data'] = Reports_data::all();
+		$this->load->view('includes/template', $data);
+	}
+	public function pendings($page=1) {
+		$this->load->library('pagination');
+		$config['base_url'] = site_url('pendientes/pagina/');
+		$config['total_rows'] = Report::count_all();
+		$config['first_url'] = site_url();
+		$config['uri_segment'] = 3;
+		$this->pagination->initialize($config); 
+		$data['pagination_links'] = $this->pagination->create_links();
+		$data['page_title'] = 'Listado de reportes pendientes';
+		$data['main_content'] = 'reports/list_reports';
+		$data['title'] = "Pendientes";
+		$data['subtitle'] = "Noticias enviadas que todavía tienen pocos o ningún reporte";
+		$per_page = $this->pagination->per_page;
+		$offset = $this->pagination->per_page*($page-1);
+		$data['reports'] = Report::find_by_sql("SELECT r.*, (r.karma*r.karma_value) as value, count(rd.id) as subs
+												FROM reports r LEFT JOIN reports_data rd
+												ON (r.id=rd.report_id) GROUP BY r.id
+												ORDER BY subs ASC, value desc, r.karma desc, 
+												r.created_at desc, r.votes_count desc
+												LIMIT $offset,$per_page");
+		$data['sites_most_fixes'] = Report::find_by_sql('
+									SELECT site, SUM(votes_count) as votes
+									FROM reports GROUP BY site
+									ORDER BY votes DESC LIMIT 0,5');
+		$data['sites_most_reported'] = Report::find_by_sql('
+									SELECT site, COUNT(reports_data.id) as reports
+									FROM reports INNER JOIN reports_data
+									ON reports.id = reports_data.report_id GROUP BY site
+									ORDER BY reports DESC LIMIT 0,5');
+		$data['reports_data'] = Reports_data::all();
+		$this->load->view('includes/template', $data);
+	}
+
 	public function create() {
 		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 		$this->form_validation->set_rules('url', 'URL', 'required|prep_url|valid_url');
