@@ -50,7 +50,8 @@ class Reports extends MY_Controller {
 							'slug' => preg_replace('/[^a-z0-9]+/i','-',$url_data['title']),
 							'title' => $url_data['title'],
 							'site' => str_replace('www.', '', $url_data['host']),
-							'votes_count' => 1));
+							'votes_count' => 1,
+							'karma' => $this->the_user->karma));
 					$vote = Vote::create(array(
 							'user_id' => $this->the_user->id,
 							'item_id' => $report->id,
