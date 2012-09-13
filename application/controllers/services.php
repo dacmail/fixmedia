@@ -115,9 +115,12 @@ class Services extends MY_Controller {
             $avg_votes=$row->avg-1; 
 
             $users = User::find_all_by_active(1);
+            $output = 'Comienzo del proceso: ' . time();
             foreach ($users as $user) :
-               calculate_karma_users($user, $avg_votes);
+               $output .= calculate_karma_users($user, $avg_votes);
             endforeach;
+            $output .= 'Final del proceso: ' . time();
+            mail('dacmail@gmail.com', 'Ejecución cálculo karma usuarios', $output, "MIME-Version: 1.0" . "\r\n Content-type: text/html; charset=UTF-8" . "\r\n");
          /*else :
             show_404();
          endif;*/

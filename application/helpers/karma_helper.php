@@ -3,9 +3,10 @@
 	function calculate_karma_users($user, $avg_fixes) {
 		$karma_base = 5;
 		$date_limit = "date_sub(now(), interval 7 day)";
-		echo "</br><strong>*** Calculando karma de usuario '$user->name' ($user->id)</strong></br>";
-		echo "media fixes por noticias global -> $avg_fixes </br>";
-		echo "karma actual -> $user->karma </br>";
+		$output='';
+		$output .= "</br>\r\n<strong>*** Calculando karma de usuario '$user->name' ($user->id)</strong></br>\r\n";
+		$output .= "media fixes por noticias global -> $avg_fixes </br>\r\n";
+		$output .= "karma actual -> $user->karma </br>\r\n";
 
 		/*
 			- Votos a noticia que tu has enviado aumentaría tu karma
@@ -22,7 +23,7 @@
 
 		$avg_user_fixes = Report::find_by_sql("SELECT AVG(votes_count) as avg FROM reports WHERE user_id=$user->id");
         $avg_user_fixes= $avg_user_fixes[0]->avg>0 ? $avg_user_fixes[0]->avg-1 : 0;
-		echo "media fixes por noticias del usuario -> $avg_user_fixes </br>";
+		$output .= "media fixes por noticias del usuario -> $avg_user_fixes </br>\r\n";
 
 		$max_user_fixes = Vote::find_by_sql("SELECT item_id, SUM(vote_value) as votes FROM votes v INNER JOIN reports r ON (r.id=v.item_id) WHERE vote_type LIKE 'FIX' 
 											AND v.user_id!=$user->id AND r.user_id=$user->id GROUP BY item_id ORDER BY votes DESC LIMIT 1");
@@ -33,12 +34,12 @@
 									AND v.created_at > $date_limit LIMIT 1");
 		$reports_sent = count($reports);
 		$subreports_sent = count($subreports);
-		echo "noticias enviadas -> $reports_sent </br>";
-		echo "reportes enviados -> $subreports_sent </br>";
+		$output .= "noticias enviadas -> $reports_sent </br>\r\n";
+		$output .= "reportes enviados -> $subreports_sent </br>\r\n";
 
 		$received_fixes = $received_fixes[0];
 		$received_fixes->fixes = (!empty($received_fixes->fixes) ? $received_fixes->fixes : 0);
-		echo "fixes recibidos en sus noticias -> $received_fixes->fixes </br>";
+		$output .= "fixes recibidos en sus noticias -> $received_fixes->fixes </br>\r\n";
 
 		if ($reports_sent>0) :
 			$value_fixes = round(($received_fixes->fixes*$reports_sent)-$avg_fixes/2,2);
@@ -50,11 +51,11 @@
 			$karma_base_user=$karma_base-1; //penalización en la base por no enviar noticias
 			$value_fixes = $received_fixes->fixes;
 		endif;
-		echo "valor de fixes recibidos -> $value_fixes </br>";
+		$output .= "valor de fixes recibidos -> $value_fixes </br>\r\n";
 		if ($subreports_sent==0) :
 			$karma_base_user=$karma_base_user-1; //penalización en la base por no reportar
 		endif;
-		echo "karma base del usuario -> $karma_base_user </br>"; 
+		$output .= "karma base del usuario -> $karma_base_user </br>\r\n"; 
 		//Votos positivos a reporte que tu has enviado aumentaría tu karma
 
 		$positive_votes = Vote::find_by_sql("SELECT SUM(v.vote_value) as votes FROM votes v INNER JOIN reports_data r ON (v.item_id=r.id)
@@ -62,7 +63,7 @@
 									AND vote_value>0 AND v.created_at > $date_limit LIMIT 1");
 		foreach ($positive_votes as $vote) :
 			$value_positive_votes = $vote->votes = (!empty($vote->votes) ? $vote->votes : 0);
-			echo "votos positivos recibidos en sus reportes -> $value_positive_votes </br>";
+			$output .= "votos positivos recibidos en sus reportes -> $value_positive_votes </br>\r\n";
 			break;
 		endforeach;
 
@@ -73,7 +74,7 @@
 									AND vote_value<0 AND v.created_at > $date_limit LIMIT 1");
 		foreach ($negative_votes as $vote) :
 			$value_negative_votes = $vote->votes = (!empty($vote->votes) ? $vote->votes : 0);
-			echo "votos negativos recibidos en sus reportes -> $value_negative_votes </br>";
+			$output .= "votos negativos recibidos en sus reportes -> $value_negative_votes </br>\r\n";
 			break;
 		endforeach;
 
@@ -84,13 +85,13 @@
 														AND r.user_id=$user->id AND rd.created_at > $date_limit");
 		foreach ($report_from_others as $report) :
 			$value_reports_from_others = $report->reports;
-			echo "reportes recibidos a sus fix iniciales -> $value_reports_from_others </br>";
+			$output .= "reportes recibidos a sus fix iniciales -> $value_reports_from_others </br>\r\n";
 			break;
 		endforeach;
 
 		//Calculo final del karma	
 		$calculated_karma = $karma_base_user + $value_fixes + $value_positive_votes*2 + $value_negative_votes*4 + $value_reports_from_others*2;
-		echo "karma nuevo -> $calculated_karma </br>";
+		$output .= "karma nuevo -> $calculated_karma </br>\r\n";
 
 		if ($calculated_karma > $user->karma) :
 			$user->karma = 0.8*$user->karma + 0.2*$calculated_karma;
@@ -98,13 +99,15 @@
 			$user->karma = 0.95*$user->karma + 0.05*$calculated_karma;
 		endif;
 
-		echo "karma final -> $user->karma </br>"; 
+		$output .= "karma final -> $user->karma </br>\r\n"; 
 		$user->save();
+		return $output;
 	}
 	function calculate_karma_reports() {
          $reports = Report::all(array('conditions' => 'created_at > date_sub(now(), interval 2 hour) OR karma_value>1'));
          $karma=0;
-         echo "=======INICIANDO PROCESO======= </br>";
+         $output="<html></body>";
+         $output .= "======= INICIANDO PROCESO ======= " . time() . "</br>\r\n";
          foreach ($reports as $report) :
            	$interval = time()-$report->created_at->getTimestamp();
            	if ($interval < 7200  && $interval > 600) {
@@ -112,8 +115,16 @@
            	} else {
               	$report->karma_value = 1;
            	}
-           	echo "***el valor para la noticia con ID '$report->id' es '$report->karma_value'";
+           	$output .= "*** el valor para la noticia con ID '$report->id' es '$report->karma_value' </br>\r\n";
            	$report->save();
          endforeach; 
+
+         $output .= "Final del proceso: " . time() . "</body></html>";
+         echo $output;
+         $headers = "From: fixmedia@fixmedia.org \r\n";
+			$headers .= "Reply-To: fixmedia@fixmedia.org \r\n";
+			$headers .= "MIME-Version: 1.0\r\n";
+			$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+         mail('dacmail@gmail.com', 'Ejecución cálculo coeficiente', $output, $headers);
 	}
 ?>

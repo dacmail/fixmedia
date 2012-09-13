@@ -62,7 +62,7 @@
     <nav class="main-menu">
         <ul class="menu clearfix">
             <li><a href="<?= site_url($this->router->reverseRoute('reports-create')); ?>" class="button icon fixit">FIX</a></li>
-            <li class="current"><a class="link" href="#">Más urgentes</a></li>
+            <li class="<?= is_cur_page($this, 'reports','index') ? 'current' : ''; ?>"><a class="link" href="#">Más urgentes</a></li>
             <li><a class="link" href="#">Pendientes</a></li>
             <li><a class="link" href="#">Recientes</a></li>
             <li><a class="link" href="#">Top usuarios</a></li>
