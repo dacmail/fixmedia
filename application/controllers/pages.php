@@ -8,8 +8,11 @@ class Pages extends MY_Controller {
 	}
 	public function view($page = 'home') {
 				
-		if (!file_exists('application/views/pages/'.$page.'.php')) { show_404();}
-		$data['page_title'] = 'Titulo';
+		if (!file_exists('application/views/pages/'.$page.'.php')) { show_404(); }
+		$titles = array('quienes-somos' => 'Quiénes somos',
+						'que-hacemos' => 'Qué hacemos',
+						'faq' => 'Preguntas más frecuentes');
+		$data['page_title'] = $titles[$page];
 		$data['main_content'] = 'pages/' . $page;
 				
 		$this->load->view('includes/template', $data);

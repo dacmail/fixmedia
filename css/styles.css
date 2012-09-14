@@ -1144,7 +1144,6 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 	margin: 10px 0px;
 	padding: 10px;
 	font-size: 12px;
-	width: 500px;
 	color: red;
 }
 	#infoMessage p {margin-bottom:5px;}
