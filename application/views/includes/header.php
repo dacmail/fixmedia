@@ -32,7 +32,7 @@
                 </ul>
             </nav>
             <? if (!$logged_in) : ?>
-                <a class="log_in" href="<?php echo base_url("index.php/auth/login"); ?>">Iniciar sesión</a>
+                <a class="log_in" href="<?= site_url($this->router->reverseRoute('login')); ?>">Iniciar sesión</a>
             <? else :?>
                 <section class="user">
                     <a class="welcome" href="#"><span class="user_name"><?= $the_user->name; ?></span> <?=gravatar( $the_user->email, 40, true, 'mm', 'x', array('title' => 'Reputación ' . $the_user->karma) )?></a>

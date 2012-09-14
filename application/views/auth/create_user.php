@@ -1,4 +1,4 @@
-<div id="container" class="sending login clearfix">
+<div id="container" class="columns sending login clearfix">
   <div id="content">
 
     <h1 class="title">Regístrate</h1>
@@ -30,7 +30,7 @@
 
       
       
-      <p><?php echo form_submit('submit', 'Registrar', 'class="submit button"');?></p>
+      <p><?php echo form_submit('submit', 'Registrarse', 'class="submit button"');?></p>
 
       
     <?php echo form_close();?>

@@ -1,4 +1,4 @@
-<div id="container" class="sending login clearfix">
+<div id="container" class="columns sending login clearfix">
   <div id="content">
 
     <h1 class="title">Iniciar sesión</h1>
@@ -31,5 +31,10 @@
 
       <p><a href="<?= site_url('auth/forgot_password'); ?>">¿Olvidaste tu contraseña?</a></p>
 
+  </div>
+  <div class="reg_column">
+    <h1 class="title">¿Tienes invitación?</h1>
+    <p class="sub_title">Si tienes un código de invitación, puedes registrarte en Fixmedia.org.</p>
+    <div><a href="<?= site_url($this->router->reverseRoute('register')); ?>" class="button">Regístrate ahora</a></div>
   </div>
 </div>

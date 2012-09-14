@@ -48,6 +48,8 @@ $route['reporte/guardar'] = array('/reports/save','reports-save');
 $route['reporte/(:slug)'] = array('/reports/view/$1','reports-view');
 $route['reporte/(:slug)/(:share)'] = array('/reports/view/$1/$2','reports-view-share');
 $route['usuario/salir'] = array('/auth/logout','logout');
+$route['usuario/entrar'] = array('/auth/login','login');
+$route['usuario/registro'] = array('/auth/create_user','register');
 $route['pagina/(:page)'] = array('reports/index/$1','home-paged');
 $route['pendientes'] = array('reports/pendings','home-pending');
 $route['pendientes/pagina/(:page)'] = array('reports/pendings/$1','home-pending-paged');
@@ -59,6 +61,8 @@ $route['usuario/editar'] = array('/member/edit','user-edit');
 $route['usuario/guardar'] = array('/member/save','user-save');
 $route['fuente/(:sitename)'] = array('/source/index/$1','source-profile');
 $route['fuente/(:sitename)/page/(:page)'] = array('/source/index/$1/$2','source-profile-paged');
+$route['estaticas/(:page)'] = array('/pages/view/$1','statics');
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -1139,6 +1139,7 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 .login p {
 	margin-bottom:20px;
 }
+	.login .submit.button {margin:50px 150px;}
 #infoMessage {
 	margin: 10px 0px;
 	padding: 10px;
@@ -1202,3 +1203,11 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 	.popup .icon.tw {background-position:0 -652px;}
 	.popup .icon.gp {background-position:0 -586px;}
 	.popup .icon:hover {opacity:0.7;}
+.reg_column {
+	float:right;
+	width:280px;
+}
+.reg_column .button {
+	float: right;
+	margin-right: 80px;
+}

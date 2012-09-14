@@ -416,13 +416,13 @@ class Auth extends MY_Controller {
 			//redirect them back to the admin page
 			$user = User::find_by_username($username);
 			$user->name = $username;
-			$user->save;
-			$this->session->set_flashdata('message', "User Created");
+			$user->save();
+			$this->session->set_flashdata('message', "Ya estás registrado, para iniciar sesión debes revisar tu email, te habrá llegado un enlace de activación.<p><strong>No olvides comprobar la carpeta de SPAM/correo no deseado.</strong></p>");
 			redirect("auth", 'refresh');
 		} else { //display the create user form
 			//set the flash data error message if there is one
 			$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
-			$this->data['message'] .= empty($invitation) ? "Código de invitación no válido" : '';
+			$this->data['message'] .= !empty($username) && empty($invitation) ? "Código de invitación no válido" : '';
 			$this->data['invitation_code'] = array(
 				'name' => 'invitation_code',
 				'id' => 'invitation_code',
