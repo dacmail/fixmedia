@@ -36,5 +36,8 @@
     <h1 class="title">¿Tienes invitación?</h1>
     <p class="sub_title">Si tienes un código de invitación, puedes registrarte en Fixmedia.org.</p>
     <div><a href="<?= site_url($this->router->reverseRoute('register')); ?>" class="button">Regístrate ahora</a></div>
+    <h1 class="title">¿Quieres una?</h1>
+    <p class="sub_title">Si quieres un código de invitación para probar Fixmedia.org, déjanos tu email</p>
+
   </div>
 </div>

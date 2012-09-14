@@ -36,7 +36,7 @@ class Auth extends MY_Controller {
           		'size' => '30',
           		'class' => 'text'
 			);
-			$this->load->view('includes/template', $this->data);
+			$this->load->view('includes/template-landing', $this->data);
 		}
 		elseif (!$this->ion_auth->is_admin())
 		{
@@ -112,7 +112,7 @@ class Auth extends MY_Controller {
 				$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
 				$this->data['main_content'] = 'auth/login';
-				$this->load->view('includes/template', $this->data);
+				$this->load->view('includes/template-landing', $this->data);
 			}
 		}
 		else {
@@ -214,7 +214,7 @@ class Auth extends MY_Controller {
 			//set any errors and display the form
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 			$this->data['main_content'] = 'auth/forgot_password';
-			$this->load->view('includes/template', $this->data);
+			$this->load->view('includes/template-landing', $this->data);
 		}
 		else
 		{
@@ -457,7 +457,7 @@ class Auth extends MY_Controller {
 				'class' => 'text'
 			);
 			$this->data['main_content'] = 'auth/create_user';
-			$this->load->view('includes/template', $this->data);
+			$this->load->view('includes/template-landing', $this->data);
 		}
 	}
 

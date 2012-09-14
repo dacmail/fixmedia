@@ -1,4 +1,4 @@
-<div id="container" class="columns sending login clearfix">
+<div id="container" class="sending login clearfix">
   <div id="content">
 
     <h1 class="title">Regístrate</h1>
