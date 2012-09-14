@@ -1135,11 +1135,18 @@ a:hover {text-decoration:underline;}
 }
 select,textarea,input[type=text] {display:block;width:600px;}
 
-input#identity, input#username, input#email, input#password, input#repassword, input#password_confirm {display:block;width:300px;}
+input#invitation_code, input#identity, input#username, input#email, input#password, input#repassword, input#password_confirm {display:block;width:300px;}
 .login p {
 	margin-bottom:20px;
 }
-
+#infoMessage {
+	margin: 10px 0px;
+	padding: 10px;
+	font-size: 12px;
+	width: 500px;
+	color: red;
+}
+	#infoMessage p {margin-bottom:5px;}
 #colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
 #cboxOverlay{background:#000000; position:fixed; width:100%; height:100%;}
 #cboxMiddleLeft, #cboxBottomLeft{clear:left;}

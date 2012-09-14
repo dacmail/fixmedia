@@ -388,55 +388,48 @@ class Auth extends MY_Controller {
 	}
 
 	//create a new user
-	function create_user()
-	{
-		/*$username = 'edipotrebol';
-		$password = '12345678';
-		$email = 'edipotrebol@gmail.com';
-		$additional_data = array(
-			'first_name' => 'Pablo',
-			'last_name' => 'Martín',
-		);
-		$this->ion_auth->register($username, $password, $email, $additional_data);*/
-		
-		$this->data['page_title'] = "Create User";
+	function create_user() {
+		$this->data['page_title'] = "Registro de usuario";
 
-		if ($this->ion_auth->logged_in() || $this->ion_auth->is_admin())
-		{
+		if ($this->ion_auth->logged_in() || $this->ion_auth->is_admin()) {
 			redirect('auth', 'refresh');
 		}
 
-		$this->form_validation->set_rules('username', 'Usuario', 'required|unique');
-		$this->form_validation->set_rules('email', 'Email', 'required|unique|valid_email');
+		$this->form_validation->set_rules('username', 'Usuario', 'required|is_unique[users.username]');
+		$this->form_validation->set_rules('email', 'Email', 'required|is_unique[users.email]|valid_email');
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
 		$this->form_validation->set_rules('password_confirm', 'Password Confirmation', 'required');
 
-		if ($this->form_validation->run() == true)
-		{
+		/*INVITACIONES*/
+		$code= $this->input->post('invitation_code');
+		$this->db->where("code LIKE '$code'");
+        $query = $this->db->get('invitations'); 
+        $invitation=$query->row();
+
+		if ($this->form_validation->run() == true) {
 			$username = $this->input->post('username');
 			$email = $this->input->post('email');
 			$password = $this->input->post('password');
-
-			/*$additional_data = array(
-				'first_name' => $this->input->post('first_name'),
-				'last_name' => $this->input->post('last_name'),
-				'company' => $this->input->post('company'),
-			);*/
 		}
-		if ($this->form_validation->run() == true && $this->ion_auth->register($username, $password, $email))
-		{ //check to see if we are creating the user
+
+		if ($this->form_validation->run() == true && !empty($invitation) && $this->ion_auth->register($username, $password, $email)) { //check to see if we are creating the user
 			//redirect them back to the admin page
 			$user = User::find_by_username($username);
 			$user->name = $username;
 			$user->save;
 			$this->session->set_flashdata('message', "User Created");
 			redirect("auth", 'refresh');
-		}
-		else
-		{ //display the create user form
+		} else { //display the create user form
 			//set the flash data error message if there is one
 			$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
-
+			$this->data['message'] .= empty($invitation) ? "Código de invitación no válido" : '';
+			$this->data['invitation_code'] = array(
+				'name' => 'invitation_code',
+				'id' => 'invitation_code',
+				'type' => 'text',
+				'value' => $this->form_validation->set_value('invitation_code'),
+				'class' => 'text'
+			);
 			$this->data['username'] = array(
 				'name' => 'username',
 				'id' => 'username',
