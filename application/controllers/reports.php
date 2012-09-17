@@ -15,7 +15,7 @@ class Reports extends MY_Controller {
 		$data['pagination_links'] = $this->pagination->create_links();
 		$data['page_title'] = 'Listado de reportes';
 		$data['title'] = "Más urgentes";
-		$data['subtitle'] = "Noticias que necesitan arreglarse con más urgencia";
+		$data['subtitle'] = "Noticias para arreglar con más repercusión en este momento";
 		$data['main_content'] = 'reports/list_reports';
 		$data['reports'] = Report::all(array(
 									'select' => '*, (karma*karma_value) as value',
