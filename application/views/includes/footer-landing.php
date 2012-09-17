@@ -1,5 +1,5 @@
 <footer id="footer">
-	<section class="logos-footer">
+	<section class="logos-footer <?= is_cur_page($this, 'auth','create_user') ? 'create_user' : ''; ?> <?= is_cur_page($this, 'auth','forgot_password') ? 'forgot' : ''; ?>">
 		<div class="wrap clearfix">
 			<div class="develop">
 				<h3 class="title">Desarrollado por:</h3>

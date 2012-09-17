@@ -244,7 +244,7 @@ class Auth extends MY_Controller {
 					'class' => 'text'
 				);
 				$this->data['main_content'] = 'auth/forgot_password';
-				$this->load->view('includes/template', $this->data);
+				$this->load->view('includes/template-landing', $this->data);
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-<div id="container" class="sending login clearfix">
+<div id="container" class="sending create_user forgot columns login clearfix">
 	<div id="content">
 		
     <h1 class="title">Recuperar contraseña</h1>

@@ -1204,51 +1204,90 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 	.popup .icon:hover {opacity:0.7;}
 .reg_column {
 	float:left;
-	width:280px;
+	border-left:1px solid #EEEEEE;
+	text-align:center;
+	height:522px;
 }
-.reg_column .title {margin-bottom:20px;}
+.reg_column .title {margin-bottom:30px;}
 .reg_column .button {
-	float: right;
-	margin-right: 80px;
-	margin-bottom:50px;
+	float: none;
+	margin:20px auto 0px auto;
+	width:125px;
+	text-align:center;
 }
+.reg_column .have {
+	border-bottom:1px solid #D2D2D2;
+	width:366px;
+	padding:40px 60px;
 
-
+}
+.reg_column .want {
+	width:366px;
+	padding: 40px 60px;
+	border-top:1px solid #EEEEEE;
+}
+.landing #infoMessage {text-align:left;}
 .landing {
-	/*background:#EAC000;*/
+	background:#EAC000;
 }
 	.landing .logo {
 		display:block;
-		height:86px;
-		width:319px;
-		background:url('../images/logo.png') 0 0px no-repeat;
-		margin:40px auto 60px auto;
+		height:99px;
+		width:367px;
+		background:url('../images/logo_white.png') 0 0px no-repeat;
+		margin:40px auto 320px auto;
 	}
 		.landing .logo a {
 			display:block;
-			height:86px;
-			width:319px;
+			height:99px;
+			width:367px;
 			text-indent:-9999999px;
 		}
 	.landing #container.columns {
 		margin-bottom:110px;
+		background:#E5E5E5;
+		border-radius:13px;
+		padding:3px 0px;
+		position:absolute;
+		top:190px;
+		left:50%;
+		margin-left:-490px;
+		box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 	}
+		.landing #container.columns.create_user {
+			width:490px;
+			margin-left:-245px;
+		}
 	.landing .logos-footer  {
-		/*border:0px;
-			background:#EAC000;*/
-
+		padding-top:360px;
 	}
+		.landing .create_user.logos-footer {
+			padding-top:560px;
+		}
+		.landing .forgot.logos-footer {
+			padding-top:160px;
+		}
 	.landing #container.columns #content {
 		text-align:center;
-		width:560px;
+		width:369px;
+		border-right:1px solid #D2D2D2;
+		padding:60px;
+		height:402px;
 	}
+		.landing #container.columns.create_user #content {
+			height:auto;
+			border:0px;
+		}
 	.landing #container #content {text-align:center}
 	.landing #content input {
-		margin: 0px auto;
+		width:370px;
 	}
+	.landing #content #remember {width:auto;}
 	.landing #content input.button {
-		margin-top:10px;
 		width:150px;
 		float:none;
+		margin:10px auto 0px auto;
 	}
-	/*.landing .title, .landing .sub_title {color:#ffffff;}*/
+		.landing .forgot #content input.button {width:210px;}
+	.landing #content .row, .landing #content .label {font-weight:normal; text-align:left;}
+	.landing #container .title, .landing #container .sub_title {color:#333333;}
