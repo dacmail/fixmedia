@@ -402,7 +402,7 @@ class Auth extends MY_Controller {
 			redirect('auth', 'refresh');
 		}
 
-		$this->form_validation->set_rules('username', 'Usuario', 'required|is_unique[users.username]');
+		$this->form_validation->set_rules('username', 'Usuario', 'required|is_unique[users.username]|alpha_numeric');
 		$this->form_validation->set_rules('email', 'Email', 'required|is_unique[users.email]|valid_email');
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
 		$this->form_validation->set_rules('password_confirm', 'Password Confirmation', 'required');
