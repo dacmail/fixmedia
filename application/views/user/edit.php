@@ -1,6 +1,7 @@
-<div id="container" class="clearfix sending editing columns">
+<div id="container" class="clearfix sending editing profile columns">
 	<div id="content">
-		<h1 class="title sep">Editar perfil</h1>
+		<h1 class="title sep">Editar perfil			  				<a class="edit_profile_link" href="<?=site_url($this->router->reverseRoute('change_password'));?>">Cambiar contraseña</a>
+</h1>
 
 		<?php echo form_open($this->router->reverseRoute('user-save'), array('id' => 'form_report', 'class' => 'clearfix')) ?>
 			<div class="fields_wrap open">

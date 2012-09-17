@@ -154,4 +154,11 @@ class Services extends MY_Controller {
          endforeach; 
       }
 
+      public function fixit() {
+         $data['url'] = $this->input->get('url', TRUE);
+         if (!empty($data['url'])) :
+            $this->load->view('services/fixit', $data);
+         endif;
+      }
+
 }

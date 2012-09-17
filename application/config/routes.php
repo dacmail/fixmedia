@@ -49,6 +49,7 @@ $route['reporte/(:slug)'] = array('/reports/view/$1','reports-view');
 $route['reporte/(:slug)/(:share)'] = array('/reports/view/$1/$2','reports-view-share');
 $route['usuario/salir'] = array('/auth/logout','logout');
 $route['usuario/entrar'] = array('/auth/login','login');
+$route['usuario/cambiar_clave'] = array('/auth/change_password','change_password');
 $route['usuario/registro'] = array('/auth/create_user','register');
 $route['pagina/(:page)'] = array('reports/index/$1','home-paged');
 $route['pendientes'] = array('reports/pendings','home-pending');

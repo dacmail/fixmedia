@@ -8,9 +8,11 @@
 	<? if (isset($sites_most_fixes)) :?>
 	<section class="block ranking">
 		<h3 class="title">Fuentes con más fixes</h3>
+		<? $pos=0; ?>
 		<? foreach ($sites_most_fixes as $site) :?>
+			<?$pos++;?>
 			<div class="row clearfix">
-				<span class="pos">1</span> <span class="site"><a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $site->site))); ?>"><?= $site->site; ?></a></span> <span class="votes"><?= $site->votes; ?></span>
+				<span class="pos"><?=$pos?></span> <span class="site"><a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $site->site))); ?>"><?= $site->site; ?></a></span> <span class="votes"><?= $site->votes; ?></span>
 			</div>
 		<? endforeach; ?> 
 	</section>
@@ -18,9 +20,11 @@
 	<? if (isset($sites_most_reported)) :?>
 	<section class="block ranking">
 		<h3 class="title">Fuentes con más reportes</h3>
+		<? $pos=0; ?>
 		<? foreach ($sites_most_reported as $site) :?>
+			<?$pos++;?>
 			<div class="row clearfix">
-				<span class="pos">1</span> <span class="site"><a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $site->site))); ?>"><?= $site->site; ?></a></span> <span class="votes"><?= $site->reports; ?></span>
+				<span class="pos"><?=$pos?></span> <span class="site"><a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $site->site))); ?>"><?= $site->site; ?></a></span> <span class="votes"><?= $site->reports; ?></span>
 			</div>
 		<? endforeach; ?> 
 	</section>

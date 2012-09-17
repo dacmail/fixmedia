@@ -156,18 +156,21 @@ class Auth extends MY_Controller {
 				'name' => 'old',
 				'id'   => 'old',
 				'type' => 'password',
+				'class' => 'text'
 			);
 			$this->data['new_password'] = array(
 				'name' => 'new',
 				'id'   => 'new',
 				'type' => 'password',
 				'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
+				'class' => 'text'
 			);
 			$this->data['new_password_confirm'] = array(
 				'name' => 'new_confirm',
 				'id'   => 'new_confirm',
 				'type' => 'password',
 				'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
+				'class' => 'text'
 			);
 			$this->data['user_id'] = array(
 				'name'  => 'user_id',
@@ -177,7 +180,11 @@ class Auth extends MY_Controller {
 			);
 
 			//render
-			$this->load->view('auth/change_password', $this->data);
+
+			$this->data['page_title'] = 'Cambiar contraseña';
+			$this->data['main_content'] = 'auth/change_password';
+
+			$this->load->view('includes/template', $this->data);
 		}
 		else
 		{

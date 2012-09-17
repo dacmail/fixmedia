@@ -27,7 +27,22 @@ class Member extends MY_Controller {
 											'order' => 'created_at desc'
 											));
 
-			$data['users_ranking'] = User::all(array('limit' => 5));
+			$data["users_ranking"] = $users_ranking = User::find_by_sql("SELECT id, name,username, karma
+														FROM users ORDER BY karma DESC");
+
+			$position=0;
+			foreach ($users_ranking as $user_rank) :
+				if ($user_rank->id == $user->id ) :
+					break;
+				endif;
+				$position++;
+			endforeach;
+
+			$data["users_ranking_position"] = $position = ($position==0) ? $position : (($position==1) ? $position-1 : $position-2); //muestra las dos fuentes que están por delante
+			$data["users_ranking"] = array_slice($users_ranking, $position, 5); 
+
+
+
 			//TODO: Limitar consultas solo a los últimos 6 meses
 			$reports_by_month = Reports_data::find_by_sql("select count(id) as reports, month(created_at) as mes from reports_data where user_id=" . $user->id . " group by mes");
 			$fixes_by_month = Vote::find_by_sql("select count(id) as fixes, month(created_at) as mes from votes where user_id=" . $user->id . " AND vote_type LIKE '%FIX%' group by mes");

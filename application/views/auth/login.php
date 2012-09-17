@@ -37,7 +37,8 @@
     <p class="sub_title">Si tienes un código de invitación, puedes registrarte en Fixmedia.org.</p>
     <div><a href="<?= site_url($this->router->reverseRoute('register')); ?>" class="button">Regístrate ahora</a></div>
     <h1 class="title">¿Quieres una?</h1>
-    <p class="sub_title">Si quieres un código de invitación para probar Fixmedia.org, déjanos tu email</p>
-
+    <p class="sub_title">Si todavía no tienes invitación, síguenos en <a href="http://twitter.com/fixmedia_org">@fixmedia_org</a> y envía un twitt incluyendo #InvitaciónFixmedia en el mensaje.</p>
+    <a href="https://twitter.com/intent/tweet?button_hashtag=Invitaci%C3%B3nFixmedia&text=Me%20gustar%C3%ADa%20recibir%20la%20" class="twitter-hashtag-button" data-lang="es" data-size="large" data-related="fixmedia_org">Tweet #Invitaci%C3%B3nFixmedia</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   </div>
 </div>

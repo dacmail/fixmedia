@@ -660,7 +660,7 @@ a:hover {text-decoration:underline;}
 			font-weight: bold;
 			line-height:34px;
 		}
-			.profile .user_info .data .name .edit_profile_link {
+			.profile  .edit_profile_link {
 				font-size:12px;
 				font-weight: normal;
 				text-transform:lowercase;
