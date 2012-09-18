@@ -1266,6 +1266,7 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 		}
 		.landing .forgot.logos-footer {
 			padding-top:160px;
+			padding-bottom:200px;
 		}
 	.landing #container.columns #content {
 		text-align:center;
