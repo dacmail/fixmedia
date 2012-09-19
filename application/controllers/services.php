@@ -157,8 +157,39 @@ class Services extends MY_Controller {
       public function fixit() {
          $data['url'] = $this->input->get('url', TRUE);
          if (!empty($data['url'])) :
+            $style = $this->input->get('style', TRUE);
+            $data['style'] = empty($style) ? 'std' : 'gray';
+            $text = $this->input->get('text', TRUE);
+            $data['text'] = empty($text) ? 'fix' : $text;
             $this->load->view('services/fixit', $data);
          endif;
       }
+
+
+      public function set_images() {         
+         $this->db->select('id, url, screenshot');
+         $this->db->where("screenshot IS NULL OR screenshot LIKE ''");
+         $query = $this->db->get('reports'); 
+
+         $path = getcwd() . '/images/sources/';
+         echo "RUTA PARA IMAGENES: $path </br>";
+         $update_data = array();
+         foreach ($query->result() as $report) :
+            $thumb = $path . 'thumb-' . $report->id . ".jpg";
+            $cmd = getcwd() . '/wkhtmltoimage'; 
+            echo "Comando: $cmd --crop-h 400 --crop-w 400 --crop-y 100 $report->url $thumb </br>";
+            system("$cmd --crop-h 400 --crop-w 400 --crop-y 100 $report->url $thumb",$output);
+            var_dump($output);
+            if (file_exists($thumb)) :
+               echo "*** Creada miniatura: $thumb </br>";
+               $screenshot = "thumb-$report->id.jpg";
+            else :
+               $screenshot = "ERROR";
+            endif;
+            $update_data[] = array('id' => $report->id, 'screenshot' => $screenshot);
+         endforeach;
+         if (!empty($update_data)) { $this->db->update_batch('reports', $update_data, 'id'); }
+      }
+
 
 }

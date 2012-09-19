@@ -1024,9 +1024,9 @@ a:hover {text-decoration:underline;}
 	margin:10px 0;
 	cursor:pointer;
 	position:relative;
-	background: url('../images/icons-button.png') left -110px no-repeat;
-
+	background: url('../images/icons-button.png') left -330px no-repeat;
 }
+	.button:hover {background-position: left -385px;}
 .button.icon {
 	background-position:right 0;
 	padding:0 80px 0 20px;
@@ -1037,13 +1037,17 @@ a:hover {text-decoration:underline;}
 }
 	.button.icon:hover {background-position: right -55px;}
 	.button.icon.share { 
+		color:#999999;
 		background-position: right -110px;
-		border-color:#2760BF;
+		border-color:#CCCCCC;
 	}
+		.button.icon.share:hover { background-position: right -165px; }
 	.button.icon.add_report {
+		color:#999999;
 		background-position: right -220px;
-		border-color:#F47316;
+		border-color:#CCCCCC;
 	}
+		.button.icon.add_report:hover {background-position: right -275px;}
 	.button .subtitle {
 		position:absolute;
 		width:100%;
@@ -1228,8 +1232,9 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 }
 .landing #infoMessage {text-align:left;}
 .landing {
-	background:#EAC000;
+	background:#272727;
 }
+.landing #head {background:#EAC000;padding-top:1px;}
 	.landing .logo {
 		display:block;
 		height:99px;
@@ -1266,7 +1271,6 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 		}
 		.landing .forgot.logos-footer {
 			padding-top:160px;
-			padding-bottom:200px;
 		}
 	.landing #container.columns #content {
 		text-align:center;

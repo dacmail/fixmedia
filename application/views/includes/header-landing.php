@@ -22,4 +22,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styles.css" />
 </head>
 <body class="landing">
-<p class="logo"><a href="<?php echo base_url(); ?>">Fixmedia.org, arregla las noticias</a></p>
+    <div id="head" class="clearfix">
+       <p class="logo"><a href="<?php echo base_url(); ?>">Fixmedia.org, arregla las noticias</a></p> 
+    </div>
+    
