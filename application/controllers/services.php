@@ -173,26 +173,59 @@ class Services extends MY_Controller {
          $path = getcwd() . '/images/sources/';
          echo "RUTA PARA IMAGENES: $path </br>";
          $update_data = array();
+         $this->load->library('image_lib');
          foreach ($query->result() as $report) :
             $thumb = $path . 'thumb-' . $report->id . ".png";
-            //$cmd = '/usr/bin/wkhtmltoimage-i386'; 
-
+            $thumb_report = $path . 'thumb-report-' . $report->id . ".png";
+            $thumb_home = $path . 'thumb-home-' . $report->id . ".png";
             $cmd = '/usr/local/bin/phantomjs ' . getcwd() . '/js/rasterize.js';
 
-            //echo "Comando: $cmd --crop-h 400 --crop-w 400 --crop-y 100 $report->url $thumb </br>";
-            //system("$cmd --crop-h 400 --crop-w 400 --crop-y 100 $report->url $thumb");
-            //echo "$cmd $report->url $thumb";
-            system("$cmd $report->url $thumb");
+            if (!file_exists($thumb)) :
+               system("$cmd $report->url $thumb");
+            endif;
 
             if (file_exists($thumb)) :
-               echo "*** Creada miniatura: $thumb </br>";
+               
+               if (!file_exists($thumb_report)) :
+                  $config['image_library'] = 'gd2';
+                  $config['source_image'] = $thumb;
+                  $config['create_thumb'] = FALSE;
+                  $config['new_image'] = $thumb_report;
+                  $config['maintain_ratio'] = FALSE;
+                  $config['width']   = 180;
+                  $config['height'] = 180;
+
+                  $this->image_lib->initialize($config);
+                  if ( ! $this->image_lib->resize()) {
+                      echo $this->image_lib->display_errors();
+                  }
+               endif;
+               if (!file_exists($thumb_home) && file_exists($thumb_report)) :
+                  $config['image_library'] = 'gd2';
+                  $config['source_image'] = $thumb_report;
+                  $config['create_thumb'] = FALSE;
+                  $config['new_image'] = $thumb_home;
+                  $config['maintain_ratio'] = FALSE;
+                  $config['width']   = 150;
+                  $config['height'] = 100;
+
+                  $this->image_lib->initialize($config);
+                  if ( ! $this->image_lib->crop()) {
+                      echo $this->image_lib->display_errors();
+                  }
+               endif;
+
+               echo "<br/> *** Creada miniatura: $thumb </br>";
                $screenshot = "thumb-$report->id.png";
             else :
                $screenshot = "ERROR";
             endif;
             $update_data[] = array('id' => $report->id, 'screenshot' => $screenshot);
          endforeach;
-         sleep(200);
+
+         $this->db->select('id, url, screenshot');
+         $this->db->where("screenshot IS NULL OR screenshot LIKE ''");
+         $query = $this->db->get('reports'); 
          if (!empty($update_data)) { $this->db->update_batch('reports', $update_data, 'id'); }
       }
 

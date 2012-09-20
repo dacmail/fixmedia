@@ -22,15 +22,7 @@ class Reports extends MY_Controller {
 									'limit' => $this->pagination->per_page, 
 									'offset' => $this->pagination->per_page*($page-1), 
 									'order' => 'value desc, karma desc, created_at desc, votes_count desc'));
-		$data['sites_most_fixes'] = Report::find_by_sql('
-									SELECT site, SUM(votes_count) as votes
-									FROM reports GROUP BY site
-									ORDER BY votes DESC LIMIT 0,5');
-		$data['sites_most_reported'] = Report::find_by_sql('
-									SELECT site, COUNT(reports_data.id) as reports
-									FROM reports INNER JOIN reports_data
-									ON reports.id = reports_data.report_id GROUP BY site
-									ORDER BY reports DESC LIMIT 0,5');
+		$data = get_sidebars_blocks($data);
 		$data['reports_data'] = Reports_data::all();
 		$this->load->view('includes/template', $data);
 	}
@@ -51,15 +43,7 @@ class Reports extends MY_Controller {
 									'limit' => $this->pagination->per_page, 
 									'offset' => $this->pagination->per_page*($page-1), 
 									'order' => 'created_at desc, value desc, karma desc, votes_count desc'));
-		$data['sites_most_fixes'] = Report::find_by_sql('
-									SELECT site, SUM(votes_count) as votes
-									FROM reports GROUP BY site
-									ORDER BY votes DESC LIMIT 0,5');
-		$data['sites_most_reported'] = Report::find_by_sql('
-									SELECT site, COUNT(reports_data.id) as reports
-									FROM reports INNER JOIN reports_data
-									ON reports.id = reports_data.report_id GROUP BY site
-									ORDER BY reports DESC LIMIT 0,5');
+		$data = get_sidebars_blocks($data);
 		$data['reports_data'] = Reports_data::all();
 		$this->load->view('includes/template', $data);
 	}
@@ -83,15 +67,7 @@ class Reports extends MY_Controller {
 												ORDER BY subs ASC, value desc, r.karma desc, 
 												r.created_at desc, r.votes_count desc
 												LIMIT $offset,$per_page");
-		$data['sites_most_fixes'] = Report::find_by_sql('
-									SELECT site, SUM(votes_count) as votes
-									FROM reports GROUP BY site
-									ORDER BY votes DESC LIMIT 0,5');
-		$data['sites_most_reported'] = Report::find_by_sql('
-									SELECT site, COUNT(reports_data.id) as reports
-									FROM reports INNER JOIN reports_data
-									ON reports.id = reports_data.report_id GROUP BY site
-									ORDER BY reports DESC LIMIT 0,5');
+		$data = get_sidebars_blocks($data);
 		$data['reports_data'] = Reports_data::all();
 		$this->load->view('includes/template', $data);
 	}

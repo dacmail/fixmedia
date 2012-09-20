@@ -264,9 +264,10 @@ a:hover {text-decoration:underline;}
 		.report_info .screenshot {
 			float:left;
 			text-align:center;
-			width:180px;
+			width:182px;
 			margin-right:20px;
 		}
+			.report_info .screenshot img {border:3px solid #E5E5E5}
 		.report_info .screenshot .url_sent {
 			display:block;
 			font-size:14px;
@@ -280,6 +281,7 @@ a:hover {text-decoration:underline;}
 			font-style:normal;
 			font-size:25px;
 			line-height:27px;
+			color:#333;
 		}
 		.report_info .report_meta {
 			position:absolute;
@@ -351,7 +353,7 @@ a:hover {text-decoration:underline;}
 		font-size: 13px;
 		text-align: center;
 		line-height: 13px;
-		padding:10px 0px;
+		padding:10px 3px;
 		border-radius: 15px;
 		margin-top:10px;
 	}
@@ -1067,6 +1069,7 @@ a:hover {text-decoration:underline;}
 /* Footer */
 #footer {
 	width: 100%;
+	margin-top:40px;
 }
 #footer .wrap {
 	width:980px;
@@ -1323,3 +1326,11 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 		.landing .forgot #content input.button {width:210px;}
 	.landing #content .row, .landing #content .label {font-weight:normal; text-align:left;}
 	.landing #container .title, .landing #container .sub_title {color:#333333;}
+	.landing .top-menu .menu {
+		width:980px;
+		margin:5px auto;
+		text-align:right;
+		list-style:none;
+	}
+	.landing .top-menu .menu a {color:#ffffff;}
+

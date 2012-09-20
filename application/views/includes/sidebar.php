@@ -29,5 +29,17 @@
 		<? endforeach; ?> 
 	</section>
 	<? endif; ?>
+	<? if (isset($top_users)) :?>
+	<section class="block ranking">
+		<h3 class="title">Usuarios más activos</h3>
+		<? $pos=0; ?>
+		<? foreach ($top_users as $user) :?>
+			<?$pos++;?>
+			<div class="row clearfix">
+				<span class="pos"><?=$pos?></span> <span class="site"><a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?= $user->name; ?></a></span> <span title="Reputación del usuario (redondeada)" class="votes"><?= round($user->karma,0); ?></span>
+			</div>
+		<? endforeach; ?> 
+	</section>
+	<? endif; ?>
 	<? $this->load->view('includes/mini-faqs'); ?>
 </aside>

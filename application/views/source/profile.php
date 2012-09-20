@@ -80,7 +80,11 @@
 			<? foreach ($reports as $report) : ?>
 				<article class="report_info clearfix vote-<?=$report->id;?>">
 					<div class="screenshot">
-						<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" width="150" alt="Captura de <?=$report->title;?>" />
+						<? if (is_null($report->screenshot) || $report->screenshot=="ERROR") : ?>
+							<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" alt="Captura de <?=$report->title;?> "  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/>
+						<? else : ?>
+							<img src="<?=base_url('images/sources/thumb-home-' . $report->id . '.png'); ?>" width="150" alt="Captura de <?=$report->title;?> "  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/>
+						<? endif; ?>						
 						<div class="clearfix fix_reports_counters">
 							<div class="fixes"><span class="count"><?= $report->votes_count; ?></span> fixes</div>
 							<div class="reports"><span class="count"><?= count($report->data); ?></span> reportes</div>

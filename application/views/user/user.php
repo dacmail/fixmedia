@@ -122,7 +122,11 @@
 			<? foreach ($votes as $vote) : ?>
 				<article class="report_info clearfix vote-<?=$vote->id;?> <?= $vote->report->has_subreport($user->id) ? 'has_reported' : 'only_fix'; ?> <?= $vote->report->user_id==$user->id ? 'first_fix' : ''; ?>">
 					<div class="screenshot">
-						<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" width="150" alt="Captura de <?=$vote->report->title;?>" />
+						<? if (is_null($vote->report->screenshot) || $vote->report->screenshot=="ERROR") : ?>
+							<img src="<?php echo base_url(); ?>fakes/screenshot-med.jpg" alt="Captura de <?=$vote->report->title;?> "  title="karma <?= $vote->report->karma ?> / coef <?= $vote->report->karma_value ?> / valor <?= $vote->report->karma*$vote->report->karma_value?>"/>
+						<? else : ?>
+							<img src="<?=base_url('images/sources/thumb-home-' . $vote->report->id . '.png'); ?>" width="150" alt="Captura de <?=$vote->report->title;?> "  title="karma <?= $vote->report->karma ?> / coef <?= $vote->report->karma_value ?> / valor <?= $vote->report->karma*$vote->report->karma_value?>"/>
+						<? endif; ?>
 						<div class="clearfix fix_reports_counters">
 							<div class="fixes"><span class="count"><?= $vote->report->votes_count; ?></span> fixes</div>
 							<div class="reports"><span class="count"><?= count($vote->report->data); ?></span> reportes</div>

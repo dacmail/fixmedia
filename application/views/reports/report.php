@@ -1,7 +1,11 @@
 <div id="container" class="clearfix sending report columns">
 	<div id="content">
 		<?php $this->load->view('includes/report-info'); ?>
-		<h2 class="action_title"><strong>¿Qué es mejorable en esta noticia?</strong> Listado de reportes recibidos</h2>
+		<? if (count($report->data)) :?>
+			<h2 class="action_title"><strong>¿Qué es mejorable en esta noticia?</strong> Listado de reportes recibidos</h2>
+		<? else: ?>
+			<h2 class="action_title"><strong>¿Qué es mejorable en esta noticia?</strong> No hay reportes recibidos</h2>
+		<? endif; ?>
 		<? $count=1; foreach ($report->data as $subreport) :  ?>
 			<div class="subreport">
 				<div class="clearfix">
