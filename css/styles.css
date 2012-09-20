@@ -90,7 +90,7 @@ a:hover {text-decoration:underline;}
 					display:block;
 					line-height:40px;
 					float:left;
-					font-weight: 700;
+					font-weight: normal;
 				}
 			#header .user .user_info {
 				position:absolute;
@@ -733,8 +733,8 @@ a:hover {text-decoration:underline;}
 		}
 	.profile .more-actions {
 		font-size:17px;
-		font-weight: bold;
-		margin-bottom:40px;
+		color:#7F7F7F;
+		margin:40px 0px;
 	}
 #container.columns #sidebar.report {
 	width:260px;
@@ -1132,6 +1132,33 @@ a:hover {text-decoration:underline;}
 		.logos-footer .develop {float:left;width:300px;}
 		.logos-footer .cofin {float:right; width:571px;}
 		.logos-footer .cofin img {margin-right:40px;}
+/*Estaticas*/
+.static #content {
+	color:#7F7F7F;
+	font-size:14px;
+	line-height:21px;
+	margin-bottom:40px;
+}
+	.static #content p {margin:10px 0px;}
+	.static #content .wrap-title {height:0px; overflow:hidden; padding:0px;}
+	.static #content .wrap-title.open {height:auto;}
+	.static #content .wrap-title p {margin-left:15px;}
+.static h2 {
+	color:#3D87B7;
+	font-size:17px;
+	font-weight:normal;
+	margin:20px 0px 10px 0px;
+	
+}
+	.static h2.toggle:hover {cursor: pointer; text-decoration:underline;}
+	.static ul {
+		margin-left:35px;
+		list-style:square;
+	}
+	.static #content p.nav {
+		font-size:17px;
+		margin:40px 0px;
+	}
 /* Desarrollo */
 
 .reports_list {

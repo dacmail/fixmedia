@@ -9,10 +9,10 @@
 			<nav class="clearfix menus">
 				<ul class="menu">
 					<li class="name">Menú</li>
-					<li><a href="#">Portada</a></li>
-					<li><a href="#">Más urgentes</a></li>
-					<li><a href="#">Pendientes</a></li>
-					<li><a href="#">Recientes</a></li>
+					<li><a href="<?= site_url(); ?>">Portada</a></li>
+					<li><a href="<?= site_url(); ?>">Más urgentes</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('home-pending')); ?>">Pendientes</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('home-recents')); ?>">Recientes</a></li>
 					<li><a href="#">Top usuarios</a></li>
 					<li><a href="#">Top fuentes</a></li>
 					<li><a href="#">Estadísticas</a></li>
@@ -21,18 +21,18 @@
 					<li class="name">Social</li>
 					<li><a href="#">Registro</a></li>
 					<li><a href="#">Entrar</a></li>
-					<li><a href="#">Usa nuestro marcador</a></li>
-					<li><a href="#">¿Eres periodista?</a></li>
-					<li><a href="#">¿Creas contenido?</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'marcador'))); ?>">Usa nuestro marcador</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'periodistas'))); ?>">¿Eres periodista?</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'creadores'))); ?>">¿Creas contenido?</a></li>
 				</ul>
 				<ul class="menu">
 					<li class="name">Manual</li>
-					<li><a href="#">Qué es fixmedia</a></li>
-					<li><a href="#">Cómo funciona</a></li>
-					<li><a href="#">Qué queremos conseguir</a></li>
-					<li><a href="#">Cofinanciadores</a></li>
-					<li><a href="#">FAQ</a></li>
-					<li><a href="#">Contacto</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'que-es-fixmedia'))); ?>">Qué es fixmedia</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'como-funciona'))); ?>">Cómo funciona</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'que-queremos-conseguir'))); ?>">Qué queremos conseguir</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'cofinanciadores'))); ?>">Cofinanciadores</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'faq'))); ?>">FAQ</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'contacto'))); ?>">Contacto</a></li>
 				</ul>
 			</nav>
 		</div>

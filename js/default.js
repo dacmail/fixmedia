@@ -216,5 +216,10 @@ $('document').ready(function() {
 			$(".action-button.share").click();
 		}
 	}
+	if($('.static h2.toggle')) {
+		$('.static h2.toggle').click(function() {
+			$(this).next('.wrap-title').toggleClass('open');
+		});
+	}
 
 });

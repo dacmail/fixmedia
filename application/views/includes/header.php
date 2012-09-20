@@ -27,8 +27,7 @@
             <p class="main_title"><a href="<?php echo base_url(); ?>">Fixmedia.org, arregla las noticias</a></p>
             <nav class="top-menu">
                 <ul class="menu clearfix">
-                    <li><a href="#">¿Qué es fixmedia?</a></li>
-                    <li><a href="#">Prueba nuestro marcador</a></li>
+                    <li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'que-es-fixmedia'))); ?>">¿Qué es fixmedia?</a></li>
                 </ul>
             </nav>
             <? if (!$logged_in) : ?>

@@ -144,7 +144,7 @@
 			</div>
 
 		</section>
-		<p class="more-actions"><a href="<?= site_url($this->router->reverseRoute('reports-create')); ?>">Mejorar una noticia ahora</a></p>
+		<p class="more-actions">Ir a... <a href="<?= site_url($this->router->reverseRoute('reports-create')); ?>">Mejorar una noticia ahora</a></p>
 	</div>
 	<?php $this->load->view('includes/sidebar-user'); ?>
 </div>
