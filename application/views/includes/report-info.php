@@ -1,7 +1,7 @@
 <section class="report_info clearfix">
 	<div class="screenshot">
 		<? if (is_null($report->screenshot) || $report->screenshot=="ERROR") : ?>
-			<img src="<?php echo base_url(); ?>fakes/screenshot-med.jpg" alt="Captura de <?=$report->title;?> "  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/>
+			<img src="<?php echo base_url(); ?>static/screenshot-med.jpg" alt="Captura de <?=$report->title;?> "  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/>
 		<? else : ?>
 			<img src="<?=base_url('images/sources/thumb-report-' . $report->id . '.png'); ?>" width="180" alt="Captura de <?=$report->title;?> "  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/>
 		<? endif; ?>

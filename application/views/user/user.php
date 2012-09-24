@@ -1,7 +1,7 @@
 <div id="container" class="clearfix profile columns">
 	<div id="content">
 		<section class="user_info clearfix">
-			  <?=gravatar( $user->email, 150, true, 'mm', 'x', array('title' => 'Reputación ' . $user->karma) )?>
+			  <?=gravatar( $user->email, 150, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?>
 			  <div class="data">
 			  		<h1 class="name"><?= $user->name; ?> 
 			  			<? if ($logged_in && $user->id==$the_user->id) : ?>
@@ -123,7 +123,7 @@
 				<article class="report_info clearfix vote-<?=$vote->id;?> <?= $vote->report->has_subreport($user->id) ? 'has_reported' : 'only_fix'; ?> <?= $vote->report->user_id==$user->id ? 'first_fix' : ''; ?>">
 					<div class="screenshot">
 						<? if (is_null($vote->report->screenshot) || $vote->report->screenshot=="ERROR") : ?>
-							<img src="<?php echo base_url(); ?>fakes/screenshot-med.jpg" alt="Captura de <?=$vote->report->title;?> "  title="karma <?= $vote->report->karma ?> / coef <?= $vote->report->karma_value ?> / valor <?= $vote->report->karma*$vote->report->karma_value?>"/>
+							<img src="<?php echo base_url(); ?>static/screenshot-med.jpg" alt="Captura de <?=$vote->report->title;?> "  title="karma <?= $vote->report->karma ?> / coef <?= $vote->report->karma_value ?> / valor <?= $vote->report->karma*$vote->report->karma_value?>"/>
 						<? else : ?>
 							<img src="<?=base_url('images/sources/thumb-home-' . $vote->report->id . '.png'); ?>" width="150" alt="Captura de <?=$vote->report->title;?> "  title="karma <?= $vote->report->karma ?> / coef <?= $vote->report->karma_value ?> / valor <?= $vote->report->karma*$vote->report->karma_value?>"/>
 						<? endif; ?>

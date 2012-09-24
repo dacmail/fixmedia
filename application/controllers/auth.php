@@ -58,7 +58,7 @@ class Auth extends MY_Controller {
 			}
 
 
-			$this->load->view('includes/template', $this->data);
+			$this->load->view('includes/template-landing', $this->data);
 		}
 	}
 
@@ -104,7 +104,7 @@ class Auth extends MY_Controller {
 					$this->data['message'] = $this->ion_auth->errors();
 
 					$this->data['main_content'] = 'auth/login';
-					$this->load->view('includes/template', $this->data);
+					$this->load->view('includes/template-landing', $this->data);
 				}
 			}
 			else {  //the user is not logging in so display the login page

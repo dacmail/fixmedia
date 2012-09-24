@@ -1,7 +1,7 @@
 <div id="container" class="clearfix profile source columns">
 	<div id="content">
 		<section class="user_info clearfix">
-			  <img src="<?php echo base_url(); ?>fakes/screenshot-med.jpg" width="150" alt="Imagen de <?=$site;?>" />
+			  <img src="<?php echo base_url(); ?>static/avatar-source.jpg" width="150" alt="Imagen de <?=$site;?>" />
 			  <div class="data">
 			  		<h1 class="name"><?= $site; ?> </h1>
 			  		<p class="bio"><?= $url_data['description']; ?></p>
@@ -81,7 +81,7 @@
 				<article class="report_info clearfix vote-<?=$report->id;?>">
 					<div class="screenshot">
 						<? if (is_null($report->screenshot) || $report->screenshot=="ERROR") : ?>
-							<img src="<?php echo base_url(); ?>fakes/screenshot-thumb.jpg" alt="Captura de <?=$report->title;?> "  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/>
+							<img src="<?php echo base_url(); ?>static/screenshot-thumb.jpg" alt="Captura de <?=$report->title;?> "  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/>
 						<? else : ?>
 							<img src="<?=base_url('images/sources/thumb-home-' . $report->id . '.png'); ?>" width="150" alt="Captura de <?=$report->title;?> "  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/>
 						<? endif; ?>						

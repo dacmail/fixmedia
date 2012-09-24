@@ -37,12 +37,12 @@
                 <a class="log_in" href="<?= site_url($this->router->reverseRoute('login')); ?>">Iniciar sesión</a>
             <? else :?>
                 <section class="user">
-                    <a class="welcome" href="#"><span class="user_name"><?= $the_user->name; ?></span> <?=gravatar( $the_user->email, 40, true, 'mm', 'x', array('title' => 'Reputación ' . $the_user->karma) )?></a>
+                    <a class="welcome" href="#"><span class="user_name"><?= $the_user->name; ?></span> <?=gravatar( $the_user->email, 40, true, base_url('static/avatar-user-40.jpg'), 'x', array('title' => 'Reputación ' . $the_user->karma) )?></a>
                     <div class="user_info">
                         <span class="indicator"></span>
                         <div class="clearfix">
                             <div class="user_avatar">
-                                <?=gravatar( $the_user->email, 100, true, 'mm', 'x', array('title' => 'Reputación ' . $the_user->karma) )?>
+                                <?=gravatar( $the_user->email, 100, true, base_url('static/avatar-user-100.jpg'), 'x', array('title' => 'Reputación ' . $the_user->karma) )?>
                                 <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $the_user->username))); ?>">Ver perfil</a>
                             </div>
                             
