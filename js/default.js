@@ -161,13 +161,18 @@ $('document').ready(function() {
 
 	if ($('a.report_vote').length>0) {
 		$('a.report_vote').click(function(e) {
+			e.preventDefault();
 			link = $(this);
 			$.ajax({
 				url: $(this).attr('href'),
 				dataType: 'json'
 			}).done(function ( data ) {
 				if (data.valid) {
-					$('.vote-'+data.item_id).remove();
+					//$('.vote-' + data.item_id).remove();
+					$('.vote-' + data.item_id).each(function() {
+						$(this).replaceWith('<span class="'+ $(this).attr('class') +'" id="'+ $(this).attr('id') +'">'+ $(this).text() +'</span>');
+					});
+					
 					$('.count-' + link.attr('id')).text(data.total_votes);
 				} else {
 					alert(data.error);

@@ -19,6 +19,9 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-scrolltofixed-min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.colorbox-min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/default.js"></script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styles.css" />
 </head>
 <body>

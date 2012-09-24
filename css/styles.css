@@ -590,13 +590,13 @@ a:hover {text-decoration:underline;}
 				margin-left:-9px;
 				bottom:-15px;
 			}
-				.subreport .counter .report_vote:hover {background-position:0px -276px;}
+				.subreport .counter .report_vote:hover, .subreport .counter span.report_vote {background-position:0px -276px;}
 			.subreport .counter .up {
 				margin-top:6px;
 				background-position:0 -264px;
 				top:-20px;
 			}	
-				.subreport .counter .up:hover {background-position:0px -253px;}
+				.subreport .counter .up:hover, .subreport .counter span.up {background-position:0px -253px;}
 		.subreport .subreport_info {
 			width:550px;
 			float:right;

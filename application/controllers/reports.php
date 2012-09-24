@@ -13,7 +13,7 @@ class Reports extends MY_Controller {
 		$config['first_url'] = site_url();
 		$this->pagination->initialize($config); 
 		$data['pagination_links'] = $this->pagination->create_links();
-		$data['page_title'] = 'Listado de reportes';
+		$data['page_title'] = 'Portada - Más urgentes';
 		$data['title'] = "Más urgentes";
 		$data['subtitle'] = "Noticias para arreglar con más repercusión en este momento";
 		$data['main_content'] = 'reports/list_reports';
@@ -34,7 +34,7 @@ class Reports extends MY_Controller {
 		$config['uri_segment'] = 3;
 		$this->pagination->initialize($config); 
 		$data['pagination_links'] = $this->pagination->create_links();
-		$data['page_title'] = 'Listado de reportes';
+		$data['page_title'] = 'Portada - Recientes';
 		$data['title'] = "Recientes";
 		$data['subtitle'] = "Últimas noticias enviadas";
 		$data['main_content'] = 'reports/list_reports';
@@ -55,7 +55,7 @@ class Reports extends MY_Controller {
 		$config['uri_segment'] = 3;
 		$this->pagination->initialize($config); 
 		$data['pagination_links'] = $this->pagination->create_links();
-		$data['page_title'] = 'Listado de reportes pendientes';
+		$data['page_title'] = 'Portada - Pendientes';
 		$data['main_content'] = 'reports/list_reports';
 		$data['title'] = "Pendientes";
 		$data['subtitle'] = "Noticias enviadas que todavía tienen pocos o ningún reporte";
@@ -76,7 +76,7 @@ class Reports extends MY_Controller {
 		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 		$this->form_validation->set_rules('url', 'URL', 'required|prep_url|valid_url');
 		if ($this->form_validation->run() === FALSE) :
-			$data['page_title'] = 'Nuevo reporte';
+			$data['page_title'] = 'Envía una noticia';
 			$data['main_content'] = 'reports/create_report';
 			$data['error_url_check'] = '';
 		else :
@@ -106,7 +106,7 @@ class Reports extends MY_Controller {
 				endif;
 			else :
 				$data['error_url_check'] = 'La URL no responde o no puede ser obtenida';
-				$data['page_title'] = 'Nuevo reporte';
+				$data['page_title'] = 'Envía una noticia';
 				$data['main_content'] = 'reports/create_report';
 			endif;
 		endif; 

@@ -22,6 +22,7 @@ class Pages extends MY_Controller {
 						'periodistas' => '¿Eres perdiodista?',
 						'creadores' => '¿Creas contenido?',
 						);
+		$data = array();
 		$data = get_sidebars_blocks($data);
 		$data['page_title'] = $titles[$page];
 		$data['main_content'] = 'pages/' . $page;
