@@ -41,12 +41,12 @@
 $route['default_controller'] = "reports";
 $route['404_override'] = '';
 
-$route['reporte/nuevo'] = array('/reports/create','reports-create');
+$route['noticia/nueva'] = array('/reports/create','reports-create');
 $route['reporte/enviar/(:id)'] = array('/reports/send/$1','reports-send');
 $route['reporte/borrador'] = array('/reports/preview','reports-preview');
 $route['reporte/guardar'] = array('/reports/save','reports-save');
-$route['reporte/(:slug)'] = array('/reports/view/$1','reports-view');
-$route['reporte/(:slug)/(:share)'] = array('/reports/view/$1/$2','reports-view-share');
+$route['noticia/(:slug)'] = array('/reports/view/$1','reports-view');
+$route['noticia/(:slug)/(:share)'] = array('/reports/view/$1/$2','reports-view-share');
 $route['usuario/salir'] = array('/auth/logout','logout');
 $route['usuario/entrar'] = array('/auth/login','login');
 $route['usuario/cambiar_clave'] = array('/auth/change_password','change_password');
