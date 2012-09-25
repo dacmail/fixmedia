@@ -11,7 +11,7 @@ class Reports extends MY_Controller {
 		$config['base_url'] = site_url('pagina/');
 		$config['total_rows'] = Report::count_all();
 		$config['first_url'] = site_url();
-		$this->pagination->initialize($config); 
+		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
 		$data['page_title'] = 'Portada - Más urgentes';
 		$data['title'] = "Más urgentes";
@@ -19,8 +19,8 @@ class Reports extends MY_Controller {
 		$data['main_content'] = 'reports/list_reports';
 		$data['reports'] = Report::all(array(
 									'select' => '*, (karma*karma_value) as value',
-									'limit' => $this->pagination->per_page, 
-									'offset' => $this->pagination->per_page*($page-1), 
+									'limit' => $this->pagination->per_page,
+									'offset' => $this->pagination->per_page*($page-1),
 									'order' => 'value desc, karma desc, created_at desc, votes_count desc'));
 		$data = get_sidebars_blocks($data);
 		$data['reports_data'] = Reports_data::all();
@@ -32,7 +32,7 @@ class Reports extends MY_Controller {
 		$config['total_rows'] = Report::count_all();
 		$config['first_url'] = site_url();
 		$config['uri_segment'] = 3;
-		$this->pagination->initialize($config); 
+		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
 		$data['page_title'] = 'Portada - Recientes';
 		$data['title'] = "Recientes";
@@ -40,8 +40,8 @@ class Reports extends MY_Controller {
 		$data['main_content'] = 'reports/list_reports';
 		$data['reports'] = Report::all(array(
 									'select' => '*, (karma*karma_value) as value',
-									'limit' => $this->pagination->per_page, 
-									'offset' => $this->pagination->per_page*($page-1), 
+									'limit' => $this->pagination->per_page,
+									'offset' => $this->pagination->per_page*($page-1),
 									'order' => 'created_at desc, value desc, karma desc, votes_count desc'));
 		$data = get_sidebars_blocks($data);
 		$data['reports_data'] = Reports_data::all();
@@ -53,7 +53,7 @@ class Reports extends MY_Controller {
 		$config['total_rows'] = Report::count_all();
 		$config['first_url'] = site_url();
 		$config['uri_segment'] = 3;
-		$this->pagination->initialize($config); 
+		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
 		$data['page_title'] = 'Portada - Pendientes';
 		$data['main_content'] = 'reports/list_reports';
@@ -64,7 +64,7 @@ class Reports extends MY_Controller {
 		$data['reports'] = Report::find_by_sql("SELECT r.*, (r.karma*r.karma_value) as value, count(rd.id) as subs
 												FROM reports r LEFT JOIN reports_data rd
 												ON (r.id=rd.report_id) GROUP BY r.id
-												ORDER BY subs ASC, value desc, r.karma desc, 
+												ORDER BY subs ASC, value desc, r.karma desc,
 												r.created_at desc, r.votes_count desc
 												LIMIT $offset,$per_page");
 		$data = get_sidebars_blocks($data);
@@ -84,10 +84,10 @@ class Reports extends MY_Controller {
 			$url_data = get_url_data($this->input->post('url'));
 			if ($url_data['valid']) :
 				$report = Report::find_by_url($url_data['url']);
-				if (empty($report)) : //Si la URL no existe, la creamos en la BD 
+				if (empty($report)) : //Si la URL no existe, la creamos en la BD
 					$report = Report::create(array('user_id' => $this->the_user->id,
 							'url' => $url_data['url'],
-							'slug' => preg_replace('/[^a-z0-9]+/i','-',$url_data['title']),
+							'slug' => url_title($url_data['title'],'-',true),
 							'title' => $url_data['title'],
 							'site' => str_replace('www.', '', $url_data['host']),
 							'votes_count' => 1,
@@ -109,7 +109,7 @@ class Reports extends MY_Controller {
 				$data['page_title'] = 'Envía una noticia';
 				$data['main_content'] = 'reports/create_report';
 			endif;
-		endif; 
+		endif;
 		$this->load->view('includes/template', $data);
 	}
 
@@ -120,13 +120,13 @@ class Reports extends MY_Controller {
 	 		$edit_draf = $this->input->post('edit_draft');
 			if (!$edit_draf) : //si es un envío nuevo
 				$data['report'] = $report;
-				$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
+				$data['reports_types_tree'] = Reports_type::find_all_by_parent(0);
 				$data['page_title'] = 'Completa el reporte';
 				$data['main_content'] = 'reports/complete_report';
 			else : // si se va a editar el envío
 				$data['page_title'] = 'Modificar reporte';
 				$data['main_content'] = 'reports/edit_report';
-				$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
+				$data['reports_types_tree'] = Reports_type::find_all_by_parent(0);
 				$data['report_sent'] = $report;
 				$data['report'] = $this->input->post(NULL, TRUE);
 				foreach ($data['report']['type_info'] as $index => $type_id) :
@@ -148,11 +148,11 @@ class Reports extends MY_Controller {
 		foreach ($this->input->post('urls') as $i => $urls) {
 			foreach ($urls as $k => $url) {
 				$this->form_validation->set_rules('urls['.$i.']['.$k.']', 'URL', 'valid_url|prep_url');
-			}		
-		} 
+			}
+		}
 		if ($this->form_validation->run() === FALSE) :
-			$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
-			$data['report_sent'] = Report::find($this->input->post('report_id', TRUE)); 
+			$data['reports_types_tree'] = Reports_type::find_all_by_parent(0);
+			$data['report_sent'] = Report::find($this->input->post('report_id', TRUE));
 			$data['report'] = $this->input->post(NULL, TRUE);
 			$data['page_title'] = 'Corrige el reporte';
 			$data['main_content'] = 'reports/error_report';
@@ -173,11 +173,11 @@ class Reports extends MY_Controller {
 				$data['report']['urls_decode'][$index] = unserialize(base64_decode($data['report']['urls'][$index]));
 			endforeach;
 			$data['types'] = $types;
-			$data['report_sent'] = Report::find($this->input->post('report_id', TRUE)); 
+			$data['report_sent'] = Report::find($this->input->post('report_id', TRUE));
 
 			$data['page_title'] = 'Previsualización del reporte';
 			$data['main_content'] = 'reports/preview_report';
-		endif; 
+		endif;
 			$this->load->view('includes/template', $data);
 
 	}
@@ -203,7 +203,7 @@ class Reports extends MY_Controller {
 
 	public function save() {
 		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
-		$post_data = $this->input->post(NULL, TRUE); 
+		$post_data = $this->input->post(NULL, TRUE);
 		// buscar en la tabla report si el ID del reporte principal existe.
 		$report = Report::find($post_data['report_id']);
 		if (!empty($report)) :
@@ -222,7 +222,7 @@ class Reports extends MY_Controller {
 														'urls' => base64_decode($post_data['urls'][$index]),
 														'user_id' => $this->the_user->id,
 														'votes_count' => 1
-														)); 
+														));
 				$vote = Vote::create(array(
 							'user_id' => $this->the_user->id,
 							'item_id' => $last->id,

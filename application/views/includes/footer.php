@@ -3,7 +3,7 @@
 		<div class="wrap clearfix">
 			<div class="block">
 				<p class="logo"><a href="#">Fixmedia</a></p>
-				<p>fixmedia.org es un proyecto de <a href="http://nxtmdia.com" target="_blank">NXTMDIA</a> para el procomún financiado a través de <a href="http://goteo.org" target="_blank">Goteo.org</a> por <a href="#">estas personas.</a></p>
+				<p>fixmedia.org es un proyecto de <a href="http://nxtmdia.com" target="_blank">NXTMDIA</a> para el procomún financiado a través de <a href="http://goteo.org" target="_blank">Goteo.org</a> por <a href="http://www.goteo.org/project/fixmedia.org-mejora-las-noticias/supporters" target="_blank">estas personas.</a></p>
 			</div>
 
 			<nav class="clearfix menus">
@@ -46,9 +46,9 @@
 			</div>
 			<div class="cofin">
 				<h3 class="title">Cofinanciadores destacados:</h3>
-				<img src="<?= base_url(); ?>/images/logos/cof1.jpg"/> 
-				<img src="<?= base_url(); ?>/images/logos/cof2.jpg"/>  
-				<img src="<?= base_url(); ?>/images/logos/cof3.jpg"/> 
+				<img src="<?= base_url(); ?>/images/logos/cof1.jpg"/>
+				<img src="<?= base_url(); ?>/images/logos/cof2.jpg"/>
+				<img src="<?= base_url(); ?>/images/logos/cof3.jpg"/>
 				<img src="<?= base_url(); ?>/images/logos/cof4.jpg"/>
 			</div>
 
