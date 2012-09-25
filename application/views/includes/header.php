@@ -31,6 +31,7 @@
             <nav class="top-menu">
                 <ul class="menu clearfix">
                     <li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'que-es-fixmedia'))); ?>">¿Qué es fixmedia?</a></li>
+                    <li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'problemas'))); ?>">Ayúdanos a mejorar</a></li>
                 </ul>
             </nav>
             <? if (!$logged_in) : ?>
@@ -67,9 +68,9 @@
             <li class="<?= is_cur_page($this, 'reports','index') ? 'current' : ''; ?>"><a class="link" href="<?= site_url(); ?>">Más urgentes</a></li>
             <li class="<?= is_cur_page($this, 'reports','pendings') ? 'current' : ''; ?>"><a class="link" href="<?= site_url($this->router->reverseRoute('home-pending')); ?>">Pendientes</a></li>
             <li class="<?= is_cur_page($this, 'reports','recents') ? 'current' : ''; ?>"><a class="link" href="<?= site_url($this->router->reverseRoute('home-recents')); ?>">Recientes</a></li>
-            <li><a class="link" href="#">Top usuarios</a></li>
-            <li><a class="link" href="#">Top fuentes</a></li>
-            <li><a class="link" href="#">Estadísticas</a></li>
+            <li><a class="link" href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'top-usuarios'))); ?>">Top usuarios</a></li>
+            <li><a class="link" href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'top-fuentes'))); ?>">Top fuentes</a></li>
+            <li><a class="link" href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'estadisticas'))); ?>">Estadísticas</a></li>
             <li class="search">
                 <form action="#">
                     <input type="text" />

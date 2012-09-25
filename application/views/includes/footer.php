@@ -13,14 +13,14 @@
 					<li><a href="<?= site_url(); ?>">Más urgentes</a></li>
 					<li><a href="<?= site_url($this->router->reverseRoute('home-pending')); ?>">Pendientes</a></li>
 					<li><a href="<?= site_url($this->router->reverseRoute('home-recents')); ?>">Recientes</a></li>
-					<li><a href="#">Top usuarios</a></li>
-					<li><a href="#">Top fuentes</a></li>
-					<li><a href="#">Estadísticas</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'top-usuarios'))); ?>">Top usuarios</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'top-fuentes'))); ?>">Top fuentes</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'estadisticas'))); ?>">Estadísticas</a></li>
 				</ul>
 				<ul class="menu">
 					<li class="name">Social</li>
-					<li><a href="#">Registro</a></li>
-					<li><a href="#">Entrar</a></li>
+					<li><a href="<?= site_url(); ?>">Registro</a></li>
+					<li><a href="<?= site_url(); ?>">Entrar</a></li>
 					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'marcador'))); ?>">Usa nuestro marcador</a></li>
 					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'periodistas'))); ?>">¿Eres periodista?</a></li>
 					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'creadores'))); ?>">¿Creas contenido?</a></li>
@@ -34,6 +34,8 @@
 					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'cofinanciadores'))); ?>">Cofinanciadores</a></li>
 					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'faq'))); ?>">FAQ</a></li>
 					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'contacto'))); ?>">Contacto</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'aviso-legal'))); ?>">Legal</a></li>
+
 				</ul>
 			</nav>
 		</div>
@@ -55,6 +57,16 @@
 		</div>
 	</section>
 </footer>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30564782-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

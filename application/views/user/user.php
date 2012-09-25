@@ -98,21 +98,21 @@
 				    		<? else: ?>
 				    			<h3 class="title"><?= count($user->fixes); ?> fixes por cada reporte</h3>
 				    		<? endif; ?>
-				    		<p class="hint">El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.</p>
+				    		<p class="hint">¿Este usuario es más de ‘Fix’ o de ‘Reporte’? Este gráfico nos dice qué porcentaje de Fixes ha hecho por cada reporte aportado.</p>
 				    	</div>
 				    </div>
 				    <div class="chart_wrap clearfix">
 				    	<div class="chart" id="actions_by_month"></div>
 				    	<div class="explanation">
 				    		<h3 class="title">Actividad por meses</h3>
-				    		<p class="hint">El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.</p>
+				    		<p class="hint">Este gráfico nos muestra en qué momentos es más activo este usuario y haciendo el qué. Azul: fixes. Rojo: reportes.</p>
 				    	</div>
 				    </div>
 				    <div class="chart_wrap clearfix">
 				    	<div class="chart" id="fixes_by_sources"></div>
 				    	<div class="explanation">
 				    		<h3 class="title">Fixes por fuentes</h3>
-				    		<p class="hint">El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.</p>
+				    		<p class="hint">¿Qué medios, blogs, etc. son los que se benefician más de la edición de este usuario? Ordenados de mayor a menor.</p>
 				    	</div>
 				    </div>
 				<? else : ?>
@@ -137,7 +137,7 @@
 						<h2 class="title"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $vote->report->slug))); ?>"><?=$vote->report->title;?></a></h2>
 						<div class="report_meta">
 							<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $vote->report->user->username))); ?>"><?= $vote->report->user->name; ?></a> el <?= $vote->report->created_at->format('d/m/Y'); ?></p>
-							<p class="source">Fuente: <a href="#"><?= $vote->report->site; ?></a></p>
+							<p class="source">Fuente: <a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $vote->report->site))); ?>"><?= $vote->report->site; ?></a></p>
 							<? if ($vote->report->has_subreport($user->id)) : ?>
 								<p class="action_type report"><?=$user->name;?> reportó su propia mejora en esta noticia</p>
 							<? elseif ($vote->report->user_id==$user->id) : ?>

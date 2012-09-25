@@ -65,14 +65,14 @@
 			    	<div class="chart" id="fix_vs_rep"></div>
 			    	<div class="explanation">
 			    		<h3 class="title">Tipos de reportes</h3>
-			    		<p class="hint">El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.</p>
+			    		<p class="hint">¿Se equivoca mucho o se queda corto? Este gráfico de tarta nos indica si los reportes que está recibiendo esta fuente son más correcciones o ampliaciones. </p>
 			    	</div>
 			    </div>
 			 	<div class="chart_wrap clearfix">
 			    	<div class="chart" id="actions_by_month"></div>
 			    	<div class="explanation">
 			    		<h3 class="title">Actividad por meses</h3>
-			    		<p class="hint">El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.</p>
+			    		<p class="hint">¿En qué momentos recibe esta fuente más fixes y/o más reportes? Este gráfico temporal nos lo muestra.</p>
 			    	</div>
 			    </div>
 			</div>
@@ -93,7 +93,7 @@
 					<h2 class="title"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->slug))); ?>"><?=$report->title;?></a></h2>
 					<div class="report_meta">
 						<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $report->user->username))); ?>"><?= $report->user->name; ?></a> el <?= $report->created_at->format('d/m/Y'); ?></p>
-						<p class="source">Fuente: <a href="#"><?= $report->site; ?></a></p>
+						<p class="source">Fuente: <a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $report->site))); ?>"><?= $report->site; ?></a></p>
 					</div>
 				</article>
 			<? endforeach; ?>
