@@ -3,16 +3,15 @@
 		<div class="wrap clearfix">
 			<div class="develop">
 				<h3 class="title">Desarrollado por:</h3>
-				<img src="<?= base_url(); ?>/images/logos/nxt.jpg"/>
+				<a href="http://nxtmdia.com"><img src="<?= base_url(); ?>/images/logos/logo-nxtmdia.jpg"/></a>
 			</div>
 			<div class="cofin">
 				<h3 class="title">Cofinanciadores destacados:</h3>
-				<img src="<?= base_url(); ?>/images/logos/cof1.jpg"/> 
-				<img src="<?= base_url(); ?>/images/logos/cof2.jpg"/>  
-				<img src="<?= base_url(); ?>/images/logos/cof3.jpg"/> 
-				<img src="<?= base_url(); ?>/images/logos/cof4.jpg"/>
+				<a href="http://agitalo.es/"><img src="<?= base_url(); ?>/images/logos/logo-agitalo.jpg"/></a>
+				<a href="http://formadepie.org/"><img src="<?= base_url(); ?>/images/logos/logo-formadepie.jpg"/></a>
+				<a href="http://www.irekia.euskadi.net/"><img src="<?= base_url(); ?>/images/logos/logo-irekia.jpg"/></a>
+				<a href="http://linkatu.net/"><img src="<?= base_url(); ?>/images/logos/logo-linkatu.jpg"/></a>
 			</div>
-
 		</div>
 	</section>
 </footer>

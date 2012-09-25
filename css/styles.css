@@ -1,7 +1,7 @@
 
 /* FIXES */
-*, html { 
-	margin:0; 
+*, html {
+	margin:0;
 	padding:0;
 }
 .clearfix:after {
@@ -29,7 +29,7 @@ a:hover {text-decoration:underline;}
 	width:100%;
 	background:#F6F6F6;
 	box-shadow: 0px -20px 20px -10px rgba(0, 0, 0, 0.1) inset;
-}	
+}
 	#header .wrap {
 		width:980px;
 		margin:0px auto;
@@ -40,15 +40,9 @@ a:hover {text-decoration:underline;}
 		height:86px;
 		width:319px;
 		float:left;
-		background:url('../images/logo.png') 0 0px no-repeat;
 		margin:30px 0px 40px 0px;
 	}
-		#header .main_title a {
-			display:block;
-			height:86px;
-			width:319px;
-			text-indent:-9999999px;
-		}
+		#header .main_title a img {border:0px;}
 	#header .top-menu {
 		float:right;
 		margin-top:10px;
@@ -104,7 +98,7 @@ a:hover {text-decoration:underline;}
 				z-index:10000;
 				display:none;
 				box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-			}	
+			}
 				#header .user .user_info .indicator {
 					width:23px;
 					height:15px;
@@ -143,7 +137,7 @@ a:hover {text-decoration:underline;}
                 		color:#3D87B7;
                 		font-weight:bold;
                 		font-style:italic;
-                	}    
+                	}
 
                         #header .user .user_info .user_data .counters .fix_count {
                         	font-size:25px;
@@ -152,7 +146,7 @@ a:hover {text-decoration:underline;}
                         	font-size:20px;
                         	margin-left:15px;
                         }
-                        #header .user .user_info .user_data .karma {margin:10px 0px;}  
+                        #header .user .user_info .user_data .karma {margin:10px 0px;}
                 #header .user .user_info .log_out {
                 	width:340px;
                 	border-top:1px solid #E5E5E5;
@@ -164,7 +158,7 @@ a:hover {text-decoration:underline;}
                 	text-transform:lowercase;
                 	text-align:right;
                 }
-                    
+
 	.main-menu {
 		border-bottom:7px solid #F6F6F6;
 		width:980px;
@@ -258,7 +252,7 @@ a:hover {text-decoration:underline;}
 		border-bottom:7px solid #F1F1F1;
 		padding-bottom:15px;
 		margin-bottom:20px;
-		
+
 	}
 		.report .report_info {height:220px;}
 		.report_info .screenshot {
@@ -473,11 +467,11 @@ a:hover {text-decoration:underline;}
 			display:none;
 		}
 			.sending.new .help {display:block;}
-			.sending .help .charcount { 
+			.sending .help .charcount {
 				color:#AE1E1E;
 				display:inline;
 			}
-			.sending .wrap_urls .help { margin-top:-5px; margin-bottom:10px;} 
+			.sending .wrap_urls .help { margin-top:-5px; margin-bottom:10px;}
 		.sending span.error {
 			font-size:12px;
 			color:#AE1E1E;
@@ -489,7 +483,7 @@ a:hover {text-decoration:underline;}
 			margin-top:5px;
 		}
 			.sending  .wrap_error .help {display:none;}
-			.sending  .wrap_urls span.error { margin-top:-5px; margin-bottom:10px;} 
+			.sending  .wrap_urls span.error { margin-top:-5px; margin-bottom:10px;}
 		.sending .submit {display:none; float:right;}
 		.sending .add {
 			color:#EAC000;
@@ -595,14 +589,14 @@ a:hover {text-decoration:underline;}
 				margin-top:6px;
 				background-position:0 -264px;
 				top:-20px;
-			}	
+			}
 				.subreport .counter .up:hover, .subreport .counter span.up {background-position:0px -253px;}
 		.subreport .subreport_info {
 			width:550px;
 			float:right;
 		}
 
-		
+
 		.subreport .toggle_info {
 			margin-bottom:20px;
 			display:block;
@@ -611,7 +605,7 @@ a:hover {text-decoration:underline;}
 			line-height:14px;
 		}
 			.subreport .toggle_info.show {
-				background-position:0 -85px; 
+				background-position:0 -85px;
 			}
 		.subreport .subreport_content {
 			color:#7F7F7F;
@@ -626,7 +620,7 @@ a:hover {text-decoration:underline;}
 			font-weight:bold;
 			margin:20px 0 10px 0;
 		}
-		
+
 		.subreport .source {
 			display:block;
 			margin-bottom:5px;
@@ -646,7 +640,7 @@ a:hover {text-decoration:underline;}
 
 		}
 /* Perfil usuario */
-.profile .user_info { 
+.profile .user_info {
 	margin-bottom:50px;
 }
 	.profile .user_info img {float:left;}
@@ -685,7 +679,7 @@ a:hover {text-decoration:underline;}
 				border-top-right-radius: 10px;
 				position:relative
 			}
-				
+
 				.tabs .tabs_items li a {
 					color:#3D87B7;
 					line-height:55px;
@@ -700,8 +694,8 @@ a:hover {text-decoration:underline;}
 					position: absolute;
 					display: block;
 					background: #ffffff;
-					width: 0; 
-					height: 0; 
+					width: 0;
+					height: 0;
 					border-left: 20px solid transparent;
 					border-right: 20px solid transparent;
 					border-top: 10px solid #79B4CB;
@@ -752,7 +746,7 @@ a:hover {text-decoration:underline;}
 	padding:10px 45px 20px 45px;
 	text-align:center;
 	margin-bottom:0px;
-	
+
 	font-style:italic;
 	width:210px;
 	margin-left:-20px;
@@ -902,7 +896,7 @@ a:hover {text-decoration:underline;}
 			right:-5px;
 			display:block;
 		}
-		
+
 
 	#sidebar .ranking .row:last-child {border:0px;}
 	#sidebar .ranking .row.user a {color:#ffffff;}
@@ -927,9 +921,9 @@ a:hover {text-decoration:underline;}
 		display:block;
 		text-align:right;
 	}
-	#sidebar .fix_reports_counters { 
-		height:90px; 
-		width:300px; 
+	#sidebar .fix_reports_counters {
+		height:90px;
+		width:300px;
 		font-size:17px;
 		line-height:17px;
 	}
@@ -962,7 +956,7 @@ a:hover {text-decoration:underline;}
 		.profile.source #sidebar .fix_reports_counters .fixes {border-color:#62A2B6}
 		.profile.source #sidebar .fix_reports_counters .reports {border-color:#A3D1DF}
 	#sidebar .fix_reports_counters .count {
-		font-size:40px; 
+		font-size:40px;
 		line-height:55px;
 	}
 	#sidebar .fix_reports_counters .reports .count {font-size:50px;}
@@ -1019,7 +1013,7 @@ a:hover {text-decoration:underline;}
 	font-size:17px;
 	color:#ffffff;
 	border:1px solid #2760BF;
-	box-shadow: 0 0 0 1px rgba(255,255,255,0.3) inset; 
+	box-shadow: 0 0 0 1px rgba(255,255,255,0.3) inset;
 	border-radius:6px;
 	padding:0 15px;
 	line-height:40px;
@@ -1034,11 +1028,11 @@ a:hover {text-decoration:underline;}
 	padding:0 80px 0 20px;
 	line-height:55px;
 	font-size:21px;
-	text-transform:uppercase;	
+	text-transform:uppercase;
 	border-color:#CCA100;
 }
 	.button.icon:hover {background-position: right -55px;}
-	.button.icon.share { 
+	.button.icon.share {
 		color:#999999;
 		background-position: right -110px;
 		border-color:#CCCCCC;
@@ -1133,8 +1127,9 @@ a:hover {text-decoration:underline;}
 			color:#CCCCCC;
 		}
 		.logos-footer .develop {float:left;width:300px;}
+		.logos-footer .develop {border:0px;}
 		.logos-footer .cofin {float:right; width:571px;}
-		.logos-footer .cofin img {margin-right:40px;}
+		.logos-footer .cofin img {margin-right:40px;border:0px;}
 /*Estaticas*/
 .static #content {
 	color:#7F7F7F;
@@ -1151,7 +1146,7 @@ a:hover {text-decoration:underline;}
 	font-size:17px;
 	font-weight:normal;
 	margin:20px 0px 10px 0px;
-	
+
 }
 	.static h2.toggle:hover {cursor: pointer; text-decoration:underline;}
 	.static ul {

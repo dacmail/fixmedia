@@ -15,8 +15,11 @@
 					<?php echo form_error('name', '<span class="error">', '</span>'); ?>
 				</div>
 				<div class="row wrap_title">
-					<label class="label" for="name">Sobre tí<span class="tip">Puedes escribir una pequeña biografía sobre tí.</span></label>
-					<textarea class="textarea" maxlength="350" id="" name="bio"><?=$user->bio;?> </textarea>
+					<label class="label" for="name">Sobre ti<span class="tip">Puedes escribir una pequeña biografía sobre tí.</span></label>
+					<textarea class="textarea" maxlength="300" id="" name="bio"><?=$user->bio;?></textarea>
+					<div class="help">
+						<span class="charcount">300</span>
+					</div>
 				</div>
 				<div class="row wrap_title">
 					<label class="label" for="name">Página web <span class="tip">Escribe la url de tu blog, web, facebook o lo que quieras.</span></label>
@@ -29,7 +32,7 @@
 					<?php echo form_error('twitter', '<span class="error">', '</span>'); ?>
 				</div>
 			</div>
-			<input type="submit" class="button submit" name="submit" value="Guardar los cambios" /> 
+			<input type="submit" class="button submit" name="submit" value="Guardar los cambios" />
 		</form>
 		<a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>" id="cancel" class="cancel">Volver al perfil</a>
 	</div>

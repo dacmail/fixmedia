@@ -38,6 +38,7 @@ $('document').ready(function() {
 
 				$('.textarea').live('keyup', function() {
 			        var max = 400;
+			        if  ($('.profile').length>0) {alert('hh');max=300;}
 			        var len = $(this).val().length;
 			        if (len >= max) {
 			            $(this).nextAll('.help').first().children('.charcount').html('Has llegado al máximo de caracteres.');
@@ -102,6 +103,7 @@ $('document').ready(function() {
 	if ($('.sending .row').length>0) {
 		$('.textarea').live('keyup', function() {
 	        var max = 400;
+	        if ($('.profile').length>0) {max=300;}
 	        var len = $(this).val().length;
 	        if (len >= max) {
 	            $(this).nextAll('.help').first().children('.charcount').text('Has llegado al máximo de caracteres.');
@@ -115,9 +117,11 @@ $('document').ready(function() {
 			$(this).nextAll('.help').first().show().css('display','block');
 		});
 		$('.sending .fields_wrap .row textarea').live('focus', function() {
+			var max = 400;
+	        if ($('.profile').length>0) {max=300;}
 			$(this).nextAll('.error').first().hide();
 			$(this).nextAll('.help').first().show().css('display','block');
-			var char = 400 - $(this).val().length;
+			var char = max - $(this).val().length;
 			$(this).nextAll('.help').first().children('.charcount').text('Te quedan ' + char + ' caracteres.');
 		});
 		$('.sending .fields_wrap .row input').live('blur', function() {
@@ -147,7 +151,7 @@ $('document').ready(function() {
 				dataType: 'json'
 			}).done(function ( data ) {
 				if (data.valid) {
-					link.replaceWith($('<div class="fix_done">¡Hecho!</div>'));		
+					link.replaceWith($('<div class="fix_done">¡Hecho!</div>'));
 					$('.count-' + link.attr('id')).text(data.total_votes);
 					$('.action-title').html('<strong>¡Ya has hecho FIX!</strong> ¿Qué quieres hacer ahora?');
 					$(".action-button.share").click();
@@ -172,7 +176,7 @@ $('document').ready(function() {
 					$('.vote-' + data.item_id).each(function() {
 						$(this).replaceWith('<span class="'+ $(this).attr('class') +'" id="'+ $(this).attr('id') +'">'+ $(this).text() +'</span>');
 					});
-					
+
 					$('.count-' + link.attr('id')).text(data.total_votes);
 				} else {
 					alert(data.error);
@@ -189,7 +193,7 @@ $('document').ready(function() {
 			    limit: $('#footer').offset().top - $('#sidebar').outerHeight() - 10,
 			});
 		}
-	}	
+	}
 
 
 	if ($('#header .user .welcome').length>0) {
@@ -207,14 +211,14 @@ $('document').ready(function() {
                 $("#header .user .welcome").removeClass("menu-open");
                 $("#header .user .user_info").hide();
             }
-        });	
+        });
 	}
 
 	if ($('.tabs').length>0) {
 		$('.tabs').tabs();
 	}
-	
-	
+
+
 	if ($(".action-button.share").length>0) {
 		$(".action-button.share").colorbox({iframe:true, width:"490px", height:"250px", opacity: "0.5"});
 		if ($(".action-button.share").hasClass('autoload')) {

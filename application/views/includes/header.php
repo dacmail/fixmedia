@@ -27,7 +27,7 @@
 <body>
     <header id="header">
         <div class="wrap clearfix">
-            <p class="main_title"><a href="<?php echo base_url(); ?>">Fixmedia.org, arregla las noticias</a></p>
+            <p class="main_title"><a href="<?php echo base_url(); ?>" title="Fixmedia.org, arregla las noticias"><img src="<?= base_url('images/logo-fixmedia.png'); ?>"/" alt="Fixmedia.org, arregla las noticias" title="Fixmedia.org, arregla las noticias"/></a></p>
             <nav class="top-menu">
                 <ul class="menu clearfix">
                     <li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'que-es-fixmedia'))); ?>">¿Qué es fixmedia?</a></li>
@@ -45,7 +45,7 @@
                                 <?=gravatar( $the_user->email, 100, true, base_url('static/avatar-user-100.jpg'), 'x', array('title' => 'Reputación ' . $the_user->karma) )?>
                                 <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $the_user->username))); ?>">Ver perfil</a>
                             </div>
-                            
+
                             <div class="user_data">
                                 <h2 class="name"><?= $the_user->name; ?></h2>
                                 <p class="counters">
@@ -58,7 +58,7 @@
                         <a class="log_out" href="<?= site_url($this->router->reverseRoute('logout')); ?>">Cerrar sesión</a>
                     </div>
                 </section>
-            <? endif; ?>  
+            <? endif; ?>
         </div>
     </header>
     <nav class="main-menu">
