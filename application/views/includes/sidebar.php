@@ -14,7 +14,7 @@
 			<div class="row clearfix">
 				<span class="pos"><?=$pos?></span> <span class="site"><a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $site->site))); ?>"><?= $site->site; ?></a></span> <span class="votes"><?= $site->votes; ?></span>
 			</div>
-		<? endforeach; ?> 
+		<? endforeach; ?>
 	</section>
 	<? endif; ?>
 	<? if (isset($sites_most_reported)) :?>
@@ -26,7 +26,7 @@
 			<div class="row clearfix">
 				<span class="pos"><?=$pos?></span> <span class="site"><a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $site->site))); ?>"><?= $site->site; ?></a></span> <span class="votes"><?= $site->reports; ?></span>
 			</div>
-		<? endforeach; ?> 
+		<? endforeach; ?>
 	</section>
 	<? endif; ?>
 	<? if (isset($top_users)) :?>
@@ -38,7 +38,7 @@
 			<div class="row clearfix">
 				<span class="pos"><?=$pos?></span> <span class="site"><a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?= $user->name; ?></a></span> <span title="Reputación del usuario (redondeada)" class="votes"><?= round($user->karma,0); ?></span>
 			</div>
-		<? endforeach; ?> 
+		<? endforeach; ?>
 	</section>
 	<? endif; ?>
 	<? $this->load->view('includes/mini-faqs'); ?>
