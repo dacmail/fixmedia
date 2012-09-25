@@ -2,7 +2,7 @@
 	<section class="main-footer">
 		<div class="wrap clearfix">
 			<div class="block">
-				<p class="logo"><a href="<?= site_url(); ?>">Fixmedia.org</a></p>
+				<p class="logo">Fixmedia.org</p>
 				<p>fixmedia.org es un proyecto de <a href="http://nxtmdia.com" target="_blank">NXTMDIA</a> para el procomún financiado a través de <a href="http://goteo.org" target="_blank">Goteo.org</a> por <a href="http://www.goteo.org/project/fixmedia.org-mejora-las-noticias/supporters" target="_blank">estas personas.</a></p>
 			</div>
 

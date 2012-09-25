@@ -1080,7 +1080,7 @@ a:hover {text-decoration:underline;}
 			width:280px;
 			float:left;
 		}
-			.main-footer .block .logo a {
+			.main-footer .block .logo  {
 				display:block;
 				width:239px;
 				height:64px;
