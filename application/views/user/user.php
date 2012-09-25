@@ -3,7 +3,7 @@
 		<section class="user_info clearfix">
 			  <?=gravatar( $user->email, 150, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?>
 			  <div class="data">
-			  		<h1 class="name"><?= $user->name; ?> 
+			  		<h1 class="name"><?= $user->name; ?>
 			  			<? if ($logged_in && $user->id==$the_user->id) : ?>
 			  				<a class="edit_profile_link" href="<?=site_url($this->router->reverseRoute('user-edit'));?>">Editar perfil</a>
 			  			<? endif; ?>
@@ -24,7 +24,7 @@
 				<li><a href="#stats">Estadísticas</a></li>
 				<li class="<?= (($page>1) ? 'ui-tabs-selected' : ''); ?>"><a href="#fixes">Noticias mejoradas por <?= $user->name; ?></a></li>
 			</ul>
-			<div id="stats">	
+			<div id="stats">
 			    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 			    <script type="text/javascript">
 			    	google.load('visualization', '1.0', {'packages':['corechart']});
@@ -38,10 +38,10 @@
 						  ['Fixes', <?= count($user->fixes); ?>],
 						]);
 						var options = { chartArea : {
-						               		width:250, 
+						               		width:250,
 						               		height:170,
 						               		top: 0,
-						               		left: 10	
+						               		left: 10
 						               }};
 
 						var chart = new google.visualization.PieChart(document.getElementById('fix_vs_rep'));
@@ -55,10 +55,10 @@
 							<? endforeach; ?>
 						]);
 						var options = { chartArea : {
-						               		width:250, 
+						               		width:250,
 						               		height:170,
 						               		top: 0,
-						               		left: 10	
+						               		left: 10
 						               }};
 
 						var chart = new google.visualization.ColumnChart(document.getElementById('fixes_by_sources'));
@@ -73,16 +73,16 @@
 							]);
 
 						var options = { chartArea : {
-						               		width:250, 
+						               		width:250,
 						               		height:140,
 						               		top: 0,
-						               		left: 10	
+						               		left: 10
 						               }};
 
 						var chart = new google.visualization.LineChart(document.getElementById('actions_by_month'));
 						chart.draw(data, options);
 					}
-    
+
 					function draw_charts() {
 						fix_vs_report();
 						actions_by_month();
@@ -95,7 +95,7 @@
 			    	<div class="explanation">
 			    		<? if (count($user->subreports)>0) : ?>
 			    			<h3 class="title"><?= round(count($user->fixes)/count($user->subreports),1); ?> fixes por cada reporte</h3>
-			    		<? else: ?> 
+			    		<? else: ?>
 			    			<h3 class="title"><?= count($user->fixes); ?> fixes por cada reporte</h3>
 			    		<? endif; ?>
 			    		<p class="hint">El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.</p>
@@ -115,7 +115,7 @@
 			    		<p class="hint">El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.</p>
 			    	</div>
 			    </div>
-			    
+
 
 			</div>
 			<div class="reports_list" id="fixes">
@@ -132,12 +132,12 @@
 							<div class="reports"><span class="count"><?= count($vote->report->data); ?></span> reportes</div>
 						</div>
 					</div>
-					<h1 class="title"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $vote->report->slug))); ?>"><?=$vote->report->title;?></a></h1>
+					<h2 class="title"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $vote->report->slug))); ?>"><?=$vote->report->title;?></a></h2>
 					<div class="report_meta">
 						<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $vote->report->user->username))); ?>"><?= $vote->report->user->name; ?></a> el <?= $vote->report->created_at->format('d/m/Y'); ?></p>
 						<p class="source">Fuente: <a href="#"><?= $vote->report->site; ?></a></p>
 						<? if ($vote->report->has_subreport($user->id)) : ?>
-							<p class="action_type report"><?=$user->name;?> reportó su propia mejora en esta noticia</p>			
+							<p class="action_type report"><?=$user->name;?> reportó su propia mejora en esta noticia</p>
 						<? elseif ($vote->report->user_id==$user->id) : ?>
 							<p class="action_type fix"><?=$user->name;?> fue el primero en hacer fix en esta noticia</p>
 						<? endif; ?>

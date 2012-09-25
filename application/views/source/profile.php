@@ -27,10 +27,10 @@
 						<? endforeach; ?>
 						]);
 						var options = { chartArea : {
-						               		width:250, 
+						               		width:250,
 						               		height:170,
 						               		top: 0,
-						               		left: 10	
+						               		left: 10
 						               }};
 
 						var chart = new google.visualization.PieChart(document.getElementById('fix_vs_rep'));
@@ -45,22 +45,22 @@
 							]);
 
 						var options = { chartArea : {
-						               		width:250, 
+						               		width:250,
 						               		height:140,
 						               		top: 0,
-						               		left: 10	
+						               		left: 10
 						               }};
 
 						var chart = new google.visualization.LineChart(document.getElementById('actions_by_month'));
 						chart.draw(data, options);
 					}
-    
+
 					function draw_charts() {
 						fix_vs_report();
 						actions_by_month();
 						//fixes_by_sources();
 					}
-			    </script>	
+			    </script>
 			    <div class="chart_wrap clearfix">
 			    	<div class="chart" id="fix_vs_rep"></div>
 			    	<div class="explanation">
@@ -84,13 +84,13 @@
 							<img src="<?php echo base_url(); ?>static/screenshot-thumb.jpg" alt="Captura de <?=$report->title;?> "  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/>
 						<? else : ?>
 							<img src="<?=base_url('images/sources/thumb-home-' . $report->id . '.png'); ?>" width="150" alt="Captura de <?=$report->title;?> "  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/>
-						<? endif; ?>						
+						<? endif; ?>
 						<div class="clearfix fix_reports_counters">
 							<div class="fixes"><span class="count"><?= $report->votes_count; ?></span> fixes</div>
 							<div class="reports"><span class="count"><?= count($report->data); ?></span> reportes</div>
 						</div>
 					</div>
-					<h1 class="title"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->slug))); ?>"><?=$report->title;?></a></h1>
+					<h2 class="title"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->slug))); ?>"><?=$report->title;?></a></h2>
 					<div class="report_meta">
 						<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $report->user->username))); ?>"><?= $report->user->name; ?></a> el <?= $report->created_at->format('d/m/Y'); ?></p>
 						<p class="source">Fuente: <a href="#"><?= $report->site; ?></a></p>
