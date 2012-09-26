@@ -112,6 +112,16 @@ $('document').ready(function() {
 	            $(this).nextAll('.help').first().children('.charcount').text('Te quedan ' + char + ' caracteres.');
 	        }
 	    });
+	    $('.text').live('keyup', function() {
+	        var max = 120;
+	        var len = $(this).val().length;
+	        if (len >= max) {
+	            $(this).nextAll('.help').first().children('.charcount').html('Has llegado al máximo de caracteres.');
+	        }else {
+	            var char = max - len;
+	            $(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
+	        }
+	    });
 		$('.sending .fields_wrap .row input').live('focus', function() {
 			$(this).nextAll('.error').first().hide();
 			$(this).nextAll('.help').first().show().css('display','block');
@@ -123,6 +133,12 @@ $('document').ready(function() {
 			$(this).nextAll('.help').first().show().css('display','block');
 			var char = max - $(this).val().length;
 			$(this).nextAll('.help').first().children('.charcount').text('Te quedan ' + char + ' caracteres.');
+		});
+		$('.sending .fields_wrap .row input').live('focus', function() {
+			$(this).nextAll('.error').first().hide();
+			$(this).nextAll('.help').first().show().css('display','block');
+			var char = 120 - $(this).val().length;
+			$(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
 		});
 		$('.sending .fields_wrap .row input').live('blur', function() {
 			$(this).nextAll('.help').first().hide();
@@ -220,7 +236,7 @@ $('document').ready(function() {
 
 
 	if ($(".action-button.share").length>0) {
-		$(".action-button.share").colorbox({iframe:true, width:"490px", height:"250px", opacity: "0.5"});
+		$(".action-button.share").colorbox({iframe:true, width:"490px", height:"250px", opacity: "0.5", onClosed:function(){window.location = $('#url_report').val();} });
 		if ($(".action-button.share").hasClass('autoload')) {
 			$(".action-button.share").click();
 		}

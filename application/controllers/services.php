@@ -15,8 +15,8 @@ class Services extends MY_Controller {
       	endif;
    	}
    	public function get_more_data($count=1)	{
-   		$data['reports_types_tree'] = Reports_type::find_all_by_parent(0); 
-   		if (empty($data['reports_types_tree'])) : 
+   		$data['reports_types_tree'] = Reports_type::find_all_by_parent(0);
+   		if (empty($data['reports_types_tree'])) :
    			show_404();
    		else:
    			$data['count'] = $count+1;
@@ -96,7 +96,7 @@ class Services extends MY_Controller {
                $data['title'] = "¡Compártela!";
                $data['content'] = "Cuanta más gente conozca esta noticia y haga FIX en ella, más posibilidades de arreglarla entre todos";
             endif;
-            $data['url'] = site_url($this->router->reverseRoute('reports-view' , array('slug' => $slug)));;
+            $data['url'] = site_url($this->router->reverseRoute('reports-view' , array('slug' => $slug)));
             $this->load->view('services/share', $data);
          else :
             show_404();
@@ -107,12 +107,12 @@ class Services extends MY_Controller {
       public function karma_users() {
          //if ($this->input->is_cli_request() ) :
             $this->load->helper('karma');
-            
+
             //media de fixes por noticia
             $this->db->select('AVG(votes_count) as avg');
-            $query = $this->db->get('reports'); 
+            $query = $this->db->get('reports');
             $row=$query->row();
-            $avg_votes=$row->avg-1; 
+            $avg_votes=$row->avg-1;
 
             $users = User::find_all_by_active(1);
             $output = 'Comienzo del proceso: ' . time();
@@ -151,7 +151,7 @@ class Services extends MY_Controller {
                   $report->karma_value = 1;
                }
                $report->save();
-         endforeach; 
+         endforeach;
       }
 
       public function fixit() {
@@ -165,10 +165,10 @@ class Services extends MY_Controller {
          endif;
       }
 
-      public function set_images() {         
+      public function set_images() {
          $this->db->select('id, url, screenshot');
          $this->db->where("screenshot IS NULL OR screenshot LIKE ''");
-         $query = $this->db->get('reports'); 
+         $query = $this->db->get('reports');
 
          $path = getcwd() . '/images/sources/';
          echo "RUTA PARA IMAGENES: $path </br>";
@@ -185,7 +185,7 @@ class Services extends MY_Controller {
             endif;
 
             if (file_exists($thumb)) :
-               
+
                if (!file_exists($thumb_report)) :
                   $config['image_library'] = 'gd2';
                   $config['source_image'] = $thumb;
@@ -225,7 +225,7 @@ class Services extends MY_Controller {
 
          $this->db->select('id, url, screenshot');
          $this->db->where("screenshot IS NULL OR screenshot LIKE ''");
-         $query = $this->db->get('reports'); 
+         $query = $this->db->get('reports');
          if (!empty($update_data)) { $this->db->update_batch('reports', $update_data, 'id'); }
       }
 

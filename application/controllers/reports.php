@@ -182,7 +182,7 @@ class Reports extends MY_Controller {
 
 	}
 
-	public function view($slug, $share=null) {
+	public function view($slug, $share=null, $doreport = null) {
 		if (!empty($slug)) :
 			$report = Report::find_by_slug($slug);
 			if (!empty($report)) :
@@ -191,6 +191,9 @@ class Reports extends MY_Controller {
 				$data['main_content'] = 'reports/report';
 				if (isset($share)) :
 					$data['autoshare'] = true;
+				endif;
+				if (isset($doreport)) :
+					$data['doreport'] = true;
 				endif;
 				$this->load->view('includes/template', $data);
 			else :
@@ -231,7 +234,7 @@ class Reports extends MY_Controller {
 							'ip' => $this->input->ip_address()));
 			endforeach;
 
-			redirect($this->router->reverseRoute('reports-view-share', array('slug' => $report->slug, 'share' => 'share')));
+			redirect($this->router->reverseRoute('reports-view-share-doreport', array('slug' => $report->slug, 'share' => 'share', 'report' => 'do')));
 		else :
 			show_404();
 		endif;

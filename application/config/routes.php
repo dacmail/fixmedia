@@ -47,6 +47,7 @@ $route['reporte/borrador'] = array('/reports/preview','reports-preview');
 $route['reporte/guardar'] = array('/reports/save','reports-save');
 $route['noticia/(:slug)'] = array('/reports/view/$1','reports-view');
 $route['noticia/(:slug)/(:share)'] = array('/reports/view/$1/$2','reports-view-share');
+$route['noticia/(:slug)/(:share)/(:report)'] = array('/reports/view/$1/$2/$3','reports-view-share-doreport');
 $route['usuario/salir'] = array('/auth/logout','logout');
 $route['usuario/entrar'] = array('/auth/login','login');
 $route['usuario/cambiar_clave'] = array('/auth/change_password','change_password');

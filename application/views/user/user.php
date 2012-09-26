@@ -125,7 +125,7 @@
 					<article class="report_info clearfix vote-<?=$vote->id;?> <?= $vote->report->has_subreport($user->id) ? 'has_reported' : 'only_fix'; ?> <?= $vote->report->user_id==$user->id ? 'first_fix' : ''; ?>">
 						<div class="screenshot">
 							<? if (is_null($vote->report->screenshot) || $vote->report->screenshot=="ERROR") : ?>
-								<img src="<?php echo base_url(); ?>static/screenshot-med.jpg" alt="Captura de <?=$vote->report->title;?> "  title="karma <?= $vote->report->karma ?> / coef <?= $vote->report->karma_value ?> / valor <?= $vote->report->karma*$vote->report->karma_value?>"/>
+								<img src="<?php echo base_url(); ?>static/screenshot-thumb.jpg" alt="Captura de <?=$vote->report->title;?> "  title="karma <?= $vote->report->karma ?> / coef <?= $vote->report->karma_value ?> / valor <?= $vote->report->karma*$vote->report->karma_value?>"/>
 							<? else : ?>
 								<img src="<?=base_url('images/sources/thumb-home-' . $vote->report->id . '.png'); ?>" width="150" alt="Captura de <?=$vote->report->title;?> "  title="karma <?= $vote->report->karma ?> / coef <?= $vote->report->karma_value ?> / valor <?= $vote->report->karma*$vote->report->karma_value?>"/>
 							<? endif; ?>

@@ -73,7 +73,7 @@
             <li><a class="link" href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'estadisticas'))); ?>">Estadísticas</a></li>
             <li class="search">
                 <form action="#">
-                    <input type="text" />
+                    <input type="text" placeholder="no disponible"/>
                 </form>
             </li>
         </ul>

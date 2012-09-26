@@ -32,7 +32,7 @@
 							<span class="type"><?=$subreport->type;?></span>,
 							<? if ($subreport->type_info!=$subreport->type) : ?>
 							<span class="type_info" title="<?= $subreport->type_info; ?>"><?= character_limiter($subreport->type_info,120); ?></span>
-							<? endif; ?> 
+							<? endif; ?>
 						</p>
 						<? if (!empty($subreport->content) || !empty($subreport->urls[0])) : ?>
 						<a href="#" class="toggle_info show">Mostrar detalles y fuentes</a>
@@ -50,18 +50,18 @@
 				</div>
 			</div>
 		<? $count++; endforeach; ?>
-		
-		
+
+
 	</div>
 
 	<aside id="sidebar" class="report">
 		<div class="counter">
 			<div class="wrap-counter">
-				<span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span> 
+				<span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span>
 				<? if ($report->votes_count==1 && ($logged_in && $report->is_voted($the_user->id))) : ?>
 				persona (tu) quiere que alguien la arregle
 				<? elseif ($report->votes_count==1) :?>
-				persona quiere que alguien la arregle. ¿Y tú? 
+				persona quiere que alguien la arregle. ¿Y tú?
 				<? else : ?>
 				personas quieren que alguien la arregle. ¿Y tú?
 				<? endif; ?>
@@ -70,10 +70,10 @@
 				<? if ($logged_in && !$report->is_voted($the_user->id)) : ?>
 					<a href="<?php echo site_url(array('services/fix_vote',$report->id)); ?>" id="vote-<?= $report->id ?>" class="button icon fixit fix_vote">
 						FIX
-					</a>			
+					</a>
 				<? elseif (!$logged_in) : ?>
 					<a href="<?php echo base_url("index.php/auth/login"); ?>" id="vote-<?= $report->id ?>" class="button icon fixit">
-						FIX	
+						FIX
 					</a>
 				<? elseif ($logged_in && $report->is_voted($the_user->id)) : ?>
 					<div class="fix_done">¡Hecho!</div>
@@ -85,10 +85,11 @@
 		<? else: ?>
 			<span class="action-title">También puedes...</span>
 		<? endif; ?>
-		
-		<a href="<?= site_url('services/share/' . $report->slug); ?>" class="action-button share <?= (isset($autoshare) ? 'autoload' : ''); ?>">Compártela</a>
+		<? $doreport = isset($doreport) ? 'do' : '';?>
+		<input type="hidden" id="url_report" value="<?=site_url($this->router->reverseRoute('reports-view' , array('slug' => $report->slug)));?>"/>
+		<a href="<?= site_url('services/share/' . $report->slug . '/' . $doreport); ?>" class="action-button share <?= (isset($autoshare) ? 'autoload' : ''); ?>">Compártela</a>
 		<hr class="sep"/>
 		<a href="<?= site_url($this->router->reverseRoute('reports-send' , array('id' => $report->id))); ?>" class="action-button add_report">Arréglala</a>
-		
+
 	</aside>
 </div>

@@ -3545,3 +3545,293 @@ DEBUG - 2012-09-25 18:58:39 --> File loaded: application/views/includes/footer.p
 DEBUG - 2012-09-25 18:58:39 --> File loaded: application/views/includes/template.php
 DEBUG - 2012-09-25 18:58:39 --> Final output sent to browser
 DEBUG - 2012-09-25 18:58:39 --> Total execution time: 0.1203
+DEBUG - 2012-09-25 18:59:38 --> Config Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> Hooks Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> Utf8 Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> UTF-8 Support Enabled
+DEBUG - 2012-09-25 18:59:38 --> URI Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> Router Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> No URI present. Default controller set.
+DEBUG - 2012-09-25 18:59:38 --> Output Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> Security Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> Input Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-09-25 18:59:38 --> Language Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> Loader Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> Helper loaded: url_helper
+DEBUG - 2012-09-25 18:59:38 --> Helper loaded: form_helper
+DEBUG - 2012-09-25 18:59:38 --> Helper loaded: date_helper
+DEBUG - 2012-09-25 18:59:38 --> Helper loaded: text_helper
+DEBUG - 2012-09-25 18:59:38 --> Helper loaded: interface_helper
+DEBUG - 2012-09-25 18:59:38 --> Database Driver Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> Form Validation Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> Session Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> Helper loaded: string_helper
+DEBUG - 2012-09-25 18:59:38 --> Session routines successfully run
+DEBUG - 2012-09-25 18:59:38 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-09-25 18:59:38 --> Email Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-09-25 18:59:38 --> Language file loaded: language/spanish/ion_auth_lang.php
+DEBUG - 2012-09-25 18:59:38 --> Helper loaded: cookie_helper
+DEBUG - 2012-09-25 18:59:38 --> Model Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> Model Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-09-25 18:59:38 --> Helper loaded: gravatar_helper
+DEBUG - 2012-09-25 18:59:38 --> Controller Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> Pagination Class Initialized
+DEBUG - 2012-09-25 18:59:38 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-09-25 18:59:39 --> File loaded: application/views/includes/mini-faqs.php
+DEBUG - 2012-09-25 18:59:39 --> File loaded: application/views/includes/sidebar.php
+DEBUG - 2012-09-25 18:59:39 --> File loaded: application/views/reports/list_reports.php
+DEBUG - 2012-09-25 18:59:39 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-09-25 18:59:39 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-09-25 18:59:39 --> Final output sent to browser
+DEBUG - 2012-09-25 18:59:39 --> Total execution time: 0.5045
+DEBUG - 2012-09-25 18:59:44 --> Config Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> Hooks Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> Utf8 Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> UTF-8 Support Enabled
+DEBUG - 2012-09-25 18:59:44 --> URI Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> Router Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> Output Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> Security Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> Input Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-09-25 18:59:44 --> Language Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> Loader Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> Helper loaded: url_helper
+DEBUG - 2012-09-25 18:59:44 --> Helper loaded: form_helper
+DEBUG - 2012-09-25 18:59:44 --> Helper loaded: date_helper
+DEBUG - 2012-09-25 18:59:44 --> Helper loaded: text_helper
+DEBUG - 2012-09-25 18:59:44 --> Helper loaded: interface_helper
+DEBUG - 2012-09-25 18:59:44 --> Database Driver Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> Form Validation Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> Session Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> Helper loaded: string_helper
+DEBUG - 2012-09-25 18:59:44 --> Session routines successfully run
+DEBUG - 2012-09-25 18:59:44 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-09-25 18:59:44 --> Email Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-09-25 18:59:44 --> Language file loaded: language/spanish/ion_auth_lang.php
+DEBUG - 2012-09-25 18:59:44 --> Helper loaded: cookie_helper
+DEBUG - 2012-09-25 18:59:44 --> Model Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> Model Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-09-25 18:59:44 --> Helper loaded: gravatar_helper
+DEBUG - 2012-09-25 18:59:44 --> Controller Class Initialized
+DEBUG - 2012-09-25 18:59:44 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-09-25 18:59:44 --> File loaded: application/views/includes/mini-faqs.php
+DEBUG - 2012-09-25 18:59:44 --> File loaded: application/views/includes/sidebar-static.php
+DEBUG - 2012-09-25 18:59:44 --> File loaded: application/views/pages/problemas.php
+DEBUG - 2012-09-25 18:59:44 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-09-25 18:59:44 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-09-25 18:59:44 --> Final output sent to browser
+DEBUG - 2012-09-25 18:59:44 --> Total execution time: 0.2423
+DEBUG - 2012-09-25 19:01:02 --> Config Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> Hooks Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> Utf8 Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> UTF-8 Support Enabled
+DEBUG - 2012-09-25 19:01:02 --> URI Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> Router Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> Output Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> Security Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> Input Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-09-25 19:01:02 --> Language Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> Loader Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> Helper loaded: url_helper
+DEBUG - 2012-09-25 19:01:02 --> Helper loaded: form_helper
+DEBUG - 2012-09-25 19:01:02 --> Helper loaded: date_helper
+DEBUG - 2012-09-25 19:01:02 --> Helper loaded: text_helper
+DEBUG - 2012-09-25 19:01:02 --> Helper loaded: interface_helper
+DEBUG - 2012-09-25 19:01:02 --> Database Driver Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> Form Validation Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> Session Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> Helper loaded: string_helper
+DEBUG - 2012-09-25 19:01:02 --> Session routines successfully run
+DEBUG - 2012-09-25 19:01:02 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-09-25 19:01:02 --> Email Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-09-25 19:01:02 --> Language file loaded: language/spanish/ion_auth_lang.php
+DEBUG - 2012-09-25 19:01:02 --> Helper loaded: cookie_helper
+DEBUG - 2012-09-25 19:01:02 --> Model Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> Model Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-09-25 19:01:02 --> Helper loaded: gravatar_helper
+DEBUG - 2012-09-25 19:01:02 --> Controller Class Initialized
+DEBUG - 2012-09-25 19:01:02 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-09-25 19:01:02 --> File loaded: application/views/includes/mini-faqs.php
+DEBUG - 2012-09-25 19:01:02 --> File loaded: application/views/includes/sidebar-static.php
+DEBUG - 2012-09-25 19:01:02 --> File loaded: application/views/pages/problemas.php
+DEBUG - 2012-09-25 19:01:02 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-09-25 19:01:02 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-09-25 19:01:02 --> Final output sent to browser
+DEBUG - 2012-09-25 19:01:02 --> Total execution time: 0.1493
+DEBUG - 2012-09-25 19:01:05 --> Config Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> Hooks Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> Utf8 Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> UTF-8 Support Enabled
+DEBUG - 2012-09-25 19:01:05 --> URI Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> Router Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> No URI present. Default controller set.
+DEBUG - 2012-09-25 19:01:05 --> Output Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> Security Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> Input Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-09-25 19:01:05 --> Language Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> Loader Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> Helper loaded: url_helper
+DEBUG - 2012-09-25 19:01:05 --> Helper loaded: form_helper
+DEBUG - 2012-09-25 19:01:05 --> Helper loaded: date_helper
+DEBUG - 2012-09-25 19:01:05 --> Helper loaded: text_helper
+DEBUG - 2012-09-25 19:01:05 --> Helper loaded: interface_helper
+DEBUG - 2012-09-25 19:01:05 --> Database Driver Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> Form Validation Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> Session Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> Helper loaded: string_helper
+DEBUG - 2012-09-25 19:01:05 --> Session routines successfully run
+DEBUG - 2012-09-25 19:01:05 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-09-25 19:01:05 --> Email Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-09-25 19:01:05 --> Language file loaded: language/spanish/ion_auth_lang.php
+DEBUG - 2012-09-25 19:01:05 --> Helper loaded: cookie_helper
+DEBUG - 2012-09-25 19:01:05 --> Model Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> Model Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-09-25 19:01:05 --> Helper loaded: gravatar_helper
+DEBUG - 2012-09-25 19:01:05 --> Controller Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> Pagination Class Initialized
+DEBUG - 2012-09-25 19:01:05 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-09-25 19:01:05 --> File loaded: application/views/includes/mini-faqs.php
+DEBUG - 2012-09-25 19:01:05 --> File loaded: application/views/includes/sidebar.php
+DEBUG - 2012-09-25 19:01:05 --> File loaded: application/views/reports/list_reports.php
+DEBUG - 2012-09-25 19:01:05 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-09-25 19:01:05 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-09-25 19:01:05 --> Final output sent to browser
+DEBUG - 2012-09-25 19:01:05 --> Total execution time: 0.2608
+DEBUG - 2012-09-25 19:01:33 --> Config Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> Hooks Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> Utf8 Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> UTF-8 Support Enabled
+DEBUG - 2012-09-25 19:01:33 --> URI Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> Router Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> No URI present. Default controller set.
+DEBUG - 2012-09-25 19:01:33 --> Output Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> Security Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> Input Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-09-25 19:01:33 --> Language Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> Loader Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> Helper loaded: url_helper
+DEBUG - 2012-09-25 19:01:33 --> Helper loaded: form_helper
+DEBUG - 2012-09-25 19:01:33 --> Helper loaded: date_helper
+DEBUG - 2012-09-25 19:01:33 --> Helper loaded: text_helper
+DEBUG - 2012-09-25 19:01:33 --> Helper loaded: interface_helper
+DEBUG - 2012-09-25 19:01:33 --> Database Driver Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> Form Validation Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> Session Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> Helper loaded: string_helper
+DEBUG - 2012-09-25 19:01:33 --> Session routines successfully run
+DEBUG - 2012-09-25 19:01:33 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-09-25 19:01:33 --> Email Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-09-25 19:01:33 --> Language file loaded: language/spanish/ion_auth_lang.php
+DEBUG - 2012-09-25 19:01:33 --> Helper loaded: cookie_helper
+DEBUG - 2012-09-25 19:01:33 --> Model Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> Model Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-09-25 19:01:33 --> Helper loaded: gravatar_helper
+DEBUG - 2012-09-25 19:01:33 --> Controller Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> Pagination Class Initialized
+DEBUG - 2012-09-25 19:01:33 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-09-25 19:01:33 --> File loaded: application/views/includes/mini-faqs.php
+DEBUG - 2012-09-25 19:01:33 --> File loaded: application/views/includes/sidebar.php
+DEBUG - 2012-09-25 19:01:33 --> File loaded: application/views/reports/list_reports.php
+DEBUG - 2012-09-25 19:01:33 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-09-25 19:01:33 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-09-25 19:01:33 --> Final output sent to browser
+DEBUG - 2012-09-25 19:01:33 --> Total execution time: 0.2144
+DEBUG - 2012-09-25 19:14:27 --> Config Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> Hooks Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> Utf8 Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> UTF-8 Support Enabled
+DEBUG - 2012-09-25 19:14:27 --> URI Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> Router Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> No URI present. Default controller set.
+DEBUG - 2012-09-25 19:14:27 --> Output Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> Security Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> Input Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-09-25 19:14:27 --> Language Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> Loader Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> Helper loaded: url_helper
+DEBUG - 2012-09-25 19:14:27 --> Helper loaded: form_helper
+DEBUG - 2012-09-25 19:14:27 --> Helper loaded: date_helper
+DEBUG - 2012-09-25 19:14:27 --> Helper loaded: text_helper
+DEBUG - 2012-09-25 19:14:27 --> Helper loaded: interface_helper
+DEBUG - 2012-09-25 19:14:27 --> Database Driver Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> Form Validation Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> Session Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> Helper loaded: string_helper
+DEBUG - 2012-09-25 19:14:27 --> Session routines successfully run
+DEBUG - 2012-09-25 19:14:27 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-09-25 19:14:27 --> Email Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-09-25 19:14:27 --> Language file loaded: language/spanish/ion_auth_lang.php
+DEBUG - 2012-09-25 19:14:27 --> Helper loaded: cookie_helper
+DEBUG - 2012-09-25 19:14:27 --> Model Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> Model Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-09-25 19:14:27 --> Helper loaded: gravatar_helper
+DEBUG - 2012-09-25 19:14:27 --> Controller Class Initialized
+DEBUG - 2012-09-25 19:14:27 --> Pagination Class Initialized
+DEBUG - 2012-09-25 19:14:28 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-09-25 19:14:28 --> File loaded: application/views/includes/mini-faqs.php
+DEBUG - 2012-09-25 19:14:28 --> File loaded: application/views/includes/sidebar.php
+DEBUG - 2012-09-25 19:14:28 --> File loaded: application/views/reports/list_reports.php
+DEBUG - 2012-09-25 19:14:28 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-09-25 19:14:28 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-09-25 19:14:28 --> Final output sent to browser
+DEBUG - 2012-09-25 19:14:28 --> Total execution time: 1.1743
+DEBUG - 2012-09-25 19:14:40 --> Config Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> Hooks Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> Utf8 Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> UTF-8 Support Enabled
+DEBUG - 2012-09-25 19:14:40 --> URI Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> Router Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> No URI present. Default controller set.
+DEBUG - 2012-09-25 19:14:40 --> Output Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> Security Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> Input Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-09-25 19:14:40 --> Language Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> Loader Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> Helper loaded: url_helper
+DEBUG - 2012-09-25 19:14:40 --> Helper loaded: form_helper
+DEBUG - 2012-09-25 19:14:40 --> Helper loaded: date_helper
+DEBUG - 2012-09-25 19:14:40 --> Helper loaded: text_helper
+DEBUG - 2012-09-25 19:14:40 --> Helper loaded: interface_helper
+DEBUG - 2012-09-25 19:14:40 --> Database Driver Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> Form Validation Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> Session Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> Helper loaded: string_helper
+DEBUG - 2012-09-25 19:14:40 --> Session routines successfully run
+DEBUG - 2012-09-25 19:14:40 --> Config file loaded: application/config/ion_auth.php
+DEBUG - 2012-09-25 19:14:40 --> Email Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-09-25 19:14:40 --> Language file loaded: language/spanish/ion_auth_lang.php
+DEBUG - 2012-09-25 19:14:40 --> Helper loaded: cookie_helper
+DEBUG - 2012-09-25 19:14:40 --> Model Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> Model Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-09-25 19:14:40 --> Helper loaded: gravatar_helper
+DEBUG - 2012-09-25 19:14:40 --> Controller Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> Pagination Class Initialized
+DEBUG - 2012-09-25 19:14:40 --> File loaded: application/views/includes/header.php
+DEBUG - 2012-09-25 19:14:40 --> File loaded: application/views/includes/mini-faqs.php
+DEBUG - 2012-09-25 19:14:40 --> File loaded: application/views/includes/sidebar.php
+DEBUG - 2012-09-25 19:14:40 --> File loaded: application/views/reports/list_reports.php
+DEBUG - 2012-09-25 19:14:40 --> File loaded: application/views/includes/footer.php
+DEBUG - 2012-09-25 19:14:40 --> File loaded: application/views/includes/template.php
+DEBUG - 2012-09-25 19:14:40 --> Final output sent to browser
+DEBUG - 2012-09-25 19:14:40 --> Total execution time: 0.3209
