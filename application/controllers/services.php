@@ -145,8 +145,8 @@ class Services extends MY_Controller {
                $report->karma = $karma;
                $karma = 0;
                $interval = time()-$report->created_at->getTimestamp();
-               if ($interval < 7200  && $interval > 600) {
-                  $report->karma_value = 2 - $interval/7200;
+               if ($interval < 18000  && $interval > 600) {
+                  $report->karma_value = 3.5 - $interval/7200;
                } else {
                   $report->karma_value = 1;
                }

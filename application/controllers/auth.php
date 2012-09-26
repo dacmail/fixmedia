@@ -58,7 +58,7 @@ class Auth extends MY_Controller {
 			}
 
 
-			$this->load->view('includes/template-landing', $this->data);
+			$this->load->view('includes/template', $this->data);
 		}
 	}
 
@@ -96,7 +96,7 @@ class Auth extends MY_Controller {
 				if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) { //if the login is successful
 					//redirect them back to the home page
 					$this->session->set_flashdata('message', $this->ion_auth->messages());
-					redirect($this->input->post('prev'), 'refresh'); 
+					redirect($this->input->post('prev'), 'refresh');
 				}
 				else { //if the login was un-successful
 					//redirect them back to the login page
@@ -410,7 +410,7 @@ class Auth extends MY_Controller {
 		/*INVITACIONES*/
 		$code= $this->input->post('invitation_code');
 		$this->db->where("code LIKE '$code'");
-        $query = $this->db->get('invitations'); 
+        $query = $this->db->get('invitations');
         $invitation=$query->row();
 
 		if ($this->form_validation->run() == true) {

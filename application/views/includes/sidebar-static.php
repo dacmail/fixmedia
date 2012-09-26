@@ -5,6 +5,7 @@
 
 		<div class="fb-like" data-href="http://fixmedia.org" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false"></div>
 	</section>
+	<section class="message"><a href="http://www.fixmedia.org/blog/2012/09/25/bienvenidos-a-fixmedia/">En nuestro blog: "Bienvenidos a Fixmedia"</a></section>
 	<? if (isset($sites_most_fixes)) :?>
 	<section class="block ranking">
 		<h3 class="title">Fuentes con más fixes</h3>
@@ -14,7 +15,7 @@
 			<div class="row clearfix">
 				<span class="pos"><?=$pos?></span> <span class="site"><a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $site->site))); ?>"><?= $site->site; ?></a></span> <span class="votes"><?= $site->votes; ?></span>
 			</div>
-		<? endforeach; ?> 
+		<? endforeach; ?>
 	</section>
 	<? endif; ?>
 	<? if (isset($sites_most_reported)) :?>
@@ -26,7 +27,7 @@
 			<div class="row clearfix">
 				<span class="pos"><?=$pos?></span> <span class="site"><a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $site->site))); ?>"><?= $site->site; ?></a></span> <span class="votes"><?= $site->reports; ?></span>
 			</div>
-		<? endforeach; ?> 
+		<? endforeach; ?>
 	</section>
 	<? endif; ?>
 	<? $this->load->view('includes/mini-faqs'); ?>
