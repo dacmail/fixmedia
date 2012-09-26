@@ -610,7 +610,7 @@ a:hover {text-decoration:underline;}
 		.subreport .subreport_content {
 			color:#7F7F7F;
 			line-height:21px;
-			display:none;
+			/*display:none;*/
 			background:#F6F6F6;
 			padding:15px;
 		}

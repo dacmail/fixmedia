@@ -423,6 +423,7 @@ class Auth extends MY_Controller {
 			//redirect them back to the admin page
 			$user = User::find_by_username($username);
 			$user->name = $username;
+			$user->invited = $code;
 			$user->save();
 			$this->session->set_flashdata('message', "Ya estás registrado, para iniciar sesión debes revisar tu email, te habrá llegado un enlace de activación.<p><strong>No olvides comprobar la carpeta de SPAM/correo no deseado.</strong></p>");
 			redirect("auth", 'refresh');

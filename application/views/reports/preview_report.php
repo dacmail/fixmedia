@@ -28,7 +28,7 @@
 
 						<? if (!empty($report['content'][$index]) || !empty($report['urls_decode'][$index][0])) : ?>
 
-						<a href="#" class="toggle_info show">Mostrar detalles y fuentes</a>
+						<a href="#" class="toggle_info">Ocultar detalles y fuentes</a>
 						<div class="subreport_content">
 							<?=$report['content'][$index];?>
 							<? if (count(array_filter($report['urls_decode'][$index]))>0) : ?>

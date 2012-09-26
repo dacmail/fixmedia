@@ -35,7 +35,7 @@
 							<? endif; ?>
 						</p>
 						<? if (!empty($subreport->content) || !empty($subreport->urls[0])) : ?>
-						<a href="#" class="toggle_info show">Mostrar detalles y fuentes</a>
+						<a href="#" class="toggle_info">Ocultar detalles y fuentes</a>
 						<div class="subreport_content">
 							<?=$subreport->content;?>
 							<? if (count(array_filter($subreport->urls))>0) : ?>
