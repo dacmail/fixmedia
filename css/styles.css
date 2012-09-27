@@ -746,7 +746,7 @@ a:hover {text-decoration:underline;}
 	border-bottom:10px solid #ffffff;
 	font-size:17px;
 	color:#ffffff;
-	font-weight: bold;
+	font-weight: normal;
 	font-style: italic;
 	position: relative
 }
@@ -1055,6 +1055,7 @@ a:hover {text-decoration:underline;}
 	position:relative;
 	background: url('../images/icons-button.png') left -330px no-repeat;
 }
+input.button {height:40px;}
 	.button:hover {background-position: left -385px;}
 .button.icon {
 	background-position:right 0;
@@ -1118,13 +1119,14 @@ a:hover {text-decoration:underline;}
 				width:239px;
 				height:64px;
 				background:url('../images/logo-footer.jpg') no-repeat;
-				text-indent:-99999999px;
+				text-indent:-999999px;
 				margin:20px 0;
 			}
 			.main-footer .block p {
 				font-style: italic;
 				font-size: 14px;
 				color:#7F7F7F;
+				line-height:21px;
 			}
 				.main-footer .block p a {color:#CCCCCC;}
 		.main-footer .menus {
@@ -1139,7 +1141,6 @@ a:hover {text-decoration:underline;}
 				list-style:none;
 			}
 				.main-footer .menus .menu .name {
-					font-weight: bold;
 					font-style: italic;
 					font-size: 17px;
 					color:#ffffff;
@@ -1154,15 +1155,24 @@ a:hover {text-decoration:underline;}
 		width:100%;
 		background:#272727;
 		border-top:1px solid #323232;
+		padding-bottom:15px;
 	}
 		.logos-footer .title {
 			font-size:14px;
 			color:#CCCCCC;
+			font-weight: normal;
 		}
 		.logos-footer .develop {float:left;width:300px;}
 		.logos-footer .develop {border:0px;}
 		.logos-footer .cofin {float:right; width:571px;}
 		.logos-footer .cofin img {margin-right:40px;border:0px;}
+	.logos-footer .server {
+		text-align:center;
+		font-size: 13px;
+		color:#7F7F7F;
+		margin:15px;
+	}
+		.logos-footer .server a {color:#ccc;}
 /*Estaticas*/
 .static #content {
 	color:#7F7F7F;

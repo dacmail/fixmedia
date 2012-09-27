@@ -1,11 +1,15 @@
 <div id="container" class="clearfix profile source columns">
 	<div id="content">
 		<section class="user_info clearfix">
-			  <img src="<?php echo base_url(); ?>static/avatar-source.jpg" width="150" alt="Imagen de <?=$site;?>" />
-			  <div class="data">
-			  		<h1 class="name"><?= $site; ?> </h1>
-			  		<p class="bio"><?= $url_data['description']; ?></p>
-			  </div>
+			<? if (!file_exists('static/sources/'. $site . '.jpg')) :?>
+				<img src="<?= base_url('static/avatar-source.jpg'); ?>" width="150" alt="Imagen de <?=$site;?>" />
+			<? else : ?>
+			<img src="<?= base_url('static/sources/' . $site .'.jpg'); ?>" width="150" alt="Imagen de <?=$site;?>" />
+				<? endif; ?>
+			<div class="data">
+		  		<h1 class="name"><?= $site; ?> </h1>
+		  		<p class="bio"><?= $url_data['description']; ?></p>
+		  	</div>
 		</section>
 		<section class="tabs">
 			<ul class="tabs_items">

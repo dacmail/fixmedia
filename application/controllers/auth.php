@@ -276,12 +276,14 @@ class Auth extends MY_Controller {
 					'id'   => 'new',
 				'type' => 'password',
 					'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
+					'class' => 'text'
 				);
 				$this->data['new_password_confirm'] = array(
 					'name' => 'new_confirm',
 					'id'   => 'new_confirm',
 					'type' => 'password',
 					'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
+					'class' => 'text'
 				);
 				$this->data['user_id'] = array(
 					'name'  => 'user_id',
@@ -293,7 +295,9 @@ class Auth extends MY_Controller {
 				$this->data['code'] = $code;
 
 				//render
-				$this->load->view('auth/reset_password', $this->data);
+				$this->data['page_title'] = "Cambia tu contraseña";
+				$this->data['main_content'] = 'auth/reset_password';
+				$this->load->view('includes/template-landing', $this->data);
 			}
 			else
 			{

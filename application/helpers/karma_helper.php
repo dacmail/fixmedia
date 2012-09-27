@@ -92,7 +92,7 @@
 		//Calculo final del karma
 		$calculated_karma = $karma_base_user + $value_fixes + $value_positive_votes*2 + $value_negative_votes*4 + $value_reports_from_others*2;
 		$output .= "karma nuevo -> $calculated_karma </br>\r\n";
-
+		$calculated_karma = min($calculated_karma, 20);
 		if ($calculated_karma > $user->karma) :
 			$user->karma = 0.8*$user->karma + 0.2*$calculated_karma;
 		else :

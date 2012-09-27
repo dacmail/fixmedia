@@ -1,19 +1,23 @@
-<h1>Change Password</h1>
+<div id="container" class="sending create_user forgot columns login clearfix">
+  <div id="content">
 
-<div id="infoMessage"><?php echo $message;?></div>
+    <h1 class="title">Cambiar contraseña</h1>
+	<div id="infoMessage"><?php echo $message;?></div>
 
 <?php echo form_open('auth/reset_password/' . $code);?>
-      
-      <p>New Password (at least <?php echo $min_password_length;?> characters long):<br />
+
+      <p class="row"><label class="label">Nueva contraseña:</label>
       <?php echo form_input($new_password);?>
       </p>
-      
-      <p>Confirm New Password:<br />
+
+      <p class="row"><label class="label">Repite nueva contraseña:</label>
       <?php echo form_input($new_password_confirm);?>
       </p>
-      
+
       <?php echo form_input($user_id);?>
       <?php echo form_hidden($csrf); ?>
-      <p><?php echo form_submit('submit', 'Change');?></p>
-      
+      <p><?php echo form_submit('submit', 'Cambiar contraseña', 'class="submit button"');?></p>
+
 <?php echo form_close();?>
+</div>
+</div>

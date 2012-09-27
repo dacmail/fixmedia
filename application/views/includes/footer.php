@@ -53,9 +53,10 @@
 				<a href="http://www.irekia.euskadi.net/"><img alt="Irekia" src="<?= base_url('images/logos/logo-irekia.jpg'); ?>"/></a>
 				<a href="http://linkatu.net/"><img alt="Linkatu" src="<?= base_url('images/logos/logo-linkatu.jpg'); ?>"/></a>
 			</div>
-
 		</div>
+		<p class="server">Alojado en un servidor estable gracias a <a href="http://comvive.es">Comvive</a></p>
 	</section>
+
 </footer>
 <script type="text/javascript">
   var _gaq = _gaq || [];
