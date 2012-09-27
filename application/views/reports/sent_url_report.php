@@ -14,19 +14,19 @@
 
 		<section class="sending_actions clearfix">
 			<h2 class="action_title">Ya has hecho fix a esta noticia. <strong>¿Qué quieres hacer con ella ahora?</strong></h2>
-			
+
 			<a href="<?= site_url($this->router->reverseRoute('reports-view-share', array('slug' => $report->slug, 'share' => 'share'))); ?>" class="button icon share">
 			Compártela <span class="subtitle">Para arreglarla entre todos</span>
 			</a>
-			
+
 			<a href="<?= site_url($this->router->reverseRoute('reports-send' , array('id' => $report->id))); ?>" class="button submit icon add_report">
-			Arréglala <span class="subtitle">Empieza tú mismo</span>	
-			</a>	
+			Arréglala <span class="subtitle">Empieza tú mismo</span>
+			</a>
 		</section>
-		
+
 	</div>
 	<aside id="sidebar" class="report">
-		<div class="counter"><span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span> 
+		<div class="counter"><span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span>
 			persona (tu) quiere que alguien la arregle
 		</div>
 	</aside>

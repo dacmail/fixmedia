@@ -4,9 +4,9 @@ class Reports extends MY_Controller {
 
 	public function __construct() {
 	   parent::__construct();
-	   if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 	}
 	public function index($page=1) {
+		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 		$this->load->library('pagination');
 		$config['base_url'] = site_url('pagina/');
 		$config['total_rows'] = Report::count_all();
@@ -27,6 +27,7 @@ class Reports extends MY_Controller {
 		$this->load->view('includes/template', $data);
 	}
 	public function recents($page=1) {
+		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 		$this->load->library('pagination');
 		$config['base_url'] = site_url('recientes/pagina/');
 		$config['total_rows'] = Report::count_all();
@@ -48,6 +49,7 @@ class Reports extends MY_Controller {
 		$this->load->view('includes/template', $data);
 	}
 	public function pendings($page=1) {
+		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 		$this->load->library('pagination');
 		$config['base_url'] = site_url('pendientes/pagina/');
 		$config['total_rows'] = Report::count_all();

@@ -36,7 +36,6 @@ if ( ! function_exists('get_url_data')) {
             $url_ok = false;
         }
 
-
         $the_url=$url;
 
         if(preg_match('/charset=([a-zA-Z0-9-_]+)/i', $html, $matches)) {
@@ -45,7 +44,6 @@ if ( ! function_exists('get_url_data')) {
                 $html=iconv($encoding, 'UTF-8//IGNORE', $html);
             }
         }
-
 
         if(preg_match('/<title[^<>]*>([^<>]*)<\/title>/si', $html, $matches)) {
             $url_tit=clean_text($matches[1]);
@@ -63,8 +61,10 @@ if ( ! function_exists('get_url_data')) {
                 $url_description = $url_description;
             }
         }
+
+        if (empty($the_url) || empty($url_title) || empty($url_components['host'])) { $url_ok = false; }
         return array('valid' => $url_ok, 'url' => $the_url, 'title' => $url_title,'host' => $url_components['host'], 'description' => $url_description);
-    }   
+    }
 }
 
 
@@ -88,7 +88,7 @@ if ( ! function_exists('get_url')) {
 	    }
 	    $url = preg_replace('/ /', '%20', $url);
 	    curl_setopt($session, CURLOPT_URL, $url);
-	    curl_setopt($session, CURLOPT_USERAGENT, $globals['user_agent']);
+	    curl_setopt($session, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 	    if ($referer) curl_setopt($session, CURLOPT_REFERER, $referer);
 	    curl_setopt($session, CURLOPT_CONNECTTIMEOUT, 20);
 	    curl_setopt($session, CURLOPT_RETURNTRANSFER, 1);
@@ -107,6 +107,9 @@ if ( ! function_exists('get_url')) {
 	            return false;
 	    }
 	    $header_size = curl_getinfo($session,CURLINFO_HEADER_SIZE);
+
+
+
 	    $result['header'] = substr($response, 0, $header_size);
 	    $result['content'] = substr($response, $header_size, $max);
 	    if (preg_match('/Content-Encoding: *gzip/i', $result['header'])) {

@@ -10,7 +10,7 @@
 					<div class="wrap_types clearfix">
 					<? foreach ($reports_types_tree as $report_type) : ?>
 						<span class="wrap_type <? echo (($type==$report_type->id) ? 'active' : '');?>">
-							<input data-count="<?=$count?>" data-service="<?php echo site_url('services/get_subtypes_select'); ?>" type="radio" name="type[<?=$count-1;?>]" class="main_type_radio" id="type_<?=$report_type->id;?>" value="<?=$report_type->id;?>"  <? echo (($type==$report_type->id) ? 'checked' : '');?>/> 
+							<input data-count="<?=$count?>" data-service="<?php echo site_url('services/get_subtypes_select'); ?>" type="radio" name="type[<?=$count-1;?>]" class="main_type_radio" id="type_<?=$report_type->id;?>" value="<?=$report_type->id;?>"  <? echo (($type==$report_type->id) ? 'checked' : '');?>/>
 							<label for="type_<?=$report_type->id;?>"><?=$report_type->type;?></label>
 						</span>
 						<? if ($type==$report_type->id) { $selected_type=$report_type; } ?>
@@ -62,7 +62,7 @@
 						</div>
 
 						<div class="row wrap_type_info">
-							
+
 							<label class="label" for="type_info">Clasifica tu reporte <span class="tip">Ayuda a la comunidad a comprender rápidamente cual es el problema en esta noticia</span></label>
 								<p class="<? echo (($report['type_info'][$index]==0) ? 'checked' : ''); ?> option clearfix"><input type="radio" name="type_info[<?=$count-1;?>]" value="0" id="type0-<?=$count-1;?>" checked /><label for="type0-<?=$count-1;?>">Ninguna</label></p>
 							<? foreach ($selected_type->childrens as $children) : ?>
@@ -75,12 +75,12 @@
 									Escoge la opción que mejor se ajuste al tipo de ampliación que deseas realizar sobre esta noticia. [+] aprender más
 								<? endif ?>
 							</span>
-						</div>						
+						</div>
 					</div>
 				</div>
 			<? endforeach; ?>
 			<a href="#" id="add_more" data-service="<?php echo site_url('services/get_more_data'); ?>" class="add">Añadir otra corrección/ampliación</a>
-			<input type="submit" class="button submit" name="submit" value="Veamos como queda" /> 
+			<input type="submit" class="button submit" name="submit" value="Veamos cómo queda" />
 		</form>
 		<a href="<?= site_url(); ?>" id="cancel" class="cancel">Cancelar</a>
 	</div>

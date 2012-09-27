@@ -59,13 +59,14 @@ a:hover {text-decoration:underline;}
 			position:absolute;
 			right:0px;
 			bottom:0px;
-			background: url('../images/icons-button.png') left -110px no-repeat;
+			background: url('../images/icons-button.png') left -349px no-repeat;
 			padding:10px 20px;
 			color:#ffffff;
 			font-size:14px;
 			border-top-left-radius: 6px;
 			border-top-right-radius: 6px;
 		}
+		#header .log_in:hover {background-position: left -386px;text-decoration:none;}
 		#header .user {
 			position:absolute;
 			right:0px;
@@ -624,6 +625,7 @@ a:hover {text-decoration:underline;}
 		.subreport .source {
 			display:block;
 			margin-bottom:5px;
+			word-wrap: break-word;
 		}
 
 		.cancel {
