@@ -170,7 +170,7 @@ $('document').ready(function() {
 					link.replaceWith($('<div class="fix_done">¡Hecho!</div>'));
 					$('.count-' + link.attr('id')).text(data.total_votes);
 					$('.action-title').html('<strong>¡Ya has hecho FIX!</strong> ¿Qué quieres hacer ahora?');
-					$(".action-button.share").click();
+					$(".action-button.share").effect("pulsate", { times:4 }, 300);
 				} else {
 					alert(data.error);
 				}
@@ -194,6 +194,11 @@ $('document').ready(function() {
 					});
 
 					$('.count-' + link.attr('id')).text(data.total_votes);
+					if (link.hasClass('up')) {
+						if ($('a.fix_vote').length>0) {
+							$('a.fix_vote').click();
+						}
+					}
 				} else {
 					alert(data.error);
 				}
@@ -236,7 +241,13 @@ $('document').ready(function() {
 
 
 	if ($(".action-button.share").length>0) {
-		$(".action-button.share").colorbox({iframe:true, width:"490px", height:"250px", opacity: "0.5", onClosed:function(){window.location = $('#url_report').val();} });
+		$(".action-button.share").colorbox({ iframe:true,
+											width:"490px",
+											height:"250px",
+											opacity: "0.5",
+											transition: 'none',
+											onClosed:function(){window.location = $('#url_report').val();}
+										});
 		if ($(".action-button.share").hasClass('autoload')) {
 			$(".action-button.share").click();
 		}

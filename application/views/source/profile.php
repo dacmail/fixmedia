@@ -53,7 +53,8 @@
 						               		height:140,
 						               		top: 0,
 						               		left: 10
-						               }};
+						               },
+						               vAxis : {minValue:0}};
 
 						var chart = new google.visualization.LineChart(document.getElementById('actions_by_month'));
 						chart.draw(data, options);

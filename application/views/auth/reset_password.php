@@ -2,7 +2,7 @@
   <div id="content">
 
     <h1 class="title">Cambiar contraseña</h1>
-	<div id="infoMessage"><?php echo $message;?></div>
+	<? if (!empty($message)) : ?><div id="infoMessage"><?= $message;?></div><? endif;?>
 
 <?php echo form_open('auth/reset_password/' . $code);?>
 

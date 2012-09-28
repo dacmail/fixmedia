@@ -1298,7 +1298,13 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 	padding: 40px 60px;
 	border-top:1px solid #EEEEEE;
 }
-.landing #infoMessage {text-align:left;}
+.landing #infoMessage {
+	text-align:left;
+	background: #F8CCCC;
+	border-radius: 10px;
+	padding-bottom: 5px;
+	color: #AE1E1E;
+}
 .landing {
 	background:#272727;
 }
@@ -1371,4 +1377,7 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 		list-style:none;
 	}
 	.landing .top-menu .menu a {color:#ffffff;}
+
+
+
 
