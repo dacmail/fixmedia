@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, height=device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title><?=$page_title?> - Fixmedia</title>
     <link rel="shortcut icon" href="<?php echo base_url(); ?>/images/favicon.png">

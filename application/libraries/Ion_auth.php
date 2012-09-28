@@ -122,13 +122,14 @@ class Ion_auth
 		if ( $this->ion_auth_model->forgotten_password($identity) )   //changed
 		{
 			// Get user information
-			$user = $this->where($this->config->item('identity', 'ion_auth'), $identity)->users()->row();  //changed to get_user_by_identity from email
+			$user = $this->where($this->config->item('identity_forgot', 'ion_auth'), $identity)->users()->row();  //changed to get_user_by_identity from email
 
 			if ($user)
 			{
 				$data = array(
-					'identity'		=> $user->{$this->config->item('identity', 'ion_auth')},
-					'forgotten_password_code' => $user->forgotten_password_code
+					'identity'		=> $user->{$this->config->item('identity_forgot', 'ion_auth')},
+					'forgotten_password_code' => $user->forgotten_password_code,
+					'username' => $user->username
 				);
 
 				if(!$this->config->item('use_ci_email', 'ion_auth'))
@@ -180,7 +181,7 @@ class Ion_auth
 	{
 		$this->ion_auth_model->trigger_events('pre_password_change');
 
-		$identity = $this->config->item('identity', 'ion_auth');
+		$identity = $this->config->item('identity_forgot', 'ion_auth');
 		$profile  = $this->where('forgotten_password_code', $code)->users()->row(); //pass the code to profile
 
 		if (!$profile)
