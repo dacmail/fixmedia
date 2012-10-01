@@ -118,7 +118,11 @@
            	$output .= "*** el valor para la noticia con ID '$report->id' es '$report->karma_value' </br>\r\n";
            	$report->save();
          endforeach;
-
+        $reports = Report::all(array('conditions' => 'created_at < date_sub(now(), interval 2 day) AND karma_value=1'));
+		foreach ($reports as $report) :
+            $report->karma_value = 0.5;
+           	$report->save();
+         endforeach;
          $output .= "Final del proceso: " . time() . "</body></html>";
          echo $output;
          $headers = "From: fixmedia@fixmedia.org \r\n";

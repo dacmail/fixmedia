@@ -86,7 +86,7 @@ class Reports extends MY_Controller {
 				if (empty($report)) : //Si la URL no existe, la creamos en la BD
 					$report = Report::create(array('user_id' => $this->the_user->id,
 							'url' => $url_data['url'],
-							'slug' => url_title($url_data['title'],'-',true),
+							'slug' => url_title(convert_accented_characters($url_data['title']),'dash',true),
 							'title' => $url_data['title'],
 							'site' => str_replace('www.', '', $url_data['host']),
 							'votes_count' => 1,
