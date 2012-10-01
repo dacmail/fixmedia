@@ -55,10 +55,10 @@
 							<? endforeach; ?>
 						]);
 						var options = { chartArea : {
-						               		width:250,
+						               		width:220,
 						               		height:170,
-						               		top: 0,
-						               		left: 10
+						               		top: 20,
+						               		left: 25
 						               },
 						               vAxis : {minValue:0}
 						           };
@@ -75,10 +75,10 @@
 							]);
 
 						var options = { chartArea : {
-						               		width:250,
+						               		width:220,
 						               		height:140,
-						               		top: 0,
-						               		left: 10
+						               		top: 20,
+						               		left: 25
 						               },
 						               vAxis: {minValue:0}
 						           };

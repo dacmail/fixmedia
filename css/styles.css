@@ -27,6 +27,8 @@ a:hover {text-decoration:underline;}
 
 #header {
 	width:100%;
+	max-width: 100%;
+	min-width: 980px;
 	background:#F6F6F6;
 	box-shadow: 0px -20px 20px -10px rgba(0, 0, 0, 0.1) inset;
 }
@@ -1098,6 +1100,8 @@ input.button {height:40px;}
 #footer {
 	width: 100%;
 	margin-top:40px;
+	max-width: 100%;
+	min-width: 980px;
 }
 #footer .wrap {
 	width:980px;
