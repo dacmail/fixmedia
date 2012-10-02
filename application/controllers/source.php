@@ -4,12 +4,11 @@ class Source extends MY_Controller {
 
 	public function __construct() {
 	   parent::__construct();
-	   if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 	}
 
 
 	public function index($site,$page=1) {
-		$this->output->cache(5);
+		if (!$this->ion_auth->logged_in()) { $this->output->cache(10); }
 		$reports = Report::find_all_by_site($site);
 		if (!empty($reports)) :
 			$data['site'] = $site;
