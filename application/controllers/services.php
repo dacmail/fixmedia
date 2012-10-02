@@ -75,7 +75,7 @@ class Services extends MY_Controller {
                               ));
             if ($vote->is_valid()) :
                $report->votes_count=$report->votes_count+$value;
-               $report->karma = $report->karma + $this->the_user->karma;
+               $report->karma = ($value<=0 ? $report->karma - $this->the_user->karma : $report->karma + $this->the_user->karma);
                $report->report->karma = ($value<=0 ? $report->report->karma - ($this->the_user->karma/2) : $report->report->karma + ($this->the_user->karma/2));
                $report->save();
                $report->report->save();
