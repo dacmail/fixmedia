@@ -73,8 +73,8 @@
             <li><a class="link" href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'top-fuentes'))); ?>">Top fuentes</a></li>
             <li><a class="link" href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'estadisticas'))); ?>">Estadísticas</a></li>
             <li class="search">
-                <form action="" method="GET">
-                    <input type="text" name="q" placeholder="no disponible" />
+                <form action="<?= site_url($this->router->reverseRoute('search')); ?>" method="GET">
+                    <input type="text" value="<?= isset($term) ? $term : ''; ?>" name="q" placeholder="no disponible" />
                 </form>
             </li>
         </ul>
