@@ -1,28 +1,28 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Services extends MY_Controller {
-	public function __construct() {
-	   parent::__construct();
-	}
-   	public function get_subtypes_select($parent_id, $count) {
+   public function __construct() {
+      parent::__construct();
+   }
+      public function get_subtypes_select($parent_id, $count) {
         $data['reports_types'] = Reports_type::find_all_by_parent($parent_id);
-   		if (empty($data['reports_types'])) :
-   			show_404();
-   		else :
+         if (empty($data['reports_types'])) :
+            show_404();
+         else :
             $data['count'] = $count-1;
             $data['type'] = $parent_id;
-   			$this->load->view('services/get_subtypes_select', $data);
-      	endif;
-   	}
-   	public function get_more_data($count=1)	{
-   		$data['reports_types_tree'] = Reports_type::find_all_by_parent(0);
-   		if (empty($data['reports_types_tree'])) :
-   			show_404();
-   		else:
-   			$data['count'] = $count+1;
-   			$this->load->view('services/get_more_data', $data);
-   		endif;
-   	}
+            $this->load->view('services/get_subtypes_select', $data);
+         endif;
+      }
+      public function get_more_data($count=1)   {
+         $data['reports_types_tree'] = Reports_type::find_all_by_parent(0);
+         if (empty($data['reports_types_tree'])) :
+            show_404();
+         else:
+            $data['count'] = $count+1;
+            $this->load->view('services/get_more_data', $data);
+         endif;
+      }
 
       public function fix_vote($report_id) {
          if (!$this->logged_in) :
@@ -112,7 +112,7 @@ class Services extends MY_Controller {
 
 
       public function karma_users() {
-         //if ($this->input->is_cli_request() ) :
+         if ($this->input->is_cli_request() ) :
             $this->load->helper('karma');
 
             //media de fixes por noticia
@@ -128,37 +128,18 @@ class Services extends MY_Controller {
             endforeach;
             $output .= 'Final del proceso: ' . time();
             mail('dacmail@gmail.com', 'Ejecución cálculo karma usuarios', $output, "MIME-Version: 1.0" . "\r\n Content-type: text/html; charset=UTF-8" . "\r\n");
-         /*else :
+         else :
             show_404();
-         endif;*/
+         endif;
       }
 
       public function karma_value() {
-         //if ($this->input->is_cli_request() ) :
+         if ($this->input->is_cli_request() ) :
             $this->load->helper('karma');
             calculate_karma_reports();
-         //else :
-            //show_404();
-         //endif;
-      }
-      public function karma_reports() {
-         $this->db->update('reports', array('karma' => 0));
-         $reports = Report::all();
-         $karma=0;
-         foreach ($reports as $report) :
-            foreach ($report->votes as $fix) :
-               $karma += $fix->vote_value * $fix->user->karma;
-            endforeach;
-               $report->karma = $karma;
-               $karma = 0;
-               $interval = time()-$report->created_at->getTimestamp();
-               if ($interval < 18000  && $interval > 600) {
-                  $report->karma_value = 3.5 - $interval/7200;
-               } else {
-                  $report->karma_value = 1;
-               }
-               $report->save();
-         endforeach;
+         else :
+            show_404();
+         endif;
       }
 
       public function fixit() {
@@ -173,67 +154,71 @@ class Services extends MY_Controller {
       }
 
       public function set_images() {
-         $this->db->select('id, url, screenshot');
-         $this->db->where("screenshot IS NULL OR screenshot LIKE ''");
-         $query = $this->db->get('reports');
+         if ($this->input->is_cli_request() ) {
+            $this->db->select('id, url, screenshot');
+            $this->db->where("screenshot IS NULL OR screenshot LIKE ''");
+            $query = $this->db->get('reports');
 
-         $path = getcwd() . '/images/sources/';
-         echo "RUTA PARA IMAGENES: $path </br>";
-         $update_data = array();
-         $this->load->library('image_lib');
-         foreach ($query->result() as $report) :
-            $thumb = $path . 'thumb-' . $report->id . ".png";
-            $thumb_report = $path . 'thumb-report-' . $report->id . ".png";
-            $thumb_home = $path . 'thumb-home-' . $report->id . ".png";
-            $cmd = '/usr/local/bin/phantomjs ' . getcwd() . '/js/rasterize.js';
+            $path = getcwd() . '/images/sources/';
+            echo "RUTA PARA IMAGENES: $path </br>";
+            $update_data = array();
+            $this->load->library('image_lib');
+            foreach ($query->result() as $report) :
+               $thumb = $path . 'thumb-' . $report->id . ".png";
+               $thumb_report = $path . 'thumb-report-' . $report->id . ".png";
+               $thumb_home = $path . 'thumb-home-' . $report->id . ".png";
+               $cmd = '/usr/local/bin/phantomjs ' . getcwd() . '/js/rasterize.js';
 
-            if (!file_exists($thumb)) :
-               system("$cmd $report->url $thumb");
-            endif;
-
-            if (file_exists($thumb)) :
-
-               if (!file_exists($thumb_report)) :
-                  $config['image_library'] = 'gd2';
-                  $config['source_image'] = $thumb;
-                  $config['create_thumb'] = FALSE;
-                  $config['new_image'] = $thumb_report;
-                  $config['maintain_ratio'] = FALSE;
-                  $config['width']   = 180;
-                  $config['height'] = 180;
-
-                  $this->image_lib->initialize($config);
-                  if ( ! $this->image_lib->resize()) {
-                      echo $this->image_lib->display_errors();
-                  }
-               endif;
-               if (!file_exists($thumb_home) && file_exists($thumb_report)) :
-                  $config['image_library'] = 'gd2';
-                  $config['source_image'] = $thumb_report;
-                  $config['create_thumb'] = FALSE;
-                  $config['new_image'] = $thumb_home;
-                  $config['maintain_ratio'] = FALSE;
-                  $config['width']   = 150;
-                  $config['height'] = 100;
-
-                  $this->image_lib->initialize($config);
-                  if ( ! $this->image_lib->crop()) {
-                      echo $this->image_lib->display_errors();
-                  }
+               if (!file_exists($thumb)) :
+                  system("$cmd $report->url $thumb");
                endif;
 
-               echo "<br/> *** Creada miniatura: $thumb </br>";
-               $screenshot = "thumb-$report->id.png";
-            else :
-               $screenshot = "ERROR";
-            endif;
-            $update_data[] = array('id' => $report->id, 'screenshot' => $screenshot);
-         endforeach;
+               if (file_exists($thumb)) :
 
-         $this->db->select('id, url, screenshot');
-         $this->db->where("screenshot IS NULL OR screenshot LIKE ''");
-         $query = $this->db->get('reports');
-         if (!empty($update_data)) { $this->db->update_batch('reports', $update_data, 'id'); }
+                  if (!file_exists($thumb_report)) :
+                     $config['image_library'] = 'gd2';
+                     $config['source_image'] = $thumb;
+                     $config['create_thumb'] = FALSE;
+                     $config['new_image'] = $thumb_report;
+                     $config['maintain_ratio'] = FALSE;
+                     $config['width']   = 180;
+                     $config['height'] = 180;
+
+                     $this->image_lib->initialize($config);
+                     if ( ! $this->image_lib->resize()) {
+                         echo $this->image_lib->display_errors();
+                     }
+                  endif;
+                  if (!file_exists($thumb_home) && file_exists($thumb_report)) :
+                     $config['image_library'] = 'gd2';
+                     $config['source_image'] = $thumb_report;
+                     $config['create_thumb'] = FALSE;
+                     $config['new_image'] = $thumb_home;
+                     $config['maintain_ratio'] = FALSE;
+                     $config['width']   = 150;
+                     $config['height'] = 100;
+
+                     $this->image_lib->initialize($config);
+                     if ( ! $this->image_lib->crop()) {
+                         echo $this->image_lib->display_errors();
+                     }
+                  endif;
+
+                  echo "<br/> *** Creada miniatura: $thumb </br>";
+                  $screenshot = "thumb-$report->id.png";
+               else :
+                  $screenshot = "ERROR";
+               endif;
+               $update_data[] = array('id' => $report->id, 'screenshot' => $screenshot);
+            endforeach;
+
+            $this->db->select('id, url, screenshot');
+            $this->db->where("screenshot IS NULL OR screenshot LIKE ''");
+            $query = $this->db->get('reports');
+            if (!empty($update_data)) { $this->db->update_batch('reports', $update_data, 'id'); }
+         } else {
+            show_404();
+         }
       }
 
 }
