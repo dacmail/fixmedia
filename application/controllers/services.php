@@ -154,7 +154,7 @@ class Services extends MY_Controller {
       }
 
       public function set_images() {
-         if ($this->input->is_cli_request() ) :
+         if ($this->input->is_cli_request() ) {
             $this->db->select('id, url, screenshot');
             $this->db->where("screenshot IS NULL OR screenshot LIKE ''");
             $query = $this->db->get('reports');
@@ -216,9 +216,9 @@ class Services extends MY_Controller {
             $this->db->where("screenshot IS NULL OR screenshot LIKE ''");
             $query = $this->db->get('reports');
             if (!empty($update_data)) { $this->db->update_batch('reports', $update_data, 'id'); }
-         else :
+         } else {
             show_404();
-         endif;
+         }
       }
 
 }
