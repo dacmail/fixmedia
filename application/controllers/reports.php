@@ -225,7 +225,6 @@ class Reports extends MY_Controller {
 														'user_id' => $this->the_user->id,
 														'votes_count' => 1
 														));
-				$report->karma = $report->karma + $this->the_user->karma;
 				$report->save();
 				$vote = Vote::create(array(
 							'user_id' => $this->the_user->id,
