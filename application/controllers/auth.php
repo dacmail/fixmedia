@@ -343,11 +343,30 @@ class Auth extends MY_Controller {
 		else if ($this->ion_auth->is_admin())
 			$activation = $this->ion_auth->activate($id);
 
-		if ($activation)
-		{
+		if ($activation) {
+			//Login automático
+			$user = User::first($id);
+			$session_data = array(
+				    'identity'             => $user->{$this->config->item('identity', 'ion_auth')},
+				    'username'             => $user->username,
+				    'email'                => $user->email,
+				    'user_id'              => $user->id, //everyone likes to overwrite id so we'll use user_id
+				    'old_last_login'       => $user->last_login
+				);
+			$identity = $user->{$this->config->item('identity', 'ion_auth')};
+			$this->ion_auth->update_last_login($user->id);
+
+			$this->ion_auth->clear_login_attempts($identity);
+
+			$this->session->set_userdata($session_data);
+
+			if ($this->config->item('remember_users', 'ion_auth')) {
+				$this->ion_auth->remember_user($user->id);
+			}
+			redirect(site_url($this->router->reverseRoute('user-edit')));
 			//redirect them to the auth page
-			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("auth", 'refresh');
+			//$this->session->set_flashdata('message', $this->ion_auth->messages());
+			//redirect("auth", 'refresh');
 		}
 		else
 		{
