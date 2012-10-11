@@ -14,6 +14,7 @@ class Reports extends MY_Controller {
 		$data['pagination_links'] = $this->pagination->create_links();
 		$data['page_title'] = 'Portada - Más urgentes';
 		$data['title'] = "Más urgentes";
+		$data['description'] = "Noticias para arreglar con más repercusión en este momento. Fixmedia es la herramienta que te permite mejorar las noticias, pidiendo que alguien las arregle, añadiendo más y mejor información o corrigiendo la existente.";
 		$data['subtitle'] = "Noticias para arreglar con más repercusión en este momento";
 		$data['main_content'] = 'reports/list_reports';
 		$data['reports'] = Report::all(array(
@@ -34,6 +35,7 @@ class Reports extends MY_Controller {
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
 		$data['page_title'] = 'Portada - Recientes';
+		$data['description'] = "Últimas noticias enviadas. Fixmedia es la herramienta que te permite mejorar las noticias, pidiendo que alguien las arregle, añadiendo más y mejor información o corrigiendo la existente.";
 		$data['title'] = "Recientes";
 		$data['subtitle'] = "Últimas noticias enviadas";
 		$data['main_content'] = 'reports/list_reports';
@@ -55,6 +57,7 @@ class Reports extends MY_Controller {
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
 		$data['page_title'] = 'Portada - Pendientes';
+		$data['description'] = "Noticias enviadas que todavía tienen pocos o ningún reporte. Fixmedia es la herramienta que te permite mejorar las noticias, pidiendo que alguien las arregle, añadiendo más y mejor información o corrigiendo la existente.";
 		$data['main_content'] = 'reports/list_reports';
 		$data['title'] = "Pendientes";
 		$data['subtitle'] = "Noticias enviadas que todavía tienen pocos o ningún reporte";
@@ -186,6 +189,7 @@ class Reports extends MY_Controller {
 			$report = Report::find_by_slug($slug);
 			if (!empty($report)) :
 				$data['page_title'] = $report->title;
+				$data['description'] = "Noticia enviada a fixmedia: $report->title. $report->votes_count personas quieren que se mejore o arregle esta noticia";
 				$data['report'] = $report;
 				$data['main_content'] = 'reports/report';
 				if (isset($share)) :

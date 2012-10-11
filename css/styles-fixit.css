@@ -1,6 +1,6 @@
 /* FIXES */
-*, html { 
-    margin:0; 
+*, html {
+    margin:0;
     padding:0;
 }
 .clearfix:after {
@@ -32,11 +32,50 @@
     text-transform:lowercase;
     font-size:13px;
     font-family:"Verdana";
+    float:left;
+    margin-right:5px;
 }
+    .submit.button.voted {
+        background:url('../images/gfix.png') 7px center no-repeat #f1f1f1;
+        border-color:#dfdfdf;
+        color:#999999;
+        opacity:0.6;
+    }
+        .submit.button.voted:hover { border-color:#dfdfdf; }
     .submit.button:hover { border-color: #b18704;}
     .submit.button.gray {
-        background:url('../images/gfix.png') 7px center no-repeat#f1f1f1;
+        background:url('../images/gfix.png') 7px center no-repeat #f1f1f1;
         border-color:#dfdfdf;
         color:#999999;
     }
         .submit.button.gray:hover {border-color:#a8a8a8}
+.votes {
+    line-height: 17px;
+    border:1px solid #dfdfdf;
+    float: left;
+    color:#a8a8a8;
+    font-size:13px;
+    font-family:"Verdana";
+    padding:0px 5px;
+    margin-top:1px;
+    background:#ffffff;
+    border-radius: 3px;
+    position: relative;
+}
+    .votes i, .votes u {
+        position: absolute;
+        zoom: 1;
+        line-height: 0;
+        width: 0;
+        height: 0;
+        left: 0;
+        top: 50%;
+        margin: -4px 0 0 -4px;
+        border: 4px transparent solid;
+        border-right-color: #dfdfdf;
+        border-left: 0;
+    }
+    .votes u {
+        margin-left: -3px;
+        border-right-color: white;
+    }

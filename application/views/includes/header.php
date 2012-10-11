@@ -7,7 +7,7 @@
 	<title><?=$page_title?> - Fixmedia</title>
     <link rel="shortcut icon" href="<?php echo base_url(); ?>/images/favicon.png">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="" />
+    <meta name="description" content="<?= isset($description) ? $description : ''; ?>" />
     <meta name="keywords" content="" />
     <meta name="robots" content="index, follow" />
     <meta name="contact_addr" content="" />

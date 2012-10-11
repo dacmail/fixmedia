@@ -647,7 +647,15 @@ a:hover {text-decoration:underline;}
 .profile .user_info {
 	margin-bottom:50px;
 }
-	.profile .user_info img {float:left;}
+	.profile .user_info .gravatar {
+		float:left;
+		width:150px;
+	}
+	.profile .user_info .gravatar .change_gravatar {
+		text-align: center;
+		margin:6px 0px;
+		display:block;
+	}
 	.profile .user_info .data {
 		float:right;
 		width:455px;

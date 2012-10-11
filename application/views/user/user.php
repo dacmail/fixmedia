@@ -1,23 +1,28 @@
 <div id="container" class="clearfix profile columns">
 	<div id="content">
 		<section class="user_info clearfix">
-			  <?=gravatar( $user->email, 150, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?>
-			  <div class="data">
-			  		<h1 class="name"><?= $user->name; ?>
-			  			<? if ($logged_in && $user->id==$the_user->id) : ?>
-			  				<a class="edit_profile_link" href="<?=site_url($this->router->reverseRoute('user-edit'));?>">Editar perfil</a>
-			  			<? endif; ?>
-			  		</h1>
-			  		<p class="when">Mejorando noticias desde el <?= date('d/m/Y', $user->created_on); ?></p>
-			  		<p class="bio"><?= $user->bio ?></p>
-			 		<? if ($user->url) : ?><p class="url">Web: <a href="#"><?= $user->url ?></a></p><? endif; ?>
-			 		<? if ($user->twitter) : ?>
-			 		<p class="follow">
-			 			<a href="https://twitter.com/<?=$user->twitter;?>" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @<?=$user->twitter;?></a>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-			 		</p>
-			 		<? endif; ?>
-			  </div>
+			<div class="gravatar">
+				<?=gravatar( $user->email, 150, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?>
+			  	<? if ($logged_in && $user->id==$the_user->id) : ?>
+			  	<a class="change_gravatar" href="http://es.gravatar.com/" target="blank">Cambiar gravatar</a>
+			  	<? endif; ?>
+			</div>
+			<div class="data">
+				<h1 class="name"><?= $user->name; ?>
+					<? if ($logged_in && $user->id==$the_user->id) : ?>
+						<a class="edit_profile_link" href="<?=site_url($this->router->reverseRoute('user-edit'));?>">Editar perfil</a>
+					<? endif; ?>
+				</h1>
+				<p class="when">Mejorando noticias desde el <?= date('d/m/Y', $user->created_on); ?></p>
+				<p class="bio"><?= $user->bio ?></p>
+				<? if ($user->url) : ?><p class="url">Web: <a href="#"><?= $user->url ?></a></p><? endif; ?>
+				<? if ($user->twitter) : ?>
+				<p class="follow">
+					<a href="https://twitter.com/<?=$user->twitter;?>" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @<?=$user->twitter;?></a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</p>
+				<? endif; ?>
+			</div>
 		</section>
 		<section class="tabs">
 			<ul class="tabs_items">

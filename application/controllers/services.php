@@ -145,6 +145,14 @@ class Services extends MY_Controller {
       public function fixit() {
          $data['url'] = $this->input->get('url', TRUE);
          if (!empty($data['url'])) :
+            $data['votes'] = 0;
+            $report = Report::find_by_url($data['url']);
+            $data['voted'] = false;
+            if ($report) :
+               $data['report'] = $report;
+               $data['votes'] = $report->votes_count;
+               $data['voted'] = ($this->logged_in && $report->is_voted($this->the_user->id));
+            endif;
             $style = $this->input->get('style', TRUE);
             $data['style'] = empty($style) ? 'std' : 'gray';
             $text = $this->input->get('text', TRUE);
