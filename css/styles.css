@@ -198,6 +198,14 @@ a:hover {text-decoration:underline;}
 				padding:0 10px;
 				background:url('../images/icons.png') right -111px no-repeat;
 			}
+.banner {
+	width:980px;
+	margin:-10px auto 15px auto;
+	border-bottom:1px solid #F1F1F1;
+	text-align: center;
+	padding-bottom:10px;
+}
+	.banner a:hover {opacity:0.8;}
 #container {
 	width:980px;
 	margin:10px auto;
@@ -1389,7 +1397,6 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 		list-style:none;
 	}
 	.landing .top-menu .menu a {color:#ffffff;}
-
 
 
 

@@ -79,3 +79,8 @@
             </li>
         </ul>
     </nav>
+    <? if (!$logged_in) : ?>
+    <div class="banner">
+        <a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'que-es-fixmedia'))); ?>"><img src="<?= base_url('images/banner.png'); ?>" alt="Qué es fixmedia.org" /></a>
+    </div>
+    <? endif; ?>

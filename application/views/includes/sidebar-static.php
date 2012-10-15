@@ -6,8 +6,7 @@
 		<div class="fb-like" data-href="http://www.facebook.com/Fixmedia" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false"></div>
 	</section>
 	<section class="message">
-		<p><a href="http://fixmedia.org/estaticas/como-funciona">¿Cómo se usa Fixmedia?</a></p>
-		<p><a href="http://www.fixmedia.org/blog/2012/09/25/bienvenidos-a-fixmedia/">En nuestro blog: "Bienvenidos a Fixmedia"</a></p>
+		<p><a href="http://fixmedia.org/estaticas/que-es-fixmedia">Qué es Fixmedia?</a></p>
 	</section>
 	<? if (isset($sites_most_fixes)) :?>
 	<section class="block ranking">
