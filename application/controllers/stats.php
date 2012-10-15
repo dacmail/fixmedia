@@ -25,22 +25,31 @@ class Stats extends MY_Controller {
 			$data['total_fixes'] = count(Vote::find_all_by_vote_type('FIX'));
 
 			/* Gráfico linea temporal de fixes totales por días */
-			$data['fixes_by_days'] = Vote::find_by_sql("SELECT SUM(vote_value) as fixes, DATE_FORMAT(created_at, '%d-%m-%y') as fecha
+			$data['fixes_by_days'] = Vote::find_by_sql("SELECT SUM(vote_value) as fixes, DATE_FORMAT(created_at, '%d/%m') as fecha
 													FROM votes WHERE created_at > date_sub(now(), interval 7 day)
 													AND vote_type='FIX' GROUP BY fecha");
+			$fixes_by_days = array();
+			foreach ($data['fixes_by_days'] as $fix) :
+				$fixes_by_days[$fix->fecha]['fixes'] = $fix->fixes;
+			endforeach;
 			/* Gráfico línea temporal de fixes por días y por fuente (las 3 en cabeza en cada momento)
 
 			Reportes:
 			/* Reportes en Fixmedia. En un número, sin gráfico*/
 			$data['total_reports'] = count(Reports_data::all());
 			/*Gráfico linea temporal de reportes totales por días */
-			$data['reports_by_days'] = Reports_data::find_by_sql("SELECT COUNT(id) as total, DATE_FORMAT(created_at, '%d-%m-%y') as fecha
+			$data['reports_by_days'] = Reports_data::find_by_sql("SELECT COUNT(id) as total, DATE_FORMAT(created_at, '%d/%m') as fecha
 													FROM reports_data WHERE created_at > date_sub(now(), interval 7 day)
 													GROUP BY fecha");
+			$reports_by_days = array();
+			foreach ($data['reports_by_days'] as $fix) :
+				$reports_by_days[$fix->fecha]['total'] = $fix->total;
+			endforeach;
+			$data['by_date'] = array_merge_recursive($reports_by_days, $fixes_by_days);
 			/*Gráfico línea temporal de reportes por días y por fuente (las 3 en cabeza en cada momento)*/
 
 			/*Tarta de reportes por tipo (corrección/ampliación) (global, el total ene se momento)*/
-			$data['reports_types'] = Reports_data::find_by_sql("SELECT type, count(id) FROM reports_data GROUP BY type");
+			$data['reports_types'] = Reports_data::find_by_sql("SELECT type, count(id) as total FROM reports_data GROUP BY type");
 
 			/*Gráficos de barras de reportes por subtipos (corrección: subtipos, ampliación: subtipos)  (global, el total en ese momento) */
 			$data['reports_subtypes'] = Reports_data::find_by_sql("SELECT type,  type_info, count(id) as total
@@ -50,9 +59,9 @@ class Stats extends MY_Controller {
 			$data['reports_vs_fixs'] = Vote::find_by_sql("SELECT vote_type, count(DISTINCT item_id) total
 												FROM votes WHERE created_at > date_sub(now(), interval 7 day)
 												GROUP BY vote_type");
-			echo '<pre>';
-			var_dump($data);
-			echo '</pre>';
+			$data['page_title'] = 'Estadísticas';
+			$data['main_content'] = 'stats/stats';
+			$this->load->view('includes/template', $data);
 	}
 }
 
