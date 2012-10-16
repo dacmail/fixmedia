@@ -79,6 +79,7 @@ class Reports extends MY_Controller {
 		$this->form_validation->set_rules('url', 'URL', 'required|prep_url|valid_url');
 		if ($this->form_validation->run() === FALSE) :
 			$data['page_title'] = 'Envía una noticia';
+			$data['url'] = $this->input->get('url');
 			$data['main_content'] = 'reports/create_report';
 			$data['error_url_check'] = '';
 		else :
@@ -103,7 +104,19 @@ class Reports extends MY_Controller {
 					$data['report'] = $report;
 					$data['page_title'] = 'Noticia enviada';
 					$data['main_content'] = 'reports/sent_url_report';
-				else : // Si existe, redirigimos a la página del reporte
+				else : // Si existe, hacemos fix y redirigimos a la página del reporte
+					$vote = Vote::create(array(
+                                 'user_id' => $this->the_user->id,
+                                 'item_id' => $report->id,
+                                 'vote_type' => 'FIX',
+                                 'vote_value' => 1,
+                                 'ip' => $this->input->ip_address()
+                              ));
+		            if ($vote->is_valid()) :
+		               $report->votes_count++;
+		               $report->karma = $report->karma + $this->the_user->karma;
+		               $report->save();
+		            endif;
 					redirect($this->router->reverseRoute('reports-view', array('slug' => $report->slug)));
 				endif;
 			else :

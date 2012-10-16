@@ -5,7 +5,7 @@
 		<?php echo form_open($this->router->reverseRoute('reports-create')) ?>
 			<div class="row wrap_create_report">
 				<label class="label" for="title">Url de la noticia</label>
-				<input class="text" type="input" placeholder="http://ejemplo.com/noticia.html" value="<?php echo set_value('url'); ?>" name="url" /><br />
+				<input class="text" type="input" placeholder="http://ejemplo.com/noticia.html" value="<?= isset($url) ? $url : set_value('url'); ?>" name="url" /><br />
 				<span class="help">Si quieres, puedes empezar buscando noticias que reportar <a target="_blank" href="https://news.google.es/">aquí</a>.</span>
 				<?php echo form_error('url', '<span class="error">', '</span>'); ?>
 				<? if (!empty($error_url_check)) : ?>
