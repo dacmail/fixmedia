@@ -1,6 +1,6 @@
 <div id="container" class="clearfix stats">
 	<div id="content">
-		<div id="chart_1" style="width:630px;height:350px;"></div>
+		<div id="chart_1" style="width:980px;height:450px;"></div>
 		<h2><?= $total_fixes ?> noticias en fixmedia</h2>
 		<div id="chart_2" style="width:630px;height:350px;"></div>
 		<h2><?= $total_reports ?> reportes en fixmedia</h2>
@@ -26,7 +26,8 @@
 			      title: 'Número de fixes, número de reportes y reputación acumulada de las 10 fuentes más importantes en todo el periodo',
 			      hAxis: {title: 'Número de reportes', minValue: 0},
 			      vAxis: {title: 'Número de fixes', minValue: 0},
-			      bubble: {textStyle: {fontSize: 11}}
+			      bubble: {textStyle: {fontSize: 11}},
+			  	  chartArea:{left:50,top:10,width:"750", height:"350"}
 			    };
 
 			    // Create and draw the visualization.
