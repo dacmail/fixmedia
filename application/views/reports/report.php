@@ -11,7 +11,7 @@
 				<div class="clearfix">
 					<span class="counter">
 						<strong class="count-vote-up-<?= $subreport->id ?> count-vote-down-<?= $subreport->id ?>"><?= $subreport->votes_count ?></strong>
-						<div class="votes_buttons clearfix">
+						<div title="Usa las flechas para valorar positiva o negativamente esta mejora concreta" class="votes_buttons clearfix">
 							<? if ($logged_in && !$subreport->is_voted($the_user->id)) : ?>
 								<a href="<?php echo site_url(array('services/report_vote', $the_user->id ,$subreport->id, 1)); ?>" id="vote-up-<?= $subreport->id ?>" class="report_vote up clearfix vote-<?= $subreport->id ?>">+</a>
 							<? else : ?>
@@ -68,11 +68,11 @@
 			</div>
 			<div class="wrap-fix">
 				<? if ($logged_in && !$report->is_voted($the_user->id)) : ?>
-					<a href="<?php echo site_url(array('services/fix_vote',$report->id)); ?>" id="vote-<?= $report->id ?>" class="button icon fixit fix_vote">
+					<a title="Haciendo Fix estás diciendo que esta noticia es mejorable en algún aspecto" href="<?php echo site_url(array('services/fix_vote',$report->id)); ?>" id="vote-<?= $report->id ?>" class="button icon fixit fix_vote">
 						FIX
 					</a>
 				<? elseif (!$logged_in) : ?>
-					<a href="<?php echo base_url("index.php/auth/login"); ?>" id="vote-<?= $report->id ?>" class="button icon fixit">
+					<a title="Haciendo Fix estás diciendo que esta noticia es mejorable en algún aspecto" href="<?php echo base_url("index.php/auth/login"); ?>" id="vote-<?= $report->id ?>" class="button icon fixit">
 						FIX
 					</a>
 				<? elseif ($logged_in && $report->is_voted($the_user->id)) : ?>
