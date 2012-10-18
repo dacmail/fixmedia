@@ -1,14 +1,60 @@
 <div id="container" class="clearfix stats">
 	<div id="content">
-		<div id="chart_1" style="width:980px;height:450px;"></div>
-		<h2><?= $total_fixes ?> noticias en fixmedia</h2>
-		<div id="chart_2" style="width:630px;height:350px;"></div>
-		<h2><?= $total_reports ?> reportes en fixmedia</h2>
-		<div id="chart_3" style="width:630px;height:350px;"></div>
-		<div id="chart_4" style="width:630px;height:350px;"></div>
-		<div id="chart_5" style="width:315px;height:250px;"></div>
-		<div id="chart_6" style="width:630px;height:350px;"></div>
-		<div id="chart_7" style="width:315px;height:250px;"></div>
+		<div class="block-wrap clearfix">
+			<section class="indicators clearfix">
+				<div class="indicator">
+					<span class="counter"><?= $total_news ?></span>
+					noticias
+				</div>
+				<div class="indicator">
+					<span class="counter"><?= $total_reports ?></span>
+					reportes
+				</div>
+				<div class="indicator">
+					<span class="counter"><?= $total_fixes ?></span>
+					fixes
+				</div>
+				<div class="indicator">
+					<span class="counter"><?= $total_users ?></span>
+					usuarios
+				</div>
+				<div class="indicator last">
+					<span class="counter"><?= $total_sources ?></span>
+					fuentes
+				</div>
+			</section>
+			<aside class="indicators-explanation">El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.</aside>
+		</div>
+		<div class="block-wrap clearfix">
+			<h1 class="title">Fuentes</h2>
+			<p class="sub_title sep">Las fuentes más importantes en fixmedia</p>
+			<section id="chart_1" class="chart_full"></section>
+		</div>
+		<div class="block-wrap clearfix">
+			<h1 class="title">Fixes</h2>
+			<p class="sub_title sep">Actividad de fixes en los últimos 7 días</p>
+			<section id="chart_2" class="chart_2_3"></section>
+			<section id="chart_7" class="chart_1_3"></section>
+		</div>
+		<div class="block-wrap clearfix">
+			<h1 class="title">Reportes</h2>
+			<p class="sub_title sep">Actividad de fixes en los últimos 7 días</p>
+			<div class="wrapin clearfix">
+				<section id="chart_3" class="chart_2_3"></section>
+				<section id="chart_5" class="chart_1_3"></section>
+			</div>
+			<div class="wrapin clearfix">
+				<section id="chart_6" class="chart_2_3"></section>
+				<aside class="chart-explanation cex_1_3">
+					<h3 class="cex_title">Titular</h3>
+					<p class="cex_text">Lorem ipsum dolor sit amet, consecquetum</p>
+					<p class="cex_counter">579</p>
+					<p class="cex_counter_ex">reportes</p>
+				</aside>
+			</div>
+
+		</div>
+
 	   	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	    <script type="text/javascript">
 	    	google.load('visualization', '1.0', {'packages':['corechart']});
@@ -46,7 +92,8 @@
 			  chart.draw(data, {
 			  				title: 'Número de fixes en los últimos 7 días',
 			                vAxis: {minValue: 0},
-			              	hAxis: {minValue: 0}}
+			              	hAxis: {minValue: 0},
+			              	chartArea:{left:30,top:10,width:"500", height:"300"}}
 			          );
 			}
 			function draw_chart_3() {
@@ -60,7 +107,8 @@
 			  chart.draw(data, {
 			  				title: 'Número de reportes en los últimos 7 días',
 			                vAxis: {minValue: 0},
-			              	hAxis: {minValue: 0}}
+			              	hAxis: {minValue: 0},
+			              	chartArea:{left:30,top:10,width:"500", height:"300"}}
 			          );
 			}
 			function draw_chart_4() {
@@ -74,7 +122,8 @@
 			  chart.draw(data, {
 			 			 	title: 'Número de fixes y reportes en los últimos 7 días',
 			                vAxis: {minValue: 0},
-			              	hAxis: {minValue: 0}}
+			              	hAxis: {minValue: 0},
+			              chartArea:{left:30,top:10,width:"500", height:"300"}}
 			          );
 			}
 			function draw_chart_5() {
@@ -87,7 +136,8 @@
 
 			  // Create and draw the visualization.
 			  new google.visualization.PieChart(document.getElementById('chart_5')).
-			      draw(data, {title:"Tipos de reportes en todo el periodo"});
+			      draw(data, {title:"Tipos de reportes en todo el periodo",
+			  chartArea:{left:20,top:20,width:"280", height:"300"}});
 			}
 
 			function draw_chart_6() {
@@ -101,7 +151,9 @@
 			  // Create and draw the visualization.
 			  new google.visualization.ColumnChart(document.getElementById('chart_6')).
 			      draw(data,
-			           {title:"Subtipos más utilizados en los reportes enviados en todo el periodo", hAxis: {minValue:0}}
+			           {title:"Subtipos más utilizados en los reportes enviados en todo el periodo",
+			           hAxis: {minValue:0},
+			       		chartArea:{left:30,top:10,width:"500", height:"300"}}
 			      );
 			}
 			function draw_chart_7() {
@@ -114,13 +166,14 @@
 
 			  // Create and draw the visualization.
 			  new google.visualization.PieChart(document.getElementById('chart_7')).
-			      draw(data, {title:"Reportes vs Fixes en los últimos 7 días"});
+			      draw(data, {title:"Reportes vs Fixes en los últimos 7 días",
+			 				 chartArea:{left:20,top:20,width:"280", height:"300"}});
 			}
 			function draw_charts() {
 				draw_chart_1();
 				draw_chart_2();
 				draw_chart_3();
-				draw_chart_4();
+				//draw_chart_4();
 				draw_chart_5();
 				draw_chart_6();
 				draw_chart_7();

@@ -23,7 +23,9 @@ class Stats extends MY_Controller {
 
 			/* Noticias en Fixmedia (fixes totales) En un número, sin gráfico */
 			$data['total_fixes'] = count(Vote::find_all_by_vote_type('FIX'));
-
+			$data['total_news'] = count(Report::all());
+			$data['total_users'] = count(User::all());
+			$data['total_sources'] = count(Report::all(array('select' => 'distinct site')));
 			/* Gráfico linea temporal de fixes totales por días */
 			$data['fixes_by_days'] = Vote::find_by_sql("SELECT SUM(vote_value) as fixes, DATE_FORMAT(created_at, '%d/%m') as fecha
 													FROM votes WHERE created_at > date_sub(now(), interval 7 day)
