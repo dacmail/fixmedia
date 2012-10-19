@@ -65,7 +65,7 @@ $route['fuente/(:sitename)'] = array('/source/index/$1','source-profile');
 $route['fuente/(:sitename)/page/(:page)'] = array('/source/index/$1/$2','source-profile-paged');
 $route['estaticas/(:page)'] = array('/pages/view/$1','statics');
 $route['busqueda'] = array('search/index','search');
-$route['busqueda/pagina/(:page)'] = array('search/index/$1','search-paged');
+$route['busqueda/usuarios'] = array('search/users','search-users');
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
