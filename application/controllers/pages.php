@@ -10,7 +10,7 @@ class Pages extends MY_Controller {
 		if (!file_exists('application/views/pages/'.$page.'.php')) { show_404(); }
 		$titles = array('quienes-somos' => 'Quiénes somos',
 						'que-hacemos' => 'Qué hacemos',
-						'faq' => 'Preguntas más frecuentes',
+						'faq' => 'Preguntas más frecuentes (FAQ)',
 						'que-es-fixmedia' => '¿Qué es Fixmedia?',
 						'como-funciona' => '¿Cómo funciona?',
 						'que-queremos-conseguir' => '¿Qué queremos conseguir?',
