@@ -14,11 +14,12 @@ class Stats extends MY_Controller {
 			*/
 			$data['global'] = Report::find_by_sql("SELECT r.site, r.votos, rd1.reportes, r.karma
 										FROM reports_data rd INNER JOIN
-										(SELECT id, site, sum(votes_count) as votos, sum(karma) as karma FROM reports GROUP BY site) as r
+										(SELECT id, site, sum(votes_count) as votos, sum(karma) as karma, created_at FROM reports WHERE created_at > date_sub(now(), interval 7 day) GROUP BY site) as r
 										ON rd.report_id=r.id
 										INNER JOIN
 										(SELECT r.site, count(rd.id) as reportes FROM reports r LEFT JOIN reports_data rd ON rd.report_id=r.id GROUP BY r.site) as rd1
 										ON rd1.site = r.site
+										WHERE r.created_at > date_sub(now(), interval 7 day)
 										GROUP BY r.site ORDER BY r.votos DESC LIMIT 0,10");
 
 			/* Noticias en Fixmedia (fixes totales) En un número, sin gráfico */
@@ -50,12 +51,15 @@ class Stats extends MY_Controller {
 			$data['by_date'] = array_merge_recursive($reports_by_days, $fixes_by_days);
 			/*Gráfico línea temporal de reportes por días y por fuente (las 3 en cabeza en cada momento)*/
 
-			/*Tarta de reportes por tipo (corrección/ampliación) (global, el total ene se momento)*/
-			$data['reports_types'] = Reports_data::find_by_sql("SELECT type, count(id) as total FROM reports_data GROUP BY type");
+			/*Tarta de reportes por tipo (corrección/ampliación) (global, 7 dias)*/
+			$data['reports_types'] = Reports_data::find_by_sql("SELECT type, count(id) as total FROM reports_data WHERE created_at > date_sub(now(), interval 7 day) GROUP BY type");
 
 			/*Gráficos de barras de reportes por subtipos (corrección: subtipos, ampliación: subtipos)  (global, el total en ese momento) */
-			$data['reports_subtypes'] = Reports_data::find_by_sql("SELECT type,  type_info, count(id) as total
-													FROM reports_data WHERE  type!=type_info
+			$data['reports_subtypes_c'] = Reports_data::find_by_sql("SELECT type,  type_info, count(id) as total
+													FROM reports_data WHERE  type!=type_info AND type LIKE 'Corrección' AND created_at > date_sub(now(), interval 7 day)
+													GROUP BY type_info ORDER BY type, total DESC");
+			$data['reports_subtypes_a'] = Reports_data::find_by_sql("SELECT type,  type_info, count(id) as total
+													FROM reports_data WHERE  type!=type_info AND type LIKE 'Ampliación' AND created_at > date_sub(now(), interval 7 day)
 													GROUP BY type_info ORDER BY type, total DESC");
 			/* Tarta Reportes vs Fixes (global y última semana)*/
 			$data['reports_vs_fixs'] = Vote::find_by_sql("SELECT vote_type, count(DISTINCT item_id) total
