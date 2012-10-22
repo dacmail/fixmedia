@@ -19,7 +19,7 @@ class Search extends MY_Controller {
 		$data['page_title'] = "Resultados de búsqueda: $term";
 		$data['title'] = "Resultados de búsqueda";
 		$data['subtitle'] = "Resultados de búsqueda para el término: $term";
-		$data['main_content'] = 'reports/list_reports';
+		$data['main_content'] = 'search/list_news';
 		$page = $this->input->get('pagina') ? $this->input->get('pagina') : 1;
 		$data['reports'] = Report::all(array(
 									'select' => '*, (karma*karma_value) as value',
@@ -45,7 +45,7 @@ class Search extends MY_Controller {
 		$data['page_title'] = "Resultados de búsqueda: $term";
 		$data['title'] = "Resultados de búsqueda";
 		$data['subtitle'] = "Resultados de búsqueda para el término: $term";
-		$data['main_content'] = 'search/users';
+		$data['main_content'] = 'search/list_users';
 		$page = $this->input->get('pagina') ? $this->input->get('pagina') : 1;
 		$data['users'] = User::all(array(
 									'select' => '*',
@@ -53,6 +53,31 @@ class Search extends MY_Controller {
 									'limit' => $this->pagination->per_page,
 									'offset' => $this->pagination->per_page*($page-1),
 									'order' => 'karma desc, created_on desc'));
+		$data = get_sidebars_blocks($data);
+		$this->load->view('includes/template', $data);
+	}
+	public function reports() {
+		$data['term'] = $term = $this->input->get('q');
+		$this->load->library('pagination');
+		$config['query_string_segment'] = 'pagina';
+		$config['page_query_string']  = true;
+		$config['base_url'] = "?q=$term";
+		$config['first_url'] = site_url($this->router->reverseRoute('search-users')) . "?q=$term";
+		$results = Reports_data::all(array('select' => 'id', 'conditions' => "title like '%" . $term . "%'"));
+		$config['total_rows'] = count($results);
+		$this->pagination->initialize($config);
+		$data['pagination_links'] = $this->pagination->create_links();
+		$data['page_title'] = "Resultados de búsqueda: $term";
+		$data['title'] = "Resultados de búsqueda";
+		$data['subtitle'] = "Resultados de búsqueda para el término: $term";
+		$data['main_content'] = 'search/list_reports';
+		$page = $this->input->get('pagina') ? $this->input->get('pagina') : 1;
+		$data['reports'] = Reports_data::all(array(
+									'joins' => array('report', 'user'),
+									'conditions' => "reports_data.title like '%" . $term . "%'",
+									'limit' => $this->pagination->per_page,
+									'offset' => $this->pagination->per_page*($page-1),
+									'order' => 'reports_data.karma desc, reports_data.created_at desc'));
 		$data = get_sidebars_blocks($data);
 		$this->load->view('includes/template', $data);
 	}

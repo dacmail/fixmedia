@@ -322,13 +322,13 @@ a:hover {text-decoration:underline;}
 				color:#666666;
 			}
 		.reports_list .report_info {border-bottom-width: 1px;}
-		.reports_list .report_info .screenshot {width:150px;}
+		.reports_list .report_info .screenshot {width:156px;}
 		.reports_list .report_info .title {
 			position:relative;
 			left:0px;
 			top:0px;
 			float:left;
-			width:470px;
+			width:460px;
 			font-size:25px;
 			line-height: 27px;
 		}
@@ -338,7 +338,7 @@ a:hover {text-decoration:underline;}
 			left:0px;
 			top:0px;
 			float:left;
-			width:470px;
+			width:460px;
 		}
 	.fix_reports_counters {
 		background:#B2B2B2;
@@ -534,12 +534,12 @@ a:hover {text-decoration:underline;}
 			padding-left:17px;
 			line-height:11px;
 		}
-		.subreport .subreport_types {
+		.subreport .subreport_types, .search .subreport_types {
 			margin-bottom:20px;
 			font-size:13px;
 			padding-left:17px;
 		}
-			.subreport .subreport_types .type {
+			.subreport .subreport_types .type, .search .type {
 				text-transform:uppercase;
 				font-weight:bold;
 				display:inline;
@@ -548,10 +548,11 @@ a:hover {text-decoration:underline;}
 				margin-left: -17px;
 				line-height:11px;
 			}
-			.subreport .subreport_types.type_correccion .type, .subreport .subreport_types.type_correcci-n .type {
+			.subreport .subreport_types.type_correccion .type, .subreport .subreport_types.type_correcci-n .type,
+			.search .type_correccion .type, .search	.type_correcci-n .type {
 				background-position:0px -302px;
 			}
-			.subreport .subreport_types .type_info {
+			.subreport .subreport_types .type_info, .search .type_info {
 				display:inline;
 			}
 		.subreport .counter {
@@ -659,7 +660,9 @@ a:hover {text-decoration:underline;}
 			font-size:30px;
 			font-weight: bold;
 			line-height:34px;
+			color:#333333;
 		}
+			.profile .user_info .data .name a {color:#333333;}
 			.profile  .edit_profile_link {
 				font-size:12px;
 				font-weight: normal;
@@ -871,6 +874,44 @@ a:hover {text-decoration:underline;}
 	color:#333333;
 	text-transform:uppercase;
 }
+/* Busqueda */
+.search .user_info {
+	border-bottom: 1px solid #F1F1F1;
+	padding-bottom: 15px;
+	margin-bottom: 20px;
+}
+	.search .profile .user_info .data .name {font-size:25px;}
+	.search .profile .user_info img {width:150px; height:150px;border:0px;}
+	.search .input {
+		border: 1px solid #F1F1F1;
+		height: 36px;
+		width: 620px;
+		margin-top: 24px;
+		line-height: 36px;
+		padding: 0 10px;
+		background: url('../images/icons.png') right -108px no-repeat;
+		color:#B2B2B2;
+		margin-bottom:30px;
+		font-size:17px;
+
+	}
+	.search .subreports.reports_list .report_info .title {
+		font-size:20px;
+		margin-bottom:10px;
+	}
+	.search .report_text {
+		font-size:14px;
+		color:#7F7F7F;
+		margin-bottom:15px;
+	}
+	.search .report_title {
+		background:#F1F1F1;
+		padding:10px;
+		font-size:14px;
+		color:#7F7F7F;
+		text-align: left;
+	}
+	.search .subreport_types {margin-bottom:10px;}
 #container.columns #sidebar.report {
 	width:260px;
 	background:#E5E5E5;
