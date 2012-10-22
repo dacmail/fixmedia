@@ -123,6 +123,11 @@
             $report->karma_value = 0.5;
            	$report->save();
          endforeach;
+        $reports = Report::all(array('conditions' => 'created_at < date_sub(now(), interval 7 day) AND karma_value=0.5'));
+		foreach ($reports as $report) :
+            $report->karma_value = 0;
+           	$report->save();
+        endforeach;
          $output .= "Final del proceso: " . time() . "</body></html>";
          echo $output;
          $headers = "From: fixmedia@fixmedia.org \r\n";
