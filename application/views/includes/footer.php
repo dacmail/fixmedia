@@ -15,7 +15,7 @@
 					<li><a href="<?= site_url($this->router->reverseRoute('home-recents')); ?>">Recientes</a></li>
 					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'top-usuarios'))); ?>">Top usuarios</a></li>
 					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'top-fuentes'))); ?>">Top fuentes</a></li>
-					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'estadisticas'))); ?>">Estadísticas</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('stats')); ?>">Estadísticas</a></li>
 				</ul>
 				<ul class="menu">
 					<li class="name">Social</li>
