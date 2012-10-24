@@ -1535,15 +1535,19 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 	color: #AE1E1E;
 }
 .landing {
-	background:#272727;
+	background:#FFFFFF;
 }
-.landing #head {background:#EAC000;padding-top:1px;}
+.landing #head {
+	background:#F6F6F6;
+	padding-top:1px;
+	margin-bottom:360px;
+}
 	.landing .logo {
 		display:block;
 		height:99px;
 		width:367px;
-		background:url('../images/logo_white.png') 0 0px no-repeat;
-		margin:40px auto 320px auto;
+		background:url('../images/logo-fixmedia.png') 0 0px no-repeat;
+		margin:20px auto 150px auto;
 	}
 		.landing .logo a {
 			display:block;
@@ -1559,27 +1563,16 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 		position:absolute;
 		top:190px;
 		left:50%;
-		margin-left:-490px;
+		width:570px;
+		margin-left:-285px;
 		box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 	}
-		.landing #container.columns.create_user {
-			width:490px;
-			margin-left:-245px;
-		}
-	.landing .logos-footer  {
-		padding-top:360px;
-	}
-		.landing .create_user.logos-footer {
-			padding-top:560px;
-		}
-		.landing .forgot.logos-footer {
-			padding-top:160px;
-		}
+
 	.landing #container.columns #content {
 		text-align:center;
-		width:369px;
+		width:450px;
 		border-right:1px solid #D2D2D2;
-		padding:60px;
+		padding:30px 60px 30px 60px ;
 		height:402px;
 	}
 		.landing #container.columns.create_user #content {
@@ -1588,7 +1581,7 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 		}
 	.landing #container #content {text-align:center}
 	.landing #content input {
-		width:370px;
+		width:430px;
 	}
 	.landing #content #remember {width:auto;}
 	.landing #content input.button {
@@ -1599,6 +1592,15 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 		.landing .forgot #content input.button {width:210px;}
 	.landing #content .row, .landing #content .label {font-weight:normal; text-align:left;}
 	.landing #container .title, .landing #container .sub_title {color:#333333;}
+	.landing #container .title {
+		border-bottom:1px solid #D2D2D2;
+		margin-bottom:0px;
+		padding-bottom:20px;
+	}
+	.landing #container form {
+		border-top: 1px solid #EEEEEE;
+		padding-top:20px;
+	}
 	.landing .top-menu .menu {
 		width:980px;
 		margin:5px auto;
