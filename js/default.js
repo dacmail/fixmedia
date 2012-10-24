@@ -235,7 +235,7 @@ $('document').ready(function() {
         });
 	}
 
-	if ($('.tabs').length>0) {
+	if ($('.tabs').length>0 && $('.tabs.notabs').length==0) {
 		$('.tabs').tabs();
 	}
 

@@ -330,13 +330,13 @@ a:hover {text-decoration:underline;}
 				color:#666666;
 			}
 		.reports_list .report_info {border-bottom-width: 1px;}
-		.reports_list .report_info .screenshot {width:150px;}
+		.reports_list .report_info .screenshot {width:156px;}
 		.reports_list .report_info .title {
 			position:relative;
 			left:0px;
 			top:0px;
 			float:left;
-			width:470px;
+			width:460px;
 			font-size:25px;
 			line-height: 27px;
 		}
@@ -346,7 +346,7 @@ a:hover {text-decoration:underline;}
 			left:0px;
 			top:0px;
 			float:left;
-			width:470px;
+			width:460px;
 		}
 	.fix_reports_counters {
 		background:#B2B2B2;
@@ -542,12 +542,12 @@ a:hover {text-decoration:underline;}
 			padding-left:17px;
 			line-height:11px;
 		}
-		.subreport .subreport_types {
+		.subreport .subreport_types, .search .subreport_types {
 			margin-bottom:20px;
 			font-size:13px;
 			padding-left:17px;
 		}
-			.subreport .subreport_types .type {
+			.subreport .subreport_types .type, .search .type {
 				text-transform:uppercase;
 				font-weight:bold;
 				display:inline;
@@ -556,10 +556,11 @@ a:hover {text-decoration:underline;}
 				margin-left: -17px;
 				line-height:11px;
 			}
-			.subreport .subreport_types.type_correccion .type, .subreport .subreport_types.type_correcci-n .type {
+			.subreport .subreport_types.type_correccion .type, .subreport .subreport_types.type_correcci-n .type,
+			.search .type_correccion .type, .search	.type_correcci-n .type {
 				background-position:0px -302px;
 			}
-			.subreport .subreport_types .type_info {
+			.subreport .subreport_types .type_info, .search .type_info {
 				display:inline;
 			}
 		.subreport .counter {
@@ -675,7 +676,9 @@ a:hover {text-decoration:underline;}
 			font-size:30px;
 			font-weight: bold;
 			line-height:34px;
+			color:#333333;
 		}
+			.profile .user_info .data .name a {color:#333333;}
 			.profile  .edit_profile_link {
 				font-size:12px;
 				font-weight: normal;
@@ -752,6 +755,212 @@ a:hover {text-decoration:underline;}
 		color:#7F7F7F;
 		margin:40px 0px;
 	}
+/* STATS */
+.stats .block-wrap {margin-bottom:70px;}
+.stats .indicators {
+	width: 978px;
+	background:#F1F1F1;
+	border:1px solid #E5E5E5;
+	font-size:14px;
+	color:#333333;
+	text-transform:uppercase;
+	margin-bottom:10px;
+}
+	.stats .indicators .indicator {
+		float:left;
+		width:194px;
+		padding:20px 0px;
+		text-align:center;
+		border-right:1px solid #E5E5E5;
+	}
+		.stats .indicators .indicator.last {border:none;}
+	.stats .indicators .counter {
+		display:block;
+		font-size:30px;
+		font-weight: bold;
+	}
+	.stats .indicators-explanation {
+		font-size:14px;
+		text-align:center;
+		color:#F2F2F2;
+		padding:15px;
+		background:#4C4C4C;
+	}
+	.stats .title {
+		text-align: center;
+		font-size:35px;
+		color:#333333;
+	}
+	.stats .sub_title {
+		text-align:center;
+	}
+		.stats .sub_title.sep {
+			position:relative;
+			margin-bottom:60px;
+		}
+	.stats .sub_title.sep:before {
+		position: absolute;
+		content: " ";
+		border-style: solid;
+		border-width: 20px 25px 20px 25px;
+		border-color: #E5E5E5 transparent  transparent transparent;
+		bottom:-40px;
+		left:50%;
+		margin-left:-25px;
+	}
+	.stats .sub_title.sep:after {
+		position: absolute;
+		content: " ";
+		border-style: solid;
+		border-width: 20px 25px 20px 25px;
+		border-color: #ffffff transparent  transparent transparent;
+		bottom:-39px;
+		left:50%;
+		margin-left:-25px;
+	}
+.stats .chart_full {
+	width:980px;
+	height:450px;
+}
+.stats .chart_2_3 {
+	width:630px;
+	height:350px;
+	float:left;
+}
+.stats .chart_1_3 {
+	width:315px;
+	height:250px;
+	float:left;
+}
+.stats .wrapin {margin-bottom:50px;}
+
+.stats .chart-explanation {
+	background:#F1F1F1;
+	color:#333333;
+	text-align: center;
+	position: relative;
+	padding:40px 20px 10px 20px;
+	line-height:21px;
+}
+.stats .cex_1_3 {
+	width:275px;
+	float:right;
+}
+	.stats .cex_1_3:after {
+		position: absolute;
+		content: " ";
+		border-style: solid;
+		border-width: 25px 20px 25px 20px;
+		border-color: transparent #F1F1F1 transparent transparent;
+		top:50%;
+		left:-40px;
+		margin-top:-25px;
+	}
+.stats .top:after {
+		position: absolute;
+		content: " ";
+		border-style: solid;
+		border-width: 20px 25px 20px 25px;
+		border-color: transparent  transparent #F1F1F1 transparent;
+		left:50%;
+		top:-40px;
+		margin-left:-25px;
+	}
+	.stats .top {
+		width: 500px;
+		margin:0px auto 50px auto;
+	}
+.stats .cex_title {
+	font-size:21px;
+	font-weight: bold;
+	margin-bottom:10px;
+}
+.stats .cex_text {
+	color:#7F7F7F;
+	font-size:14px;
+	margin-bottom:20px;
+}
+.stats .cex_counter {
+	font-size:50px;
+	font-weight: bold;
+	margin-top:15px;
+}
+.stats .cex_counter_ex {
+	font-size:14px;
+	color:#333333;
+	text-transform:uppercase;
+}
+/* Busqueda */
+.search .user_info {
+	border-bottom: 1px solid #F1F1F1;
+	padding-bottom: 15px;
+	margin-bottom: 20px;
+}
+	.search .profile .user_info .data .name {font-size:25px;}
+	.search .profile .user_info img {width:150px; height:150px;border:0px;}
+	.search .input {
+		border: 1px solid #F1F1F1;
+		height: 36px;
+		width: 620px;
+		margin-top: 24px;
+		line-height: 36px;
+		padding: 0 10px;
+		background: url('../images/icons.png') right -108px no-repeat;
+		color:#B2B2B2;
+		margin-bottom:30px;
+		font-size:17px;
+
+	}
+	.search .subreports.reports_list .report_info .title {
+		font-size:20px;
+		margin-bottom:10px;
+	}
+	.search .report_text {
+		font-size:14px;
+		color:#7F7F7F;
+		margin-bottom:15px;
+	}
+	.search .report_title {
+		background:#F1F1F1;
+		padding:10px;
+		font-size:14px;
+		color:#7F7F7F;
+		text-align: left;
+	}
+	.search .subreport_types {margin-bottom:10px;}
+	.search .order {
+		margin-bottom:30px;
+	}
+		.search .order .label {
+			float:left;
+			line-height:38px;
+			display:block;
+			color:#79B4CB;
+			font-style: italic;
+			font-weight: bold;
+			margin-right:10px;
+		}
+		.search .order .orderby {
+			float:left;
+			line-height:38px;
+			display:block;
+			list-style: none;
+		}
+		.search .order .orderby li {
+			float:left;
+			margin:0px 5px;
+		}
+		.search .order .orderby li a {
+			display: block;
+			line-height: 38px;
+			color:#79B4CB;
+			padding:0px 10px;
+		}
+		.search .order .orderby li.active a {
+			color:#ffffff;
+			background: #79B4CB;
+			border-radius: 10px;
+		}
 #container.columns #sidebar.report {
 	width:260px;
 	background:#E5E5E5;
