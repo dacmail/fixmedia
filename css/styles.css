@@ -891,6 +891,7 @@ a:hover {text-decoration:underline;}
 	text-transform:uppercase;
 }
 /* Busqueda */
+.search strong { color:#000; }
 .search .user_info {
 	border-bottom: 1px solid #F1F1F1;
 	padding-bottom: 15px;

@@ -31,7 +31,7 @@
 							<div class="report_title"><?=$report->report->title;?></div>
 						</div>
 						<h2 class="title"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->report->slug))); ?>"><?=$report->title;?></a></h2>
-						<div class="report_text"><?=$report->content;?></div>
+						<div class="report_text"><?= highlight_phrase($report->content, $term, '<strong>' , '</strong>');?></div>
 						<div class="report_meta">
 							<p class="authorship">Reportado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $report->user->username))); ?>"><?= $report->user->name; ?></a> el <?= $report->created_at->format('d/m/Y'); ?></p>
 							<p class="clearfix subreport_types type_<?= preg_replace('/[^a-z0-9]+/i','-',strtolower($report->type));?>">

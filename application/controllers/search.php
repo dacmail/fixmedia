@@ -53,7 +53,7 @@ class Search extends MY_Controller {
 		$data['orderby'] = $this->input->get('order') ? true : false;
 		$data['users'] = User::all(array(
 									'select' => '*',
-									'conditions' => "username like '%" . $term . "%'",
+									'conditions' => "username like '%" . $term . "%' OR name like '%" . $term . "%' OR bio like '%" . $term . "%'",
 									'limit' => $this->pagination->per_page,
 									'offset' => $this->pagination->per_page*($page-1),
 									'order' => $order));
@@ -67,7 +67,7 @@ class Search extends MY_Controller {
 		$config['page_query_string']  = true;
 		$config['base_url'] = $this->input->get('order') ? "?q=$term&order=date" : "?q=$term";
 		$config['first_url'] = site_url($this->router->reverseRoute('search-users')) . "?q=$term";
-		$results = Reports_data::all(array('select' => 'id', 'conditions' => "title like '%" . $term . "%'"));
+		$results = Reports_data::all(array('select' => 'id', 'conditions' => "title like '%" . $term . "%' OR content like '%" . $term . "%' OR type like '%" . $term . "%' OR type_info like '%" . $term . "%'"));
 		$config['total_rows'] = count($results);
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
