@@ -71,10 +71,10 @@
             <li class="<?= is_cur_page($this, 'reports','pendings') ? 'current' : ''; ?>"><a class="link" href="<?= site_url($this->router->reverseRoute('home-pending')); ?>">Pendientes</a></li>
             <li><a class="link" href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'top-usuarios'))); ?>">Top usuarios</a></li>
             <li><a class="link" href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'top-fuentes'))); ?>">Top fuentes</a></li>
-            <li><a class="link" href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'estadisticas'))); ?>">Estadísticas</a></li>
+            <li class="<?= is_cur_page($this, 'stats','index') ? 'current' : ''; ?>"><a class="link" href="<?= site_url($this->router->reverseRoute('stats')); ?>">Estadísticas</a></li>
             <li class="search">
                 <form action="<?= site_url($this->router->reverseRoute('search')); ?>" method="GET">
-                    <input type="text" value="<?= isset($term) ? $term : ''; ?>" name="q" placeholder="no disponible" />
+                    <input type="text" value="<?= isset($term) ? $term : ''; ?>" name="q" placeholder="noticias, reportes, usuarios" />
                 </form>
             </li>
         </ul>

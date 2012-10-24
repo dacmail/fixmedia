@@ -19,30 +19,34 @@
         	</ul>
         </section>
         <section class="reports_list subreports">
-			<? foreach ($reports as $report) : ?>
-				<article class="report_info clearfix">
-					<div class="screenshot">
-						<? if (is_null($report->report->screenshot) || $report->report->screenshot=="ERROR") : ?>
-							<img src="<?= base_url('static/screenshot-thumb.jpg'); ?>" alt="Captura de <?=$report->report->title;?> "  title="karma <?= $report->report->karma ?>?>"/>
-						<? else : ?>
-							<img src="<?=base_url('images/sources/thumb-home-' . $report->report->id . '.png'); ?>" width="150" alt="Captura de <?=$report->report->title;?> "  title="karma <?= $report->report->karma ?>?>"/>
-						<? endif; ?>
-						<div class="report_title"><?=$report->report->title;?></div>
-					</div>
-					<h2 class="title"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->report->slug))); ?>"><?=$report->title;?></a></h2>
-					<div class="report_text"><?=$report->content;?></div>
-					<div class="report_meta">
-						<p class="authorship">Reportado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $report->user->username))); ?>"><?= $report->user->name; ?></a> el <?= $report->created_at->format('d/m/Y'); ?></p>
-						<p class="clearfix subreport_types type_<?= preg_replace('/[^a-z0-9]+/i','-',strtolower($report->type));?>">
-							<span class="type"><?=$report->type;?></span>,
-							<? if ($report->type_info!=$report->type) : ?>
-							<span class="type_info" title="<?= $report->type_info; ?>"><?= character_limiter($report->type_info,120); ?></span>
+        	<? if (count($reports)) : ?>
+				<? foreach ($reports as $report) : ?>
+					<article class="report_info clearfix">
+						<div class="screenshot">
+							<? if (is_null($report->report->screenshot) || $report->report->screenshot=="ERROR") : ?>
+								<img src="<?= base_url('static/screenshot-thumb.jpg'); ?>" alt="Captura de <?=$report->report->title;?> "  title="karma <?= $report->report->karma ?>?>"/>
+							<? else : ?>
+								<img src="<?=base_url('images/sources/thumb-home-' . $report->report->id . '.png'); ?>" width="150" alt="Captura de <?=$report->report->title;?> "  title="karma <?= $report->report->karma ?>?>"/>
 							<? endif; ?>
-						</p>
-						<p class="source">Fuente: <a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $report->report->site))); ?>"><?= $report->report->site; ?></a></p>
-					</div>
-				</article>
-			<? endforeach; ?>
+							<div class="report_title"><?=$report->report->title;?></div>
+						</div>
+						<h2 class="title"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->report->slug))); ?>"><?=$report->title;?></a></h2>
+						<div class="report_text"><?=$report->content;?></div>
+						<div class="report_meta">
+							<p class="authorship">Reportado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $report->user->username))); ?>"><?= $report->user->name; ?></a> el <?= $report->created_at->format('d/m/Y'); ?></p>
+							<p class="clearfix subreport_types type_<?= preg_replace('/[^a-z0-9]+/i','-',strtolower($report->type));?>">
+								<span class="type"><?=$report->type;?></span>,
+								<? if ($report->type_info!=$report->type) : ?>
+								<span class="type_info" title="<?= $report->type_info; ?>"><?= character_limiter($report->type_info,120); ?></span>
+								<? endif; ?>
+							</p>
+							<p class="source">Fuente: <a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $report->report->site))); ?>"><?= $report->report->site; ?></a></p>
+						</div>
+					</article>
+				<? endforeach; ?>
+			<? else : ?>
+			<p class="sub_title">No hay reportes para la cadena de búsqueda</p>
+			<? endif; ?>
 		</section>
 		<div class="pagination clearfix"><?=$pagination_links;?></div>
 	</div>

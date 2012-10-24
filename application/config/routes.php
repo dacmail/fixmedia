@@ -64,6 +64,7 @@ $route['usuario/guardar'] = array('/member/save','user-save');
 $route['fuente/(:sitename)'] = array('/source/index/$1','source-profile');
 $route['fuente/(:sitename)/page/(:page)'] = array('/source/index/$1/$2','source-profile-paged');
 $route['estaticas/(:page)'] = array('/pages/view/$1','statics');
+$route['estadisticas'] = array('/stats/index','stats');
 $route['busqueda'] = array('search/index','search');
 $route['busqueda/usuarios'] = array('search/users','search-users');
 $route['busqueda/reportes'] = array('search/reports','search-reports');
