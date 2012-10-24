@@ -11,6 +11,13 @@
 				<li class="ui-state-active"><a href="<?= site_url($this->router->reverseRoute('search-users')); ?>?q=<?= isset($term) ? $term : ''; ?>">Usuarios</a></li>
 			</ul>
         </section>
+        <section class="order clearfix">
+        	<span class="label">Ordernar por:</span>
+        	<ul class="orderby clearfix">
+        		<li class="item <?= $orderby ? '' : 'active' ?>"><a href="<?= site_url($this->router->reverseRoute('search-users')); ?>?q=<?= isset($term) ? $term : ''; ?>">Relevancia</a></li>
+        		<li class="item <?= $orderby ? 'active' : '' ?>"><a href="<?= site_url($this->router->reverseRoute('search-users')); ?>?q=<?= isset($term) ? $term : ''; ?>&order=date">Fecha</a></li>
+        	</ul>
+        </section>
 		<section class="users_list profile">
 			<? foreach ($users as $user) : ?>
 				<article class="user_info clearfix">

@@ -912,6 +912,39 @@ a:hover {text-decoration:underline;}
 		text-align: left;
 	}
 	.search .subreport_types {margin-bottom:10px;}
+	.search .order {
+		margin-bottom:30px;
+	}
+		.search .order .label {
+			float:left;
+			line-height:38px;
+			display:block;
+			color:#79B4CB;
+			font-style: italic;
+			font-weight: bold;
+			margin-right:10px;
+		}
+		.search .order .orderby {
+			float:left;
+			line-height:38px;
+			display:block;
+			list-style: none;
+		}
+		.search .order .orderby li {
+			float:left;
+			margin:0px 5px;
+		}
+		.search .order .orderby li a {
+			display: block;
+			line-height: 38px;
+			color:#79B4CB;
+			padding:0px 10px;
+		}
+		.search .order .orderby li.active a {
+			color:#ffffff;
+			background: #79B4CB;
+			border-radius: 10px;
+		}
 #container.columns #sidebar.report {
 	width:260px;
 	background:#E5E5E5;
