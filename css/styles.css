@@ -1540,7 +1540,7 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 .landing #head {
 	background:#F6F6F6;
 	padding-top:1px;
-	margin-bottom:360px;
+	margin-bottom:560px;
 }
 	.landing .logo {
 		display:block;
@@ -1591,6 +1591,27 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 	}
 		.landing .forgot #content input.button {width:210px;}
 	.landing #content .row, .landing #content .label {font-weight:normal; text-align:left;}
+	.landing .outer_box {
+		background: #79B4CB;
+		color: white;
+		border-bottom-right-radius: 15px;
+		border-bottom-left-radius: 15px;
+		line-height: 53px;
+		width: 460px;
+		text-align: center;
+		box-shadow: 0px 12px 17px -8px rgba(0, 0, 0, 0.3) inset;
+		font-style: italic;
+		font-size: 17px;
+		position: absolute;
+		bottom:-53px;
+		left:50%;
+		margin-left:-230px;
+	}
+		.landing .outer_box a {
+			color:#ffffff;
+			font-weight: bold;
+
+		}
 	.landing #container .title, .landing #container .sub_title {color:#333333;}
 	.landing #container .title {
 		border-bottom:1px solid #D2D2D2;
