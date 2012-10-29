@@ -961,6 +961,64 @@ a:hover {text-decoration:underline;}
 			background: #79B4CB;
 			border-radius: 10px;
 		}
+/* TOPS */
+.top .list .avatar {
+	float:left;
+	width:150px;
+}
+	.top .list .avatar.podium .position {
+		background:#79B4CB;
+		line-height: 40px;
+		font-size: 25px;
+		color:#ffffff;
+		font-weight: bold;
+		text-align: center;
+		position: relative
+	}
+		.top .list .avatar.podium .position:after {
+			content:" ";
+			position: absolute;
+			border-width: 0px 5px 5px 10px;
+			border-color:transparent transparent transparent #337483 ;
+			border-style:solid;
+			width: 0px;
+			height: 0px;
+			bottom:-5px;
+			right:-5px;
+		}
+		.top .list .avatar.podium .position:before {
+			content:" ";
+			position: absolute;
+			border-width: 0px 10px 5px 5px;
+			border-color:transparent #337483 transparent transparent  ;
+			border-style:solid;
+			width: 0px;
+			height: 0px;
+			bottom:-5px;
+			left:-5px;
+		}
+		.top .profile .user_info .data p.counter {
+			margin:1px 0px;
+			color:#7F7F7F;
+		}
+		.top .user_info .data .counter strong {
+			font-weight: normal;
+			color:#000000;
+		}
+	.top .list .avatar.others img {
+		float:right;
+		width: 100px;
+		height:100px;
+	}
+	.top .list .avatar.others .position {
+		width: 40px;
+		float:left;
+		line-height: 100px;
+		font-size: 21px;
+		color:#79B4CC;
+		font-weight: bold;
+		text-align: center;
+	}
 #container.columns #sidebar.report {
 	width:260px;
 	background:#E5E5E5;

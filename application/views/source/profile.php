@@ -4,8 +4,8 @@
 			<? if (!file_exists('static/sources/'. $site . '.jpg')) :?>
 				<img src="<?= base_url('static/avatar-source.jpg'); ?>" width="150" alt="Imagen de <?=$site;?>" />
 			<? else : ?>
-			<img src="<?= base_url('static/sources/' . $site .'.jpg'); ?>" width="150" alt="Imagen de <?=$site;?>" />
-				<? endif; ?>
+				<img src="<?= base_url('static/sources/' . $site .'.jpg'); ?>" width="150" alt="Imagen de <?=$site;?>" />
+			<? endif; ?>
 			<div class="data">
 		  		<h1 class="name"><?= $site; ?> </h1>
 		  		<p class="bio"><?= $url_data['description']; ?></p>
