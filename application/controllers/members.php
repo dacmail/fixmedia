@@ -23,7 +23,7 @@ class Members extends MY_Controller {
 									'select' => '*',
 									'limit' => $this->pagination->per_page,
 									'offset' => $this->pagination->per_page*($page-1),
-									'order' => 'karma, created_on'));
+									'order' => 'karma DESC, created_on DESC'));
 		$data = get_sidebars_blocks($data);
 		$this->load->view('includes/template', $data);
 	}
