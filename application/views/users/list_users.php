@@ -1,0 +1,45 @@
+<div id="container" class="clearfix search top columns">
+	<div id="content">
+		<h1 class="title"><?=$title?></h1>
+		<p class="sub_title"><?=$subtitle?></p>
+		<form action="<?= site_url($this->router->reverseRoute('search-users')); ?>" method="GET" class="searchform">
+           	<input type="text" placeholder="buscar usuarios" name="q" class="input"/>
+        </form>
+        <section class="tabs notabs">
+        	<ul class="tabs_items">
+				<li class="<?= is_cur_page($this, 'members','index') ? 'ui-state-active' : ''; ?>"><a href="<?= site_url($this->router->reverseRoute('users')); ?>">Global</a></li>
+				<li class="<?= is_cur_page($this, 'members','fixes') ? 'ui-state-active' : ''; ?>"><a href="<?= site_url($this->router->reverseRoute('users-fixes')); ?>">Fixes</a></li>
+				<li class="<?= is_cur_page($this, 'members','reports') ? 'ui-state-active' : ''; ?>"><a href="<?= site_url($this->router->reverseRoute('users-reports')); ?>">Reportes</a></li>
+				<li class="<?= is_cur_page($this, 'members','news') ? 'ui-state-active' : ''; ?>"><a href="<?= site_url($this->router->reverseRoute('users-news')); ?>">Descubrimientos</a></li>
+			</ul>
+        </section>
+		<section class="users_list list profile">
+			<? $position=1 + (($page-1)*10);?>
+			<? foreach ($users as $user) : ?>
+				<article class="user_info clearfix">
+					<? if ($position<=3) :?>
+						<div class="avatar podium">
+							<a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?=gravatar( $user->email, 150, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?></a>
+							<div class="position"><?=$position;?>º</div>
+						</div>
+					<? else : ?>
+						<div class="avatar others">
+							<a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?=gravatar( $user->email, 100, true, base_url('static/avatar-user-100.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?></a>
+							<div class="position"><?=$position;?>º</div>
+						</div>
+					<? endif; ?>
+						<div class="data">
+					  		<h2 class="name"><a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?= $user->name; ?></a></h2>
+					  		<p class="when">Mejorando noticias desde el <?= date('d/m/Y', $user->created_on); ?></p>
+					  		<p class="counter <?= is_cur_page($this, 'members','fixes') ? 'highlight' : ''; ?>">Fixes acumulados: <strong><?= $user->fixes_accumulated(); ?></strong></p>
+					  		<p class="counter <?= is_cur_page($this, 'members','reports') ? 'highlight' : ''; ?>">Reportes enviados: <strong><?= count($user->subreports); ?></strong></p>
+					  		<p class="counter <?= is_cur_page($this, 'members','news') ? 'highlight' : ''; ?>">Descubrimientos: <strong><?= count($user->reports); ?></strong></p>
+					  		<p class="counter <?= is_cur_page($this, 'members','index') ? 'highlight' : ''; ?>">Reputación: <strong><?= $user->karma ?></strong></p>
+					  </div>
+				</article>
+			<? $position++; endforeach; ?>
+		</section>
+		<div class="pagination clearfix"><?=$pagination_links;?></div>
+	</div>
+	<?php $this->load->view('includes/sidebar'); ?>
+</div>

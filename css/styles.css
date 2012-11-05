@@ -962,6 +962,66 @@ a:hover {text-decoration:underline;}
 			background: #79B4CB;
 			border-radius: 10px;
 		}
+/* TOPS */
+.top .list .avatar {
+	float:left;
+	width:150px;
+}
+	.top .list .avatar.podium .position {
+		background:#79B4CB;
+		line-height: 40px;
+		font-size: 25px;
+		color:#ffffff;
+		font-weight: bold;
+		text-align: center;
+		position: relative
+	}
+		.top .list .avatar.podium .position:after {
+			content:" ";
+			position: absolute;
+			border-width: 0px 5px 5px 10px;
+			border-color:transparent transparent transparent #337483 ;
+			border-style:solid;
+			width: 0px;
+			height: 0px;
+			bottom:-5px;
+			right:-5px;
+		}
+		.top .list .avatar.podium .position:before {
+			content:" ";
+			position: absolute;
+			border-width: 0px 10px 5px 5px;
+			border-color:transparent #337483 transparent transparent  ;
+			border-style:solid;
+			width: 0px;
+			height: 0px;
+			bottom:-5px;
+			left:-5px;
+		}
+		.top .profile .user_info .data p.counter {
+			margin:1px 0px;
+			color:#7F7F7F;
+		}
+		.top .user_info .data .counter strong {
+			font-weight: normal;
+			color:#000000;
+		}
+			.top .profile .user_info .data p.counter.highlight, .top .profile .user_info .data p.counter.highlight strong {font-weight: bold;}
+	.top .list .avatar.others img {
+		float:right;
+		width: 100px;
+		height:100px;
+	}
+	.top .list .avatar.others .position {
+		width: 40px;
+		float:left;
+		line-height: 100px;
+		font-size: 21px;
+		color:#79B4CC;
+		font-weight: bold;
+		text-align: center;
+	}
+	.top .notabs {margin-top:50px;}
 #container.columns #sidebar.report {
 	width:260px;
 	background:#E5E5E5;
@@ -1536,15 +1596,19 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 	color: #AE1E1E;
 }
 .landing {
-	background:#272727;
+	background:#FFFFFF;
 }
-.landing #head {background:#EAC000;padding-top:1px;}
+.landing #head {
+	background:#F6F6F6;
+	padding-top:1px;
+	margin-bottom:560px;
+}
 	.landing .logo {
 		display:block;
 		height:99px;
 		width:367px;
-		background:url('../images/logo_white.png') 0 0px no-repeat;
-		margin:40px auto 320px auto;
+		background:url('../images/logo-fixmedia.png') 0 0px no-repeat;
+		margin:20px auto 150px auto;
 	}
 		.landing .logo a {
 			display:block;
@@ -1560,27 +1624,16 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 		position:absolute;
 		top:190px;
 		left:50%;
-		margin-left:-490px;
+		width:570px;
+		margin-left:-285px;
 		box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 	}
-		.landing #container.columns.create_user {
-			width:490px;
-			margin-left:-245px;
-		}
-	.landing .logos-footer  {
-		padding-top:360px;
-	}
-		.landing .create_user.logos-footer {
-			padding-top:560px;
-		}
-		.landing .forgot.logos-footer {
-			padding-top:160px;
-		}
+
 	.landing #container.columns #content {
 		text-align:center;
-		width:369px;
+		width:450px;
 		border-right:1px solid #D2D2D2;
-		padding:60px;
+		padding:30px 60px 30px 60px ;
 		height:402px;
 	}
 		.landing #container.columns.create_user #content {
@@ -1589,7 +1642,7 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 		}
 	.landing #container #content {text-align:center}
 	.landing #content input {
-		width:370px;
+		width:430px;
 	}
 	.landing #content #remember {width:auto;}
 	.landing #content input.button {
@@ -1599,7 +1652,37 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 	}
 		.landing .forgot #content input.button {width:210px;}
 	.landing #content .row, .landing #content .label {font-weight:normal; text-align:left;}
+	.landing .outer_box {
+		background: #79B4CB;
+		color: white;
+		border-bottom-right-radius: 15px;
+		border-bottom-left-radius: 15px;
+		line-height: 53px;
+		width: 460px;
+		text-align: center;
+		box-shadow: 0px 12px 17px -8px rgba(0, 0, 0, 0.3) inset;
+		font-style: italic;
+		font-size: 17px;
+		position: absolute;
+		bottom:-53px;
+		left:50%;
+		margin-left:-230px;
+	}
+		.landing .outer_box a {
+			color:#ffffff;
+			font-weight: bold;
+
+		}
 	.landing #container .title, .landing #container .sub_title {color:#333333;}
+	.landing #container .title {
+		border-bottom:1px solid #D2D2D2;
+		margin-bottom:0px;
+		padding-bottom:20px;
+	}
+	.landing #container form {
+		border-top: 1px solid #EEEEEE;
+		padding-top:20px;
+	}
 	.landing .top-menu .menu {
 		width:980px;
 		margin:5px auto;

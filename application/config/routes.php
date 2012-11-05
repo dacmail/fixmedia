@@ -68,5 +68,21 @@ $route['estadisticas'] = array('/stats/index','stats');
 $route['busqueda'] = array('search/index','search');
 $route['busqueda/usuarios'] = array('search/users','search-users');
 $route['busqueda/reportes'] = array('search/reports','search-reports');
+$route['usuarios'] = array('members/index','users');
+$route['usuarios/pagina/(:page)'] = array('members/index/$1','users-paged');
+$route['usuarios/reportes'] = array('members/reports','users-reports');
+$route['usuarios/reportes/pagina/(:page)'] = array('members/index/$1','users-reports-paged');
+$route['usuarios/fixes'] = array('members/fixes','users-fixes');
+$route['usuarios/fixes/pagina/(:page)'] = array('members/fixes/$1','users-fixes-paged');
+$route['usuarios/descubrimientos'] = array('members/news','users-news');
+$route['usuarios/descubrimientos/pagina/(:page)'] = array('members/news/$1','users-news-paged');
+$route['fuentes'] = array('sources/index','sources');
+$route['fuentes/pagina/(:page)'] = array('sources/index/$1','sources-paged');
+$route['fuentes/reportes'] = array('sources/reports','sources-reports');
+$route['fuentes/reportes/pagina/(:page)'] = array('sources/index/$1','sources-reports-paged');
+$route['fuentes/fixes'] = array('sources/fixes','sources-fixes');
+$route['fuentes/fixes/pagina/(:page)'] = array('sources/fixes/$1','sources-fixes-paged');
+$route['fuentes/noticias'] = array('sources/news','sources-news');
+$route['fuentes/noticias/pagina/(:page)'] = array('sources/news/$1','sources-news-paged');
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

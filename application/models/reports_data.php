@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Reports_data extends ActiveRecord\Model { 
+class Reports_data extends ActiveRecord\Model {
 	static $table_name = 'reports_data';
 
 	public function get_urls() {
@@ -22,4 +22,4 @@ class Reports_data extends ActiveRecord\Model {
 		if (empty($user_id)) return true;
 		return Vote::exists(array('conditions' => array("item_id = ? AND user_id = ? AND vote_type LIKE 'REPORT'", $this->id, $user_id)));
 	}
-}	
+}
