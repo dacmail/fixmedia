@@ -15,6 +15,7 @@ class Members extends MY_Controller {
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
 		$data['page_title'] = "Top ranking de usuarios";
+		$data['subtitle'] = "Usuarios con más actividad global (fixes, reportes y noticias descubiertas) en Fixmedia";
 		$data['title'] = "Top usuarios";
 		$data['description'] = "Listados de usuarios registrados en Fixmedia";
 		$data['main_content'] = 'users/list_users';
@@ -37,6 +38,7 @@ class Members extends MY_Controller {
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
 		$data['page_title'] = "Top ranking de usuarios por reportes";
+		$data['subtitle'] = "Usuarios que más reportes han aportado";
 		$data['title'] = "Top usuarios por reportes";
 		$data['description'] = "Listados de usuarios registrados en Fixmedia ordenados por número de reportes";
 		$data['main_content'] = 'users/list_users';
@@ -58,6 +60,7 @@ class Members extends MY_Controller {
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
 		$data['page_title'] = "Top ranking de usuarios por fixes";
+		$data['subtitle'] = "Usuarios que más fixes han recibido en sus envíos";
 		$data['title'] = "Top usuarios por fixes";
 		$data['description'] = "Listados de usuarios registrados en Fixmedia ordenados por número de fixes";
 		$data['main_content'] = 'users/list_users';
@@ -81,6 +84,7 @@ class Members extends MY_Controller {
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
 		$data['page_title'] = "Top ranking de usuarios por descubrimientos";
+		$data['subtitle'] = "Usuarios que han hecho el primer fix al mayor número de noticias";
 		$data['title'] = "Top usuarios por descubrimientos";
 		$data['description'] = "Listados de usuarios registrados en Fixmedia ordenados por número de descubrimientos";
 		$data['main_content'] = 'users/list_users';

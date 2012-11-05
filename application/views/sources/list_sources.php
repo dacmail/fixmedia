@@ -1,6 +1,7 @@
 <div id="container" class="clearfix search top columns">
 	<div id="content">
 		<h1 class="title"><?=$title?></h1>
+		<p class="sub_title"><?=$subtitle?></p>
         <section class="tabs notabs">
         	<ul class="tabs_items">
 				<li class="<?= is_cur_page($this, 'sources','index') ? 'ui-state-active' : ''; ?>"><a href="<?= site_url($this->router->reverseRoute('sources')); ?>">Global</a></li>
@@ -34,10 +35,10 @@
 					<? endif; ?>
 						<div class="data">
 					  		<h2 class="name"><a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $source->site))); ?>"><?= $source->site; ?></a></h2>
-					  		<p class="counter">Fixes acumulados: <strong><?= $source->total_fixes; ?></strong></p>
-					  		<p class="counter">Reportes enviados: <strong><?= $source->get_reports_by_site(); ?></strong></p>
-					  		<p class="counter">Noticias: <strong><?= $source->news; ?></strong></p>
-					  		<p class="counter">Reputación: <strong><?= $source->karma ?></strong></p>
+					  		<p class="counter <?= is_cur_page($this, 'sources','fixes') ? 'highlight' : ''; ?>">Fixes acumulados: <strong><?= $source->total_fixes; ?></strong></p>
+					  		<p class="counter <?= is_cur_page($this, 'sources','reports') ? 'highlight' : ''; ?>">Reportes enviados: <strong><?= $source->get_reports_by_site(); ?></strong></p>
+					  		<p class="counter <?= is_cur_page($this, 'sources','news') ? 'highlight' : ''; ?>">Noticias: <strong><?= $source->news; ?></strong></p>
+					  		<p class="counter <?= is_cur_page($this, 'sources','index') ? 'highlight' : ''; ?>">Reputación: <strong><?= $source->karma ?></strong></p>
 					  </div>
 				</article>
 			<? $position++; endforeach; ?>

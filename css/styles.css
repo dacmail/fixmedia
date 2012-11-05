@@ -1005,6 +1005,7 @@ a:hover {text-decoration:underline;}
 			font-weight: normal;
 			color:#000000;
 		}
+			.top .profile .user_info .data p.counter.highlight, .top .profile .user_info .data p.counter.highlight strong {font-weight: bold;}
 	.top .list .avatar.others img {
 		float:right;
 		width: 100px;
@@ -1019,6 +1020,7 @@ a:hover {text-decoration:underline;}
 		font-weight: bold;
 		text-align: center;
 	}
+	.top .notabs {margin-top:50px;}
 #container.columns #sidebar.report {
 	width:260px;
 	background:#E5E5E5;
