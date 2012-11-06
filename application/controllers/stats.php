@@ -17,7 +17,7 @@ class Stats extends MY_Controller {
 										(SELECT id, site, sum(votes_count) as votos, sum(karma) as karma, created_at FROM reports WHERE created_at > date_sub(now(), interval 7 day) GROUP BY site) as r
 										ON rd.report_id=r.id
 										INNER JOIN
-										(SELECT r.site, count(rd.id) as reportes FROM reports r LEFT JOIN reports_data rd ON rd.report_id=r.id GROUP BY r.site) as rd1
+										(SELECT r.site, count(rd.id) as reportes FROM reports r LEFT JOIN reports_data rd ON rd.report_id=r.id WHERE rd.created_at > date_sub(now(), interval 7 day) GROUP BY r.site) as rd1
 										ON rd1.site = r.site
 										WHERE r.created_at > date_sub(now(), interval 7 day)
 										GROUP BY r.site ORDER BY r.votos DESC LIMIT 0,10");

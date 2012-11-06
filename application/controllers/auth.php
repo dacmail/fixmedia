@@ -440,7 +440,7 @@ class Auth extends MY_Controller {
 			$user = User::find_by_username($username);
 			$user->name = $username;
 			$user->save();
-			$this->session->set_flashdata('message', "Ya estás registrado, para iniciar sesión debes revisar tu email, te habrá llegado un enlace de activación.<p><strong>No olvides comprobar la carpeta de SPAM/correo no deseado.</strong></p>");
+			$this->session->set_flashdata('message', "<p>Enhorabuena, ya has completado tu registro.</p> <p>Para iniciar sesión debes revisar tu email, te habrá llegado un enlace de activación.</p><p><strong>No olvides comprobar la carpeta de SPAM/correo no deseado.</strong></p>");
 			redirect("auth", 'refresh');
 		} else { //display the create user form
 			//set the flash data error message if there is one

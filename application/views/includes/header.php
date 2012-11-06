@@ -69,8 +69,8 @@
             <li class="<?= is_cur_page($this, 'reports','index') ? 'current' : ''; ?>"><a class="link" href="<?= site_url(); ?>">Más urgentes</a></li>
             <li class="<?= is_cur_page($this, 'reports','recents') ? 'current' : ''; ?>"><a class="link" href="<?= site_url($this->router->reverseRoute('home-recents')); ?>">Recientes</a></li>
             <li class="<?= is_cur_page($this, 'reports','pendings') ? 'current' : ''; ?>"><a class="link" href="<?= site_url($this->router->reverseRoute('home-pending')); ?>">Pendientes</a></li>
-            <li><a class="link" href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'top-usuarios'))); ?>">Top usuarios</a></li>
-            <li><a class="link" href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'top-fuentes'))); ?>">Top fuentes</a></li>
+            <li class="<?= is_cur_page($this, 'members','index') ? 'current' : ''; ?>"><a class="link" href="<?= site_url($this->router->reverseRoute('users')); ?>">Top usuarios</a></li>
+            <li class="<?= is_cur_page($this, 'sources','pendings') ? 'current' : ''; ?>"><a class="link" href="<?= site_url($this->router->reverseRoute('sources')); ?>">Top fuentes</a></li>
             <li class="<?= is_cur_page($this, 'stats','index') ? 'current' : ''; ?>"><a class="link" href="<?= site_url($this->router->reverseRoute('stats')); ?>">Estadísticas</a></li>
             <li class="search">
                 <form action="<?= site_url($this->router->reverseRoute('search')); ?>" method="GET">
@@ -79,8 +79,3 @@
             </li>
         </ul>
     </nav>
-    <? if (!$logged_in) : ?>
-    <div class="banner">
-        <a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'que-es-fixmedia'))); ?>"><img src="<?= base_url('images/banner.png'); ?>" alt="Qué es fixmedia.org" /></a>
-    </div>
-    <? endif; ?>

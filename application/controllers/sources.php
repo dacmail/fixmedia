@@ -43,8 +43,8 @@ class Sources extends MY_Controller {
 		$data['main_content'] = 'sources/list_sources';
 		$data['page'] = $page;
 		$data['sources'] = Report::find_by_sql('SELECT r.site, sum(r.karma) as karma, count(r.id) as news,
-											sum(r.votes_count) as total_fixes, count(rd.id) as reportes FROM reports r
-											LEFT JOIN reports_data rd ON (r.id=rd.report_id)
+											sum(r.votes_count) as total_fixes, SUM(reportes) as reportes FROM reports r
+											LEFT JOIN (SELECT report_id, count(id) as reportes FROM reports_data GROUP BY report_id) as rd ON (r.id=rd.report_id)
 											GROUP BY r.site ORDER BY reportes DESC
 											LIMIT ' .  $this->pagination->per_page*($page-1) . ',' . $this->pagination->per_page);
 		$data = get_sidebars_blocks($data);
