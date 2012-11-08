@@ -79,3 +79,32 @@
         margin-left: -3px;
         border-right-color: white;
     }
+.bookmarklet {font-family:"Helvetica","Arial", sans-serif;}
+.bookmarklet h3 {
+    font-size:19px;
+    color:#333333;
+    font-weight:normal;
+    text-align: center;
+    margin-bottom:15px;
+}
+    .bookmarklet h3 strong {display:block;}
+.bookmarklet form {
+    width:80px;
+    margin:10px auto;
+    height:25px;
+}
+.bookmarklet .actions {
+    clear: both;
+    border-top:1px solid #ccc;
+    display:block;
+    padding-top:15px;
+    margin-top:20px;
+}
+    .bookmarklet .actions a {
+        color:#3D87B7;
+        font-size:14px;
+        text-decoration:none;
+    }
+        .bookmarklet .actions a:hover {text-decoration:underline;}
+    .bookmarklet .actions .view {float:left}
+    .bookmarklet .actions .report{float:right}
