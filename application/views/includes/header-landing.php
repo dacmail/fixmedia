@@ -26,11 +26,6 @@
 </head>
 <body class="landing">
     <div id="head" class="clearfix">
-        <nav class="top-menu">
-            <ul class="menu clearfix">
-                <li><a href="http://www.fixmedia.org/blog/que-es-fixmedia/">¿Qué es fixmedia?</a></li>
-            </ul>
-        </nav>
-        <p class="logo"><a href="<?php echo base_url(); ?>">Fixmedia.org, arregla las noticias</a></p> 
+        <p class="logo"><a href="<?php echo base_url(); ?>">Fixmedia.org, arregla las noticias</a></p>
     </div>
-    
+

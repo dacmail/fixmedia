@@ -29,7 +29,7 @@
 		</form>
 		<? if (isset($votes) && $votes>0) : ?>
 			<p class="actions"><a class="view" href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->slug))); ?>" target="_blank">ver la noticia en fixmedia</a>
-			<a class="report" target="blank" href="<?= site_url($this->router->reverseRoute('reports-send' , array('id' => $report->id))); ?>">arréglala tu mismo</a></p>
+			<a class="report" target="blank" href="<?= site_url($this->router->reverseRoute('reports-send' , array('id' => $report->id))); ?>">arréglala tú mismo</a></p>
 		<? endif; ?>
 	</div>
 </body>
