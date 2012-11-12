@@ -61,7 +61,6 @@ if ( ! function_exists('get_url_data')) {
                 $url_description = $url_description;
             }
         }
-
         if (empty($the_url) || empty($url_title) || empty($url_components['host'])) { $url_ok = false; }
         return array('valid' => $url_ok, 'url' => $the_url, 'title' => $url_title,'host' => $url_components['host'], 'description' => $url_description);
     }
@@ -126,6 +125,7 @@ if ( ! function_exists('get_url')) {
 
 if ( ! function_exists('clean_text')) {
 	function clean_text($string, $wrap=0, $replace_nl=true, $maxlength=0) {
+		$string = utf8_encode($string);
 	    $string = stripslashes(trim($string));
 	    $string = preg_replace('/\r\n/u', "\n", $string); // Change \r\n to \n to show right chars' counter
 	    $string = clear_whitespace($string);
@@ -134,7 +134,9 @@ if ( ! function_exists('clean_text')) {
 	    //$string = preg_replace('/--/', '–', $string);
 	    if ($wrap>0) $string = wordwrap($string, $wrap, " ", 1);
 	    if ($replace_nl) $string = preg_replace('/[\n\t\r]+/su', ' ', $string);
+
 	    if ($maxlength > 0) $string = mb_substr($string, 0, $maxlength);
+
 	    $string = @htmlspecialchars($string, ENT_COMPAT, 'UTF-8');
 	    return preg_replace('/(\d+) +(\d{3,})/u', "$1&nbsp;$2", $string); // Avoid to wrap in the middle of numbers with thousands' space separator
 	}
