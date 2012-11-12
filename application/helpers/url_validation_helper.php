@@ -125,7 +125,9 @@ if ( ! function_exists('get_url')) {
 
 if ( ! function_exists('clean_text')) {
 	function clean_text($string, $wrap=0, $replace_nl=true, $maxlength=0) {
-		$string = utf8_encode($string);
+
+		mb_internal_encoding("UTF-8");
+		$string = mb_convert_encoding($string, "UTF-8", "auto");
 	    $string = stripslashes(trim($string));
 	    $string = preg_replace('/\r\n/u', "\n", $string); // Change \r\n to \n to show right chars' counter
 	    $string = clear_whitespace($string);
