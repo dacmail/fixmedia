@@ -1,0 +1,1 @@
+ALTER TABLE users ADD `allow_mention_twitter` TINYINT(1)  NOT NULL  DEFAULT 1;
