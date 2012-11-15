@@ -1,4 +1,4 @@
-<div id="container" class="columns static clearfix">
+<div id="container" class="static clearfix">
 	<div id="content">
 		<h1 class="title">Fixmedia en tu web o blog</h1>
 		<p class="sub_title sep">Tu comunidad se preocupa por la calidad de lo que publicas: ayúdales a ayudarte con el botón de Fixmedia.</p>
@@ -42,5 +42,4 @@
 		<p>Tener instalado el botón de Fixmedia en tu sitio web te permitirá tener prioridad para trabajar con nuestra API cuando esté disponible.</p>
 		<p>¿Tienes cualquier duda? Escríbenos a <a href="mailto:comunidad@fixmedia.org">comunidad@fixmedia.org</a></p>
 	</div>
-	<?php $this->load->view('includes/sidebar-static'); ?>
 </div>
