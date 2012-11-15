@@ -101,7 +101,7 @@ class Services extends MY_Controller {
                   $data['title'] = "¡Compártela!";
                   $data['content'] = "Cuanta más gente conozca esta noticia y haga FIX en ella, más posibilidades de arreglarla entre todos";
                endif;
-               $data['report_title'] = $report->title;
+               $data['report'] = $report;
                $data['url'] = site_url($this->router->reverseRoute('reports-view' , array('slug' => $slug)));
                $this->load->view('services/share', $data);
             endif;
