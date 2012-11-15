@@ -9,7 +9,7 @@
 		<? $count=1; foreach ($report->data as $subreport) :  ?>
 			<div class="subreport">
 				<div class="clearfix">
-					<span class="counter">
+					<section class="counter">
 						<strong class="count-vote-up-<?= $subreport->id ?> count-vote-down-<?= $subreport->id ?>"><?= $subreport->votes_count ?></strong>
 						<div title="Usa las flechas para valorar positiva o negativamente esta mejora concreta" class="votes_buttons clearfix">
 							<? if ($logged_in && !$subreport->is_voted($the_user->id)) : ?>
@@ -24,7 +24,7 @@
 							<? endif; ?>
 						</div>
 
-					</span>
+					</section>
 					<div class="subreport_info">
 						<h3 class="subreport_title"><?=$subreport->title; ?></h3>
 						<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $subreport->user->username))); ?>"><?= $subreport->user->name; ?></a> el <?= $subreport->created_at->format('d/m/Y'); ?></p>
