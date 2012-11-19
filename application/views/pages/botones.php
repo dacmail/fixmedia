@@ -19,9 +19,9 @@
 			<tr>
 				<td class="first">
 					<p class="center"><img alt="WordPress" src="<?= base_url('images/logos/wordpress.jpg'); ?>"/></p>
-					<p>Si utilizas WordPress para publicar tu web, es extremadamente sencillo: </p>
+					<p class="center">Si utilizas WordPress para publicar tu web,<br/>es extremadamente sencillo: </p>
 					<p><a target="_blank" class="button" href="http://wordpress.org/extend/plugins/boton-fixmedia">Descarga nuestro plugin</a></p>
-					<p>y sigue las instrucciones de instalación.</p>
+					<p class="center">y sigue las instrucciones de instalación.</p>
 				</td>
 				<td>
 
