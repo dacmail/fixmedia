@@ -1,0 +1,7 @@
+database.php
+application/config/database.php
+application/cache/*
+images/sources/*
+Fixmedia.sublime*
+static/sources/*
+application/logs/*

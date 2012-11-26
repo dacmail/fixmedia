@@ -1,0 +1,5 @@
+/* 10:49:05  fixmedia@localhost */ ALTER TABLE `users` CHANGE `first_name` `name` VARCHAR(50)  NULL  DEFAULT NULL;
+/* 10:49:29  fixmedia@localhost */ ALTER TABLE `users` CHANGE `last_name` `url` VARCHAR(50)  NULL  DEFAULT NULL;
+/* 10:49:47  fixmedia@localhost */ ALTER TABLE `users` CHANGE `url` `url` VARCHAR(150)  NULL  DEFAULT NULL;
+/* 10:49:59  fixmedia@localhost */ ALTER TABLE `users` CHANGE `company` `bio` VARCHAR(300)  NULL  DEFAULT NULL;
+/* 11:30:17  fixmedia@localhost */ ALTER TABLE `users` CHANGE `phone` `twitter` VARCHAR(50)  NULL  DEFAULT NULL;
