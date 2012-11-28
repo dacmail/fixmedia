@@ -46,6 +46,25 @@
 							<? endif; ?>
 						</div>
 						<? endif; ?>
+
+						<div class="solved_button clearfix">
+							<? if ($logged_in && !$subreport->is_voted($the_user->id, 'SOLVED')) : ?>
+								<span class="question">¿Arreglado en la noticia original?</span>
+								<!--span class="confirmation">¿Seguro?</span-->
+								<a href="<?php echo site_url(array('services/report_solved', $the_user->id ,$subreport->id)); ?>" id="solved-<?= $subreport->id ?>" class="report_solved solved-<?= $subreport->id ?>">Sí</a>
+							<? endif; ?>
+							<span class="solved_counter">
+								<? if ($subreport->solved_votes() > 0) : ?>
+									<span class="number"><?=$subreport->solved_votes()?></span>
+									<? if ($subreport->solved_votes() == 1) : ?>
+										persona dice
+									<? else : ?>
+										personas dicen
+									<? endif; ?>
+									 que está arreglado
+								<? endif; ?>
+							</span>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -563,6 +563,36 @@ a:hover {text-decoration:underline;}
 			.subreport .subreport_types .type_info, .search .type_info {
 				display:inline;
 			}
+			.solved_button {
+				margin:20px 0px 0px 0px;
+				font-style: italic;
+				font-size:14px;
+			}
+			.solved_button span {display:inline;}
+			.solved_button .solved_counter {
+				float:right;
+				color:#79B4CC;
+				font-size:12px;
+			}
+			.solved_button .question {
+				background:#DCEBF1;
+				padding:4px 13px;
+				color:#63A3B7;
+			}
+			.solved_button .confirmation {
+				background: #A3D1DF;
+				color: #ffffff;
+				padding: 4px 13px;
+				margin-left: -3px;
+			}
+			.solved_button .report_solved {
+				background: #79B4CB;
+				color: #ffffff;
+				padding: 4px 13px;
+				margin-left: -3px;
+				display:none;
+			}
+			.solved_button:hover .report_solved {display:inline;}
 		.subreport .counter {
 			float:left;
 			font-size:30px;

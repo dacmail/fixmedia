@@ -207,6 +207,34 @@ $('document').ready(function() {
 		});
 	}
 
+	if ($('a.report_solved').length>0) {
+		$('a.report_solved').click(function(e) {
+			e.preventDefault();
+			link = $(this);
+			$.ajax({
+				url: $(this).attr('href'),
+				dataType: 'json'
+			}).done(function ( data ) {
+				if (data.valid) {
+					// $('.vote-' + data.item_id).each(function() {
+					//	$(this).replaceWith('<span class="'+ $(this).attr('class') +'" id="'+ $(this).attr('id') +'">'+ $(this).text() +'</span>');
+					// });
+					$('.count-' + link.attr('id')).text(data.total_votes);
+					link.next('.solved_counter').html('<span class="number">'+data.total_votes+'</span> ');
+					if (data.total_votes==1)
+							link.next('.solved_counter').append('persona dice que está arreglado');
+					else
+						link.next('.solved_counter').append('personas dicen que está arreglado');
+
+					$('.solved-' + data.item_id).remove();
+				} else {
+					alert(data.error);
+				}
+			});
+			e.preventDefault();
+		});
+	}
+
 	if ($('.report #sidebar').length>0) {
 		if ($('#container').outerHeight()>$('#sidebar').outerHeight()) {
 			$('#sidebar').scrollToFixed({

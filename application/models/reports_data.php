@@ -18,8 +18,12 @@ class Reports_data extends ActiveRecord\Model {
 		array('title')
 	);
 
-	public function is_voted($user_id=0) {
+	public function is_voted($user_id=0, $type='REPORT') {
 		if (empty($user_id)) return true;
-		return Vote::exists(array('conditions' => array("item_id = ? AND user_id = ? AND vote_type LIKE 'REPORT'", $this->id, $user_id)));
+		return Vote::exists(array('conditions' => array("item_id = ? AND user_id = ? AND vote_type LIKE ?", $this->id, $user_id, $type)));
+	}
+
+	public function solved_votes() {
+		return count(Vote::find_by_sql("SELECT id FROM votes WHERE item_id = " . $this->id  . " AND vote_type LIKE 'SOLVED'"));
 	}
 }
