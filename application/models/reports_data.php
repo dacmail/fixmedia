@@ -26,4 +26,12 @@ class Reports_data extends ActiveRecord\Model {
 	public function solved_votes() {
 		return count(Vote::find_by_sql("SELECT id FROM votes WHERE item_id = " . $this->id  . " AND vote_type LIKE 'SOLVED'"));
 	}
+	public function solved_value() {
+		$solved = Vote::find_by_sql("SELECT sum(vote_value) as total FROM votes WHERE item_id = " . $this->id  . " AND vote_type LIKE 'SOLVED'");
+		return $solved[0]->total;
+	}
+
+	public function is_solved() {
+		return ($this->solved_value()>=SOLVED_MIN);
+	}
 }

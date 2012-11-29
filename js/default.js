@@ -216,9 +216,6 @@ $('document').ready(function() {
 				dataType: 'json'
 			}).done(function ( data ) {
 				if (data.valid) {
-					// $('.vote-' + data.item_id).each(function() {
-					//	$(this).replaceWith('<span class="'+ $(this).attr('class') +'" id="'+ $(this).attr('id') +'">'+ $(this).text() +'</span>');
-					// });
 					$('.count-' + link.attr('id')).text(data.total_votes);
 					link.next('.solved_counter').html('<span class="number">'+data.total_votes+'</span> ');
 					if (data.total_votes==1)
