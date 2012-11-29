@@ -575,11 +575,11 @@ a:hover {text-decoration:underline;}
 				font-size:12px;
 				padding-right:21px;
 				line-height: 16px;
-				background:url('../images/solved.png') right -100px no-repeat;
+				background:url('../images/icons.png') -1000px -721px no-repeat;
 				margin-right:-21px;
 			}
 			.solved .solved_button .solved_counter {
-				background-position: right center;
+				background-position: right -721px;
 				color:#79CC84;
 			}
 			.solved_button .question {
