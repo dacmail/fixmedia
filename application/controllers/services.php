@@ -113,6 +113,8 @@ class Services extends MY_Controller {
                $data['result']['vote'] = $vote;
                $data['result']['item_id'] = $report->id;
                $data['result']['total_votes'] = $report->solved_votes();
+               $data['result']['total_value'] = $report->solved_value();
+               $data['result']['is_solved'] = $report->is_solved();
             else :
                $data['result']['error'] = "Se ha producido un error";
             endif;

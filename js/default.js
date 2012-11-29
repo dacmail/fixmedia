@@ -219,10 +219,14 @@ $('document').ready(function() {
 					$('.count-' + link.attr('id')).text(data.total_votes);
 					link.next('.solved_counter').html('<span class="number">'+data.total_votes+'</span> ');
 					if (data.total_votes==1)
-							link.next('.solved_counter').append('persona dice que está arreglado');
+						link.next('.solved_counter').append('persona dice que está arreglado');
 					else
 						link.next('.solved_counter').append('personas dicen que está arreglado');
 
+					if (data.is_solved)
+						link.closest('.subreport').first().addClass('solved');
+
+					link.prev('.question').remove();
 					$('.solved-' + data.item_id).remove();
 				} else {
 					alert(data.error);
