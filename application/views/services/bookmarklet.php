@@ -19,7 +19,7 @@
 		<? if (isset($report) && $logged_in) : ?>
 			<?php echo form_open(site_url(array('services/fix_vote',$report->id)), array('target' => '_blank', 'class' => 'fix_vote clearfix')) ?>
 		<? else : ?>
-			<?php echo form_open($this->router->reverseRoute('reports-create'), array('target' => '_blank', 'method' => 'get')) ?>
+			<?php echo form_open($this->router->reverseRoute('reports-create'), array('target' => '_blank', 'class' => 'fix_new', 'method' => 'get')) ?>
 		<? endif; ?>
 			<input type="hidden" value="<?= $url ?>" name="url" />
 			<input class="submit button <?= $voted ? 'voted' : ''; ?>" type="submit" name="submit" value="FIX" />
