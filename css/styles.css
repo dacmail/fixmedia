@@ -1504,6 +1504,17 @@ input.button {height:40px;}
 		border:1px solid #E5E5E5;
 		margin:25px auto;
 	}
+	.static .relative {position:relative;}
+	.static #bookmarklet-arrow {
+		position:absolute;
+		right: 248px;
+		top: -16px;
+		width: 22px;
+		height: 22px;
+		background: url('../images/arrow.png') no-repeat;
+	}
+	.static .small {font-size:11px;}
+	.static .border {border:2px solid #E5E5E5;}
 		.static th, .static td { vertical-align: top; }
 		.static th, .static td {
 			width:46%;

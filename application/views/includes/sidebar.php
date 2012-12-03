@@ -6,7 +6,8 @@
 		<div class="fb-like" data-href="http://www.facebook.com/Fixmedia" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false"></div>
 	</section>
 	<section class="message">
-		<p><a href="http://www.fixmedia.org/estaticas/botones">¡Lanzamos el Botón Fixmedia!</a></p>
+		<p><a href="http://www.fixmedia.org/estaticas/marcador">Usa nuestro marcador para hacer FIX desde cualquier sitio</a></p>
+		<p><a href="http://www.fixmedia.org/estaticas/botones">Usa nuestro botón para tus contenidos</a></p>
 	</section>
 
 	<? if (isset($sites_most_fixes)) :?>
