@@ -24,8 +24,7 @@ class Pages extends MY_Controller {
 						'top-fuentes' => 'Top usuarios',
 						'estadisticas' => 'Estadísticas',
 						'problemas' => '¿Problemas?',
-						'aviso-legal' => 'Información legal y condiciones de uso',
-						'botones' => 'Botones de Fixmedia en tu web o blog'
+						'aviso-legal' => 'Información legal y condiciones de uso'
 						);
 		$data = array();
 		$data = get_sidebars_blocks($data);
