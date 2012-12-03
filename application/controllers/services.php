@@ -90,38 +90,6 @@ class Services extends MY_Controller {
          $this->load->view('services/fix_vote', $data);
       }
 
-
-      public function report_solved($user_id, $report_data_id) {
-         $data['result']['valid'] = false;
-         try { $user = User::find($user_id); } catch (\ActiveRecord\RecordNotFound $e) {
-            $data['result']['error'] = "Usuario no válido";
-         }
-         if (!$this->logged_in || $user_id!=$this->the_user->id) { $data['result']['error'] = "Usuario no está logueado o no se corresponde"; }
-         try { $report = Reports_data::find($report_data_id); } catch (\ActiveRecord\RecordNotFound $e) {
-            $data['result']['error'] = "Envío no válido";
-         }
-         if (empty($data['result']['error'])) :
-            $vote = Vote::create(array(
-                                 'user_id' => $user->id,
-                                 'item_id' => $report->id,
-                                 'vote_type' => 'SOLVED',
-                                 'vote_value' => $this->the_user->karma,
-                                 'ip' => $this->input->ip_address()
-                              ));
-            if ($vote->is_valid()) :
-               $data['result']['valid'] = true;
-               $data['result']['vote'] = $vote;
-               $data['result']['item_id'] = $report->id;
-               $data['result']['total_votes'] = $report->solved_votes();
-               $data['result']['total_value'] = $report->solved_value();
-               $data['result']['is_solved'] = $report->is_solved();
-            else :
-               $data['result']['error'] = "Se ha producido un error";
-            endif;
-         endif;
-         $this->load->view('services/fix_vote', $data);
-      }
-
       public function share($slug, $fix=0) {
          if (!empty($slug)) :
             $report = Report::find_by_slug($slug);
