@@ -63,7 +63,7 @@
 		<div class="counter">
 			<span class="count count-vote-<?= $report_sent->id ?>"><?= $report_sent->votes_count ?></span>
 			<? if ($report_sent->votes_count==1 && ($logged_in && $report_sent->is_voted($the_user->id))) : ?>
-			persona (tu) quiere que alguien la arregle
+			persona (tú) quiere que alguien la arregle
 			<? elseif ($report_sent->votes_count==1) :?>
 			persona quiere que alguien la arregle
 			<? else : ?>

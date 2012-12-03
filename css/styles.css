@@ -54,6 +54,7 @@ a:hover {text-decoration:underline;}
 			float:left;
 			margin-left:10px;
 			font-size:14px;
+			color:#7F7F7F;
 		}
 			#header .top-menu .menu li a {color:#7F7F7F;}
 			#header .top-menu .menu li a:hover {text-decoration:underline;}
@@ -1527,7 +1528,7 @@ input.button {height:40px;}
 			height: 70px;
 			margin-bottom:20px;
 		}
-		.static .center {text-align:center;}
+		.static #content .center {text-align:center;margin:20px auto;}
 /* Desarrollo */
 
 .reports_list {
@@ -1728,6 +1729,23 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 		list-style:none;
 	}
 	.landing .top-menu .menu a {color:#ffffff;}
-
+	a.bookmarklet {
+	    height:21px;
+	    line-height: 19px;
+	    padding:0px 7px 0px 25px;
+	    background:url('../images/wfix.png') 7px center no-repeat #ebc100;
+	    border:1px solid #dfb503;
+	    border-radius: 3px;
+	    color:#ffffff !important;
+	    text-transform:lowercase;
+	    font-size:13px;
+	    font-family:"Verdana";
+	    margin-right:5px;
+	}
+	.static a.bookmarklet {
+		width: 63px;
+		margin: 60px auto 20px auto;
+		display: block;
+	}
 
 

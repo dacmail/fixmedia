@@ -26,8 +26,8 @@
             <p class="main_title"><a href="<?php echo base_url(); ?>" title="Fixmedia.org, arregla las noticias"><img src="<?= base_url('images/logo-fixmedia.png'); ?>" alt="Fixmedia.org, arregla las noticias" title="Fixmedia.org, arregla las noticias"/></a></p>
             <nav class="top-menu">
                 <ul class="menu clearfix">
+                    <li>arrastra el botón <a href="javascript:(function()%7B%20%20_my_script%3Ddocument.createElement(%27SCRIPT%27)%3B%20%20_my_script.type%3D%27text/javascript%27%3B%20%20_my_script.src%3D%27http://fixmedia.org/js/bookmarklet.js%27%3B%20%20document.getElementsByTagName(%27head%27)%5B0%5D.appendChild(_my_script)%3B%7D)()%3B" class="bookmarklet">Hacer FIX</a> a tu navegador [<a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'marcador'))); ?>">+ info</a>]</li>
                     <li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'que-es-fixmedia'))); ?>">¿Qué es fixmedia?</a></li>
-                    <li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'problemas'))); ?>">Ayúdanos a mejorar</a></li>
                 </ul>
             </nav>
             <? if (!$logged_in) : ?>
