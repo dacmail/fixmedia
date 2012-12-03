@@ -424,6 +424,9 @@ a:hover {text-decoration:underline;}
 			border:1px solid #CBCBCB;
 			border-right:0px;
 		}
+		.sending .opt_checkbox {
+			padding:10px 0px;
+		}
 	.sending .fields_wrap {
 		background:#F6F6F6;
 		padding:30px;

@@ -31,6 +31,10 @@
 					<span class="prefix">@</span><input class="text wprefix" type="text" id="" name="twitter" value="<?=htmlspecialchars($user->twitter);?>" />
 					<?php echo form_error('twitter', '<span class="error">', '</span>'); ?>
 				</div>
+				<div class="row opt_checkbox">
+					<?php echo form_checkbox('allow_mention_twitter', '1', $user->allow_mention_twitter, 'id="allow_mention_twitter"');?>
+     				<label for="allow_mention_twitter">Permitir que se me mencione en twitter al compartir mis envíos a Fixmedia</label>
+				</div>
 			</div>
 			<input type="submit" class="button submit" name="submit" value="Guardar los cambios" />
 		</form>

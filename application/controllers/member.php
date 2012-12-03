@@ -101,6 +101,7 @@ class Member extends MY_Controller {
 			$user->name = empty($post_data['name']) ? $user->username : $post_data['name'];
 			$user->bio = $post_data['bio'];
 			$user->url = $post_data['url'];
+			$user->allow_mention_twitter = isset($post_data['allow_mention_twitter']);
 			$user->twitter = str_replace("@", "", $post_data['twitter']); ;
 			$user->save();
 			redirect($this->router->reverseRoute('user-profile', array('username' => $user->username)));

@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=1024" />
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title><?=$page_title?> - Fixmedia</title>
     <link rel="shortcut icon" href="<?php echo base_url(); ?>/images/favicon.png">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="<?= isset($description) ? $description : ''; ?>" />
     <meta name="keywords" content="" />
     <meta name="robots" content="index, follow" />
-    <meta name="contact_addr" content="" />
-    <meta name="distribution" content="Global" />
-    <meta name="resource-type" content="document" />
-    <meta http-equiv="content-language" content="es" />
     <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-ui-1.8.23.custom.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.validate.min.js"></script>
@@ -28,7 +23,7 @@
 <body>
     <header id="header">
         <div class="wrap clearfix">
-            <p class="main_title"><a href="<?php echo base_url(); ?>" title="Fixmedia.org, arregla las noticias"><img src="<?= base_url('images/logo-fixmedia.png'); ?>"/" alt="Fixmedia.org, arregla las noticias" title="Fixmedia.org, arregla las noticias"/></a></p>
+            <p class="main_title"><a href="<?php echo base_url(); ?>" title="Fixmedia.org, arregla las noticias"><img src="<?= base_url('images/logo-fixmedia.png'); ?>" alt="Fixmedia.org, arregla las noticias" title="Fixmedia.org, arregla las noticias"/></a></p>
             <nav class="top-menu">
                 <ul class="menu clearfix">
                     <li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'que-es-fixmedia'))); ?>">¿Qué es fixmedia?</a></li>
