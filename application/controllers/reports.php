@@ -219,6 +219,37 @@ class Reports extends MY_Controller {
 			show_404();
 		endif;
 	}
+	public function activity($slug, $share=null, $doreport = null) {
+		if (!empty($slug)) :
+			$report = Report::find_by_slug($slug);
+			if (!empty($report)) :
+				$data['page_title'] = 'Actividad de "' . $report->title . '"';
+				$data['description'] = "Actividad de la noticia enviada a fixmedia: $report->title. $report->votes_count personas quieren que se mejore o arregle esta noticia";
+				$data['report'] = $report;
+				$data['main_content'] = 'reports/activity';
+				// usuarios que han reportado
+				$data['reporting_users'] = User::find_by_sql("SELECT distinct(u.id), u.* FROM users u INNER JOIN reports_data rd
+								ON (u.id=rd.user_id) WHERE rd.report_id=" . $report->id);
+
+				//usuarios que han votado un reporte positivamente
+
+				$data['reporting_votes_users'] = User::find_by_sql("SELECT distinct(u.id), u.* FROM users u INNER JOIN votes v  ON (u.id=v.user_id)
+									INNER JOIN reports_data rd ON (v.item_id=rd.id)  WHERE  v.vote_type = 'REPORT' AND rd.report_id=" . $report->id);
+
+				if (isset($share)) :
+					$data['autoshare'] = true;
+				endif;
+				if (isset($doreport)) :
+					$data['doreport'] = true;
+				endif;
+				$this->load->view('includes/template', $data);
+			else :
+				show_404();
+			endif;
+		else :
+			show_404();
+		endif;
+	}
 
 	public function save() {
 		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }

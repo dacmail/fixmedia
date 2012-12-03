@@ -1,6 +1,12 @@
 <div id="container" class="clearfix sending report columns">
 	<div id="content">
 		<?php $this->load->view('includes/report-info'); ?>
+		<section class="tabs notabs">
+        	<ul class="tabs_items">
+				<li class="ui-state-active"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->slug))); ?>">Reportes</a></li>
+				<li class=""><a href="<?= site_url($this->router->reverseRoute('reports-activity', array('slug' => $report->slug))); ?>">Actividad</a></li>
+			</ul>
+        </section>
 		<? if (count($report->data)) :?>
 			<h2 class="action_title"><strong>¿Qué es mejorable en esta noticia?</strong> Listado de reportes recibidos</h2>
 		<? else: ?>
