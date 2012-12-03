@@ -234,8 +234,11 @@ class Reports extends MY_Controller {
 				//usuarios que han votado un reporte positivamente
 
 				$data['reporting_votes_users'] = User::find_by_sql("SELECT distinct(u.id), u.* FROM users u INNER JOIN votes v  ON (u.id=v.user_id)
-									INNER JOIN reports_data rd ON (v.item_id=rd.id)  WHERE  v.vote_type = 'REPORT' AND rd.report_id=" . $report->id);
+									INNER JOIN reports_data rd ON (v.item_id=rd.id)  WHERE  v.vote_type = 'REPORT' AND rd.report_id=" . $report->id . "
+									 AND u.id NOT IN (SELECT user_id FROM reports_data rd1 WHERE rd1.report_id=" . $report->id .")");
 
+				$data['only_fixes_users'] = User::find_by_sql("SELECT distinct(u.id), u.* FROM users u INNER JOIN votes v  ON (u.id=v.user_id)
+									WHERE  v.vote_type = 'FIX' AND v.item_id=" . $report->id . " AND u.id NOT IN (SELECT user_id FROM votes v2 WHERE  v2.vote_type='REPORT' AND v2.item_id IN (SELECT id FROM reports_data rd WHERE rd.report_id=" . $report->id . "))");
 				if (isset($share)) :
 					$data['autoshare'] = true;
 				endif;
