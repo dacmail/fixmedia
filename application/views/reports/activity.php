@@ -1,4 +1,4 @@
-<div id="container" class="clearfix sending report columns">
+<div id="container" class="clearfix sending report columns activity">
 	<div id="content">
 		<?php $this->load->view('includes/report-info'); ?>
 		<section class="tabs notabs">
@@ -8,61 +8,56 @@
 			</ul>
         </section>
 		<h2 class="action_title"><strong>Están contribuyendo a mejorar esta noticia</strong> Listado de usuarios comprometidos</h2>
-		Reportan
-		<? foreach ($reporting_users as $user) :  ?>
-			<article class="user_info clearfix">
-					<a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?=gravatar( $user->email, 150, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?></a>
-					<div class="data">
-				  		<h2 class="name"><a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?= $user->name; ?></a></h2>
-				  		<p class="when">Mejorando noticias desde el <?= date('d/m/Y', $user->created_on); ?></p>
-				  		<p class="bio"><?= $user->bio  ?></p>
-				 		<? if ($user->url) : ?><p class="url">Web: <a href="#"><?= $user->url ?></a></p><? endif; ?>
-				 		<? if ($user->twitter) : ?>
-				 		<p class="follow">
-				 			<a href="https://twitter.com/<?=$user->twitter;?>" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @<?=$user->twitter;?></a>
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-				 		</p>
-				 		<? endif; ?>
-				  </div>
-			</article>
-		<? endforeach; ?>
-		<hr/>Valoran reporte
-		<? foreach ($reporting_votes_users as $user) :  ?>
-			<article class="user_info clearfix">
-					<a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?=gravatar( $user->email, 150, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?></a>
-					<div class="data">
-				  		<h2 class="name"><a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?= $user->name; ?></a></h2>
-				  		<p class="when">Mejorando noticias desde el <?= date('d/m/Y', $user->created_on); ?></p>
-				  		<p class="bio"><?= $user->bio  ?></p>
-				 		<? if ($user->url) : ?><p class="url">Web: <a href="#"><?= $user->url ?></a></p><? endif; ?>
-				 		<? if ($user->twitter) : ?>
-				 		<p class="follow">
-				 			<a href="https://twitter.com/<?=$user->twitter;?>" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @<?=$user->twitter;?></a>
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-				 		</p>
-				 		<? endif; ?>
-				  </div>
-			</article>
-		<? endforeach; ?>
-		<hr/>Solo hacen fix
-		<? foreach ($only_fixes_users as $user) :  ?>
-			<article class="user_info clearfix">
-					<a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?=gravatar( $user->email, 150, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?></a>
-					<div class="data">
-				  		<h2 class="name"><a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?= $user->name; ?></a></h2>
-				  		<p class="when">Mejorando noticias desde el <?= date('d/m/Y', $user->created_on); ?></p>
-				  		<p class="bio"><?= $user->bio  ?></p>
-				 		<? if ($user->url) : ?><p class="url">Web: <a href="#"><?= $user->url ?></a></p><? endif; ?>
-				 		<? if ($user->twitter) : ?>
-				 		<p class="follow">
-				 			<a href="https://twitter.com/<?=$user->twitter;?>" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @<?=$user->twitter;?></a>
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-				 		</p>
-				 		<? endif; ?>
-				  </div>
-			</article>
-		<? endforeach; ?>
-
+		<section class="reporting_users search profile clearfix">
+			<h3 class="section_title">Usuarios que han reportado</h3>
+			<? foreach ($reporting_users as $user) :  ?>
+				<article class="user_info clearfix">
+						<a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?=gravatar( $user->email, 150, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?></a>
+						<div class="data">
+					  		<h2 class="name"><a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?= $user->name; ?></a></h2>
+					  		<p class="when">Mejorando noticias desde el <?= date('d/m/Y', $user->created_on); ?></p>
+					 		<? if ($user->twitter) : ?>
+					 		<p class="follow">
+					 			<a href="https://twitter.com/<?=$user->twitter;?>" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @<?=$user->twitter;?></a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					 		</p>
+					 		<? endif; ?>
+					  </div>
+				</article>
+			<? endforeach; ?>
+		</section>
+		<section class="reporting_votes_users clearfix">
+			<h3 class="section_title">Usuarios que han valorado positivamente un reporte</h3>
+			<ul class="users_list medium">
+			<? foreach ($reporting_votes_users as $user) :  ?>
+				<li class="user_info clearfix">
+						<a class="link_wrap" href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>">
+							<?=gravatar( $user->email, 75, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?>
+							<div class="name_wrap">
+								<span class="name"><?= (strlen($user->name)>7) ? substr($user->name,0,7) . '...' : $user->name; ?></span>
+								<span class="name over"><?= $user->name; ?></span>
+							</div>
+						</a>
+				</li>
+			<? endforeach; ?>
+			</ul>
+		</section>
+		<section class="only_fixes_users clearfix">
+			<h3 class="section_title">Usuarios que solo han hecho fix</h3>
+			<ul class="users_list small">
+			<? foreach ($only_fixes_users as $user) :  ?>
+				<li class="user_info clearfix">
+						<a class="link_wrap" href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>">
+							<?=gravatar( $user->email, 50, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?>
+							<div class="name_wrap">
+								<span class="name"><?= (strlen($user->name)>6) ? substr($user->name,0,6) . '...' : $user->name; ?></span>
+								<span class="name over"><?= $user->name; ?></span>
+							</div>
+						</a>
+				</li>
+			<? endforeach; ?>
+			</ul>
+		</section>
 	</div>
 
 	<aside id="sidebar" class="report">
