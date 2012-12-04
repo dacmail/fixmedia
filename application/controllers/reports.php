@@ -227,14 +227,11 @@ class Reports extends MY_Controller {
 				$data['description'] = "Actividad de la noticia enviada a fixmedia: $report->title. $report->votes_count personas quieren que se mejore o arregle esta noticia";
 				$data['report'] = $report;
 				$data['main_content'] = 'reports/activity';
-				// usuarios que han reportado
 				$data['reporting_users'] = User::find_by_sql("SELECT distinct(u.id), u.* FROM users u INNER JOIN reports_data rd
 								ON (u.id=rd.user_id) WHERE rd.report_id=" . $report->id);
 
-				//usuarios que han votado un reporte positivamente
-
 				$data['reporting_votes_users'] = User::find_by_sql("SELECT distinct(u.id), u.* FROM users u INNER JOIN votes v  ON (u.id=v.user_id)
-									INNER JOIN reports_data rd ON (v.item_id=rd.id)  WHERE  v.vote_type = 'REPORT' AND rd.report_id=" . $report->id . "
+									INNER JOIN reports_data rd ON (v.item_id=rd.id)  WHERE  v.vote_type = 'REPORT' AND v.vote_value>0 AND rd.report_id=" . $report->id . "
 									 AND u.id NOT IN (SELECT user_id FROM reports_data rd1 WHERE rd1.report_id=" . $report->id .")");
 
 				$data['only_fixes_users'] = User::find_by_sql("SELECT distinct(u.id), u.* FROM users u INNER JOIN votes v  ON (u.id=v.user_id)

@@ -940,6 +940,7 @@ a:hover {text-decoration:underline;}
 	margin-bottom: 20px;
 }
 	.search .profile .user_info .data .name {font-size:25px;}
+	.search .profile .user_info .avatar_wrap, .search .user_info img .avatar_wrap {float:left;}
 	.search .profile .user_info img, .search .user_info img {width:150px; height:150px;border:0px;}
 	.search .input {
 		border: 1px solid #F1F1F1;
@@ -1041,6 +1042,7 @@ a:hover {text-decoration:underline;}
 				position: absolute;
 				left: 80px;
 				top:20px;
+				width:200px;
 			}
 				.users_list.small .user_info .name_wrap {
 					top:55px;
