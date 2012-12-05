@@ -1,62 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-<title>404 Page Not Found</title>
-<style type="text/css">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=1024" />
+	<title>No se pudo encontrar la página - Error 404 - Fixmedia</title>
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style>
+	/* FIXES */
+	*, html {
+		margin:0;
+		padding:0;
+	}
+	.clearfix:after {
+	    content: ".";
+	    display: block;
+	    height: 0;
+	    clear: both;
+	    visibility: hidden;
+	}
 
-::selection{ background-color: #E13300; color: white; }
-::moz-selection{ background-color: #E13300; color: white; }
-::webkit-selection{ background-color: #E13300; color: white; }
+	.clearfix {display: inline-block;}
 
-body {
-	background-color: #fff;
-	margin: 40px;
-	font: 13px/20px normal Helvetica, Arial, sans-serif;
-	color: #4F5155;
-}
+	/* Hides from IE-mac \*/
+	* html .clearfix {height: 1%;}
+	.clearfix {display: block;}
+	/* End hide from IE-mac */
 
-a {
-	color: #003399;
-	background-color: transparent;
-	font-weight: normal;
-}
-
-h1 {
-	color: #444;
-	background-color: transparent;
-	border-bottom: 1px solid #D0D0D0;
-	font-size: 19px;
-	font-weight: normal;
-	margin: 0 0 14px 0;
-	padding: 14px 15px 10px 15px;
-}
-
-code {
-	font-family: Consolas, Monaco, Courier New, Courier, monospace;
-	font-size: 12px;
-	background-color: #f9f9f9;
-	border: 1px solid #D0D0D0;
-	color: #002166;
-	display: block;
-	margin: 14px 0 14px 0;
-	padding: 12px 10px 12px 10px;
-}
-
-#container {
-	margin: 10px;
-	border: 1px solid #D0D0D0;
-	-webkit-box-shadow: 0 0 8px #D0D0D0;
-}
-
-p {
-	margin: 12px 15px 12px 15px;
-}
-</style>
+	/* END FIXES */
+    body { text-align:center; background:#F1F1F1; font-family:"Asap", "Helvetica", "Arial", sans-serif;  font-size:14px;}
+    .button {
+		display:block;
+		font-size:17px;
+		color:#ffffff;
+		border:1px solid #2760BF;
+		box-shadow: 0 0 0 1px rgba(255,255,255,0.3) inset;
+		border-radius:6px;
+		padding:0 15px;
+		line-height:40px;
+		margin:10px 0;
+		cursor:pointer;
+		position:relative;
+		background: url('http://www.fixmedia.org/images/icons-button.png') left -330px no-repeat;
+		width: 150px;
+		margin:20px auto;
+		text-align:center;
+		text-decoration: none;
+	}
+	img {margin-bottom:60px;}
+	</style>
 </head>
 <body>
-	<div id="container">
-		<h1><?php echo $heading; ?></h1>
-		<?php echo $message; ?>
+	<div class="error_wrapper">
+		<p><img class="logo" src="http://www.fixmedia.org/images/errors/error_logo_fixmedia.png" alt="Fixmedia.org" title="Fixmedia.org" /></p>
+		<p><img class="logo" src="http://www.fixmedia.org/images/errors/404.png" alt="No se puede encontrar la página que buscas" title="No se puede encontrar la página que buscas" /></p>
+		<a href="http://fixmedia.com" class="button">Vuelve a fixmedia</a>
 	</div>
 </body>
 </html>
