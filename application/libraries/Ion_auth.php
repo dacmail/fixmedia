@@ -143,7 +143,7 @@ class Ion_auth
 					$this->email->clear();
 					$this->email->from($this->config->item('admin_email', 'ion_auth'), $this->config->item('site_title', 'ion_auth'));
 					$this->email->to($user->email);
-					$this->email->subject($this->config->item('site_title', 'ion_auth') . ' - Forgotten Password Verification');
+					$this->email->subject($this->config->item('site_title', 'ion_auth') . ' - Olvidaste tu contraseña');
 					$this->email->message($message);
 
 					if ($this->email->send())
@@ -212,7 +212,7 @@ class Ion_auth
 				$this->email->clear();
 				$this->email->from($this->config->item('admin_email', 'ion_auth'), $this->config->item('site_title', 'ion_auth'));
 				$this->email->to($profile->email);
-				$this->email->subject($this->config->item('site_title', 'ion_auth') . ' - New Password');
+				$this->email->subject($this->config->item('site_title', 'ion_auth') . ' - Nueva contraseña');
 				$this->email->message($message);
 
 				if ($this->email->send())
@@ -336,7 +336,7 @@ class Ion_auth
 				$this->email->clear();
 				$this->email->from($this->config->item('admin_email', 'ion_auth'), $this->config->item('site_title', 'ion_auth'));
 				$this->email->to($email);
-				$this->email->subject($this->config->item('site_title', 'ion_auth') . ' - Account Activation');
+				$this->email->subject($this->config->item('site_title', 'ion_auth') . ' - Activación de la cuenta');
 				$this->email->message($message);
 
 				if ($this->email->send() == TRUE)
