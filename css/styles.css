@@ -902,7 +902,8 @@ a:hover {text-decoration:underline;}
 	margin-bottom: 20px;
 }
 	.search .profile .user_info .data .name {font-size:25px;}
-	.search .profile .user_info img {width:150px; height:150px;border:0px;}
+	.search .profile .user_info .avatar_wrap, .search .user_info img .avatar_wrap {float:left;}
+	.search .profile .user_info img, .search .user_info img {width:150px; height:150px;border:0px;}
 	.search .input {
 		border: 1px solid #F1F1F1;
 		height: 36px;
@@ -966,6 +967,70 @@ a:hover {text-decoration:underline;}
 			background: #79B4CB;
 			border-radius: 10px;
 		}
+/* ACTIVITY */
+.activity .section_title {
+	color:#7AB5CC;
+	font-size: 20px;
+	font-style: italic;
+	font-weight: normal;
+	margin:20px 0px 15px 0px;
+}
+	.activity .users_list .user_info {
+		float:left;
+		list-style: none;
+		width: 30%;
+		height: 75px;
+		margin-bottom:30px;
+	}
+		.activity .users_list.small .user_info {
+			height: 50px;
+			width: 12.5%;
+		}
+		.activity .users_list .user_info .link_wrap {
+			display:block;
+			width: 75px;
+			height: 75px;
+			position: relative;
+		}
+			.activity .users_list.small .user_info .link_wrap {
+				width: 50px;
+				height: 50px;
+			}
+			.activity .users_list .user_info img {
+				width: 100%;
+				height: 100%;
+			}
+			.activity .users_list .user_info .name_wrap {
+				position: absolute;
+				left: 80px;
+				top:20px;
+				width:200px;
+			}
+				.activity .users_list.small .user_info .name_wrap {
+					top:55px;
+					left:-5px;
+				}
+			.activity .users_list .user_info .name {
+				position: absolute;
+				left: 0px;
+				top:0px;
+				display: block;
+				line-height: 30px;
+				color:#323232;
+				padding:0px 5px;
+				font-size: 17px;
+			}
+				.activity .users_list.small .user_info .name  {
+					line-height: 17px;
+					font-size: 13px;
+				}
+			.activity .users_list .user_info .name.over {
+				display: none;
+				color:#FFFFFF;
+				background: #323232;
+				z-index:10000;
+			}
+			.activity .users_list .user_info:hover .name.over {display:block;}
 /* TOPS */
 .top .list .avatar {
 	float:left;
