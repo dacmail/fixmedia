@@ -56,7 +56,7 @@
 	<div class="error_wrapper">
 		<p><img class="logo" src="http://www.fixmedia.org/images/errors/error_logo_fixmedia.png" alt="Fixmedia.org" title="Fixmedia.org" /></p>
 		<p><img class="logo" src="http://www.fixmedia.org/images/errors/404.png" alt="No se puede encontrar la página que buscas" title="No se puede encontrar la página que buscas" /></p>
-		<a href="http://fixmedia.com" class="button">Vuelve a fixmedia</a>
+		<a href="http://fixmedia.org" class="button">Vuelve a fixmedia</a>
 	</div>
 </body>
 </html>

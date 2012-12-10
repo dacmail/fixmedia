@@ -67,7 +67,7 @@
 									<? else : ?>
 										personas dicen
 									<? endif; ?>
-									 que está arreglado
+									 que ya está arreglado
 								<? endif; ?>
 							</span>
 						</div>

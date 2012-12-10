@@ -56,7 +56,7 @@
 	<div class="error_wrapper">
 		<p><img class="logo" src="http://www.fixmedia.org/images/errors/error_logo_fixmedia.png" alt="Fixmedia.org" title="Fixmedia.org" /></p>
 		<p><img class="logo" src="http://www.fixmedia.org/images/errors/500.png" alt="Se ha producido un error" title="Se ha producido un error" /></p>
-		<a href="http://fixmedia.com" class="button">Vuelve a fixmedia</a>
+		<a href="http://fixmedia.org" class="button">Vuelve a fixmedia</a>
 	</div>
 </body>
 </html>
