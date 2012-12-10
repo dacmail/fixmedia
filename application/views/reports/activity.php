@@ -8,6 +8,7 @@
 			</ul>
         </section>
 		<h2 class="action_title"><strong>Están contribuyendo a mejorar esta noticia</strong> Listado de usuarios comprometidos</h2>
+		<? if (count($reporting_users)) : ?>
 		<section class="reporting_users search profile clearfix">
 			<h3 class="section_title">Usuarios que han reportado</h3>
 			<? foreach ($reporting_users as $user) :  ?>
@@ -26,6 +27,8 @@
 				</article>
 			<? endforeach; ?>
 		</section>
+		<? endif; ?>
+		<? if (count($reporting_votes_users)) : ?>
 		<section class="reporting_votes_users clearfix">
 			<h3 class="section_title">Usuarios que han valorado positivamente un reporte</h3>
 			<ul class="users_list medium">
@@ -42,6 +45,8 @@
 			<? endforeach; ?>
 			</ul>
 		</section>
+		<? endif; ?>
+		<? if (count($only_fixes_users)) : ?>
 		<section class="only_fixes_users clearfix">
 			<h3 class="section_title">Usuarios que solo han hecho fix</h3>
 			<ul class="users_list small">
@@ -58,6 +63,7 @@
 			<? endforeach; ?>
 			</ul>
 		</section>
+		<? endif; ?>
 	</div>
 
 	<aside id="sidebar" class="report">
