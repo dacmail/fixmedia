@@ -13,9 +13,9 @@
 			<h2 class="action_title"><strong>¿Qué es mejorable en esta noticia?</strong> No hay reportes recibidos</h2>
 		<? endif; ?>
 		<? $count=1; foreach ($report->data as $subreport) :  ?>
-			<div class="subreport">
+			<div class="subreport <?= $subreport->is_solved() ? 'solved' : ''; ?>">
 				<div class="clearfix">
-					<section class="counter">
+					<span class="counter">
 						<strong class="count-vote-up-<?= $subreport->id ?> count-vote-down-<?= $subreport->id ?>"><?= $subreport->votes_count ?></strong>
 						<div title="Usa las flechas para valorar positiva o negativamente esta mejora concreta" class="votes_buttons clearfix">
 							<? if ($logged_in && !$subreport->is_voted($the_user->id)) : ?>
@@ -30,7 +30,7 @@
 							<? endif; ?>
 						</div>
 
-					</section>
+					</span>
 					<div class="subreport_info">
 						<h3 class="subreport_title"><?=$subreport->title; ?></h3>
 						<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $subreport->user->username))); ?>"><?= $subreport->user->name; ?></a> el <?= $subreport->created_at->format('d/m/Y'); ?></p>
@@ -52,6 +52,25 @@
 							<? endif; ?>
 						</div>
 						<? endif; ?>
+
+						<div class="solved_button clearfix">
+							<? if ($logged_in && !$subreport->is_voted($the_user->id, 'SOLVED')) : ?>
+								<span class="question">¿Arreglado en la noticia original?</span>
+								<!--span class="confirmation">¿Seguro?</span-->
+								<a href="<?php echo site_url(array('services/report_solved', $the_user->id ,$subreport->id)); ?>" id="solved-<?= $subreport->id ?>" class="report_solved solved-<?= $subreport->id ?>">Sí</a>
+							<? endif; ?>
+							<span class="solved_counter">
+								<? if ($subreport->solved_votes() > 0) : ?>
+									<span class="number"><?=$subreport->solved_votes()?></span>
+									<? if ($subreport->solved_votes() == 1) : ?>
+										persona dice
+									<? else : ?>
+										personas dicen
+									<? endif; ?>
+									 que está arreglado
+								<? endif; ?>
+							</span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -65,7 +84,7 @@
 			<div class="wrap-counter">
 				<span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span>
 				<? if ($report->votes_count==1 && ($logged_in && $report->is_voted($the_user->id))) : ?>
-				persona (tú) quiere que alguien la arregle
+				persona (tu) quiere que alguien la arregle
 				<? elseif ($report->votes_count==1) :?>
 				persona quiere que alguien la arregle. ¿Y tú?
 				<? else : ?>
