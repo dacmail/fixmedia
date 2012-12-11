@@ -15,8 +15,45 @@
 									ORDER BY reports DESC LIMIT 0,5');
 		$data['top_users'] = User::find_by_sql('
 									SELECT name, username, karma
-									FROM users 
+									FROM users
 									ORDER BY karma DESC LIMIT 0,5');
 		return $data;
 	}
-?>
+	function karma_graphic($user_karma=1, $show_level=true) {
+		$k = round($user_karma,0);
+		switch ($k) {
+			case 1:
+			case 2:
+			case 3:
+			case 4:
+			case 5:
+				$level = 'Amateur';
+				break;
+			case 6:
+			case 7:
+			case 8:
+			case 9:
+			case 10:
+				$level = 'Beginner';
+				break;
+			case 11:
+			case 12:
+			case 13:
+			case 14:
+			case 15:
+				$level = 'Pro';
+				break;
+			case 16:
+			case 17:
+			case 18:
+			case 19:
+			case 20:
+				$level = 'Guru';
+				break;
+		}
+		$return = "<div class='karma_graphic'>";
+		$return .= $show_level ? "<span class='level ". strtolower($level) ."'>". $level ."</span>" : "";
+		$return .= "<span title='Reputación nivel ". $k ."' class='karma_bar karma-". $k ."' style='background-position:left " . ((($k-1)*31)*-1) ."px;'> Nivel ". $k ."</span>";
+		$return .= "</div>";
+		return $return;
+	}

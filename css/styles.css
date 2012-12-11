@@ -140,6 +140,7 @@ a:hover {text-decoration:underline;}
                 		color:#3D87B7;
                 		font-weight:bold;
                 		font-style:italic;
+                		margin-bottom:15px;
                 	}
 
                         #header .user .user_info .user_data .counters .fix_count {
@@ -695,9 +696,6 @@ a:hover {text-decoration:underline;}
 
 		}
 /* Perfil usuario */
-.profile .user_info {
-	margin-bottom:50px;
-}
 	.profile .user_info .gravatar {
 		float:left;
 		width:150px;
@@ -1570,6 +1568,35 @@ input.button {height:40px;}
 		margin:15px;
 	}
 		.logos-footer .server a {color:#ccc;}
+/* Barras de karma */
+	.karma_graphic {
+		height:31px;
+		width: 300px;
+	}
+	.karma_graphic .level {
+		display:block;
+		float:left;
+		width: 80px;
+		background: #F89552;
+		font-size: 13px;
+		font-style: italic;
+		color: #fff;
+		margin-right: 4px;
+		line-height: 31px;
+		text-align: center;
+	}
+	.karma_graphic .karma_bar {
+		height: 31px;
+		float:left;
+		background: url('../images/level-sprite.png') no-repeat;
+		width: 216px;
+		display: block;
+		text-indent: -999999px;
+	}
+	#sidebar .user_karma {
+		background: #fff;
+		padding-bottom:30px;
+	}
 /*Estaticas*/
 .static #content {
 	color:#7F7F7F;

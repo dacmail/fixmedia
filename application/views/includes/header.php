@@ -49,7 +49,7 @@
                                     <span class="fix_count"><?= count($the_user->fixes); ?></span> fixes
                                     <span class="report_count"><?= count($the_user->subreports); ?></span> reportes
                                 </p>
-                                <p class="karma">Reputación: <?= $the_user->karma; ?></p>
+                                <?= karma_graphic($user->karma, false); ?>
                             </div>
                         </div>
                         <a class="log_out" href="<?= site_url($this->router->reverseRoute('logout')); ?>">Cerrar sesión</a>
