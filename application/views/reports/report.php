@@ -63,9 +63,9 @@
 								<? if ($subreport->solved_votes() > 0) : ?>
 									<span class="number"><?=$subreport->solved_votes()?></span>
 									<? if ($subreport->solved_votes() == 1) : ?>
-										persona dice
+										persona <?= $subreport->is_voted($the_user->id, 'SOLVED') ? '(tú) ' : ' '?>dice
 									<? else : ?>
-										personas dicen
+										personas <?= $subreport->is_voted($the_user->id, 'SOLVED') ? '(y tú) ' : ' '?>dicen
 									<? endif; ?>
 									 que ya está arreglado
 								<? endif; ?>
