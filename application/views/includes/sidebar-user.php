@@ -7,6 +7,10 @@
 	</section>
 	<section class="user_karma">
 		<?= karma_graphic($user->karma); ?>
+		<p>Noticias descubiertas <?= $user->send_fixes(); ?></p>
+		<p>Fixes recibidos <?= $user->fixes_accumulated(); ?></p>
+		<p>Reportes recibidos <?= $user->received_reports(); ?></p>
+		<p>Reportes propios <?= count($user->subreports); ?></p>
 	</section>
 	<section class="block ranking users">
 		<h3 class="title">Posición de <?= $user->name; ?> en Fixmedia</h3>
