@@ -31,10 +31,11 @@
 						<div class="data">
 					  		<h2 class="name"><a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?= $user->name; ?></a></h2>
 					  		<p class="when">Mejorando noticias desde el <?= date('d/m/Y', $user->created_on); ?></p>
+					  		<?= karma_graphic($user->karma); ?>
 					  		<p class="counter <?= is_cur_page($this, 'members','fixes') ? 'highlight' : ''; ?>">Fixes acumulados: <strong><?= $user->fixes_accumulated(); ?></strong></p>
 					  		<p class="counter <?= is_cur_page($this, 'members','reports') ? 'highlight' : ''; ?>">Reportes enviados: <strong><?= count($user->subreports); ?></strong></p>
 					  		<p class="counter <?= is_cur_page($this, 'members','news') ? 'highlight' : ''; ?>">Descubrimientos: <strong><?= count($user->reports); ?></strong></p>
-					  		<p class="counter <?= is_cur_page($this, 'members','index') ? 'highlight' : ''; ?>">Reputación: <strong><?= $user->karma ?></strong></p>
+
 					  </div>
 				</article>
 			<? $position++; endforeach; ?>
