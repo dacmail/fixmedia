@@ -28,6 +28,7 @@
 						  		<p class="when">Mejorando noticias desde el <?= date('d/m/Y', $user->created_on); ?></p>
 						  		<p class="bio"><?= highlight_phrase($user->bio, $term, '<strong>' , '</strong>') ?></p>
 						 		<? if ($user->url) : ?><p class="url">Web: <a href="#"><?= $user->url ?></a></p><? endif; ?>
+						 		<?= karma_graphic($user->karma); ?>
 						 		<? if ($user->twitter) : ?>
 						 		<p class="follow">
 						 			<a href="https://twitter.com/<?=$user->twitter;?>" class="twitter-follow-button" data-show-count="false" data-lang="es">Seguir a @<?=$user->twitter;?></a>
