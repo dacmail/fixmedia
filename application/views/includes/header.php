@@ -18,7 +18,7 @@
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styles.css">
 </head>
 <body>
     <header id="header">
@@ -49,7 +49,7 @@
                                     <span class="fix_count"><?= count($the_user->fixes); ?></span> fixes
                                     <span class="report_count"><?= count($the_user->subreports); ?></span> reportes
                                 </p>
-                                <?= karma_graphic($user->karma, false); ?>
+                                <?= karma_graphic($the_user->karma, false); ?>
                             </div>
                         </div>
                         <a class="log_out" href="<?= site_url($this->router->reverseRoute('logout')); ?>">Cerrar sesión</a>
