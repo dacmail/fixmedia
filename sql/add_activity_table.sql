@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.0.45)
 # Database: fixmedia
-# Generation Time: 2012-12-13 16:30:17 +0000
+# Generation Time: 2012-12-13 16:49:56 +0000
 # ************************************************************
 
 
@@ -20,19 +20,19 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table activity
+# Dump of table activities
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `activity`;
+DROP TABLE IF EXISTS `activities`;
 
-CREATE TABLE `activity` (
+CREATE TABLE `activities` (
   `id` int(11) unsigned NOT NULL auto_increment,
   `sender_id` mediumint(8) default '0',
   `receiver_id` mediumint(8) default '0',
   `notificable_id` mediumint(8) default '0',
-  `notification_type` enum('FIX','VOTE','REPORT','COMMENT') default NULL,
+  `notification_type` enum('FIX','VOTE','REPORT','COMMENT','SOLVED') default NULL,
   `created_at` timestamp NULL default NULL,
-  `read` tinyint(4) unsigned default NULL,
+  `read` tinyint(4) unsigned default '0',
   `read_at` timestamp NULL default NULL,
   PRIMARY KEY  (`id`),
   KEY `sender_id` (`sender_id`),
