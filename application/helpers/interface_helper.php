@@ -34,21 +34,21 @@
 			case 8:
 			case 9:
 			case 10:
-				$level = 'Beginner';
+				$level = 'Corrector';
 				break;
 			case 11:
 			case 12:
 			case 13:
 			case 14:
 			case 15:
-				$level = 'Pro';
+				$level = 'Editor';
 				break;
 			case 16:
 			case 17:
 			case 18:
 			case 19:
 			case 20:
-				$level = 'Guru';
+				$level = 'Fact-checker';
 				break;
 		}
 		$return = "<div class='karma_graphic'>";
