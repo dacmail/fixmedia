@@ -1589,6 +1589,10 @@ input.button {height:40px;}
 		line-height: 31px;
 		text-align: center;
 	}
+		.karma_graphic .level.amateur {background-color:#F99653;}
+		.karma_graphic .level.corrector {background-color:#F7C554;}
+		.karma_graphic .level.editor {background-color:#6ECE8E;}
+		.karma_graphic .level.fact-checker {background-color:#6EC3CC;}
 	.karma_graphic .karma_bar {
 		height: 31px;
 		float:left;
