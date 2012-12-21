@@ -35,4 +35,5 @@ class Report extends ActiveRecord\Model {
 	public function get_reports_by_site() {
 		return count(Reports_data::find_by_sql("SELECT rd.id FROM reports_data rd INNER JOIN reports r ON (r.id=rd.report_id) WHERE r.site LIKE '$this->site'"));
 	}
+
 }

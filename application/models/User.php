@@ -31,5 +31,12 @@ class User extends ActiveRecord\Model {
 	public function votes_avg() {
 		$votes = Vote::find_by_sql("SELECT r.user_id, SUM(v.vote_value) as votes FROM reports_data r INNER JOIN votes v
 							ON (v.item_id=r.id) WHERE v.vote_type='REPORT' AND r.user_id=$this->id GROUP BY r.user_id");
+		return (count($votes) ? round(($votes[0]->votes/count($this->subreports)),1) : 0);
+	}
+
+	public function fixes_avg() {
+		$votes = Vote::find_by_sql("SELECT r.user_id, SUM(v.vote_value) as votes FROM reports r INNER JOIN votes v
+							ON (v.item_id=r.id) WHERE v.vote_type='FIX' AND r.user_id=$this->id GROUP BY r.user_id");
+		return (count($votes) ? round(($votes[0]->votes/count($this->reports)),1) : 0);
 	}
 }

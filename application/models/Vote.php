@@ -14,6 +14,7 @@ class Vote extends ActiveRecord\Model {
    	static $after_save = array('write_activity');
 
    	public function write_activity() {
+         if ($this->vote_value<1) { return true; }
    		switch ($this->vote_type) {
    			case 'FIX':
    				$receiver = $this->report->user_id;
