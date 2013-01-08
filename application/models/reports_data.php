@@ -18,6 +18,17 @@ class Reports_data extends ActiveRecord\Model {
 		array('title')
 	);
 
+	static $after_create = array('write_activity');
+
+   	public function write_activity() {
+   		Activity::create(array(
+   						'sender_id' => $this->user_id,
+   						'receiver_id' => $this->report->user_id,
+   						'notificable_id' => $this->id,
+   						'notification_type' => 'REPORT',
+   						'read' => 0));
+   	}
+
 	public function is_voted($user_id=0, $type='REPORT') {
 		if (empty($user_id)) return true;
 		return Vote::exists(array('conditions' => array("item_id = ? AND user_id = ? AND vote_type LIKE ?", $this->id, $user_id, $type)));

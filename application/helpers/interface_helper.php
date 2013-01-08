@@ -57,3 +57,11 @@
 		$return .= "</div>";
 		return $return;
 	}
+	function avg_fixes() {
+         $avg = Vote::find_by_sql('SELECT avg(votes_count) as average FROM reports');
+         return (count($avg) ? round($avg[0]->average,1) : 0);
+    }
+    function avg_votes() {
+         $avg = Vote::find_by_sql('SELECT avg(votes_count) as average FROM reports_data');
+         return (count($avg) ? round($avg[0]->average,1) : 0);
+    }
