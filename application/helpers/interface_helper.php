@@ -65,3 +65,29 @@
          $avg = Vote::find_by_sql('SELECT avg(votes_count) as average FROM reports_data');
          return (count($avg) ? round($avg[0]->average,1) : 0);
     }
+
+    function get_activity_text($activity, $el) {
+		switch ($activity->notification_type) {
+   			case 'FIX':
+   				$item = Report::find($activity->id);
+   				$text = "hizo fix a la noticia <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->slug))) . "'>$item->title</a> que tú descubriste";
+   				break;
+   			case 'VOTE':
+   				$item = Reports_data::find($activity->id);
+   				$text = "valoró tu reporte <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a>";
+   				break;
+			case 'SOLVED':
+				$item = Reports_data::find($activity->id);
+   				$text = "dijo que tu reporte <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a> está corregido";
+				break;
+			case 'SOLVED':
+				$item = Reports_data::find($activity->id);
+   				$text = "dijo que tu reporte <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a> está corregido";
+				break;
+			case 'REPORT':
+				$item = Report::find($activity->id);
+   				$text = "reportó en la noticia <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->slug))) . "'>$item->title</a> que tú descubriste";
+				break;
+   		}
+   		return $text;
+	}

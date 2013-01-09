@@ -13,7 +13,7 @@
 			<h2 class="action_title"><strong>¿Qué es mejorable en esta noticia?</strong> No hay reportes recibidos</h2>
 		<? endif; ?>
 		<? $count=1; foreach ($report->data as $subreport) :  ?>
-			<div class="subreport <?= $subreport->is_solved() ? 'solved' : ''; ?>">
+			<div id="report-<?= $subreport->id; ?>" class="subreport <?= $subreport->is_solved() ? 'solved' : ''; ?>">
 				<div class="clearfix">
 					<span class="counter">
 						<strong class="count-vote-up-<?= $subreport->id ?> count-vote-down-<?= $subreport->id ?>"><?= $subreport->votes_count ?></strong>

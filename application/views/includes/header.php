@@ -39,7 +39,7 @@
                         <span class="indicator"></span>
                         <div class="clearfix">
                             <div class="user_avatar">
-                                <?=gravatar( $the_user->email, 100, true, base_url('static/avatar-user-100.jpg'), 'x', array('title' => 'Reputación ' . $the_user->karma) )?>
+                                <?=gravatar( $the_user->email, 100, true, base_url('static/avatar-user-100.jpg'), 'x', array('title' => 'Avatar de ' . $the_user->name) )?>
                                 <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $the_user->username))); ?>">Ver perfil</a>
                             </div>
 

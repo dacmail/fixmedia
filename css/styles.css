@@ -798,6 +798,41 @@ a:hover {text-decoration:underline;}
 		color:#7F7F7F;
 		margin:40px 0px;
 	}
+/* ACTIVITY */
+.activity-item {
+	border-bottom:1px solid #E5E5E5;
+	padding:20px;
+	color:#333333;
+}
+	.activity-item img {
+		float:left;
+		margin-right:10px;
+		width: 30px;
+		height: 30px;
+	}
+	.activity-item .activity-text {
+		float:left;
+		width: 530px;
+	}
+	.activity-item .activity-text .date {
+		font-size:12px;
+		color:#999999;
+		display: block;
+		margin-top:5px;
+	}
+	.activity-item .icon {
+		float:right;
+		width: 30px;
+		height: 30px;
+		background: url('../images/icons.png') no-repeat;
+		text-indent: -999999px;
+	}
+	.activity-item.fix .icon {background-position: 0px -857px;}
+	.activity-item.vote .icon {background-position: 0px -754px;}
+	.activity-item.report .icon {background-position: 0px -789px;}
+	.activity-item.solved .icon {background-position: 0px -824px;}
+	.activity-item.read {opacity:0.6;}
+	.activity-item.read:hover {opacity:1;}
 /* STATS */
 .stats .block-wrap {margin-bottom:70px;}
 .stats .indicators {

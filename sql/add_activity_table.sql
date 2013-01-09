@@ -38,7 +38,7 @@ CREATE TABLE `activities` (
   KEY `sender_id` (`sender_id`),
   KEY `receiver_id` (`receiver_id`),
   KEY `notificable_id` (`notificable_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 
 

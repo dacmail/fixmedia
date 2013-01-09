@@ -4,7 +4,8 @@ class User extends ActiveRecord\Model {
 	static $has_many = array(
 		array('reports', 'class_name' => 'Report'),
 		array('subreports', 'class_name' => 'Reports_data'),
-		array('fixes', 'class_name' => 'Vote', 'foreign_key' => 'user_id' ,'conditions' => "vote_type LIKE 'FIX'" )
+		array('fixes', 'class_name' => 'Vote', 'foreign_key' => 'user_id' ,'conditions' => "vote_type LIKE 'FIX'" ),
+		array('activity', 'foreign_key' => 'receiver_id', 'conditions' => 'sender_id <> receiver_id', 'order' => 'created_at desc')
 	);
 
 	public function get_name() {

@@ -24,10 +24,10 @@ class Vote extends ActiveRecord\Model {
    				$receiver = $this->subreport->user_id;
    				$type = 'VOTE';
    				break;
-			case 'SOLVED':
-				$receiver = $this->subreport->user_id;
-				$type = 'SOLVED';
-				break;
+   			case 'SOLVED':
+   				$receiver = $this->subreport->user_id;
+   				$type = 'SOLVED';
+   				break;
    		}
    		Activity::create(array(
    						'sender_id' => $this->user_id,

@@ -108,4 +108,37 @@ class Member extends MY_Controller {
 		endif;
 	}
 
+	public function activity($page=1) {
+		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
+		$data['user'] = $user = $this->the_user;
+
+		$this->load->library('pagination');
+		$config['base_url'] = site_url($this->router->reverseRoute('user-activity', array('username' => $user->username)) . '/pagina/');
+		$config['total_rows'] = count($user->activity);
+		$config['first_url'] = site_url($this->router->reverseRoute('user-activity', array('username' => $user->username)));
+		$config['uri_segment'] = 4;
+		$this->pagination->initialize($config);
+		$data['pagination_links'] = $this->pagination->create_links();
+
+		// TODO: Codigo duplicado en index, unificar.
+		$data["users_ranking"] = $users_ranking = User::find_by_sql("SELECT id, name,username, karma
+														FROM users ORDER BY karma DESC");
+		$position=0;
+		foreach ($users_ranking as $user_rank) :
+			if ($user_rank->id == $user->id ) :
+				break;
+			endif;
+			$position++;
+		endforeach;
+
+		$data["users_ranking_position"] = $position = ($position==0) ? $position : (($position==1) ? $position-1 : $position-2); //muestra las dos fuentes que están por delante
+		$data["users_ranking"] = array_slice($users_ranking, $position, 5);
+		$data['activity'] = array_slice($user->activity,$this->pagination->per_page*($page-1), $this->pagination->per_page);
+		Activity::query("UPDATE activities SET `read`=1, read_at=now() WHERE receiver_id = $user->id");
+		$data['page'] = $page;
+		$data['page_title'] = 'Actividad de ' . $user->name;
+		$data['main_content'] = 'user/activity';
+		$this->load->view('includes/template', $data);
+	}
+
 }
