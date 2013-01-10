@@ -24,6 +24,7 @@
 					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'marcador'))); ?>">Usa nuestro marcador</a></li>
 					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'periodistas'))); ?>">¿Eres periodista?</a></li>
 					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'creadores'))); ?>">¿Creas contenido?</a></li>
+					<li><a href="http://fixmeia.org/blog">Blog</a></li>
 				</ul>
 				<ul class="menu">
 					<li class="name">Manual</li>
