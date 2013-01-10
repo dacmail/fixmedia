@@ -265,7 +265,16 @@ $('document').ready(function() {
 	}
 
 	if ($('.tabs').length>0 && $('.tabs.notabs').length==0) {
-		$('.tabs').tabs();
+		$('.tabs').tabs({select: function(e, ui) {
+						    var tab = $(ui.tab);
+						    var url = $.data(ui.tab, 'load.tabs');
+						    if(url && tab.attr('data-ajax') == 'false')
+						    {
+						        location.href = url;
+						        return false;
+						    }
+						    return true;
+						}});
 	}
 
 

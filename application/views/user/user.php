@@ -28,6 +28,9 @@
 			<ul class="tabs_items">
 				<li><a href="#stats">Estadísticas</a></li>
 				<li class="<?= (($page>1) ? 'ui-tabs-selected' : ''); ?>"><a href="#fixes">Noticias mejoradas por <?= $user->name; ?></a></li>
+				<? if ($logged_in && $user->id==$the_user->id) : ?>
+				<li><a data-ajax="false" href="<?=site_url($this->router->reverseRoute('user-activity'));?>">Actividad</a></li>
+				<? endif; ?>
 			</ul>
 			<div id="stats">
 			    <script type="text/javascript" src="https://www.google.com/jsapi"></script>

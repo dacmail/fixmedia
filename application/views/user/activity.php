@@ -26,8 +26,8 @@
 		</section>
 		<section class="tabs notabs">
 			<ul class="tabs_items">
-				<li><a href="#stats">Estadísticas</a></li>
-				<li><a href="#fixes">Noticias mejoradas por <?= $user->name; ?></a></li>
+				<li><a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $the_user->username))); ?>">Estadísticas</a></li>
+				<li><a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $the_user->username))); ?>#fixes">Noticias mejoradas por <?= $user->name; ?></a></li>
 				<li class="ui-state-active"><a href="#activity">Actividad</a></li>
 			</ul>
 			<div id="activity">
