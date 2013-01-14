@@ -31,6 +31,7 @@
 				<li class="ui-state-active"><a href="#activity">Actividad</a></li>
 			</ul>
 			<div id="activity">
+				<? if (count($activity)) : ?>
 				<? foreach ($activity as $a) : ?>
 					<li class="activity-item clearfix <?= strtolower($a->notification_type); ?> <?= $a->read ? 'read' : 'unread'; ?>">
 						<?=gravatar( $the_user->email, 100, true, base_url('static/avatar-user-30.jpg'), 'x', array('title' => 'Avatar de ' . $the_user->name) )?>
@@ -40,6 +41,9 @@
 						</li>
 				<? endforeach; ?>
 				<div class="pagination clearfix"><?=$pagination_links;?></div>
+				<? else: ?>
+				<p>No hay actividad que mostrar</p>
+				<? endif; ?>
 			</div>
 		</section>
 		<p class="more-actions">Ir a... <a href="<?= site_url($this->router->reverseRoute('reports-create')); ?>">Mejorar una noticia ahora</a></p>

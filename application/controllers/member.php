@@ -133,6 +133,7 @@ class Member extends MY_Controller {
 
 		$data["users_ranking_position"] = $position = ($position==0) ? $position : (($position==1) ? $position-1 : $position-2); //muestra las dos fuentes que están por delante
 		$data["users_ranking"] = array_slice($users_ranking, $position, 5);
+		$data['activity'] = $user->activity;
 		$data['activity'] = array_slice($user->activity,$this->pagination->per_page*($page-1), $this->pagination->per_page);
 		Activity::query("UPDATE activities SET `read`=1, read_at=now() WHERE receiver_id = $user->id");
 		$data['page'] = $page;
