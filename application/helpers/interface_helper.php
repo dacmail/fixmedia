@@ -69,23 +69,23 @@
     function get_activity_text($activity, $el) {
 		switch ($activity->notification_type) {
    			case 'FIX':
-   				$item = Report::find($activity->id);
+   				$item = Report::find($activity->notificable_id);
    				$text = "hizo fix a la noticia <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->slug))) . "'>$item->title</a> que tú descubriste";
    				break;
    			case 'VOTE':
-   				$item = Reports_data::find($activity->id);
+   				$item = Reports_data::find($activity->notificable_id);
    				$text = "valoró tu reporte <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a>";
    				break;
 			case 'SOLVED':
-				$item = Reports_data::find($activity->id);
+				$item = Reports_data::find($activity->notificable_id);
    				$text = "dijo que tu reporte <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a> está corregido";
 				break;
 			case 'SOLVED':
-				$item = Reports_data::find($activity->id);
+				$item = Reports_data::find($activity->notificable_id);
    				$text = "dijo que tu reporte <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a> está corregido";
 				break;
 			case 'REPORT':
-				$item = Report::find($activity->id);
+				$item = Report::find($activity->notificable_id);
    				$text = "reportó en la noticia <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->slug))) . "'>$item->title</a> que tú descubriste";
 				break;
    		}

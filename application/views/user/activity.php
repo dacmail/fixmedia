@@ -34,7 +34,7 @@
 				<? if (count($activity)) : ?>
 				<? foreach ($activity as $a) : ?>
 					<li class="activity-item clearfix <?= strtolower($a->notification_type); ?> <?= $a->read ? 'read' : 'unread'; ?>">
-						<?=gravatar( $the_user->email, 100, true, base_url('static/avatar-user-30.jpg'), 'x', array('title' => 'Avatar de ' . $the_user->name) )?>
+						<?=gravatar( $a->sender->email, 30, true, base_url('static/avatar-user-30.jpg'), 'x', array('title' => 'Avatar de ' . $the_user->name) )?>
 						<p class="activity-text"><a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $a->sender->username))); ?>"><?= $a->sender->name ?></a> <?= get_activity_text($a, $this); ?>
 						<span class="date"><?= relative_time($a->created_at->format('db')); ?></span></p>
 						<i class="icon"><?= $a->read ? 'Leido' : 'Nueva'; ?></i>
