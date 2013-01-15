@@ -35,7 +35,6 @@ if ( ! function_exists('get_url_data')) {
         } else {
             $url_ok = false;
         }
-
         $the_url=$url;
 
         if(preg_match('/charset=([a-zA-Z0-9-_]+)/i', $html, $matches)) {
@@ -45,7 +44,7 @@ if ( ! function_exists('get_url_data')) {
             }
         }
 
-        if(preg_match('/<title[^<>]*>([^<>]*)<\/title>/si', $html, $matches)) {
+        if(preg_match('/<title>(.*)<\/title>/siU', $html, $matches)) {
             $url_tit=clean_text($matches[1]);
             if (mb_strlen($url_tit) > 3) {
                 $url_title=$url_tit;
