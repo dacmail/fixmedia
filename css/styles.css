@@ -76,19 +76,36 @@ a:hover {text-decoration:underline;}
 		}
 			#header .user .welcome {
 				color:#3D87B7;
+				position: relative;
 				font-size:17px;
 				padding-right:25px;
 				height:40px;
 				display:block;
 				background:url('../images/icons.png') no-repeat right -133px;
 			}
-				#header .user .welcome .user_name {
+			#header .user .welcome .user_name {
 					margin-right:20px;
 					display:block;
 					line-height:40px;
 					float:left;
 					font-weight: normal;
 				}
+			#header .user .welcome .unread-activity {
+				position: absolute;
+				display: block;
+				top:-10px;
+				right:20px;
+				text-align: center;
+
+				font-size: 11px;
+				min-width: 12px;
+				border:2px solid #fff;
+				border-radius: 16px;
+				background:red;
+				line-height: 16px;
+				padding:0px 2px;
+				color:#fff;
+			}
 			#header .user .user_info {
 				position:absolute;
 				bottom:-260px;
@@ -151,11 +168,23 @@ a:hover {text-decoration:underline;}
                         	margin-left:15px;
                         }
                         #header .user .user_info .user_data .karma {margin:10px 0px;}
-                #header .user .user_info .log_out {
+                #header .user .user_info .links-wrap {
                 	width:340px;
                 	border-top:1px solid #E5E5E5;
                 	padding-top:10px;
                 	margin-top:15px;
+                }
+
+ 				#header .user .user_info .unread-activity {
+ 					float:left;
+ 					display:block;
+ 					color:#7F7F7F;
+                	font-size:15px;
+                	text-transform:lowercase;
+                	text-align:left;
+ 				}
+                #header .user .user_info .log_out {
+                	float:right;
                 	display:block;
                 	color:#7F7F7F;
                 	font-size:15px;

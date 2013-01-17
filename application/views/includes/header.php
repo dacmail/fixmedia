@@ -34,7 +34,8 @@
                 <a class="log_in" href="<?= site_url($this->router->reverseRoute('login')); ?>">Iniciar sesión</a>
             <? else :?>
                 <section class="user">
-                    <a class="welcome" href="#"><span class="user_name"><?= $the_user->name; ?></span> <?=gravatar( $the_user->email, 40, true, base_url('static/avatar-user-40.jpg'), 'x', array('title' => 'Reputación ' . $the_user->karma) )?></a>
+                    <a class="welcome" href="#"><span class="user_name"><?= $the_user->name; ?></span> <?=gravatar( $the_user->email, 40, true, base_url('static/avatar-user-40.jpg'), 'x', array('title' => 'Reputación ' . $the_user->karma) )?>
+                    <? if (count($the_user->unread_activity)) : ?> <span title="Notificaciones pendientes" class="unread-activity"><?= count($the_user->unread_activity); ?></span><? endif; ?></a>
                     <div class="user_info">
                         <span class="indicator"></span>
                         <div class="clearfix">
@@ -52,7 +53,10 @@
                                 <?= karma_graphic($the_user->karma, false); ?>
                             </div>
                         </div>
-                        <a class="log_out" href="<?= site_url($this->router->reverseRoute('logout')); ?>">Cerrar sesión</a>
+                        <div class="links-wrap">
+                            <? if (count($the_user->unread_activity)) : ?> <a href="<?= site_url($this->router->reverseRoute('user-activity')); ?>" class="unread-activity"><?= count($the_user->unread_activity); ?> notificaciones pendientes</a><? endif; ?>
+                            <a class="log_out" href="<?= site_url($this->router->reverseRoute('logout')); ?>">Cerrar sesión</a>
+                        </div>
                     </div>
                 </section>
             <? endif; ?>

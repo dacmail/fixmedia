@@ -29,7 +29,7 @@
 				<li><a href="#stats">Estadísticas</a></li>
 				<li class="<?= (($page>1) ? 'ui-tabs-selected' : ''); ?>"><a href="#fixes">Noticias mejoradas por <?= $user->name; ?></a></li>
 				<? if ($logged_in && $user->id==$the_user->id) : ?>
-				<li><a data-ajax="false" href="<?=site_url($this->router->reverseRoute('user-activity'));?>">Actividad</a></li>
+				<li><a data-ajax="false" href="<?=site_url($this->router->reverseRoute('user-activity'));?>">Actividad <? if (count($the_user->unread_activity)) : ?> (<?= count($the_user->unread_activity); ?>)<? endif; ?></a></li>
 				<? endif; ?>
 			</ul>
 			<div id="stats">

@@ -28,7 +28,7 @@
 			<ul class="tabs_items">
 				<li><a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $the_user->username))); ?>">Estadísticas</a></li>
 				<li><a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $the_user->username))); ?>#fixes">Noticias mejoradas por <?= $user->name; ?></a></li>
-				<li class="ui-state-active"><a href="#activity">Actividad</a></li>
+				<li class="ui-state-active"><a href="#activity">Actividad <? if (count($the_user->unread_activity)) : ?> (<?= count($the_user->unread_activity); ?>)<? endif; ?></a></li>
 			</ul>
 			<div id="activity">
 				<? if (count($activity)) : ?>
