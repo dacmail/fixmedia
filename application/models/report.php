@@ -28,12 +28,14 @@ class Report extends ActiveRecord\Model {
     }
 
     public function has_subreport($user_id=0) {
-		if (empty($user_id)) return false;
+		if (empty($user_id)) return Reports_data::exists(array('conditions' => array("report_id = ?", $this->id)));;
 		return Reports_data::exists(array('conditions' => array("report_id = ? AND user_id = ?", $this->id, $user_id)));
 	}
 
 	public function get_reports_by_site() {
 		return count(Reports_data::find_by_sql("SELECT rd.id FROM reports_data rd INNER JOIN reports r ON (r.id=rd.report_id) WHERE r.site LIKE '$this->site'"));
 	}
+
+
 
 }

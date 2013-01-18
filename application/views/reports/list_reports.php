@@ -20,6 +20,9 @@
 					<div class="report_meta">
 						<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $report->user->username))); ?>"><?= $report->user->name; ?></a> el <?= $report->created_at->format('d/m/Y'); ?></p>
 						<p class="source">Fuente: <a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $report->site))); ?>"><?= $report->site; ?></a></p>
+						<? if ($report->has_subreport()) : ?>
+						<p class="popular type_<?= preg_replace('/[^a-z0-9]+/i','-',strtolower($report->data[0]->type));?>">Reporte popular: <a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->slug))); ?>/#report-<?= $report->data[0]->id; ?>"><?= $report->data[0]->title; ?></a></p>
+						<? endif; ?>
 					</div>
 				</article>
 			<? endforeach; ?>

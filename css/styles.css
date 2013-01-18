@@ -346,6 +346,15 @@ a:hover {text-decoration:underline;}
 				line-height: 12px;
 			}
 				.report_info .report_meta .action_type.report {background-position:0 -233px;}
+			.report_info .report_meta .popular {
+				padding-left:17px;
+				line-height:16px;
+				background:url('../images/icons.png') no-repeat 0 -332px;
+				margin-top:15px;
+			}
+			.report_info .report_meta .popular.type_correccion, .report_info .report_meta .popular.type_correcci-n {
+				background-position:0px -299px;
+			}
 		.action_title {
 			font-size:20px;
 			font-weight:normal;
