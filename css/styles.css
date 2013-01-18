@@ -93,16 +93,14 @@ a:hover {text-decoration:underline;}
 			#header .user .welcome .unread-activity {
 				position: absolute;
 				display: block;
-				top:-10px;
-				right:20px;
+				bottom:-13px;
+				right:50px;
 				text-align: center;
-
-				font-size: 11px;
-				min-width: 12px;
-				border:2px solid #fff;
-				border-radius: 16px;
-				background:red;
-				line-height: 16px;
+				min-width: 21px;
+				background:#D83939;
+				border-radius: 25px;
+				font-size: 12px;
+				line-height: 25px;
 				padding:0px 2px;
 				color:#fff;
 			}
@@ -178,7 +176,7 @@ a:hover {text-decoration:underline;}
  				#header .user .user_info .unread-activity {
  					float:left;
  					display:block;
- 					color:#7F7F7F;
+ 					color:#D83939;
                 	font-size:15px;
                 	text-transform:lowercase;
                 	text-align:left;
