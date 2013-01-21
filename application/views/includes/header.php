@@ -14,11 +14,11 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.validate.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-scrolltofixed-min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.colorbox-min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/default.js?v=1.2.3"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/default.js?v=1.3.2"></script>
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styles.css?v=1.2.3">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/styles.css?v=1.3.2">
 </head>
 <body>
     <header id="header">
