@@ -85,8 +85,8 @@
    				$text = "dijo que tu reporte <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a> está corregido";
 				break;
 			case 'REPORT':
-				$item = Report::find($activity->notificable_id);
-   				$text = "reportó en la noticia <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->slug))) . "'>$item->title</a> que tú descubriste";
+				$item = Reports_data::find($activity->notificable_id);
+   				$text = "reportó en la noticia <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "'>$item->title</a> que tú descubriste";
 				break;
    		}
    		return $text;

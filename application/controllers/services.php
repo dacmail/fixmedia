@@ -276,4 +276,24 @@ class Services extends MY_Controller {
          }
       }
 
+      public function next_unvoted_report() {
+         $data['result']['valid'] = false;
+         if (!$this->logged_in) {
+            $data['result']['error'] = "Usuario no está logueado o no se corresponde";
+         } else {
+            try { $user = User::find($this->the_user->id); } catch (\ActiveRecord\RecordNotFound $e) {
+               $data['result']['error'] = "Usuario no válido";
+            }
+            $report = $user->unvoted_reports();
+            if (!count($report)) {
+               $data['result']['error'] = "No hay reportes que valorar";
+            } else {
+                  $data['result']['valid'] = true;
+                  $data['result']['item_id'] = $report->id;
+                  $data['result']['url'] = site_url($this->router->reverseRoute('reports-view' , array('slug' => $report->slug)));
+            }
+         }
+         $this->load->view('services/fix_vote', $data);
+      }
+
 }
