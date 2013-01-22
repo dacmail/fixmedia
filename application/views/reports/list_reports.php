@@ -1,5 +1,7 @@
 <div id="container" class="clearfix columns">
 	<div id="content">
+		<? $report = $the_user->unfixed_reports(); ?>
+		<?= $report->title; ?>
 		<h1 class="title"><?=$title?></h1>
 		<p class="sub_title sep"><?=$subtitle?></p>
 		<section class="reports_list">
