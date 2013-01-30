@@ -43,7 +43,7 @@ class User extends ActiveRecord\Model {
 		return (count($votes) ? round(($votes[0]->votes/count($this->reports)),1) : 0);
 	}
 	public function unvoted_reports($limit=1) {
-		$unvoted_reports = Report::find_by_sql('SELECT DISTINCT rd.report_id FROM reports_data rd INNER JOIN reports r ON (r.id=rd.report_id) WHERE rd.id NOT IN  (SELECT v.item_id FROM votes v WHERE vote_type="REPORT" AND user_id=' . $this->id . ') ORDER BY r.karma DESC LIMIT 0,' . $limit);
+		$unvoted_reports = Report::find_by_sql('SELECT DISTINCT rd.report_id, (r.karma*r.karma_value) as value FROM reports_data rd INNER JOIN reports r ON (r.id=rd.report_id) WHERE rd.id NOT IN  (SELECT v.item_id FROM votes v WHERE vote_type="REPORT" AND user_id=' . $this->id . ') ORDER BY value desc, r.karma desc, r.created_at desc, r.votes_count desc LIMIT 0,' . $limit);
 		$ids = array();
 		foreach ($unvoted_reports as $unvoted) :
 			$ids[] = $unvoted->report_id;

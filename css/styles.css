@@ -1332,7 +1332,7 @@ a:hover {text-decoration:underline;}
 		padding:0px;
 	}
 	#sidebar.report .continue_voting {
-		background:#F1F1F1;
+		background:#F1F1F1 url('../images/next-report.png') 195px center no-repeat;
 		display:block;
 		height:60px;
 		line-height: 60px;
