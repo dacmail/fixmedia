@@ -198,7 +198,7 @@ $('document').ready(function() {
 							$('a.fix_vote').click();
 						}
 					}
-					continue_voting();
+					if (data.all_reports_voted) continue_voting();
 				} else {
 					alert(data.error);
 				}

@@ -83,6 +83,10 @@ class Services extends MY_Controller {
                $data['result']['vote'] = $vote;
                $data['result']['item_id'] = $report->id;
                $data['result']['total_votes'] = $report->votes_count;
+               $data['result']['all_reports_voted'] = true;
+               foreach ($report->report->data as $subr) :
+                  $data['result']['all_reports_voted'] = ($data['result']['all_reports_voted'] && $subr->is_voted($user->id));
+               endforeach;
             else :
                $data['result']['error'] = "Se ha producido un error";
             endif;
