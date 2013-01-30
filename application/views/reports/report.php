@@ -115,6 +115,6 @@
 		<a href="<?= site_url('services/share/' . $report->slug . '/' . $doreport); ?>" class="action-button share <?= (isset($autoshare) ? 'autoload' : ''); ?>">Compártela</a>
 		<hr class="sep"/>
 		<a href="<?= site_url($this->router->reverseRoute('reports-send' , array('id' => $report->id))); ?>" class="action-button add_report">Arréglala</a>
-
+		<a href="#" class="continue_voting" data-ajax="<?= site_url('services/next_unvoted_report'); ?>">Sigue valorando</a>
 	</aside>
 </div>

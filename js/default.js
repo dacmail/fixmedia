@@ -188,7 +188,6 @@ $('document').ready(function() {
 				dataType: 'json'
 			}).done(function ( data ) {
 				if (data.valid) {
-					//$('.vote-' + data.item_id).remove();
 					$('.vote-' + data.item_id).each(function() {
 						$(this).replaceWith('<span class="'+ $(this).attr('class') +'" id="'+ $(this).attr('id') +'">'+ $(this).text() +'</span>');
 					});
@@ -199,6 +198,7 @@ $('document').ready(function() {
 							$('a.fix_vote').click();
 						}
 					}
+					continue_voting();
 				} else {
 					alert(data.error);
 				}
@@ -206,7 +206,20 @@ $('document').ready(function() {
 			e.preventDefault();
 		});
 	}
-
+	function continue_voting() {
+		$.ajax({
+			url: $('.continue_voting').data('ajax'),
+			dataType: 'json'
+		}).done(function ( data ) {
+			if (data.valid) {
+				$('.continue_voting').attr('href', data.url);
+				$('.continue_voting').css('display', 'block');
+				$('.continue_voting').effect("pulsate", { times:4 }, 300);
+			} else {
+				alert(data.error);
+			}
+		});
+	}
 	if ($('a.report_solved').length>0) {
 		$('a.report_solved').click(function(e) {
 			e.preventDefault();

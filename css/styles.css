@@ -1331,6 +1331,19 @@ a:hover {text-decoration:underline;}
 		margin:0px auto;
 		padding:0px;
 	}
+	#sidebar.report .continue_voting {
+		background:#F1F1F1;
+		display:block;
+		height:60px;
+		line-height: 60px;
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+		font-size:17px;
+		color:#666666;
+		font-style: italic;
+		text-align:center;
+		display:none;
+	}
 #sidebar .block {
 	width:260px;
 	margin:20px;
