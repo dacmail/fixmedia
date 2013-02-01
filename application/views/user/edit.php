@@ -35,6 +35,7 @@
 					<?php echo form_checkbox('allow_mention_twitter', '1', $user->allow_mention_twitter, 'id="allow_mention_twitter"');?>
      				<label for="allow_mention_twitter">Permitir que se me mencione en twitter al compartir mis envíos a Fixmedia</label>
 				</div>
+				<? if ($this->ion_auth->is_admin()) : ?>
 				<div class="row wrap_title">
 					<label class="label" for="notifications">Notificaciones <span class="tip">Selecciona cuándo quieres recibir notificaciones en tu correo electrónico</span></label>
 					<?= form_dropdown('notifications', array(0 => 'No recibir notificaciones en el correo', 1=> 'Cuando se produzca la acción', 2 => 'Una vez a día'), 1, 'class=select');?>
@@ -47,6 +48,7 @@
 					<p class="notification_option clearfix"><input type="checkbox" id="vote" name="notifications_types[VOTE]"  value="1"  <?= ($ntypes['VOTE']) ? 'checked' : '' ?>  /><label for="vote">Cuando alguien VALORA un reporte enviado por mi</label></p>
 					<p class="notification_option clearfix"><input type="checkbox" id="solved" name="notifications_types[SOLVED]"  value="1"  <?= ($ntypes['SOLVED']) ? 'checked' : '' ?>  /><label for="solved">Cuando alguien dice que un reporte envíado por mi está CORREGIDO en la noticia</label></p>
 				</div>
+				<? endif; ?>
 			</div>
 			<input type="submit" class="button submit" name="submit" value="Guardar los cambios" />
 		</form>
