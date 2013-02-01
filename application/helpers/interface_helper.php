@@ -66,28 +66,57 @@
          return (count($avg) ? round($avg[0]->average,1) : 0);
     }
 
-    function get_activity_text($activity, $el) {
+    function get_activity_text($activity, $el, $title=true) {
 		switch ($activity->notification_type) {
    			case 'FIX':
    				$item = Report::find($activity->notificable_id);
-   				$text = "hizo fix a la noticia <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->slug))) . "'>$item->title</a> que tú descubriste";
+   				$text = "hizo fix a la noticia ";
+   				$text .= !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->slug))) . "'>$item->title</a> ";
+   				$text .= "que tú descubriste";
    				break;
    			case 'VOTE':
    				$item = Reports_data::find($activity->notificable_id);
-   				$text = "valoró tu reporte <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a>";
+   				$text = "valoró tu reporte ";
+   				$text .= !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a>";
    				break;
 			case 'SOLVED':
 				$item = Reports_data::find($activity->notificable_id);
-   				$text = "dijo que tu reporte <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a> está corregido";
+   				$text = "dijo que tu reporte ";
+   				$text .= !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a> ";
+   				$text .= "está corregido";
 				break;
 			case 'SOLVED':
 				$item = Reports_data::find($activity->notificable_id);
-   				$text = "dijo que tu reporte <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a> está corregido";
-				break;
+   				$text = "dijo que tu reporte ";
+   				$text .= !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a> ";
+   				$text .= "está corregido";
 			case 'REPORT':
 				$item = Reports_data::find($activity->notificable_id);
-   				$text = "reportó en la noticia <a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "'>$item->title</a> que tú descubriste";
+   				$text = "reportó en la noticia ";
+   				$text .= !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "'>$item->title</a> ";
+   				$text .= "que tú descubriste";
 				break;
    		}
    		return $text;
+	}
+
+	function send_email_notifications($activity) {
+		$ci =& get_instance();
+		if ($activity->sender_id!=$activity->receiver_id && $ci->ion_auth->in_group('admin',$activity->receiver_id)) :
+		$data['title'] = $activity->sender->name . ' ' . get_activity_text($activity, $ci, false);
+		$data['content'] = $activity->sender->name . ' ' . get_activity_text($activity, $ci);
+		$message = $ci->load->view('emails/template', $data, true);
+		$ci->email->clear();
+		$ci->email->from($ci->config->item('admin_email', 'ion_auth'), $ci->config->item('site_title', 'ion_auth'));
+		$ci->email->to($activity->receiver->email);
+		$ci->email->subject($data['title']);
+		$ci->email->message($message);
+
+		$ci->email->send();
+
+
+		log_message('debug', $message);
+		else :
+			log_message('debug', 'Usuario es admin? '. var_dump($ci->ion_auth->is_admin($activity->receiver_id)));
+		endif;
 	}

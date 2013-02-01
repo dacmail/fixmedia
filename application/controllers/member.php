@@ -103,12 +103,14 @@ class Member extends MY_Controller {
 			$user->url = $post_data['url'];
 			$user->allow_mention_twitter = isset($post_data['allow_mention_twitter']);
 			$user->twitter = str_replace("@", "", $post_data['twitter']);
-			$user->notifications = $post_data['notifications'];
-			$ntype['FIX'] = isset($post_data['notifications_types']['FIX']);
-			$ntype['VOTE'] = isset($post_data['notifications_types']['VOTE']);
-			$ntype['REPORT'] = isset($post_data['notifications_types']['REPORT']);
-			$ntype['SOLVED'] = isset($post_data['notifications_types']['SOLVED']);
-			$user->notifications_types =  serialize($ntype);
+			if ($this->ion_auth->is_admin()) :
+				$user->notifications = $post_data['notifications'];
+				$ntype['FIX'] = isset($post_data['notifications_types']['FIX']);
+				$ntype['VOTE'] = isset($post_data['notifications_types']['VOTE']);
+				$ntype['REPORT'] = isset($post_data['notifications_types']['REPORT']);
+				$ntype['SOLVED'] = isset($post_data['notifications_types']['SOLVED']);
+				$user->notifications_types =  serialize($ntype);
+			endif;
 			$user->save();
 			redirect($this->router->reverseRoute('user-profile', array('username' => $user->username)));
 		endif;
