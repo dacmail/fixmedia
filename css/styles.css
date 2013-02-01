@@ -473,9 +473,9 @@ a:hover {text-decoration:underline;}
 			margin-bottom:20px;
 		}
 			.sending .fields_wrap .row.wrap_twitter {margin-bottom:50px;}
-		.sending .fields_wrap .option {margin-bottom:5px;}
-		.sending .fields_wrap .option input {float:left;}
-		.sending .fields_wrap .option label {
+		.sending .fields_wrap .option, .sending .fields_wrap .notification_option {margin-bottom:5px;}
+		.sending .fields_wrap .option input, .sending .fields_wrap .notification_option input {float:left;}
+		.sending .fields_wrap .option label, .sending .fields_wrap .notification_option label {
 			margin-left:10px;
 			font-size:14px;
 			float:left;

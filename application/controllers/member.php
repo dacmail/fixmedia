@@ -79,7 +79,7 @@ class Member extends MY_Controller {
 			endif;
 			$position++;
 		endforeach;
-
+		$data['ntypes'] = unserialize($user->notifications_types);
 		$data["users_ranking_position"] = $position = ($position==0) ? $position : (($position==1) ? $position-1 : $position-2); //muestra las dos fuentes que están por delante
 		$data["users_ranking"] = array_slice($users_ranking, $position, 5);
 		$data['page_title'] = 'Editar perfil';
@@ -102,7 +102,13 @@ class Member extends MY_Controller {
 			$user->bio = $post_data['bio'];
 			$user->url = $post_data['url'];
 			$user->allow_mention_twitter = isset($post_data['allow_mention_twitter']);
-			$user->twitter = str_replace("@", "", $post_data['twitter']); ;
+			$user->twitter = str_replace("@", "", $post_data['twitter']);
+			$user->notifications = $post_data['notifications'];
+			$ntype['FIX'] = isset($post_data['notifications_types']['FIX']);
+			$ntype['VOTE'] = isset($post_data['notifications_types']['VOTE']);
+			$ntype['REPORT'] = isset($post_data['notifications_types']['REPORT']);
+			$ntype['SOLVED'] = isset($post_data['notifications_types']['SOLVED']);
+			$user->notifications_types =  serialize($ntype);
 			$user->save();
 			redirect($this->router->reverseRoute('user-profile', array('username' => $user->username)));
 		endif;
