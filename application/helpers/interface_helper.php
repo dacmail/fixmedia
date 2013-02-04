@@ -102,21 +102,18 @@
 
 	function send_email_notifications($activity) {
 		$ci =& get_instance();
-		if ($activity->sender_id!=$activity->receiver_id && $ci->ion_auth->in_group('admin',$activity->receiver_id)) :
-		$data['title'] = $activity->sender->name . ' ' . get_activity_text($activity, $ci, false);
-		$data['content'] = $activity->sender->name . ' ' . get_activity_text($activity, $ci);
-		$message = $ci->load->view('emails/template', $data, true);
-		$ci->email->clear();
-		$ci->email->from($ci->config->item('admin_email', 'ion_auth'), $ci->config->item('site_title', 'ion_auth'));
-		$ci->email->to($activity->receiver->email);
-		$ci->email->subject($data['title']);
-		$ci->email->message($message);
+		if ($activity->sender_id!=$activity->receiver_id && $ci->ion_auth->in_group('admin',$activity->receiver_id) && $activity->receiver->notifications==1 && $activity->receiver->notification_active($activity->notification_type)) :
+			$data['title'] = $activity->sender->name . ' ' . get_activity_text($activity, $ci, false);
+			$data['content'] = $activity->sender->name . ' ' . get_activity_text($activity, $ci);
+			$message = $ci->load->view('emails/template', $data, true);
+			$ci->email->clear();
+			$ci->email->from($ci->config->item('admin_email', 'ion_auth'), $ci->config->item('site_title', 'ion_auth'));
+			$ci->email->to($activity->receiver->email);
+			$ci->email->subject($data['title']);
+			$ci->email->message($message);
 
-		$ci->email->send();
+			$ci->email->send();
 
-
-		log_message('debug', $message);
-		else :
-			log_message('debug', 'Usuario es admin? '. var_dump($ci->ion_auth->is_admin($activity->receiver_id)));
+			log_message('debug', $message);
 		endif;
 	}

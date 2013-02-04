@@ -51,4 +51,9 @@ class User extends ActiveRecord\Model {
 		return Report::find($ids);
 	}
 
+	public function notification_active($type) {
+		$notifications = unserialize($this->notifications_types);
+		return $notifications[$type];
+	}
+
 }
