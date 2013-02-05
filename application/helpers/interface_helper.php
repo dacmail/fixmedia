@@ -103,18 +103,46 @@
 	function send_email_notifications($activity) {
 		$ci =& get_instance();
 		if ($activity->sender_id!=$activity->receiver_id && $ci->ion_auth->in_group('admin',$activity->receiver_id) && $activity->receiver->notifications==1 && $activity->receiver->notification_active($activity->notification_type)) :
-			$data['title'] = '¡Hola, ' . $activity->receiver->name . '!';
-			$data['content'] = '<p>' . $activity->sender->name . ' ' . get_activity_text($activity, $ci) . '</p>';
+			$data['title'] = '<p>¡Hola, ' . $activity->receiver->name . '!</p>';
+			$data['content'] .= '<p>' . $activity->sender->name . ' ' . get_activity_text($activity, $ci) . '</p>';
 			$data['content'] .= '<p><a href="' . site_url('usuario/actividad') . '">Ver notificaciones</a></p>';
 			$message = $ci->load->view('emails/template', $data, true);
 			$ci->email->clear();
 			$ci->email->from($ci->config->item('admin_email', 'ion_auth'), $ci->config->item('site_title', 'ion_auth'));
 			$ci->email->to($activity->receiver->email);
-			$ci->email->subject($data['title']);
+			$ci->email->subject($activity->sender->name . ' ' . get_activity_text($activity, $ci, false));
 			$ci->email->message($message);
 
 			$ci->email->send();
 
+			log_message('debug', $message);
+		endif;
+	}
+
+	function send_daily_notifications($user) {
+		$types = unserialize($user->notifications_types);
+		$t = array();
+		foreach ($types as $type => $val) :
+			if ($val) { $t[] = "'" . $type . "'"; }
+		endforeach;
+		$t = implode(',', $t);
+		$activities = Activity::all(array('conditions' => array('sender_id<>receiver_id AND receiver_id = ' . $user->id . ' AND created_at > date_sub(now(), interval 1 day) AND notification_type IN (' . $t . ')')));
+		if (count($activities)) :
+			$ci =& get_instance();
+			$data['content']="";
+			foreach ($activities as $activity) :
+				$data['content'] .=  '<p>' . $activity->sender->name . ' ' . get_activity_text($activity, $ci) . '</p>';
+			endforeach;
+			$data['title'] = '<p>¡Hola, ' . $user->name . '!</p>';
+			$data['content'] .= '<p><a href="' . site_url('usuario/actividad') . '">Ver notificaciones</a></p>';
+			$message = $ci->load->view('emails/template', $data, true);
+			$ci->email->clear();
+			$ci->email->from($ci->config->item('admin_email', 'ion_auth'), $ci->config->item('site_title', 'ion_auth'));
+			$ci->email->to($user->email);
+			$ci->email->subject('Tu actividad diaria en Fixmedia');
+			$ci->email->message($message);
+
+			$ci->email->send();
 			log_message('debug', $message);
 		endif;
 	}

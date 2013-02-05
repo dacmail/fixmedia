@@ -38,7 +38,7 @@
 				<? if ($this->ion_auth->is_admin()) : ?>
 				<div class="row wrap_title">
 					<label class="label" for="notifications">Notificaciones <span class="tip">Selecciona cuándo quieres recibir notificaciones en tu correo electrónico</span></label>
-					<?= form_dropdown('notifications', array(0 => 'No recibir notificaciones en el correo', 1=> 'Cuando se produzca la acción', 2 => 'Una vez a día'), 1, 'class=select');?>
+					<?= form_dropdown('notifications', array(0 => 'No recibir notificaciones en el correo', 1=> 'Cuando se produzca la acción', 2 => 'Una vez a día'), $user->notifications, 'class=select');?>
 					<?= form_error('notifications', '<span class="error">', '</span>'); ?>
 				</div>
 				<div class="row wrap_type_info">

@@ -300,4 +300,13 @@ class Services extends MY_Controller {
          $this->load->view('services/fix_vote', $data);
       }
 
+      public function daily_notifications() {
+         if ($this->input->is_cli_request() ) {
+            $users = User::find_all_by_notifications(2);
+            foreach ($users as $user) :
+               send_daily_notifications($user);
+            endforeach;
+         }
+      }
+
 }
