@@ -104,7 +104,7 @@
 		$ci =& get_instance();
 		if ($activity->sender_id!=$activity->receiver_id && $ci->ion_auth->in_group('admin',$activity->receiver_id) && $activity->receiver->notifications==1 && $activity->receiver->notification_active($activity->notification_type)) :
 			$data['title'] = '¡Hola, ' . $activity->receiver->name . '!';
-			$data['content'] = '<p>' . $activity->sender->name . ' ' . get_activity_text($activity, $ci) . '</p>;
+			$data['content'] = '<p>' . $activity->sender->name . ' ' . get_activity_text($activity, $ci) . '</p>';
 			$data['content'] .= '<p><a href="' . site_url('usuario/actividad') . '">Ver notificaciones</a></p>';
 			$message = $ci->load->view('emails/template', $data, true);
 			$ci->email->clear();
