@@ -126,15 +126,20 @@
 			if ($val) { $t[] = "'" . $type . "'"; }
 		endforeach;
 		$t = implode(',', $t);
-		$activities = Activity::all(array('conditions' => array('sender_id<>receiver_id AND receiver_id = ' . $user->id . ' AND created_at > date_sub(now(), interval 1 day) AND notification_type IN (' . $t . ')')));
+		$activities = Activity::all(array('conditions' => array('sender_id<>receiver_id AND receiver_id = ' . $user->id . ' AND created_at > date_sub(now(), interval 1 day) AND notification_type IN (' . $t . ')'), 'limit' => 6));
 		if (count($activities)) :
 			$ci =& get_instance();
-			$data['content']="";
+			$data['content']="<p>Tus notificaciones de hoy</p><ul style='font-size:14px; color:#7F7F7F; line-height:21px;'>";
+			$i=1;
 			foreach ($activities as $activity) :
-				$data['content'] .=  '<p>' . $activity->sender->name . ' ' . get_activity_text($activity, $ci) . '</p>';
-			endforeach;
+				$data['content'] .=  '<li>' . $activity->sender->name . ' ' . get_activity_text($activity, $ci) . '</li>';
+				if ($i==5) {
+					$data['content'] .= '<li>...</li>';
+					break;
+				}
+			$i++; endforeach;
 			$data['title'] = '<p>¡Hola, ' . $user->name . '!</p>';
-			$data['content'] .= '<p><a href="' . site_url('usuario/actividad') . '">Ver notificaciones</a></p>';
+			$data['content'] .= '</ul><p><a href="' . site_url('usuario/actividad') . '">Consúltalas todas en la web</a></p>';
 			$message = $ci->load->view('emails/template', $data, true);
 			$ci->email->clear();
 			$ci->email->from($ci->config->item('admin_email', 'ion_auth'), $ci->config->item('site_title', 'ion_auth'));
