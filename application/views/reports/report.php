@@ -56,8 +56,10 @@
 						<div class="solved_button clearfix">
 							<? if ($logged_in && !$subreport->is_voted($the_user->id, 'SOLVED')) : ?>
 								<span class="question">¿Arreglado en la noticia original?</span>
-								<!--span class="confirmation">¿Seguro?</span-->
 								<a href="<?php echo site_url(array('services/report_solved', $the_user->id ,$subreport->id)); ?>" id="solved-<?= $subreport->id ?>" class="report_solved solved-<?= $subreport->id ?>">Sí</a>
+							<? elseif (!$logged_in) : ?>
+								<span class="question">¿Arreglado en la noticia original?</span>
+								<a href="<?= site_url($this->router->reverseRoute('login')); ?>" class="report_solved_nologin">Sí</a>
 							<? endif; ?>
 							<span class="solved_counter">
 								<? if ($subreport->solved_votes() > 0) : ?>
@@ -97,7 +99,7 @@
 						FIX
 					</a>
 				<? elseif (!$logged_in) : ?>
-					<a title="Haciendo Fix estás diciendo que esta noticia es mejorable en algún aspecto" href="<?php echo base_url("index.php/auth/login"); ?>" id="vote-<?= $report->id ?>" class="button icon fixit">
+					<a title="Haciendo Fix estás diciendo que esta noticia es mejorable en algún aspecto" href="<?=  site_url($this->router->reverseRoute('login')); ?>" id="vote-<?= $report->id ?>" class="button icon fixit">
 						FIX
 					</a>
 				<? elseif ($logged_in && $report->is_voted($the_user->id)) : ?>

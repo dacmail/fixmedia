@@ -634,14 +634,14 @@ a:hover {text-decoration:underline;}
 				padding: 4px 13px;
 				margin-left: -3px;
 			}
-			.solved_button .report_solved {
+			.solved_button .report_solved, .solved_button .report_solved_nologin {
 				background: #79B4CB;
 				color: #ffffff;
 				padding: 4px 13px;
 				margin-left: -3px;
 				display:none;
 			}
-			.solved_button:hover .report_solved {display:inline;}
+			.solved_button:hover .report_solved, .solved_button:hover .report_solved_nologin {display:inline;}
 		.subreport .counter {
 			float:left;
 			font-size:30px;
