@@ -82,7 +82,7 @@
 	</div>
 
 	<aside id="sidebar" class="report">
-		<div class="counter">
+		<div class="counter <?= $report->is_solved() ? 'solved' : 'nosolved' ?>">
 			<div class="wrap-counter">
 				<span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span>
 				<? if ($report->votes_count==1 && ($logged_in && $report->is_voted($the_user->id))) : ?>

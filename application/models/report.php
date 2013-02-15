@@ -36,6 +36,12 @@ class Report extends ActiveRecord\Model {
 		return count(Reports_data::find_by_sql("SELECT rd.id FROM reports_data rd INNER JOIN reports r ON (r.id=rd.report_id) WHERE r.site LIKE '$this->site'"));
 	}
 
-
+	public function is_solved() {
+		$solved=count($this->data); //false if report has no "subreports"
+		foreach ($this->data as $subr) :
+			$solved = $solved && $subr->is_solved();
+		endforeach;
+		return $solved;
+	}
 
 }

@@ -1246,11 +1246,11 @@ a:hover {text-decoration:underline;}
 	padding:10px 45px 20px 45px;
 	text-align:center;
 	margin-bottom:0px;
-
 	font-style:italic;
 	width:210px;
 	margin-left:-20px;
 }
+	#sidebar .counter.solved {background:#7ACC84;}
 	#sidebar .counter .count {
 		font-size:75px;
 		color:#ffffff;
@@ -1267,6 +1267,7 @@ a:hover {text-decoration:underline;}
 		border-top:1px solid #F6DA62;
 		margin-bottom:20px;
 	}
+		#sidebar .counter.solved .wrap-fix {border-color:#ccc;}
 	#sidebar .counter .wrap-fix .button {
 		width:67px;
 		font-style:normal;

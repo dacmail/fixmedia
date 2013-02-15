@@ -1,64 +1,80 @@
 $('document').ready(function() {
 	if ($('.main_type_radio').length>0) {
-		$('.main_type_radio').live('click', function() {
+		$('.main_type_radio').live('click', function(e) {
 			var wrap = '#fields_' + $(this).data('count');
+			var full = false;
+			if ($(wrap).html().length>0) {
+				$(wrap).find('.text').each(function() {
+					full = full || ($(this).val().length>0);
+				});
+				full = full || ($(wrap).find('textarea').val().length>0);
+			}
+			var response = true;
+			if (full) {
+				response = confirm('¿Estás seguro que deseas cambiar el tipo de reporte? Se perderán los datos escritos.');
+			}
+			if (response) {
 			var input = $(this);
-			$.ajax({
-				url:$(this).data('service')+'/'+$(this).val()+'/'+$('.report_data').length
-			}).done(function ( data ) {
-				// Cambio color de la caja que contiene al radio button
-				input.closest('.wrap_types').find('.wrap_type').removeClass('active');
-				input.parent('.wrap_type').addClass('active');
-				//Introducimos los datos en 'wrap' y los mostramos
-				$(wrap).html(data);
-				$(wrap).show();
-				if ($('.report_data').length < 3) { $('#add_more').show(); }
-				$('#submit').show();
+				$.ajax({
+					url:$(this).data('service')+'/'+$(this).val()+'/'+$('.report_data').length
+				}).done(function ( data ) {
+					// Cambio color de la caja que contiene al radio button
+					input.closest('.wrap_types').find('.wrap_type').removeClass('active');
+					input.parent('.wrap_type').addClass('active');
+					//Introducimos los datos en 'wrap' y los mostramos
+					$(wrap).html(data);
+					$(wrap).show();
+					if ($('.report_data').length < 3) { $('#add_more').show(); }
+					$('#submit').show();
 
-				//Mostramos las ayudas en el focus y las ocultamos en blur
-				$('.sending .fields_wrap .row input').live('focus', function() {
-					$(this).nextAll('.error').first().hide();
-					$(this).nextAll('.help').first().show().css('display','block');
-					var char = 120 - $(this).val().length;
-					$(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
-				});
-				$('.sending .fields_wrap .row textarea').live('focus', function() {
-					$(this).nextAll('.error').first().hide();
-					$(this).nextAll('.help').first().show().css('display','block');
-					var char = 400 - $(this).val().length;
-					$(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
-				});
+					//Mostramos las ayudas en el focus y las ocultamos en blur
+					$('.sending .fields_wrap .row input').live('focus', function() {
+						$(this).nextAll('.error').first().hide();
+						$(this).nextAll('.help').first().show().css('display','block');
+						var char = 120 - $(this).val().length;
+						$(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
+					});
+					$('.sending .fields_wrap .row textarea').live('focus', function() {
+						$(this).nextAll('.error').first().hide();
+						$(this).nextAll('.help').first().show().css('display','block');
+						var char = 400 - $(this).val().length;
+						$(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
+					});
 
-				$('.sending .fields_wrap .row input').live('blur', function() {
-					$(this).nextAll('.help').first().hide();
-				});
-				$('.sending .fields_wrap .row textarea').live('blur', function() {
-					$(this).nextAll('.help').first().hide();
-				});
+					$('.sending .fields_wrap .row input').live('blur', function() {
+						$(this).nextAll('.help').first().hide();
+					});
+					$('.sending .fields_wrap .row textarea').live('blur', function() {
+						$(this).nextAll('.help').first().hide();
+					});
 
-				$('.textarea').live('keyup', function() {
-			        var max = 400;
-			        if  ($('.profile').length>0) {alert('hh');max=300;}
-			        var len = $(this).val().length;
-			        if (len >= max) {
-			            $(this).nextAll('.help').first().children('.charcount').html('Has llegado al máximo de caracteres.');
-			        }else {
-			            var char = max - len;
-			            $(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
-			        }
-			    });
-			    $('.text').live('keyup', function() {
-			        var max = 120;
-			        var len = $(this).val().length;
-			        if (len >= max) {
-			            $(this).nextAll('.help').first().children('.charcount').html('Has llegado al máximo de caracteres.');
-			        }else {
-			            var char = max - len;
-			            $(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
-			        }
-			    });
-			});
+					$('.textarea').live('keyup', function() {
+				        var max = 400;
+				        if  ($('.profile').length>0) {alert('hh');max=300;}
+				        var len = $(this).val().length;
+				        if (len >= max) {
+				            $(this).nextAll('.help').first().children('.charcount').html('Has llegado al máximo de caracteres.');
+				        }else {
+				            var char = max - len;
+				            $(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
+				        }
+				    });
+				    $('.text').live('keyup', function() {
+				        var max = 120;
+				        var len = $(this).val().length;
+				        if (len >= max) {
+				            $(this).nextAll('.help').first().children('.charcount').html('Has llegado al máximo de caracteres.');
+				        }else {
+				            var char = max - len;
+				            $(this).nextAll('.help').first().children('.charcount').html('Te quedan <strong>' + char + '</strong> caracteres.');
+				        }
+				    });
+				});
+			} else {
+				e.preventDefault();
+			} //end if response
 		});
+
 		$('.add_url').live('click', function(e) {
 			$(this).closest('.fields_wrap').first().find('.urls').first().clone().insertAfter($(this).closest('.fields_wrap').first().find('.urls').last()).val('').attr('placeholder','http://');
 			if ($(this).closest('.fields_wrap').first().find('.urls').length>=3) { $(this).hide(); }
