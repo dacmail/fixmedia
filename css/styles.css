@@ -1249,8 +1249,18 @@ a:hover {text-decoration:underline;}
 	font-style:italic;
 	width:210px;
 	margin-left:-20px;
+	position: relative;
 }
-	#sidebar .counter.solved {background:#7ACC84;}
+	#sidebar .counter .solved_ribbon {
+		position: absolute;
+		top:-5px;
+		left: -5px;
+		background:url(../images/solved.png) no-repeat;
+		width: 120px;
+		height: 121px;
+		text-indent:-9999px;
+		z-index:1000;
+	}
 	#sidebar .counter .count {
 		font-size:75px;
 		color:#ffffff;
@@ -1267,7 +1277,7 @@ a:hover {text-decoration:underline;}
 		border-top:1px solid #F6DA62;
 		margin-bottom:20px;
 	}
-		#sidebar .counter.solved .wrap-fix {border-color:#ccc;}
+
 	#sidebar .counter .wrap-fix .button {
 		width:67px;
 		font-style:normal;
