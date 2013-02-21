@@ -2014,11 +2014,24 @@ class Ion_auth_model extends CI_Model
 		$this->db->insert($this->tables['authentications'], $user_data);
 
 		$id = $this->db->insert_id();
+		$this->complete_data($id);
 
 		$this->trigger_events('post_register');
 
 		return (isset($id)) ? $id : FALSE; //id in Authentications table.
 	}
 
+	public function complete_data($auth_id) {
+		$auth = Authentication::find($auth_id);
+		switch ($auth->provider) {
+			case 'Twitter':
+				$auth->user->url = $auth->websiteurl;
+				$auth->user->name = $auth->firstname;
+				$auth->user->twitter = $auth->displayname;
+				$auth->user->bio = $auth->description;
+				$auth->user->save();
+				break;
+		}
+   	}
 	/** /HybridIgniter functions **/
 }

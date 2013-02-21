@@ -6,9 +6,11 @@ class User extends ActiveRecord\Model {
 		array('subreports', 'class_name' => 'Reports_data'),
 		array('fixes', 'class_name' => 'Vote', 'foreign_key' => 'user_id' ,'conditions' => "vote_type LIKE 'FIX'" ),
 		array('activity', 'foreign_key' => 'receiver_id', 'conditions' => 'sender_id <> receiver_id', 'order' => 'created_at desc'),
-		array('unread_activity', 'class_name' => 'Activity', 'foreign_key' => 'receiver_id', 'conditions' => array('sender_id <> receiver_id AND `read`=0'), 'order' => 'created_at desc')
-
+		array('unread_activity', 'class_name' => 'Activity', 'foreign_key' => 'receiver_id', 'conditions' => array('sender_id <> receiver_id AND `read`=0'), 'order' => 'created_at desc'),
 	);
+	static $has_one = array(
+	    array('auth', 'class_name' => 'Authentication')
+   	);
 
 	public function get_name() {
 		$name = $this->read_attribute('name');

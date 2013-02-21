@@ -13,7 +13,7 @@
 			<h3 class="section_title">Usuarios que han reportado</h3>
 			<? foreach ($reporting_users as $user) :  ?>
 				<article class="user_info clearfix">
-						<a class="avatar_wrap" href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?=gravatar( $user->email, 150, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?></a>
+						<a class="avatar_wrap" href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?=get_avatar( $user, 150);?></a>
 						<div class="data">
 					  		<h2 class="name"><a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?= $user->name; ?></a></h2>
 					  		<p class="when">Mejorando noticias desde el <?= date('d/m/Y', $user->created_on); ?></p>
@@ -35,7 +35,7 @@
 			<? foreach ($reporting_votes_users as $user) :  ?>
 				<li class="user_info clearfix">
 						<a class="link_wrap" href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>">
-							<?=gravatar( $user->email, 75, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?>
+							<?=get_avatar( $user, 75); ?>
 							<div class="name_wrap">
 								<span class="name"><?= (strlen($user->name)>7) ? substr($user->name,0,7) . '...' : $user->name; ?></span>
 								<span class="name over"><?= $user->name; ?></span>
@@ -53,7 +53,7 @@
 			<? foreach ($only_fixes_users as $user) :  ?>
 				<li class="user_info clearfix">
 						<a class="link_wrap" href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>">
-							<?=gravatar( $user->email, 50, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?>
+							<?=get_avatar( $user, 50 ); ?>
 							<div class="name_wrap">
 								<span class="name"><?= (strlen($user->name)>6) ? substr($user->name,0,6) . '...' : $user->name; ?></span>
 								<span class="name over"><?= $user->name; ?></span>

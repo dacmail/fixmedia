@@ -2,9 +2,9 @@
 	<div id="content">
 		<section class="user_info clearfix">
 			<div class="gravatar">
-				<?=gravatar( $user->email, 150, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?>
-			  	<? if ($logged_in && $user->id==$the_user->id) : ?>
-			  	<a class="change_gravatar" href="http://es.gravatar.com/" target="blank">Cambiar gravatar</a>
+				<?=get_avatar( $user, 150); ?>
+			  	<? if ($logged_in && $user->id==$the_user->id && !count($user->auth)) : ?>
+			  		<a class="change_gravatar" href="http://es.gravatar.com/" target="blank">Cambiar gravatar</a>
 			  	<? endif; ?>
 			</div>
 			<div class="data">

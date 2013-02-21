@@ -19,12 +19,12 @@
 				<article class="user_info clearfix">
 					<? if ($position<=3) :?>
 						<div class="avatar podium">
-							<a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?=gravatar( $user->email, 150, true, base_url('static/avatar-user-150.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?></a>
+							<a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?=get_avatar( $user, 150); ?></a>
 							<div class="position"><?=$position;?>º</div>
 						</div>
 					<? else : ?>
 						<div class="avatar others">
-							<a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?=gravatar( $user->email, 100, true, base_url('static/avatar-user-100.jpg'), 'x', array('title' => 'Reputación ' . $user->karma) )?></a>
+							<a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $user->username))); ?>"><?=get_avatar( $user, 100); ?></a>
 							<div class="position"><?=$position;?>º</div>
 						</div>
 					<? endif; ?>

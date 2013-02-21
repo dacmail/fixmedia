@@ -151,3 +151,12 @@
 			log_message('debug', $message);
 		endif;
 	}
+
+	function get_avatar($user, $size=40, $alt=false) {
+		if (!$alt) { $alt= "Reputación " . $user->karma; }
+		if (count($user->auth)) :
+			return "<img src='" . str_replace('_normal', '_bigger', $user->auth->photourl) . "' width='" . $size . "' alt='" . $alt . "' />";
+		else :
+			return gravatar($user->email, $size, true, base_url('static/avatar-user-' . $size . '.jpg'), 'x', array('alt' => $alt) );
+		endif;
+	}

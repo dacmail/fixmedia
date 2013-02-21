@@ -34,13 +34,13 @@
                 <a class="log_in" href="<?= site_url($this->router->reverseRoute('login')); ?>">Iniciar sesión</a>
             <? else :?>
                 <section class="user">
-                    <a class="welcome" href="#"><span class="user_name"><?= $the_user->name; ?></span> <?=gravatar( $the_user->email, 40, true, base_url('static/avatar-user-40.jpg'), 'x', array('title' => 'Reputación ' . $the_user->karma) )?>
+                    <a class="welcome" href="#"><span class="user_name"><?= $the_user->name; ?></span> <?= get_avatar($the_user, 40)?>
                     <? if (count($the_user->unread_activity)) : ?> <span title="Notificaciones pendientes" class="unread-activity"><?= count($the_user->unread_activity); ?></span><? endif; ?></a>
                     <div class="user_info">
                         <span class="indicator"></span>
                         <div class="clearfix">
                             <div class="user_avatar">
-                                <?=gravatar( $the_user->email, 100, true, base_url('static/avatar-user-100.jpg'), 'x', array('title' => 'Avatar de ' . $the_user->name) )?>
+                                <?=get_avatar($the_user, 100, "Avatar de $the_user->name"); ?>
                                 <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $the_user->username))); ?>">Ver perfil</a>
                             </div>
 
