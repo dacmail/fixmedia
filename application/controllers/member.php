@@ -87,6 +87,14 @@ class Member extends MY_Controller {
 		$this->load->view('includes/template', $data);
 	}
 
+	public function edit_email() {
+		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
+		$data['user'] = $user = $this->the_user;
+		$data['page_title'] = 'Completa tu registro';
+		$data['main_content'] = 'user/edit_email';
+		$this->load->view('includes/template-landing', $data);
+	}
+
 	public function save() {
 		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 		$user = $this->the_user;
@@ -113,6 +121,23 @@ class Member extends MY_Controller {
 			endif;
 			$user->save();
 			redirect($this->router->reverseRoute('user-profile', array('username' => $user->username)));
+		endif;
+	}
+
+	public function save_email() {
+		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
+		$user = $this->the_user;
+		$post_data = $this->input->post(NULL, TRUE);
+		$this->form_validation->set_rules('email', 'Correo electrónico', 'required|is_unique[users.email]|valid_email');
+		if ($this->form_validation->run() === FALSE) :
+			$data['user'] = $user;
+			$data['page_title'] = 'Editar perfil';
+			$data['main_content'] = 'user/edit_email';
+			$this->load->view('includes/template', $data);
+		else :
+			$user->email = $post_data['email'];
+			$user->save();
+			redirect($this->router->reverseRoute('user-edit'));
 		endif;
 	}
 

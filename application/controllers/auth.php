@@ -145,9 +145,9 @@ class Auth extends MY_Controller {
 					}
 					else
 					{ // if authentication does not exist and email is not in use, then we create a new user
-						$username = $user_profile->displayName;
+						$username = url_title(convert_accented_characters($user_profile->displayName),'dash',true);
 						$password = rand(8, 15);
-						$email = $user_profile->email;
+						$email = empty($email) ?   $username : $user_profile->email;
 
 						$additional_data['profileURL']	= $user_profile->profileURL;
 						$additional_data['webSiteURL']	= $user_profile->webSiteURL;
@@ -162,7 +162,7 @@ class Auth extends MY_Controller {
 						$additional_data['birthDay']	= $user_profile->birthDay;
 						$additional_data['birthMonth']	= $user_profile->birthMonth;
 						$additional_data['birthYear']	= $user_profile->birthYear;
-						$additional_data['email']		= $user_profile->email;
+						$additional_data['email']		= $email;
 						$additional_data['emailVerified']	= $user_profile->emailVerified;
 						$additional_data['phone']		= $user_profile->phone;
 						$additional_data['address']		= $user_profile->address;
@@ -170,13 +170,16 @@ class Auth extends MY_Controller {
 						$additional_data['region']		= $user_profile->region;
 						$additional_data['city']		= $user_profile->city;
 						$additional_data['zip']			= $user_profile->zip;
-						empty($email) ?  $email = 'email' : true;
 						if($email != null && $this->ion_auth->register_by_provider($provider, $provider_uid, $username, $password, $email,  $additional_data))
 						{ // create new user && creat a new authentication for him
 
 							if($this->ion_auth->login_by_provider($provider,$provider_uid))
 					 		{ // log user in :)
-								redirect(site_url($this->router->reverseRoute('user-edit')));
+								if ($email==$username) : //si el email no se ha podido obtener
+									redirect(site_url('member/edit_email'));
+								else :
+									redirect(site_url($this->router->reverseRoute('user-edit')));
+								endif;
 							}
 							else
 							{
