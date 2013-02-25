@@ -2031,6 +2031,11 @@ class Ion_auth_model extends CI_Model
 				$auth->user->bio = $auth->description;
 				$auth->user->save();
 				break;
+			case 'Facebook':
+				$auth->user->name = $auth->displayname;
+				$auth->user->bio = $auth->description;
+				$auth->user->save();
+				break;
 		}
    	}
 	/** /HybridIgniter functions **/

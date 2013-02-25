@@ -19,6 +19,10 @@ $config['providers'] = array (
 			"Twitter" => array (
 				"enabled" => true,
 				"keys"    => array ( "key" => "q4OCmsOAUOg0ENvFsZPg", "secret" => "D9YgtmiWdCEq3BxAGhq1Vioj6EvR1bPvCttFVQU8A" )
+			),
+			"Facebook" => array (
+				"enabled" => true,
+				"keys"    => array ( "id" => "468142506573265", "secret" => "6860eed9e36638e69d5b18fdab2c7c96" ),
 			)
 		);
 

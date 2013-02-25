@@ -147,7 +147,7 @@ class Auth extends MY_Controller {
 					{ // if authentication does not exist and email is not in use, then we create a new user
 						$username = url_title(convert_accented_characters($user_profile->displayName),'dash',true);
 						$password = rand(8, 15);
-						$email = empty($email) ?   $username : $user_profile->email;
+						$email = empty($email) ?  (empty($user_profile->emailVerified) ?  $username : $user_profile->emailVerified) : $user_profile->email;
 
 						$additional_data['profileURL']	= $user_profile->profileURL;
 						$additional_data['webSiteURL']	= $user_profile->webSiteURL;
