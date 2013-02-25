@@ -5,3 +5,4 @@ images/sources/*
 Fixmedia.sublime*
 static/sources/*
 application/logs/*
+application/config/hybridauthlib.php
