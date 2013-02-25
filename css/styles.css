@@ -1904,7 +1904,7 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 .landing #head {
 	background:#F6F6F6;
 	padding-top:1px;
-	margin-bottom:560px;
+	margin-bottom:760px;
 }
 	.landing .logo {
 		display:block;
@@ -1980,11 +1980,11 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 	.landing #container .title {
 		border-bottom:1px solid #D2D2D2;
 		margin-bottom:0px;
-		padding-bottom:20px;
+		padding-bottom:40px;
 	}
 	.landing #container form {
 		border-top: 1px solid #EEEEEE;
-		padding-top:20px;
+		padding-top:40px;
 	}
 	.landing .top-menu .menu {
 		width:980px;
@@ -1993,7 +1993,52 @@ input#invitation_code, input#identity, input#username, input#email, input#passwo
 		list-style:none;
 	}
 	.landing .top-menu .menu a {color:#ffffff;}
-
+	.landing .connect {
+		border-bottom:1px solid #D2D2D2;
+		border-top: 1px solid #EEEEEE;
+		padding:40px 10px;
+		position: relative;
+	}
+	.landing .connect .tip {
+		position: absolute;
+		display: block;
+		padding:0px 10px;
+		background:#E5E5E5;
+		top:-10px;
+		font-size:14px;
+		color:#999999;
+		font-style: italic;
+		left:50%;
+		width:120px;
+		margin-left:-70px;
+		text-transform: lowercase;
+	}
+	.landing .connect .tip.bottom { top:auto; bottom:-10px;}
+	.landing #content .connect form {
+		float:left;
+		border:0px;
+		padding:0px;
+	}
+	.landing #content .connect form.twitter {
+		float:right;
+	}
+	.landing #content .connect .btn-connect {
+		width: 200px;
+		height:40px;
+		line-height: 40px;
+		float:left;
+		background:url('../images/btn-facebook.png') no-repeat;
+		color:#fff;
+		padding-left:40px;
+		font-size:14px;
+		text-shadow:1px 1px 0px #00549f;
+		border:0px;
+	}
+	.landing #content .connect .btn-connect.twitter {
+		float:right;
+		background:url('../images/btn-twitter.png') no-repeat;
+		text-shadow:1px 1px 0px #2ebeee;
+	}
 a.bookmarklet {
 	    height:21px;
 	    line-height: 19px;

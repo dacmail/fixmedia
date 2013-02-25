@@ -1780,7 +1780,8 @@ class Ion_auth_model extends CI_Model
 		if ($query->num_rows() === 1)
 		{
 			$user_info = $query->row();
-			$email = $user_info->email;
+			$main_user = User::find($user_info->user_id);
+			$email = $main_user->email;
 
 			$user_id = $this->id_by_email($email);
 

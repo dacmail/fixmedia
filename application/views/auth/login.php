@@ -2,6 +2,16 @@
   <div id="content">
 
     <h1 class="title">Iniciar sesión</h1>
+    <div class="connect clearfix">
+      <span class="tip">Con un click</span>
+      <?= form_open(site_url($this->router->reverseRoute('login-provider', array('provider' => 'Facebook'))) , array('class' => 'facebook'), array("prev" => $this->session->userdata('prev_url')));?>
+        <input type="submit" class="facebook btn-connect" value="Iniciar con Facebook" />
+      <?= form_close();?>
+      <?= form_open(site_url($this->router->reverseRoute('login-provider', array('provider' => 'Twitter'))) ,array('class' => 'twitter'), array("prev" => $this->session->userdata('prev_url')));?>
+        <input type="submit" class="twitter btn-connect" value="Iniciar con Twitter" />
+      <?= form_close();?>
+      <span class="tip bottom">o usa el formulario</span>
+    </div>
     <?php echo form_open("auth/login",'', array("prev" => $this->session->userdata('prev_url')));?>
     <? if (!empty($message)) : ?><div id="infoMessage"><?= $message;?></div><? endif;?>
     <p class="row">

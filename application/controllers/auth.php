@@ -141,7 +141,8 @@ class Auth extends MY_Controller {
 
 					if($this->ion_auth->login_by_provider($provider,$provider_uid))
 					{
-						redirect(site_url($this->router->reverseRoute('user-edit')));
+						//redirect(site_url($this->router->reverseRoute('user-edit')));
+						redirect($this->input->post('prev'), 'refresh');
 					}
 					else
 					{ // if authentication does not exist and email is not in use, then we create a new user

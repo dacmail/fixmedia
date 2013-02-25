@@ -88,5 +88,6 @@ $route['fuentes/fixes'] = array('sources/fixes','sources-fixes');
 $route['fuentes/fixes/pagina/(:page)'] = array('sources/fixes/$1','sources-fixes-paged');
 $route['fuentes/noticias'] = array('sources/news','sources-news');
 $route['fuentes/noticias/pagina/(:page)'] = array('sources/news/$1','sources-news-paged');
+$route['usuario/entrar_con/(:provider)'] = array('auth/login_provider/$1','login-provider');
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
