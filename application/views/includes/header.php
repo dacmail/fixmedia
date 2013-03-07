@@ -23,15 +23,15 @@
 <body>
     <header id="header">
         <div class="wrap clearfix">
-            <p class="main_title"><a href="<?php echo base_url(); ?>" title="Fixmedia.org, arregla las noticias"><img src="<?= base_url('images/logo-fixmedia.png'); ?>" alt="Fixmedia.org, arregla las noticias" title="Fixmedia.org, arregla las noticias"/></a></p>
+            <p class="main_title"><a href="<?php echo base_url(); ?>" title="Fixmedia.org, arregla las noticias"><img src="<?= base_url('images/logo-fixmedia.png'); ?>" alt="Fixmedia.org, arregla las noticias" title="<? _e('Fixmedia.org, arregla las noticias'); ?>"/></a></p>
             <nav class="top-menu">
                 <ul class="menu clearfix">
-                    <li>arrastra el botón <a href="javascript:(function()%7B%20%20_my_script%3Ddocument.createElement(%27SCRIPT%27)%3B%20%20_my_script.type%3D%27text/javascript%27%3B%20%20_my_script.src%3D%27http://fixmedia.org/js/bookmarklet.js%27%3B%20%20document.getElementsByTagName(%27head%27)%5B0%5D.appendChild(_my_script)%3B%7D)()%3B" class="bookmarklet">Hacer FIX</a> a tu navegador [<a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'marcador'))); ?>">+ info</a>]</li>
-                    <li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'que-es-fixmedia'))); ?>">¿Qué es fixmedia?</a></li>
+                    <li><? _e('arrastra el botón'); ?> <a href="javascript:(function()%7B%20%20_my_script%3Ddocument.createElement(%27SCRIPT%27)%3B%20%20_my_script.type%3D%27text/javascript%27%3B%20%20_my_script.src%3D%27http://fixmedia.org/js/bookmarklet.js%27%3B%20%20document.getElementsByTagName(%27head%27)%5B0%5D.appendChild(_my_script)%3B%7D)()%3B" class="bookmarklet"><? _e('Hacer FIX'); ?></a> <? _e('a tu navegador'); ?> [<a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'marcador'))); ?>"><? _e('+ info'); ?></a>]</li>
+                    <li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'que-es-fixmedia'))); ?>"><? _e('¿Qué es fixmedia?'); ?></a></li>
                 </ul>
             </nav>
             <? if (!$logged_in) : ?>
-                <a class="log_in" href="<?= site_url($this->router->reverseRoute('login')); ?>">Iniciar sesión</a>
+                <a class="log_in" href="<?= site_url($this->router->reverseRoute('login')); ?>"><? _e('Iniciar sesión'); ?></a>
             <? else :?>
                 <section class="user">
                     <a class="welcome" href="#"><span class="user_name"><?= $the_user->name; ?></span> <?= get_avatar($the_user, 40)?>
@@ -41,21 +41,21 @@
                         <div class="clearfix">
                             <div class="user_avatar">
                                 <?=get_avatar($the_user, 100, "Avatar de $the_user->name"); ?>
-                                <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $the_user->username))); ?>">Ver perfil</a>
+                                <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $the_user->username))); ?>"><? _e('Ver perfil'); ?></a>
                             </div>
 
                             <div class="user_data">
                                 <h2 class="name"><?= $the_user->name; ?></h2>
                                 <p class="counters">
-                                    <span class="fix_count"><?= count($the_user->fixes); ?></span> fixes
-                                    <span class="report_count"><?= count($the_user->subreports); ?></span> reportes
+                                    <span class="fix_count"><?= count($the_user->fixes); ?></span> <? _e('fixes'); ?>
+                                    <span class="report_count"><?= count($the_user->subreports); ?></span> <? _e('reportes'); ?>
                                 </p>
                                 <?= karma_graphic($the_user->karma, false); ?>
                             </div>
                         </div>
                         <div class="links-wrap">
                             <? if (count($the_user->unread_activity)) : ?> <a href="<?= site_url($this->router->reverseRoute('user-activity')); ?>" class="unread-activity"><?= count($the_user->unread_activity); ?> notificaciones pendientes</a><? endif; ?>
-                            <a class="log_out" href="<?= site_url($this->router->reverseRoute('logout')); ?>">Cerrar sesión</a>
+                            <a class="log_out" href="<?= site_url($this->router->reverseRoute('logout')); ?>"><? _e('Cerrar sesión'); ?></a>
                         </div>
                     </div>
                 </section>
@@ -64,8 +64,8 @@
     </header>
     <nav class="main-menu">
         <ul class="menu clearfix">
-            <li><a href="<?= site_url($this->router->reverseRoute('reports-create')); ?>" class="button icon fixit">FIX</a></li>
-            <li class="<?= is_cur_page($this, 'reports','index') ? 'current' : ''; ?>"><a class="link" href="<?= site_url(); ?>">Más urgentes</a></li>
+            <li><a href="<?= site_url($this->router->reverseRoute('reports-create')); ?>" class="button icon fixit"><? _e('FIX'); ?></a></li>
+            <li class="<?= is_cur_page($this, 'reports','index') ? 'current' : ''; ?>"><a class="link" href="<?= site_url(); ?>"><? _e('Más urgentes'); ?></a></li>
             <li class="<?= is_cur_page($this, 'reports','recents') ? 'current' : ''; ?>"><a class="link" href="<?= site_url($this->router->reverseRoute('home-recents')); ?>">Recientes</a></li>
             <li class="<?= is_cur_page($this, 'reports','pendings') ? 'current' : ''; ?>"><a class="link" href="<?= site_url($this->router->reverseRoute('home-pending')); ?>">Pendientes</a></li>
             <li class="<?= is_cur_page($this, 'members','index') ? 'current' : ''; ?>"><a class="link" href="<?= site_url($this->router->reverseRoute('users')); ?>">Top usuarios</a></li>
@@ -73,7 +73,7 @@
             <li class="<?= is_cur_page($this, 'stats','index') ? 'current' : ''; ?>"><a class="link" href="<?= site_url($this->router->reverseRoute('stats')); ?>">Estadísticas</a></li>
             <li class="search">
                 <form action="<?= site_url($this->router->reverseRoute('search')); ?>" method="GET">
-                    <input type="text" value="<?= isset($term) ? $term : ''; ?>" name="q" placeholder="noticias, reportes, usuarios" />
+                    <input type="text" value="<?= isset($term) ? $term : ''; ?>" name="q" placeholder="<? echo gettext('noticias, reportes, usuarios'); ?>" />
                 </form>
             </li>
         </ul>

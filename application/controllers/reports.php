@@ -13,7 +13,7 @@ class Reports extends MY_Controller {
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
 		$data['page_title'] = 'Portada - Más urgentes';
-		$data['title'] = "Más urgentes";
+		$data['title'] = _("Más urgentes");
 		$data['description'] = "Noticias para arreglar con más repercusión en este momento. Fixmedia es la herramienta que te permite mejorar las noticias, pidiendo que alguien las arregle, añadiendo más y mejor información o corrigiendo la existente.";
 		$data['subtitle'] = "Noticias para arreglar con más repercusión en este momento";
 		$data['main_content'] = 'reports/list_reports';

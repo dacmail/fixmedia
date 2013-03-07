@@ -1,0 +1,74 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Fixmedia\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-07 19:19+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Daniel Aguilar <hola@soydac.com>\n"
+"Language-Team: fixmedia <fix@media.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: gettext;_;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /Users/dac/projects/fixmedia\n"
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:16
+msgid "Más urgentes"
+msgstr "Popular"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:26
+msgid "Fixmedia.org, arregla las noticias"
+msgstr "Fixmedia.org, fixing the news"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:29
+msgid "arrastra el botón"
+msgstr "drag the button"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:29
+msgid "Hacer FIX"
+msgstr "Do FIX"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:29
+msgid "a tu navegador"
+msgstr "to your browser"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:29
+msgid "+ info"
+msgstr "+ info"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:30
+msgid "¿Qué es fixmedia?"
+msgstr "What is fixmedia?"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:34
+msgid "Iniciar sesión"
+msgstr "Sign in"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:44
+msgid "Ver perfil"
+msgstr "View profile"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:50
+msgid "fixes"
+msgstr "fixes"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:51
+msgid "reportes"
+msgstr "reports"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:58
+msgid "Cerrar sesión"
+msgstr "Sign out"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:67
+msgid "FIX"
+msgstr "FIX"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:76
+msgid "noticias, reportes, usuarios"
+msgstr "news, reports, users"
+

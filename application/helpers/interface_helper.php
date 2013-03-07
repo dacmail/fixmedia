@@ -160,3 +160,4 @@
 			return gravatar($user->email, $size, true, base_url('static/avatar-user-' . $size . '.jpg'), 'x', array('alt' => $alt) );
 		endif;
 	}
+	function _e($stirng) {echo gettext($stirng);}
