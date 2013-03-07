@@ -28,27 +28,7 @@ class Gettext {
             ),
             $config
         );
-
-        // Gettext catalog codeset
-        /*bind_textdomain_codeset (
-            $config['gettext_text_domain'],
-            $config['gettext_catalog_codeset']
-        );*/
-
-        log_message (
-            'debug',
-            'Gettext catalog_codeset: '.$config['gettext_catalog_codeset']
-        );
-
-        // Path to gettext locales directory relative to FCPATH.APPPATH
-
-
-        log_message (
-            'debug',
-            'Gettext text_domain: '.$config['gettext_text_domain']
-        );
         putenv('LANG=' . $config['gettext_locale']);
-        // Gettext locale
         setlocale (
             LC_ALL,
             $config['gettext_locale']
@@ -57,22 +37,6 @@ class Gettext {
             $config['gettext_text_domain'],
             FCPATH.APPPATH.$config['gettext_locale_dir']
         );
-
-        log_message (
-            'debug',
-            'Gettext locale_dir: '.$config['gettext_locale_dir']
-        );
-
-        // Gettext domain
         textdomain (
             $config['gettext_text_domain']
         );
-
-        log_message (
-            'debug',
-            'Gettext locale: '.$config['gettext_locale']
-        );
-    }
-}
-
-/* End of file Gettext.php */
