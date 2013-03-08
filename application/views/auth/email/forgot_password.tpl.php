@@ -6,18 +6,19 @@
         </tr>
         <tr style="background:#ffffff;">
             <td style="font-size:14px; color:#7F7F7F; line-height:21px; font-family:Arial, helvetica;padding:0px 50px;">
-                <h1 style="font-size:21px; font-style:italic; color:#3D87B7;">Reestablecer contraseña para <?php echo $username;?></h1>
-                <p>Haz click para <?php echo anchor('auth/reset_password/'. $forgotten_password_code, 'restablecer tu contraseña');?>.</p>
+                <h1 style="font-size:21px; font-style:italic; color:#3D87B7;"><? printf( _('Reestablecer contraseña para %s'), $username); ?></h1>
+                <? $anchor = site_url('auth/reset_password/'. $forgotten_password_code); ?>
+                <p><? printf( _('Haz click para <a href="%s">restablecer tu contraseña</a>.'), $anchor); ?></p>
             </td>
         </tr>
         <tr>
-            <td><img src="<?= site_url('images/mail/footer.jpg'); ?>" alt="Fixmedia.org, mejora las noticias" /></td>
+            <td><img src="<?= site_url('images/mail/footer.jpg'); ?>" alt="<? _e('Fixmedia.org, mejora las noticias'); ?>" /></td>
         </tr>
         <tr>
             <td style="font-size:12px; color:#7F7F7F; font-style:italic; font-family:Arial, helvetica;padding:0px 10px;">
-                <p>Este es un mail automático, no lo respondas. Si quieres contactarnos escribe a <a href="mailto:comunidad@fixmedia.org">comunidad@fixmedia.org</a>
-Fixmedia.org, arregla las noticias. Un proyecto financiado por gente como tú para mejorar la información.
-Recibes este correo porque eres usuario de Fixmedia. </p>
+                <p><? _e('Este es un mail automático, no lo respondas. Si quieres contactarnos escribe a <a href="mailto:comunidad@fixmedia.org">comunidad@fixmedia.org</a>
+                Fixmedia.org, arregla las noticias. Un proyecto financiado por gente como tú para mejorar la información.
+                Recibes este correo porque eres usuario de Fixmedia.'); ?></p>
             </td>
         </tr>
     </table>

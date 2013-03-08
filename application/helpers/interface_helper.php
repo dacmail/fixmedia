@@ -27,33 +27,33 @@
 			case 3:
 			case 4:
 			case 5:
-				$level = 'Amateur';
+				$level =  _('Amateur');
 				break;
 			case 6:
 			case 7:
 			case 8:
 			case 9:
 			case 10:
-				$level = 'Corrector';
+				$level =  _('Corrector');
 				break;
 			case 11:
 			case 12:
 			case 13:
 			case 14:
 			case 15:
-				$level = 'Editor';
+				$level =  _('Editor');
 				break;
 			case 16:
 			case 17:
 			case 18:
 			case 19:
 			case 20:
-				$level = 'Fact-checker';
+				$level =  _('Fact-checker');
 				break;
 		}
 		$return = "<div class='karma_graphic'>";
 		$return .= $show_level ? "<span class='level ". strtolower($level) ."'>". $level ."</span>" : "";
-		$return .= "<span title='Reputación nivel ". $k ."' class='karma_bar karma-". $k ."' style='background-position:left " . ((($k-1)*31)*-1) ."px;'> Nivel ". $k ."</span>";
+		$return .= "<span title='" . sprintf( _('Reputación del nivel %s'), $k) . "' class='karma_bar karma-". $k ."' style='background-position:left " . ((($k-1)*31)*-1) ."px;'>" . sprintf(_('Nivel %s'),$k) . "</span>";
 		$return .= "</div>";
 		return $return;
 	}
@@ -70,31 +70,23 @@
 		switch ($activity->notification_type) {
    			case 'FIX':
    				$item = Report::find($activity->notificable_id);
-   				$text = "hizo fix a la noticia ";
-   				$text .= !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->slug))) . "'>$item->title</a> ";
-   				$text .= "que tú descubriste";
+   				$var = !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->slug))) . "'>$item->title</a> ";
+   				$text = sprintf( _('hizo fix a la noticia %s que tú descubriste'), $var);
    				break;
    			case 'VOTE':
    				$item = Reports_data::find($activity->notificable_id);
-   				$text = "valoró tu reporte ";
-   				$text .= !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a>";
+   				$var = !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a>";
+   				$text =  sprintf(_("valoró tu reporte %"), $var);
    				break;
 			case 'SOLVED':
 				$item = Reports_data::find($activity->notificable_id);
-   				$text = "dijo que tu reporte ";
-   				$text .= !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a> ";
-   				$text .= "está corregido";
+   				$var = !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a> ";
+   				$text =  sprintf(_("dijo que tu reporte %s está corregido"), $var);
 				break;
-			case 'SOLVED':
-				$item = Reports_data::find($activity->notificable_id);
-   				$text = "dijo que tu reporte ";
-   				$text .= !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "#report-$item->id'>$item->title</a> ";
-   				$text .= "está corregido";
 			case 'REPORT':
 				$item = Reports_data::find($activity->notificable_id);
-   				$text = "reportó en la noticia ";
-   				$text .= !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "'>$item->title</a> ";
-   				$text .= "que tú descubriste";
+   				$var = !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "'>$item->title</a> ";
+   				$text =  sprintf(_("reportó en la noticia %s que tú descubriste"), $var);
 				break;
    		}
    		return $text;
@@ -103,9 +95,9 @@
 	function send_email_notifications($activity) {
 		$ci =& get_instance();
 		if ($activity->sender_id!=$activity->receiver_id  && $activity->receiver->notifications==1 && $activity->receiver->notification_active($activity->notification_type)) :
-			$data['title'] = '<p>¡Hola, ' . $activity->receiver->name . '!</p>';
+			$data['title'] = '<p>' . sprintf( _('¡Hola, %s!'), $activity->receiver->name) . '</p>';
 			$data['content'] = '<p>' . $activity->sender->name . ' ' . get_activity_text($activity, $ci) . '</p>';
-			$data['content'] .= '<p><a href="' . site_url('usuario/actividad') . '">Ver notificaciones</a></p>';
+			$data['content'] .= '<p><a href="' . site_url('usuario/actividad') . '">' .  _('Ver notificaciones') . '</a></p>';
 			$message = $ci->load->view('emails/template', $data, true);
 			$ci->email->clear();
 			$ci->email->from($ci->config->item('admin_email', 'ion_auth'), $ci->config->item('site_title', 'ion_auth'));
@@ -129,7 +121,7 @@
 		$activities = Activity::all(array('conditions' => array('sender_id<>receiver_id AND receiver_id = ' . $user->id . ' AND created_at > date_sub(now(), interval 1 day) AND notification_type IN (' . $t . ')'), 'limit' => 6));
 		if (count($activities)) :
 			$ci =& get_instance();
-			$data['content']="<p>Tus notificaciones de hoy</p><ul style='font-size:14px; color:#7F7F7F; line-height:21px;'>";
+			$data['content']="<p>" .  _('Tus notificaciones de hoy') . "</p><ul style='font-size:14px; color:#7F7F7F; line-height:21px;'>";
 			$i=1;
 			foreach ($activities as $activity) :
 				$data['content'] .=  '<li>' . $activity->sender->name . ' ' . get_activity_text($activity, $ci) . '</li>';
@@ -138,13 +130,13 @@
 					break;
 				}
 			$i++; endforeach;
-			$data['title'] = '<p>¡Hola, ' . $user->name . '!</p>';
-			$data['content'] .= '</ul><p><a href="' . site_url('usuario/actividad') . '">Consúltalas todas en la web</a></p>';
+			$data['title'] = '<p>' . sprintf( _('¡Hola, %s!'), $user->name) . '</p>';
+			$data['content'] .= '</ul><p><a href="' . site_url('usuario/actividad') . '">' .  _('Consúltalas todas en la web') . '</a></p>';
 			$message = $ci->load->view('emails/template', $data, true);
 			$ci->email->clear();
 			$ci->email->from($ci->config->item('admin_email', 'ion_auth'), $ci->config->item('site_title', 'ion_auth'));
 			$ci->email->to($user->email);
-			$ci->email->subject('Tu actividad diaria en Fixmedia');
+			$ci->email->subject( _('Tu actividad diaria en Fixmedia'));
 			$ci->email->message($message);
 
 			$ci->email->send();
@@ -153,11 +145,11 @@
 	}
 
 	function get_avatar($user, $size=40, $alt=false) {
-		if (!$alt) { $alt= "Reputación " . $user->karma; }
+		if (!$alt) { $alt= sprintf( _("Reputación: %s"), $user->karma); }
 		if (count($user->auth)) :
 			return "<img src='" . str_replace('_normal', '_bigger', $user->auth->photourl) . "' width='" . $size . "' alt='" . $alt . "' />";
 		else :
 			return gravatar($user->email, $size, true, base_url('static/avatar-user-' . $size . '.jpg'), 'x', array('alt' => $alt) );
 		endif;
 	}
-	function _e($stirng) {echo gettext($stirng);}
+	function _e($string) {echo gettext($string);}

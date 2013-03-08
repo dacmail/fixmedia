@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fixmedia\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-08 10:03+0100\n"
+"POT-Creation-Date: 2013-03-08 10:37+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Daniel Aguilar <hola@soydac.com>\n"
 "Language-Team: fixmedia <fix@media.org>\n"
@@ -108,6 +108,7 @@ msgid "<p>Enhorabuena, ya has completado tu registro.</p> <p>Para iniciar sesió
 msgstr ""
 
 #: /Users/dac/projects/fixmedia/application/controllers/member.php:59
+#: /Users/dac/projects/fixmedia/application/controllers/source.php:84
 #, php-format
 msgid "Perfil de %s"
 msgstr ""
@@ -192,25 +193,240 @@ msgstr ""
 msgid "Listados de usuarios registrados en Fixmedia ordenados por número de descubrimientos"
 msgstr ""
 
-#: /Users/dac/projects/fixmedia/application/controllers/pages.php:11
-msgid "quienes-somos"
-msgstr "who-we-are"
-
-#: /Users/dac/projects/fixmedia/application/controllers/pages.php:11
-msgid "Quiénes somos"
-msgstr "Who we are?"
-
-#: /Users/dac/projects/fixmedia/application/controllers/pages.php:14
-msgid "que-es-fixmedia"
-msgstr "what-is-fixmedia"
-
-#: /Users/dac/projects/fixmedia/application/controllers/pages.php:14
-msgid "¿Qué es Fixmedia?"
-msgstr "What is Fixmedia?"
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:15
+#, fuzzy
+msgid "Portada - Más urgentes"
+msgstr "Popular"
 
 #: /Users/dac/projects/fixmedia/application/controllers/reports.php:16
 msgid "Más urgentes"
 msgstr "Popular"
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:17
+msgid "Noticias para arreglar con más repercusión en este momento. Fixmedia es la herramienta que te permite mejorar las noticias, pidiendo que alguien las arregle, añadiendo más y mejor información o corrigiendo la existente."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:18
+msgid "Noticias para arreglar con más repercusión en este momento"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:37
+msgid "Portada - Recientes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:38
+msgid "Últimas noticias enviadas. Fixmedia es la herramienta que te permite mejorar las noticias, pidiendo que alguien las arregle, añadiendo más y mejor información o corrigiendo la existente."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:39
+msgid "Recientes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:40
+msgid "Últimas noticias enviadas"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:59
+msgid "Portada - Pendientes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:60
+msgid "Noticias enviadas que todavía tienen pocos o ningún reporte. Fixmedia es la herramienta que te permite mejorar las noticias, pidiendo que alguien las arregle, añadiendo más y mejor información o corrigiendo la existente."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:62
+msgid "Pendientes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:63
+msgid "Noticias enviadas que todavía tienen pocos o ningún reporte"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:81
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:124
+msgid "Envía una noticia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:105
+msgid "Noticia enviada"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:123
+msgid "La URL no responde o no puede ser obtenida"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:139
+msgid "Completa el reporte"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:142
+msgid "Modificar reporte"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:161
+msgid "título"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:172
+msgid "Corrige el reporte"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:193
+msgid "Previsualización del reporte"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:205
+#, php-format
+msgid "Noticia enviada a fixmedia: %s. %s personas quieren que se mejore o arregle esta noticia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:226
+#, php-format
+msgid "Actividad de \"%s\""
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/reports.php:227
+#, php-format
+msgid "Actividad de la noticia enviada a fixmedia: %s. %s personas quieren que se mejore o arregle esta noticia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/search.php:19
+#: /Users/dac/projects/fixmedia/application/controllers/search.php:47
+#: /Users/dac/projects/fixmedia/application/controllers/search.php:74
+#, php-format
+msgid "Resultados de búsqueda: %s"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/search.php:20
+#: /Users/dac/projects/fixmedia/application/controllers/search.php:48
+#: /Users/dac/projects/fixmedia/application/controllers/search.php:75
+msgid "Resultados de búsqueda"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/search.php:21
+#: /Users/dac/projects/fixmedia/application/controllers/search.php:49
+#: /Users/dac/projects/fixmedia/application/controllers/search.php:76
+#, php-format
+msgid "Resultados de búsqueda para el término: %s"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:32
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:63
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:103
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:286
+msgid "Usuario no está logueado o no se corresponde"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:34
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:65
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:105
+msgid "Envío no válido"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:52
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:91
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:123
+msgid "Se ha producido un error"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:61
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:101
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:289
+msgid "Usuario no válido"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:134
+msgid "¡Acabas de mejorar esta noticia!"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:135
+msgid "Enséñaselo a tus amigos para que valoren positivamente tu reporte"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:137
+msgid "¡Compártela!"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:138
+msgid "Cuanta más gente conozca esta noticia y haga FIX en ella, más posibilidades de arreglarla entre todos"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/services.php:293
+msgid "No hay reportes que valorar"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:17
+msgid "Top ranking de fuentes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:18
+msgid "Top fuentes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:19
+msgid "Cuáles son los medios más presentes en Fixmedia por Fixes totales, reportes totales y noticias"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:20
+msgid "Listados de fuentes registrados en Fixmedia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:39
+msgid "Top ranking de fuentes por reportes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:40
+msgid "Cuáles son los medios que han recibido más reportes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:41
+msgid "Top fuentes por reportes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:42
+msgid "Listados de fuentes registrados en Fixmedia ordenados por número de reportes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:63
+msgid "Top ranking de fuentes por fixes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:64
+msgid "Top fuentes por fixes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:65
+msgid "Cuáles son los medios que han recibido más Fixes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:66
+msgid "Listados de fuentes registrados en Fixmedia ordenados por número de fixes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:86
+msgid "Top ranking de fuentes por descubrimientos"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:87
+msgid "Top fuentes por descubrimientos"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:88
+msgid "Cuáles son los medios con más noticias diferentes en Fixmedia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/sources.php:89
+msgid "Listados de fuentes registrados en Fixmedia ordenados por número de descubrimientos"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/stats.php:68
+msgid "Estadísticas"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:31
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:30
+msgid "que-es-fixmedia"
+msgstr "what-is-fixmedia"
 
 #: /Users/dac/projects/fixmedia/application/views/includes/footer.php:31
 #, fuzzy
@@ -264,4 +480,11 @@ msgstr "FIX"
 #: /Users/dac/projects/fixmedia/application/views/includes/header.php:76
 msgid "noticias, reportes, usuarios"
 msgstr "news, reports, users"
+
+#~ msgid "quienes-somos"
+#~ msgstr "who-we-are"
+#~ msgid "Quiénes somos"
+#~ msgstr "Who we are?"
+#~ msgid "¿Qué es Fixmedia?"
+#~ msgstr "What is Fixmedia?"
 

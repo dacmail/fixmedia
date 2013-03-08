@@ -134,6 +134,6 @@
 			$headers .= "Reply-To: fixmedia@fixmedia.org \r\n";
 			$headers .= "MIME-Version: 1.0\r\n";
 			$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-         mail('dacmail@gmail.com', 'Ejecución cálculo coeficiente', $output, $headers);
+         //mail('dacmail@gmail.com', 'Ejecución cálculo coeficiente', $output, $headers);
 	}
 ?>
