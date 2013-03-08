@@ -8,10 +8,10 @@ class Pages extends MY_Controller {
 	public function view($page = 'home') {
 
 		if (!file_exists('application/views/pages/'.$page.'.php')) { show_404(); }
-		$titles = array('quienes-somos' => 'Quiénes somos',
+		$titles = array( 'quienes-somos' =>  'Quiénes somos',
 						'que-hacemos' => 'Qué hacemos',
 						'faq' => 'Preguntas más frecuentes (FAQ)',
-						'que-es-fixmedia' => '¿Qué es Fixmedia?',
+						'que-es-fixmedia' =>  '¿Qué es Fixmedia?',
 						'como-funciona' => '¿Cómo funciona?',
 						'que-queremos-conseguir' => '¿Qué queremos conseguir?',
 						'cofinanciadores' => 'Cofinanciadores',
@@ -25,7 +25,8 @@ class Pages extends MY_Controller {
 						'estadisticas' => 'Estadísticas',
 						'problemas' => '¿Problemas?',
 						'aviso-legal' => 'Información legal y condiciones de uso',
-						'botones' => 'Botones de Fixmedia en tu web o blog'
+						'botones' => 'Botones de Fixmedia en tu web o blog',
+						'what-is-fixmedia' => 'What is Fixmedia?',
 						);
 		$data = array();
 		$data = get_sidebars_blocks($data);

@@ -29,9 +29,9 @@ class Services extends MY_Controller {
             redirect('auth', 'refresh');
          endif;
          $data['result']['valid'] = false;
-         if (!$this->logged_in) { $data['result']['error'] = "Usuario no está logueado o no se corresponde"; }
+         if (!$this->logged_in) { $data['result']['error'] =  _("Usuario no está logueado o no se corresponde"); }
          try { $report = Report::find($report_id); } catch (\ActiveRecord\RecordNotFound $e) {
-            $data['result']['error'] = "Envío no válido";
+            $data['result']['error'] =  _("Envío no válido");
          }
          if (empty($data['result']['error'])) :
             $vote = Vote::create(array(
@@ -49,7 +49,7 @@ class Services extends MY_Controller {
                $data['result']['vote'] = $vote;
                $data['result']['total_votes'] = $report->votes_count;
             else :
-               $data['result']['error'] = "Se ha producido un error";
+               $data['result']['error'] =  _("Se ha producido un error");
             endif;
          endif;
          $this->load->view('services/fix_vote', $data);
@@ -58,11 +58,11 @@ class Services extends MY_Controller {
       public function report_vote($user_id, $report_data_id, $value) {
          $data['result']['valid'] = false;
          try { $user = User::find($user_id); } catch (\ActiveRecord\RecordNotFound $e) {
-            $data['result']['error'] = "Usuario no válido";
+            $data['result']['error'] =  _("Usuario no válido");
          }
-         if (!$this->logged_in || $user_id!=$this->the_user->id) { $data['result']['error'] = "Usuario no está logueado o no se corresponde"; }
+         if (!$this->logged_in || $user_id!=$this->the_user->id) { $data['result']['error'] =  _("Usuario no está logueado o no se corresponde"); }
          try { $report = Reports_data::find($report_data_id); } catch (\ActiveRecord\RecordNotFound $e) {
-            $data['result']['error'] = "Envío no válido";
+            $data['result']['error'] =  _("Envío no válido");
          }
          if (empty($data['result']['error'])) :
             $value = ($value<=0 ? -1 : 1);
@@ -88,7 +88,7 @@ class Services extends MY_Controller {
                   $data['result']['all_reports_voted'] = ($data['result']['all_reports_voted'] && $subr->is_voted($user->id));
                endforeach;
             else :
-               $data['result']['error'] = "Se ha producido un error";
+               $data['result']['error'] =  _("Se ha producido un error");
             endif;
          endif;
          $this->load->view('services/fix_vote', $data);
@@ -98,11 +98,11 @@ class Services extends MY_Controller {
       public function report_solved($user_id, $report_data_id) {
          $data['result']['valid'] = false;
          try { $user = User::find($user_id); } catch (\ActiveRecord\RecordNotFound $e) {
-            $data['result']['error'] = "Usuario no válido";
+            $data['result']['error'] =  _("Usuario no válido");
          }
-         if (!$this->logged_in || $user_id!=$this->the_user->id) { $data['result']['error'] = "Usuario no está logueado o no se corresponde"; }
+         if (!$this->logged_in || $user_id!=$this->the_user->id) { $data['result']['error'] =  _("Usuario no está logueado o no se corresponde"); }
          try { $report = Reports_data::find($report_data_id); } catch (\ActiveRecord\RecordNotFound $e) {
-            $data['result']['error'] = "Envío no válido";
+            $data['result']['error'] =  _("Envío no válido");
          }
          if (empty($data['result']['error'])) :
             $vote = Vote::create(array(
@@ -120,7 +120,7 @@ class Services extends MY_Controller {
                $data['result']['total_value'] = $report->solved_value();
                $data['result']['is_solved'] = $report->is_solved();
             else :
-               $data['result']['error'] = "Se ha producido un error";
+               $data['result']['error'] =  _("Se ha producido un error");
             endif;
          endif;
          $this->load->view('services/fix_vote', $data);
@@ -131,11 +131,11 @@ class Services extends MY_Controller {
             $report = Report::find_by_slug($slug);
             if ($report) :
                if ($fix) :
-                  $data['title'] = "¡Acabas de mejorar esta noticia!";
-                  $data['content'] = "Enséñaselo a tus amigos para que valoren positivamente tu reporte";
+                  $data['title'] =  _("¡Acabas de mejorar esta noticia!");
+                  $data['content'] =  _("Enséñaselo a tus amigos para que valoren positivamente tu reporte");
                else :
-                  $data['title'] = "¡Compártela!";
-                  $data['content'] = "Cuanta más gente conozca esta noticia y haga FIX en ella, más posibilidades de arreglarla entre todos";
+                  $data['title'] =  _("¡Compártela!");
+                  $data['content'] =  _("Cuanta más gente conozca esta noticia y haga FIX en ella, más posibilidades de arreglarla entre todos");
                endif;
                $data['report'] = $report;
                $data['url'] = site_url($this->router->reverseRoute('reports-view' , array('slug' => $slug)));
@@ -162,8 +162,8 @@ class Services extends MY_Controller {
             foreach ($users as $user) :
                $output .= calculate_karma_users($user, $avg_votes);
             endforeach;
-            $output .= 'Final del proceso: ' . time();
-            mail('dacmail@gmail.com', 'Ejecución cálculo karma usuarios', $output, "MIME-Version: 1.0" . "\r\n Content-type: text/html; charset=UTF-8" . "\r\n");
+            $output .=  'Final del proceso: ' . time();
+            //mail('dacmail@gmail.com', 'Ejecución cálculo karma usuarios', $output, "MIME-Version: 1.0" . "\r\n Content-type: text/html; charset=UTF-8" . "\r\n");
          else :
             show_404();
          endif;
@@ -283,14 +283,14 @@ class Services extends MY_Controller {
       public function next_unvoted_report() {
          $data['result']['valid'] = false;
          if (!$this->logged_in) {
-            $data['result']['error'] = "Usuario no está logueado o no se corresponde";
+            $data['result']['error'] =  _("Usuario no está logueado o no se corresponde");
          } else {
             try { $user = User::find($this->the_user->id); } catch (\ActiveRecord\RecordNotFound $e) {
-               $data['result']['error'] = "Usuario no válido";
+               $data['result']['error'] =  _("Usuario no válido");
             }
             $report = $user->unvoted_reports();
             if (!count($report)) {
-               $data['result']['error'] = "No hay reportes que valorar";
+               $data['result']['error'] =  _("No hay reportes que valorar");
             } else {
                   $data['result']['valid'] = true;
                   $data['result']['item_id'] = $report->id;

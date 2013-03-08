@@ -40,3 +40,5 @@ class Gettext {
         textdomain (
             $config['gettext_text_domain']
         );
+    }
+}

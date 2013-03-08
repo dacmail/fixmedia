@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fixmedia\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-07 19:19+0100\n"
+"POT-Creation-Date: 2013-03-08 10:03+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Daniel Aguilar <hola@soydac.com>\n"
 "Language-Team: fixmedia <fix@media.org>\n"
@@ -16,9 +16,206 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: /Users/dac/projects/fixmedia\n"
 
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:189
+#, fuzzy
+msgid "No se ha podido iniciar sesión"
+msgstr "Sign in"
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:190
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:219
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:247
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:308
+msgid "Iniciar sesión"
+msgstr "Sign in"
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:217
+msgid "No se ha podido registrar el usuario"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:245
+msgid "No se ha podido conectar con el proveedor"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:281
+msgid "Error no especificado"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:282
+msgid "Error de configuración"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:283
+msgid "Error de configuración de proveedor"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:284
+msgid "Proveedor desactivado"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:285
+msgid "Faltan datos de configuración del proveedor"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:311
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:645
+msgid "Usuario"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:312
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:647
+msgid "Contraseña"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:356
+msgid "Contraseña actual"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:357
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:482
+msgid "Nueva contraseña"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:358
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:483
+msgid "Confirmar nueva contraseña"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:402
+msgid "Cambiar contraseña"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:429
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:646
+#: /Users/dac/projects/fixmedia/application/controllers/member.php:131
+msgid "Correo electrónico"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:433
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:455
+msgid "Recuperar contraseña"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:515
+msgid "Cambia tu contraseña"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:639
+msgid "Registro de usuario"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/auth.php:661
+msgid "<p>Enhorabuena, ya has completado tu registro.</p> <p>Para iniciar sesión debes revisar tu email, te habrá llegado un enlace de activación.</p><p><strong>No olvides comprobar la carpeta de SPAM/correo no deseado.</strong></p>"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/member.php:59
+#, php-format
+msgid "Perfil de %s"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/member.php:85
+#: /Users/dac/projects/fixmedia/application/controllers/member.php:105
+#: /Users/dac/projects/fixmedia/application/controllers/member.php:134
+#, fuzzy
+msgid "Editar perfil"
+msgstr "View profile"
+
+#: /Users/dac/projects/fixmedia/application/controllers/member.php:93
+msgid "Completa tu registro"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/member.php:173
+#, php-format
+msgid "Actividad de %s"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:17
+msgid "Top ranking de usuarios"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:18
+msgid "Usuarios con más actividad global (fixes, reportes y noticias descubiertas) en Fixmedia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:19
+msgid "Top usuarios"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:20
+msgid "Listados de usuarios registrados en Fixmedia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:40
+msgid "Top ranking de usuarios por reportes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:41
+msgid "Usuarios que más reportes han aportado"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:42
+msgid "Top usuarios por reportes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:43
+msgid "Listados de usuarios registrados en Fixmedia ordenados por número de reportes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:62
+msgid "Top ranking de usuarios por fixes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:63
+msgid "Usuarios que más fixes han recibido en sus envíos"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:64
+msgid "Top usuarios por fixes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:65
+msgid "Listados de usuarios registrados en Fixmedia ordenados por número de fixes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:86
+msgid "Top ranking de usuarios por descubrimientos"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:87
+msgid "Usuarios que han hecho el primer fix al mayor número de noticias"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:88
+msgid "Top usuarios por descubrimientos"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/members.php:89
+msgid "Listados de usuarios registrados en Fixmedia ordenados por número de descubrimientos"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/controllers/pages.php:11
+msgid "quienes-somos"
+msgstr "who-we-are"
+
+#: /Users/dac/projects/fixmedia/application/controllers/pages.php:11
+msgid "Quiénes somos"
+msgstr "Who we are?"
+
+#: /Users/dac/projects/fixmedia/application/controllers/pages.php:14
+msgid "que-es-fixmedia"
+msgstr "what-is-fixmedia"
+
+#: /Users/dac/projects/fixmedia/application/controllers/pages.php:14
+msgid "¿Qué es Fixmedia?"
+msgstr "What is Fixmedia?"
+
 #: /Users/dac/projects/fixmedia/application/controllers/reports.php:16
 msgid "Más urgentes"
 msgstr "Popular"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:31
+#, fuzzy
+msgid "Qué es fixmedia"
+msgstr "What is fixmedia?"
 
 #: /Users/dac/projects/fixmedia/application/views/includes/header.php:26
 msgid "Fixmedia.org, arregla las noticias"
@@ -43,10 +240,6 @@ msgstr "+ info"
 #: /Users/dac/projects/fixmedia/application/views/includes/header.php:30
 msgid "¿Qué es fixmedia?"
 msgstr "What is fixmedia?"
-
-#: /Users/dac/projects/fixmedia/application/views/includes/header.php:34
-msgid "Iniciar sesión"
-msgstr "Sign in"
 
 #: /Users/dac/projects/fixmedia/application/views/includes/header.php:44
 msgid "Ver perfil"

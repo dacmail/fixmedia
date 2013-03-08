@@ -56,7 +56,7 @@ class Member extends MY_Controller {
 
 			$data['fixes_by_sites'] = Vote::find_by_sql("select count(votes.id) as fixes, site from votes inner join reports on (votes.item_id=reports.id) where votes.user_id=" . $user->id . " AND vote_type LIKE '%FIX%' group by site order by fixes desc limit 5");
 
-			$data['page_title'] = 'Perfil de ' . $user->name;
+			$data['page_title'] = sprintf( _('Perfil de %s'), $user->name);
 			$data['main_content'] = 'reports/list_reports';
 			$data['page'] = $page;
 			$data['main_content'] = 'user/user';
@@ -82,7 +82,7 @@ class Member extends MY_Controller {
 		$data['ntypes'] = unserialize($user->notifications_types);
 		$data["users_ranking_position"] = $position = ($position==0) ? $position : (($position==1) ? $position-1 : $position-2); //muestra las dos fuentes que están por delante
 		$data["users_ranking"] = array_slice($users_ranking, $position, 5);
-		$data['page_title'] = 'Editar perfil';
+		$data['page_title'] =  _('Editar perfil');
 		$data['main_content'] = 'user/edit';
 		$this->load->view('includes/template', $data);
 	}
@@ -90,7 +90,7 @@ class Member extends MY_Controller {
 	public function edit_email() {
 		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 		$data['user'] = $user = $this->the_user;
-		$data['page_title'] = 'Completa tu registro';
+		$data['page_title'] =  _('Completa tu registro');
 		$data['main_content'] = 'user/edit_email';
 		$this->load->view('includes/template-landing', $data);
 	}
@@ -102,7 +102,7 @@ class Member extends MY_Controller {
 		$this->form_validation->set_rules('url', 'URL', 'prep_url|valid_url');
 		if ($this->form_validation->run() === FALSE) :
 			$data['user'] = $user;
-			$data['page_title'] = 'Editar perfil';
+			$data['page_title'] =  _('Editar perfil');
 			$data['main_content'] = 'user/edit';
 			$this->load->view('includes/template', $data);
 		else :
@@ -128,10 +128,10 @@ class Member extends MY_Controller {
 		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 		$user = $this->the_user;
 		$post_data = $this->input->post(NULL, TRUE);
-		$this->form_validation->set_rules('email', 'Correo electrónico', 'required|is_unique[users.email]|valid_email');
+		$this->form_validation->set_rules('email',  _('Correo electrónico'), 'required|is_unique[users.email]|valid_email');
 		if ($this->form_validation->run() === FALSE) :
 			$data['user'] = $user;
-			$data['page_title'] = 'Editar perfil';
+			$data['page_title'] =  _('Editar perfil');
 			$data['main_content'] = 'user/edit_email';
 			$this->load->view('includes/template', $data);
 		else :
@@ -170,7 +170,7 @@ class Member extends MY_Controller {
 		$data['activity'] = array_slice($user->activity,$this->pagination->per_page*($page-1), $this->pagination->per_page);
 		Activity::query("UPDATE activities SET `read`=1, read_at=now() WHERE receiver_id = $user->id");
 		$data['page'] = $page;
-		$data['page_title'] = 'Actividad de ' . $user->name;
+		$data['page_title'] = sprintf( _('Actividad de %s'), $user->name);
 		$data['main_content'] = 'user/activity';
 		$this->load->view('includes/template', $data);
 	}

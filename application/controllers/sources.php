@@ -14,10 +14,10 @@ class Sources extends MY_Controller {
 		$config['total_rows'] = count($results);
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
-		$data['page_title'] = "Top ranking de fuentes";
-		$data['title'] = "Top fuentes";
-		$data['subtitle'] = "Cuáles son los medios más presentes en Fixmedia por Fixes totales, reportes totales y noticias";
-		$data['description'] = "Listados de fuentes registrados en Fixmedia";
+		$data['page_title'] =  _("Top ranking de fuentes");
+		$data['title'] =  _("Top fuentes");
+		$data['subtitle'] =  _("Cuáles son los medios más presentes en Fixmedia por Fixes totales, reportes totales y noticias");
+		$data['description'] =  _("Listados de fuentes registrados en Fixmedia");
 		$data['main_content'] = 'sources/list_sources';
 		$data['page'] = $page;
 		$data['sources'] = Report::find_by_sql('SELECT site, sum(karma) as karma, count(id) as news,
@@ -36,10 +36,10 @@ class Sources extends MY_Controller {
 		$config['total_rows'] = count($results);
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
-		$data['page_title'] = "Top ranking de fuentes por reportes";
-		$data['subtitle'] = "Cuáles son los medios que han recibido más reportes";
-		$data['title'] = "Top fuentes por reportes";
-		$data['description'] = "Listados de fuentes registrados en Fixmedia ordenados por número de reportes";
+		$data['page_title'] =  _("Top ranking de fuentes por reportes");
+		$data['subtitle'] =  _("Cuáles son los medios que han recibido más reportes");
+		$data['title'] =  _("Top fuentes por reportes");
+		$data['description'] =  _("Listados de fuentes registrados en Fixmedia ordenados por número de reportes");
 		$data['main_content'] = 'sources/list_sources';
 		$data['page'] = $page;
 		$data['sources'] = Report::find_by_sql('SELECT r.site, sum(r.karma) as karma, count(r.id) as news,
@@ -60,10 +60,10 @@ class Sources extends MY_Controller {
 		$config['total_rows'] = count($results);
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
-		$data['page_title'] = "Top ranking de fuentes por fixes";
-		$data['title'] = "Top fuentes por fixes";
-		$data['subtitle'] = "Cuáles son los medios que han recibido más Fixes";
-		$data['description'] = "Listados de fuentes registrados en Fixmedia ordenados por número de fixes";
+		$data['page_title'] =  _("Top ranking de fuentes por fixes");
+		$data['title'] =  _("Top fuentes por fixes");
+		$data['subtitle'] =  _("Cuáles son los medios que han recibido más Fixes");
+		$data['description'] =  _("Listados de fuentes registrados en Fixmedia ordenados por número de fixes");
 		$data['main_content'] = 'sources/list_sources';
 		$data['page'] = $page;
 		$data['sources'] = Report::find_by_sql('SELECT site, sum(karma) as karma, count(id) as news,
@@ -83,10 +83,10 @@ class Sources extends MY_Controller {
 		$config['total_rows'] = count($results);
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
-		$data['page_title'] = "Top ranking de fuentes por descubrimientos";
-		$data['title'] = "Top fuentes por descubrimientos";
-		$data['subtitle'] = "Cuáles son los medios con más noticias diferentes en Fixmedia";
-		$data['description'] = "Listados de fuentes registrados en Fixmedia ordenados por número de descubrimientos";
+		$data['page_title'] =  _("Top ranking de fuentes por descubrimientos");
+		$data['title'] =  _("Top fuentes por descubrimientos");
+		$data['subtitle'] =  _("Cuáles son los medios con más noticias diferentes en Fixmedia");
+		$data['description'] =  _("Listados de fuentes registrados en Fixmedia ordenados por número de descubrimientos");
 		$data['main_content'] = 'sources/list_sources';
 		$data['page'] = $page;
 		$data['sources'] = Report::find_by_sql('SELECT site, sum(karma) as karma, count(id) as news,

@@ -27,7 +27,7 @@
             <nav class="top-menu">
                 <ul class="menu clearfix">
                     <li><? _e('arrastra el botón'); ?> <a href="javascript:(function()%7B%20%20_my_script%3Ddocument.createElement(%27SCRIPT%27)%3B%20%20_my_script.type%3D%27text/javascript%27%3B%20%20_my_script.src%3D%27http://fixmedia.org/js/bookmarklet.js%27%3B%20%20document.getElementsByTagName(%27head%27)%5B0%5D.appendChild(_my_script)%3B%7D)()%3B" class="bookmarklet"><? _e('Hacer FIX'); ?></a> <? _e('a tu navegador'); ?> [<a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'marcador'))); ?>"><? _e('+ info'); ?></a>]</li>
-                    <li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'que-es-fixmedia'))); ?>"><? _e('¿Qué es fixmedia?'); ?></a></li>
+                    <li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' =>  _('que-es-fixmedia')))); ?>"><? _e('¿Qué es fixmedia?'); ?></a></li>
                 </ul>
             </nav>
             <? if (!$logged_in) : ?>

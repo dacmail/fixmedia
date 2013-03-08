@@ -28,7 +28,7 @@
 				</ul>
 				<ul class="menu">
 					<li class="name">Manual</li>
-					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'que-es-fixmedia'))); ?>">Qué es fixmedia</a></li>
+					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' =>  _('que-es-fixmedia')))); ?>"><? _e('Qué es fixmedia'); ?></a></li>
 					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'como-funciona'))); ?>">Cómo funciona</a></li>
 					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'que-queremos-conseguir'))); ?>">Qué queremos conseguir</a></li>
 					<li><a href="<?= site_url($this->router->reverseRoute('statics', array('page' => 'equipo'))); ?>">Equipo</a></li>

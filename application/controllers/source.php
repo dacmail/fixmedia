@@ -81,7 +81,7 @@ class Source extends MY_Controller {
 										'conditions' => "reports.site LIKE '$site'"
 									));
 
-			$data['page_title'] = 'Perfil de ' . $site;
+			$data['page_title'] = sprintf( _('Perfil de %s'), $site);
 			$data['page'] = $page;
 			$data['main_content'] = 'source/profile';
 			$this->load->view('includes/template', $data);

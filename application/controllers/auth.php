@@ -186,8 +186,8 @@ class Auth extends MY_Controller {
 							{
 								//if the login was un-successful
 								//redirect them back to the login page
-								$this->data['message'] = 'No se ha podido iniciar sesión';
-								$this->data['page_title'] = "Iniciar sesión";
+								$this->data['message'] =  _('No se ha podido iniciar sesión');;
+								$this->data['page_title'] = _('Iniciar sesión');
 
 								//validate form input
 								$this->form_validation->set_rules('identity', 'Usuario', 'required');
@@ -214,9 +214,9 @@ class Auth extends MY_Controller {
 						{
 							//if the register was un-successful
 							//redirect them back to the login page
-							$this->data['message'] .= 'No se ha podido registrar el usuario';
+							$this->data['message'] .= _('No se ha podido registrar el usuario');
 
-							$this->data['page_title'] = "Iniciar sesión";
+							$this->data['page_title'] = _("Iniciar sesión");
 
 								//validate form input
 								$this->form_validation->set_rules('identity', 'Usuario', 'required');
@@ -242,9 +242,9 @@ class Auth extends MY_Controller {
 				}
 				else // Cannot authenticate user
 				{
-					$this->data['message'] = 'No se ha podido conectar con el proveedor';
+					$this->data['message'] =  _('No se ha podido conectar con el proveedor');
 
-					$this->data['page_title'] = "Iniciar sesión";
+					$this->data['page_title'] =  _("Iniciar sesión");
 
 					//validate form input
 					$this->form_validation->set_rules('identity', 'Usuario', 'required');
@@ -278,11 +278,11 @@ class Auth extends MY_Controller {
 			$error = 'Unexpected error';
 			switch($e->getCode())
 			{
-				case 0 : $error = 'Unspecified error.'; break;
-				case 1 : $error = 'Hybriauth configuration error.'; break;
-				case 2 : $error = 'Provider not properly configured.'; break;
-				case 3 : $error = 'Unknown or disabled provider.'; break;
-				case 4 : $error = 'Missing provider application credentials.'; break;
+				case 0 : $error =  _('Error no especificado'); break;
+				case 1 : $error =  _('Error de configuración'); break;
+				case 2 : $error =  _('Error de configuración de proveedor'); break;
+				case 3 : $error =  _('Proveedor desactivado'); break;
+				case 4 : $error =  _('Faltan datos de configuración del proveedor'); break;
 				case 5 : log_message('debug', 'controllers.HAuth.login: Authentification failed. The user has canceled the authentication or the provider refused the connection.');
 				         if (isset($service))
 				         {
@@ -305,11 +305,11 @@ class Auth extends MY_Controller {
 			// well, basically your should not display this to the end user, just give him a hint and move on..
 			$this->data['message'] = $error;
 
-			$this->data['page_title'] = "Iniciar sesión";
+			$this->data['page_title'] =  _("Iniciar sesión");
 
 			//validate form input
-			$this->form_validation->set_rules('identity', 'Usuario', 'required');
-			$this->form_validation->set_rules('password', 'Contraseña', 'required');
+			$this->form_validation->set_rules('identity',  _('Usuario'), 'required');
+			$this->form_validation->set_rules('password',  _('Contraseña'), 'required');
 			$this->data['identity'] = array('name' => 'identity',
 				'id' => 'identity',
 				'type' => 'text',
@@ -353,9 +353,9 @@ class Auth extends MY_Controller {
 	//change password
 	function change_password()
 	{
-		$this->form_validation->set_rules('old', 'Old password', 'required');
-		$this->form_validation->set_rules('new', 'New Password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[new_confirm]');
-		$this->form_validation->set_rules('new_confirm', 'Confirm New Password', 'required');
+		$this->form_validation->set_rules('old',  _('Contraseña actual'), 'required');
+		$this->form_validation->set_rules('new',  _('Nueva contraseña'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[new_confirm]');
+		$this->form_validation->set_rules('new_confirm',  _('Confirmar nueva contraseña'), 'required');
 
 		if (!$this->ion_auth->logged_in())
 		{
@@ -399,7 +399,7 @@ class Auth extends MY_Controller {
 
 			//render
 
-			$this->data['page_title'] = 'Cambiar contraseña';
+			$this->data['page_title'] =  _('Cambiar contraseña');
 			$this->data['main_content'] = 'auth/change_password';
 
 			$this->load->view('includes/template', $this->data);
@@ -426,11 +426,11 @@ class Auth extends MY_Controller {
 	//forgot password
 	function forgot_password()
 	{
-		$this->form_validation->set_rules('email', 'Correo electrónico', 'required');
+		$this->form_validation->set_rules('email',  _('Correo electrónico'), 'required');
 		if ($this->form_validation->run() == false)
 		{
 			//setup the input
-			$this->data['page_title'] = "Recuperar contraseña";
+			$this->data['page_title'] =  _("Recuperar contraseña");
 			$this->data['email'] = array(
 				'name' => 'email',
 				'id' => 'email',
@@ -452,7 +452,7 @@ class Auth extends MY_Controller {
 			}
 			else
 			{
-				$this->data['page_title'] = "Recuperar contraseña";
+				$this->data['page_title'] =  _("Recuperar contraseña");
 				$this->data['message'] = $this->ion_auth->errors();
 				//setup the input
 				$this->data['email'] = array(
@@ -479,8 +479,8 @@ class Auth extends MY_Controller {
 		if ($user)
 		{  //if the code is valid then display the password reset form
 
-			$this->form_validation->set_rules('new', 'New Password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[new_confirm]');
-			$this->form_validation->set_rules('new_confirm', 'Confirm New Password', 'required');
+			$this->form_validation->set_rules('new',  _('Nueva contraseña'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[new_confirm]');
+			$this->form_validation->set_rules('new_confirm',  _('Confirmar nueva contraseña'), 'required');
 
 			if ($this->form_validation->run() == false)
 			{//display the form
@@ -512,7 +512,7 @@ class Auth extends MY_Controller {
 				$this->data['code'] = $code;
 
 				//render
-				$this->data['page_title'] = "Cambia tu contraseña";
+				$this->data['page_title'] =  _("Cambia tu contraseña");
 				$this->data['main_content'] = 'auth/reset_password';
 				$this->load->view('includes/template-landing', $this->data);
 			}
@@ -636,15 +636,15 @@ class Auth extends MY_Controller {
 
 	//create a new user
 	function create_user() {
-		$this->data['page_title'] = "Registro de usuario";
+		$this->data['page_title'] =  _("Registro de usuario");
 
 		if ($this->ion_auth->logged_in() || $this->ion_auth->is_admin()) {
 			redirect('auth', 'refresh');
 		}
 
-		$this->form_validation->set_rules('username', 'Usuario', 'required|is_unique[users.username]|alpha_numeric');
-		$this->form_validation->set_rules('email', 'Email', 'required|is_unique[users.email]|valid_email');
-		$this->form_validation->set_rules('password', 'Password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']');
+		$this->form_validation->set_rules('username',  _('Usuario'), 'required|is_unique[users.username]|alpha_numeric');
+		$this->form_validation->set_rules('email',  _('Correo electrónico'), 'required|is_unique[users.email]|valid_email');
+		$this->form_validation->set_rules('password',  _('Contraseña'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']');
 
 
 		if ($this->form_validation->run() == true) {
@@ -658,7 +658,7 @@ class Auth extends MY_Controller {
 			$user = User::find_by_username($username);
 			$user->name = $username;
 			$user->save();
-			$this->session->set_flashdata('message', "<p>Enhorabuena, ya has completado tu registro.</p> <p>Para iniciar sesión debes revisar tu email, te habrá llegado un enlace de activación.</p><p><strong>No olvides comprobar la carpeta de SPAM/correo no deseado.</strong></p>");
+			$this->session->set_flashdata('message',  _("<p>Enhorabuena, ya has completado tu registro.</p> <p>Para iniciar sesión debes revisar tu email, te habrá llegado un enlace de activación.</p><p><strong>No olvides comprobar la carpeta de SPAM/correo no deseado.</strong></p>"));
 			redirect("auth", 'refresh');
 		} else { //display the create user form
 			//set the flash data error message if there is one

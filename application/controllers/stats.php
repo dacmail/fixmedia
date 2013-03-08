@@ -65,7 +65,7 @@ class Stats extends MY_Controller {
 			$data['reports_vs_fixs'] = Vote::find_by_sql("SELECT vote_type, count(DISTINCT item_id) total
 												FROM votes WHERE created_at > date_sub(now(), interval 7 day)
 												GROUP BY vote_type");
-			$data['page_title'] = 'Estadísticas';
+			$data['page_title'] =  _('Estadísticas');
 			$data['main_content'] = 'stats/stats';
 			$this->load->view('includes/template', $data);
 	}
