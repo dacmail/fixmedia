@@ -4,10 +4,10 @@
 		<p class="sub_title"><?=$subtitle?></p>
         <section class="tabs notabs">
         	<ul class="tabs_items">
-				<li class="<?= is_cur_page($this, 'sources','index') ? 'ui-state-active' : ''; ?>"><a href="<?= site_url($this->router->reverseRoute('sources')); ?>">Global</a></li>
-				<li class="<?= is_cur_page($this, 'sources','fixes') ? 'ui-state-active' : ''; ?>"><a href="<?= site_url($this->router->reverseRoute('sources-fixes')); ?>">Fixes</a></li>
-				<li class="<?= is_cur_page($this, 'sources','reports') ? 'ui-state-active' : ''; ?>"><a href="<?= site_url($this->router->reverseRoute('sources-reports')); ?>">Reportes</a></li>
-				<li class="<?= is_cur_page($this, 'sources','news') ? 'ui-state-active' : ''; ?>"><a href="<?= site_url($this->router->reverseRoute('sources-news')); ?>">Noticias</a></li>
+				<li class="<?= is_cur_page($this, 'sources','index') ? 'ui-state-active' : ''; ?>"><a href="<?= site_url($this->router->reverseRoute('sources')); ?>"><? _e('Global'); ?></a></li>
+				<li class="<?= is_cur_page($this, 'sources','fixes') ? 'ui-state-active' : ''; ?>"><a href="<?= site_url($this->router->reverseRoute('sources-fixes')); ?>"><? _e('Fixes'); ?></a></li>
+				<li class="<?= is_cur_page($this, 'sources','reports') ? 'ui-state-active' : ''; ?>"><a href="<?= site_url($this->router->reverseRoute('sources-reports')); ?>"><? _e('Reportes'); ?></a></li>
+				<li class="<?= is_cur_page($this, 'sources','news') ? 'ui-state-active' : ''; ?>"><a href="<?= site_url($this->router->reverseRoute('sources-news')); ?>"><? _e('Noticias'); ?></a></li>
 			</ul>
         </section>
 		<section class="users_list list profile">
@@ -17,28 +17,28 @@
 					<? if ($position<=3) :?>
 						<div class="avatar podium">
 							<? if (!file_exists('static/sources/'. $source->site . '.jpg')) :?>
-								<img src="<?= base_url('static/avatar-source.jpg'); ?>" width="150" alt="Imagen de <?=$source->site;?>" />
+								<img src="<?= base_url('static/avatar-source.jpg'); ?>" width="150" alt="<?=$source->site;?>" />
 							<? else : ?>
-								<img src="<?= base_url('static/sources/' . $source->site .'.jpg'); ?>" width="150" alt="Imagen de <?=$source->site;?>" />
+								<img src="<?= base_url('static/sources/' . $source->site .'.jpg'); ?>" width="150" alt="<?=$source->site;?>" />
 							<? endif; ?>
 							<div class="position"><?=$position;?>º</div>
 						</div>
 					<? else : ?>
 						<div class="avatar others">
 							<? if (!file_exists('static/sources/'. $source->site . '.jpg')) :?>
-								<img src="<?= base_url('static/avatar-source.jpg'); ?>" width="100" alt="Imagen de <?=$source->site;?>" />
+								<img src="<?= base_url('static/avatar-source.jpg'); ?>" width="100" alt="<?=$source->site;?>" />
 							<? else : ?>
-								<img src="<?= base_url('static/sources/' . $source->site .'.jpg'); ?>" width="100" alt="Imagen de <?=$source->site;?>" />
+								<img src="<?= base_url('static/sources/' . $source->site .'.jpg'); ?>" width="100" alt="<?=$source->site;?>" />
 							<? endif; ?>
-							<div class="position"><?=$position;?>º</div>
+							<div class="position"><?=$position;?></div>
 						</div>
 					<? endif; ?>
 						<div class="data">
 					  		<h2 class="name"><a href="<?= site_url($this->router->reverseRoute('source-profile', array('sitename' => $source->site))); ?>"><?= $source->site; ?></a></h2>
-					  		<p class="counter <?= is_cur_page($this, 'sources','fixes') ? 'highlight' : ''; ?>">Fixes acumulados: <strong><?= $source->total_fixes; ?></strong></p>
-					  		<p class="counter <?= is_cur_page($this, 'sources','reports') ? 'highlight' : ''; ?>">Reportes enviados: <strong><?= $source->get_reports_by_site(); ?></strong></p>
-					  		<p class="counter <?= is_cur_page($this, 'sources','news') ? 'highlight' : ''; ?>">Noticias: <strong><?= $source->news; ?></strong></p>
-					  		<p class="counter <?= is_cur_page($this, 'sources','index') ? 'highlight' : ''; ?>">Reputación: <strong><?= $source->karma ?></strong></p>
+					  		<p class="counter <?= is_cur_page($this, 'sources','fixes') ? 'highlight' : ''; ?>"><? _e('Fixes acumulados'); ?>: <strong><?= $source->total_fixes; ?></strong></p>
+					  		<p class="counter <?= is_cur_page($this, 'sources','reports') ? 'highlight' : ''; ?>"><? _e('Reportes enviados'); ?>: <strong><?= $source->get_reports_by_site(); ?></strong></p>
+					  		<p class="counter <?= is_cur_page($this, 'sources','news') ? 'highlight' : ''; ?>"><? _e('Noticias'); ?>: <strong><?= $source->news; ?></strong></p>
+					  		<p class="counter <?= is_cur_page($this, 'sources','index') ? 'highlight' : ''; ?>"><? _e('Reputación'); ?>: <strong><?= $source->karma ?></strong></p>
 					  </div>
 				</article>
 			<? $position++; endforeach; ?>
