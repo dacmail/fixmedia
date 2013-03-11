@@ -9,12 +9,12 @@
 	<div class="bookmarklet clearfix">
 		<? if (isset($votes) && $votes>0) : ?>
 			<? if ($voted) : ?>
-			<h3>¡Ya has hecho fix a esta noticia!</h3>
+			<h3><? _e('¡Ya has hecho fix a esta noticia!'); ?></h3>
 			<? else :?>
-			<h3>Esta noticia ya está en Fixmedia, <strong>¿quieres hacer fix?</strong></h3>
+			<h3><? _e('Esta noticia ya está en Fixmedia'); ?>, <strong><? _e('¿quieres hacer fix?'); ?></strong></h3>
 			<? endif; ?>
 		<? else : ?>
-			<h3>Esta noticia no está en Fixmedia, <strong>¿quieres hacer fix y ser su descubridor?</strong></h3>
+			<h3><? _e('Esta noticia no está en Fixmedia'); ?>, <strong><? _e('¿quieres hacer fix y ser su descubridor?'); ?></strong></h3>
 		<? endif; ?>
 		<? if (isset($report) && $logged_in) : ?>
 			<?php echo form_open(site_url(array('services/fix_vote',$report->id)), array('target' => '_blank', 'class' => 'fix_vote clearfix')) ?>
@@ -28,8 +28,8 @@
 			<? endif; ?>
 		</form>
 		<? if (isset($votes) && $votes>0) : ?>
-			<p class="actions"><a class="view" href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->slug))); ?>" target="_blank">ver la noticia en fixmedia</a>
-			<a class="report" target="blank" href="<?= site_url($this->router->reverseRoute('reports-send' , array('id' => $report->id))); ?>">arréglala tú mismo</a></p>
+			<p class="actions"><a class="view" href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->slug))); ?>" target="_blank"><? _e('ver la noticia en fixmedia'); ?></a>
+			<a class="report" target="blank" href="<?= site_url($this->router->reverseRoute('reports-send' , array('id' => $report->id))); ?>"><? _e('arréglala tú mismo'); ?></a></p>
 		<? endif; ?>
 	</div>
 </body>
