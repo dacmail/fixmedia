@@ -1,9 +1,9 @@
 <section class="report_info clearfix">
 	<div class="screenshot">
 		<? if (is_null($report->screenshot) || $report->screenshot=="ERROR") : ?>
-			<a href="<?=$report->url; ?>" target="_blank"><img src="<?= base_url('static/screenshot-med.jpg'); ?>" alt="<? printf(_('Captura de %s'), $report->title;); ?>"  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/></a>
+			<a href="<?=$report->url; ?>" target="_blank"><img src="<?= base_url('static/screenshot-med.jpg'); ?>" alt="<? printf(_('Captura de %s'), $report->title); ?>"  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/></a>
 		<? else : ?>
-			<a href="<?=$report->url; ?>" target="_blank"><img src="<?=base_url('images/sources/thumb-report-' . $report->id . '.png'); ?>" width="180" alt="<? printf(_('Captura de %s'), $report->title;); ?>"  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/></a>
+			<a href="<?=$report->url; ?>" target="_blank"><img src="<?=base_url('images/sources/thumb-report-' . $report->id . '.png'); ?>" width="180" alt="<? printf(_('Captura de %s'), $report->title); ?>"  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/></a>
 		<? endif; ?>
 		<a class="url_sent" href="<?=$report->url; ?>" target="blank"><? _e('Ver noticia original'); ?></a>
 	</div>

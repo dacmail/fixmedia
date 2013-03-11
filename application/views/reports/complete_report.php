@@ -7,7 +7,7 @@
 		<? $hidden_fields = array('report_id' => $report->id, 'report_url' => $report->url, 'report_title' => $report->title, 'site' => $report->site); ?>
 		<?php echo form_open($this->router->reverseRoute('reports-preview'), array('id' => 'form_report', 'class' => 'clearfix'), $hidden_fields) ?>
 			<div class="report_data">
-				<p><label class="label">Elige el tipo de reporte</label>
+				<p><label class="label"><? _e('Elige el tipo de reporte'); ?></label>
 				<div class="wrap_types clearfix">
 				<? foreach ($reports_types_tree as $report_type) : ?>
 					<span class="wrap_type">
@@ -20,20 +20,20 @@
 				<div class="fields_wrap" id="fields_1"></div>
 			</div>
 
-			<a href="#" id="add_more" data-service="<?php echo site_url('services/get_more_data'); ?>" class="add">Añadir otra corrección/ampliación</a>
-			<input id="submit" type="submit" class="button submit" name="submit" value="Veamos cómo queda" />
+			<a href="#" id="add_more" data-service="<?php echo site_url('services/get_more_data'); ?>" class="add"><? _e('Añadir otra corrección/ampliación'); ?></a>
+			<input id="submit" type="submit" class="button submit" name="submit" value="<? _e('Veamos cómo queda'); ?>" />
 		</form>
-		<a href="<?= site_url(); ?>" id="cancel" class="cancel">Cancelar</a>
+		<a href="<?= site_url(); ?>" id="cancel" class="cancel"><? _e('Cancelar'); ?></a>
 	</div>
 	<aside id="sidebar" class="report">
 		<div class="counter">
 			<span class="count count-vote-<?= $report->id ?>"><?= $report->votes_count ?></span>
 			<? if ($report->votes_count==1 && ($logged_in && $report->is_voted($the_user->id))) : ?>
-			persona (tú) quiere que alguien la arregle
+			<? _e('persona (tú) quiere que alguien la arregle'); ?>
 			<? elseif ($report->votes_count==1) :?>
-			persona quiere que alguien la arregle
+			<? _e('persona quiere que alguien la arregle'); ?>
 			<? else : ?>
-			personas  quieren que alguien la arregle
+			<? _e('personas  quieren que alguien la arregle'); ?>
 			<? endif; ?>
 		</div>
 	</aside>

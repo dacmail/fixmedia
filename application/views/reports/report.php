@@ -3,14 +3,14 @@
 		<?php $this->load->view('includes/report-info'); ?>
 		<section class="tabs notabs">
         	<ul class="tabs_items">
-				<li class="ui-state-active"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->slug))); ?>">Reportes</a></li>
-				<li class=""><a href="<?= site_url($this->router->reverseRoute('reports-activity', array('slug' => $report->slug))); ?>">Actividad</a></li>
+				<li class="ui-state-active"><a href="<?= site_url($this->router->reverseRoute('reports-view', array('slug' => $report->slug))); ?>"><? _e('Reportes'); ?></a></li>
+				<li class=""><a href="<?= site_url($this->router->reverseRoute('reports-activity', array('slug' => $report->slug))); ?>"><? _e('Actividad'); ?></a></li>
 			</ul>
         </section>
 		<? if (count($report->data)) :?>
-			<h2 class="action_title"><strong>¿Qué es mejorable en esta noticia?</strong> Listado de reportes recibidos</h2>
+			<h2 class="action_title"><strong><? _e('¿Qué es mejorable en esta noticia?'); ?></strong> <? _e('Listado de reportes recibidos'); ?></h2>
 		<? else: ?>
-			<h2 class="action_title"><strong>¿Qué es mejorable en esta noticia?</strong> No hay reportes recibidos</h2>
+			<h2 class="action_title"><strong><? _e('¿Qué es mejorable en esta noticia?'); ?></strong> <? _e('No hay reportes recibidos'); ?></h2>
 		<? endif; ?>
 		<? $count=1; foreach ($report->data as $subreport) :  ?>
 			<div id="report-<?= $subreport->id; ?>" class="subreport <?= $subreport->is_solved() ? 'solved' : ''; ?>">
@@ -33,7 +33,7 @@
 					</span>
 					<div class="subreport_info">
 						<h3 class="subreport_title"><?=$subreport->title; ?></h3>
-						<p class="authorship">Enviado por <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $subreport->user->username))); ?>"><?= $subreport->user->name; ?></a> el <?= $subreport->created_at->format('d/m/Y'); ?></p>
+						<p class="authorship"><? _e('Enviado por'); ?> <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $subreport->user->username))); ?>"><?= $subreport->user->name; ?></a> <? _e('el'); ?> <?= $subreport->created_at->format('d/m/Y'); ?></p>
 						<p class="clearfix subreport_types type_<?= preg_replace('/[^a-z0-9]+/i','-',strtolower($subreport->type));?>">
 							<span class="type"><?=$subreport->type;?></span>,
 							<? if ($subreport->type_info!=$subreport->type) : ?>
@@ -41,7 +41,7 @@
 							<? endif; ?>
 						</p>
 						<? if (!empty($subreport->content) || !empty($subreport->urls[0])) : ?>
-						<a href="#" class="toggle_info">Ocultar detalles y fuentes</a>
+						<a href="#" class="toggle_info"><? _e('Ocultar detalles y fuentes'); ?></a>
 						<div class="subreport_content">
 							<?=$subreport->content;?>
 							<? if (count(array_filter($subreport->urls))>0) : ?>
@@ -55,21 +55,22 @@
 
 						<div class="solved_button clearfix">
 							<? if ($logged_in && !$subreport->is_voted($the_user->id, 'SOLVED')) : ?>
-								<span class="question">¿Arreglado en la noticia original?</span>
-								<a href="<?php echo site_url(array('services/report_solved', $the_user->id ,$subreport->id)); ?>" id="solved-<?= $subreport->id ?>" class="report_solved solved-<?= $subreport->id ?>">Sí</a>
+								<a class="question"><? _e('¿Arreglado en la noticia original?'); ?></a>
+								<a href="<?php echo site_url(array('services/report_solved', $the_user->id ,$subreport->id)); ?>" id="solved-<?= $subreport->id ?>" class="report_solved solved-<?= $subreport->id ?>"><? _e('Sí'); ?></a>
 							<? elseif (!$logged_in) : ?>
-								<span class="question">¿Arreglado en la noticia original?</span>
-								<a href="<?= site_url($this->router->reverseRoute('login')); ?>" class="report_solved_nologin">Sí</a>
+								<a class="question"><? _e('¿Arreglado en la noticia original?'); ?></a>
+								<a href="<?= site_url($this->router->reverseRoute('login')); ?>" class="report_solved_nologin"><? _e('Sí'); ?></a>
 							<? endif; ?>
 							<span class="solved_counter">
 								<? if ($subreport->solved_votes() > 0) : ?>
 									<span class="number"><?=$subreport->solved_votes()?></span>
 									<? if ($subreport->solved_votes() == 1) : ?>
-										persona <?= $logged_in && $subreport->is_voted($the_user->id, 'SOLVED') ? '(tú) ' : ' '?>dice
+										<? $and = $logged_in && $subreport->is_voted($the_user->id, 'SOLVED') ?  _('(tú) ') : ' ' ?>
+										<? printf(_('persona %s dice que ya está arreglado'), $and); ?>
 									<? else : ?>
-										personas <?= $logged_in && $subreport->is_voted($the_user->id, 'SOLVED') ? '(y tú) ' : ' '?>dicen
+										<? $and = $logged_in && $subreport->is_voted($the_user->id, 'SOLVED') ?  _('(y tú) ') : ' ' ?>
+										<? printf(_('personas %s dicen que ya está arreglado'), $and); ?>
 									<? endif; ?>
-									 que ya está arreglado
 								<? endif; ?>
 							</span>
 						</div>

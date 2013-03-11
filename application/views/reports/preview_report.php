@@ -3,7 +3,7 @@
 	<div id="content">
 		<? $data['report'] = $report_sent; ?>
 		<?php $this->load->view('includes/report-info',$data); ?>
-		<h2 class="action_title"><strong>Este es el reporte que vas a publicar</strong> Así es como se verá si lo envías</h2>
+		<h2 class="action_title"><strong><? _e('Este es el reporte que vas a publicar'); ?></strong> <? _e('Así es como se verá si lo envías'); ?></h2>
 
 		<? $count=1; foreach ($report['type_info'] as $index => $type) :  ?>
 			<div class="subreport">
@@ -13,7 +13,7 @@
 					</span>
 					<div class="subreport_info">
 						<h3 class="subreport_title"><?=$report['title'][$index]; ?></h3>
-						<p class="authorship">Enviado por <?= $the_user->name; ?> el <?= date('d/m/Y'); ?></p>
+						<p class="authorship"><? _e('Enviado por'); ?> <?= $the_user->name; ?> <? _e('el'); ?> <?= date('d/m/Y'); ?></p>
 						<? if ($types[$index]->parent_type) : ?>
 							<p class="clearfix subreport_types type_<?= preg_replace('/[^a-z0-9]+/i','-',strtolower($types[$index]->parent_type->type));?>">
 								<span class="type"><?=$types[$index]->parent_type->type ;?></span>,
@@ -28,11 +28,11 @@
 
 						<? if (!empty($report['content'][$index]) || !empty($report['urls_decode'][$index][0])) : ?>
 
-						<a href="#" class="toggle_info">Ocultar detalles y fuentes</a>
+						<a href="#" class="toggle_info"><? _e('Ocultar detalles y fuentes'); ?></a>
 						<div class="subreport_content">
 							<?=$report['content'][$index];?>
 							<? if (count(array_filter($report['urls_decode'][$index]))>0) : ?>
-								<h4 class="subreport_urls">Fuentes:</h4>
+								<h4 class="subreport_urls"><? _e('Fuentes'); ?>:</h4>
 								<? foreach($report['urls_decode'][$index] as $url) : ?>
 								<a href="<?=$url?>" target="_blank" class="source"><?=$url; ?></a>
 								<? endforeach; ?>
@@ -50,12 +50,12 @@
 		<? $hidden_fields = form_hidden(array_merge($report, array('edit_draft' => true))); ?>
 		<?php echo form_open($this->router->reverseRoute('reports-send', array('id' => $report['report_id'])), '') ?>
 			<? echo $hidden_fields; ?>
-			<input type="submit" name="submit" class="edit" value="&larr; Hacer modificaciones" />
+			<input type="submit" name="submit" class="edit" value="<? _e('&larr; Hacer modificaciones'); ?>" />
 		<? echo form_close(); ?>
 
 		<?php echo form_open($this->router->reverseRoute('reports-save'), '') ?>
 			<? echo $hidden_fields; ?>
-			<input type="submit" name="submit" class="button submit" value="Enviar reporte" />
+			<input type="submit" name="submit" class="button submit" value="<? _e('Enviar reporte'); ?>" />
 		<? echo form_close(); ?>
 	</div>
 
@@ -63,11 +63,11 @@
 		<div class="counter">
 			<span class="count count-vote-<?= $report_sent->id ?>"><?= $report_sent->votes_count ?></span>
 			<? if ($report_sent->votes_count==1 && ($logged_in && $report_sent->is_voted($the_user->id))) : ?>
-			persona (tú) quiere que alguien la arregle
+			<? _e('persona (tú) quiere que alguien la arregle'); ?>
 			<? elseif ($report_sent->votes_count==1) :?>
-			persona quiere que alguien la arregle
+			<? _e('persona quiere que alguien la arregle'); ?>
 			<? else : ?>
-			personas  quieren que alguien la arregle
+			<? _e('personas quieren que alguien la arregle'); ?>
 			<? endif; ?>
 		</div>
 	</aside>

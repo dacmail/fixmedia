@@ -15,8 +15,9 @@
         </tr>
         <tr>
             <td style="font-size:12px; color:#7F7F7F; font-style:italic; font-family:Arial, helvetica;padding:0px 10px;">
-                <p><? _e('Este es un mail automático, no lo respondas. Si quieres contactarnos escribe a <a href="mailto:comunidad@fixmedia.org">comunidad@fixmedia.org</a>. Recibes este correo porque eres usuario de Fixmedia.
-                Puedes personalizar las notificaciones que quieres recibir en <a href="<?= site_url('usuario/editar'); ?>">tu perfil</a>. Fixmedia.org, arregla las noticias. Un proyecto financiado por gente como tú para mejorar la información.'); ?>
+                <? $link = site_url('usuario/editar'); ?>
+                <p><? printf(_('Este es un mail automático, no lo respondas. Si quieres contactarnos escribe a <a href="mailto:comunidad@fixmedia.org">comunidad@fixmedia.org</a>. Recibes este correo porque eres usuario de Fixmedia.
+                Puedes personalizar las notificaciones que quieres recibir en <a href="%s">tu perfil</a>. Fixmedia.org, arregla las noticias. Un proyecto financiado por gente como tú para mejorar la información.'), $link); ?>
  </p>
             </td>
         </tr>
