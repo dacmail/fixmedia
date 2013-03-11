@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fixmedia\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-08 10:37+0100\n"
+"POT-Creation-Date: 2013-03-11 11:08+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Daniel Aguilar <hola@soydac.com>\n"
 "Language-Team: fixmedia <fix@media.org>\n"
@@ -423,6 +423,261 @@ msgstr ""
 msgid "Estadísticas"
 msgstr ""
 
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:30
+msgid "Amateur"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:37
+msgid "Corrector"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:44
+msgid "Editor"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:51
+msgid "Fact-checker"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:56
+#, php-format
+msgid "Reputación del nivel %s"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:56
+#, php-format
+msgid "Nivel %s"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:74
+#, php-format
+msgid "hizo fix a la noticia %s que tú descubriste"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:79
+msgid "valoró tu reporte %"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:84
+#, php-format
+msgid "dijo que tu reporte %s está corregido"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:89
+#, php-format
+msgid "reportó en la noticia %s que tú descubriste"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:98
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:133
+#, php-format
+msgid "¡Hola, %s!"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:100
+msgid "Ver notificaciones"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:124
+msgid "Tus notificaciones de hoy"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:134
+msgid "Consúltalas todas en la web"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:139
+msgid "Tu actividad diaria en Fixmedia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/helpers/interface_helper.php:148
+#, php-format
+msgid "Reputación: %s"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/change_password.php:13
+#, php-format
+msgid "Nueva contraseña (al menos %s caracteres)"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/change_password.php:17
+msgid "Confirmar contraseña"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/create_user.php:3
+msgid "Regístrate"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/create_user.php:5
+#: /Users/dac/projects/fixmedia/application/views/auth/login.php:6
+msgid "Con un click"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/create_user.php:7
+msgid "Iniciar con Facebook"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/create_user.php:10
+#: /Users/dac/projects/fixmedia/application/views/auth/login.php:11
+msgid "Iniciar con Twitter"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/create_user.php:12
+#: /Users/dac/projects/fixmedia/application/views/auth/login.php:13
+msgid "o usa el formulario"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/create_user.php:27
+msgid "¿Ya tienes cuenta?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/create_user.php:27
+#, fuzzy
+msgid "Inicia sesión"
+msgstr "Sign in"
+
+#: /Users/dac/projects/fixmedia/application/views/auth/forgot_password.php:12
+#, php-format
+msgid "Volver al <a href=\"%s\">Inicio de sesión</a>"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/login.php:27
+msgid "Recuérdame"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/login.php:32
+msgid "¿Olvidaste tu contraseña?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/login.php:33
+#, php-format
+msgid "¿Aún no tienes cuenta? <a href=\"%s\">Regístrate</a>"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/reset_password.php:13
+msgid "Repite nueva contraseña"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/email/activate.tpl.php:6
+#: /Users/dac/projects/fixmedia/application/views/auth/email/activate.tpl.php:15
+#: /Users/dac/projects/fixmedia/application/views/auth/email/forgot_password.tpl.php:15
+#: /Users/dac/projects/fixmedia/application/views/auth/email/new_password.tpl.php:5
+#: /Users/dac/projects/fixmedia/application/views/auth/email/new_password.tpl.php:14
+#: /Users/dac/projects/fixmedia/application/views/emails/template.php:5
+#: /Users/dac/projects/fixmedia/application/views/emails/template.php:14
+#, fuzzy
+msgid "Fixmedia.org, mejora las noticias"
+msgstr "Fixmedia.org, fixing the news"
+
+#: /Users/dac/projects/fixmedia/application/views/auth/email/activate.tpl.php:10
+msgid "Es necesaria la activación de la cuenta"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/email/activate.tpl.php:11
+msgid "Por favor, haz click en el siguiente enlace"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/email/activate.tpl.php:11
+msgid "para activar tu cuenta"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/email/activate.tpl.php:19
+#: /Users/dac/projects/fixmedia/application/views/auth/email/forgot_password.tpl.php:19
+#: /Users/dac/projects/fixmedia/application/views/auth/email/new_password.tpl.php:18
+msgid ""
+"Este es un mail automático, no lo respondas. Si quieres contactarnos escribe a <a href=\"mailto:comunidad@fixmedia.org\">comunidad@fixmedia.org</a>\n"
+"                Fixmedia.org, arregla las noticias. Un proyecto financiado por gente como tú para mejorar la información.\n"
+"                Recibes este correo porque eres usuario de Fixmedia."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/email/forgot_password.tpl.php:9
+#, php-format
+msgid "Reestablecer contraseña para %s"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/email/forgot_password.tpl.php:11
+#, php-format
+msgid "Haz click para <a href=\"%s\">restablecer tu contraseña</a>."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/email/new_password.tpl.php:9
+msgid "Nueva contraseña para"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/auth/email/new_password.tpl.php:10
+msgid "Tu nueva contraseña es:"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/emails/template.php:19
+#, php-format
+msgid ""
+"Este es un mail automático, no lo respondas. Si quieres contactarnos escribe a <a href=\"mailto:comunidad@fixmedia.org\">comunidad@fixmedia.org</a>. Recibes este correo porque eres usuario de Fixmedia.\n"
+"                Puedes personalizar las notificaciones que quieres recibir en <a href=\"%s\">tu perfil</a>. Fixmedia.org, arregla las noticias. Un proyecto financiado por gente como tú para mejorar la información."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer-landing.php:5
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:47
+msgid "Desarrollado por"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer-landing.php:9
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:51
+msgid "Cofinanciadores destacados"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:6
+msgid "fixmedia.org es un proyecto de <a href=\"http://nxtmdia.com\" target=\"_blank\">NXTMDIA</a> para el procomún financiado a través de <a href=\"http://goteo.org\" target=\"_blank\">Goteo.org</a> por <a href=\"http://www.goteo.org/project/fixmedia.org-mejora-las-noticias/supporters\" target=\"_blank\">estas personas.</a>"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:11
+msgid "Menú"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:12
+msgid "Portada"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:21
+msgid "Social"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:22
+msgid "Registro"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:23
+msgid "Entrar"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:24
+msgid "marcador"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:24
+msgid "Usa nuestro marcador"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:25
+msgid "periodistas"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:25
+msgid "¿Eres periodista?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:26
+#, fuzzy
+msgid "creadores"
+msgstr "reports"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:26
+msgid "¿Creas contenido?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:27
+msgid "Blog"
+msgstr ""
+
 #: /Users/dac/projects/fixmedia/application/views/includes/footer.php:31
 #: /Users/dac/projects/fixmedia/application/views/includes/header.php:30
 msgid "que-es-fixmedia"
@@ -433,6 +688,67 @@ msgstr "what-is-fixmedia"
 msgid "Qué es fixmedia"
 msgstr "What is fixmedia?"
 
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:32
+msgid "como-funciona"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:32
+msgid "Cómo funciona"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:33
+msgid "que-queremos-conseguir"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:33
+msgid "Qué queremos conseguir"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:34
+msgid "equipo"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:34
+msgid "Equipo"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:35
+msgid "cofinanciadores"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:35
+msgid "Cofinanciadores"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:36
+msgid "faq"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:36
+msgid "FAQ"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:37
+msgid "contacto"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:37
+msgid "Contacto"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:38
+msgid "aviso-legal"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:38
+msgid "Legal"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/footer.php:58
+msgid "Alojado en un servidor estable gracias a <a href=\"http://comvive.es\">Comvive</a>"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header-landing.php:24
 #: /Users/dac/projects/fixmedia/application/views/includes/header.php:26
 msgid "Fixmedia.org, arregla las noticias"
 msgstr "Fixmedia.org, fixing the news"
@@ -457,6 +773,15 @@ msgstr "+ info"
 msgid "¿Qué es fixmedia?"
 msgstr "What is fixmedia?"
 
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:38
+msgid "Notificaciones pendientes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:43
+#, php-format
+msgid "Avatar de %s"
+msgstr ""
+
 #: /Users/dac/projects/fixmedia/application/views/includes/header.php:44
 msgid "Ver perfil"
 msgstr "View profile"
@@ -468,6 +793,11 @@ msgstr "fixes"
 #: /Users/dac/projects/fixmedia/application/views/includes/header.php:51
 msgid "reportes"
 msgstr "reports"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/header.php:57
+#, php-format
+msgid "%s notificaciones pendientes"
+msgstr ""
 
 #: /Users/dac/projects/fixmedia/application/views/includes/header.php:58
 msgid "Cerrar sesión"
@@ -481,10 +811,901 @@ msgstr "FIX"
 msgid "noticias, reportes, usuarios"
 msgstr "news, reports, users"
 
+#: /Users/dac/projects/fixmedia/application/views/includes/mini-faqs.php:2
+#, fuzzy
+msgid "¿Qué es fixmedia.org?"
+msgstr "What is fixmedia?"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/mini-faqs.php:4
+msgid "Fixmedia es una herramienta que nos permite mejorar las noticias entre todos, pidiendo que alguien las arregle añadiendo más y mejor información o corrigiendo la existente."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/mini-faqs.php:8
+msgid "¿Cómo funciona?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/mini-faqs.php:10
+msgid "¡Muy simple! Haz “Fix” para sumarte a una petición de mejora o reporta tú mismo la tuya."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/mini-faqs.php:14
+msgid "¿Por qué?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/mini-faqs.php:16
+msgid "Las noticias son el ADN de la Opinión Pública, que es el poder ciudadano en democracia. Creemos que necesitan un control de calidad ejercido por todos."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/mini-faqs.php:20
+#, fuzzy
+msgid "¿Quiénes?"
+msgstr "Who we are?"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/mini-faqs.php:23
+msgid "Fixmedia la conforman los usuarios de la herramienta, cada uno de los <a href=\"http://www.goteo.org/project/fixmedia.org-mejora-las-noticias/supporters\" target=\"_blank\">170 cofinanciadores</a> del proyecto, las decenas de personas que nos ayudaron y el equipo de <a href=\"http://nxtmdia.com\" target=\"_blank\">Nxtmdia</a>."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/report-info.php:4
+#: /Users/dac/projects/fixmedia/application/views/includes/report-info.php:6
+#, php-format
+msgid "Captura de %s"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/report-info.php:8
+msgid "Ver noticia original"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/report-info.php:12
+msgid "Enviado por"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/report-info.php:12
+msgid "el"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/report-info.php:13
+msgid "Fuente"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-source.php:4
+msgid "noticias"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-source.php:7
+msgid "fixes totales"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-source.php:10
+#, fuzzy
+msgid "Posición en Fixmedia"
+msgstr "What is Fixmedia?"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-static.php:3
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar.php:3
+msgid "Seguir a @fixmedia_org"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-static.php:14
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar.php:15
+msgid "Fuentes con más fixes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-static.php:26
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar.php:27
+msgid "Fuentes con más reportes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-user.php:13
+msgid "Noticias descubiertas"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-user.php:14
+msgid "Fixes recibidos"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-user.php:15
+msgid "Fixes de media"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-user.php:16
+#, fuzzy
+msgid "Media en Fixmedia"
+msgstr "What is Fixmedia?"
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-user.php:17
+msgid "Reportes recibidos"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-user.php:18
+msgid "Reportes propios"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-user.php:19
+msgid "Valoración media"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-user.php:20
+msgid "Valoración media en Fixmedia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-user.php:24
+#, php-format
+msgid "Posición de %s en Fixmedia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar.php:39
+msgid "Usuarios más activos"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar.php:44
+msgid "Reputación del usuario (redondeada)"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:6
+#: /Users/dac/projects/fixmedia/application/views/reports/report.php:6
+#, fuzzy
+msgid "Reportes"
+msgstr "reports"
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:7
+#: /Users/dac/projects/fixmedia/application/views/reports/report.php:7
+msgid "Actividad"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:10
+msgid "Están contribuyendo a mejorar esta noticia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:10
+msgid "Listado de usuarios comprometidos"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:13
+msgid "Usuarios que han reportado"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:19
+msgid "Mejorando noticias desde el"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:22
+msgid "Seguir a"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:33
+msgid "Usuarios que han valorado positivamente un reporte"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:51
+msgid "Usuarios que solo han hecho fix"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:74
+msgid "persona (tu) quiere que alguien la arregle"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:76
+msgid "persona quiere que alguien la arregle. ¿Y tú?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:78
+msgid "personas quieren que alguien la arregle. ¿Y tú?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:83
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:87
+msgid "Haciendo Fix estás diciendo que esta noticia es mejorable en algún aspecto"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:91
+msgid "¡Hecho!"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:96
+msgid "¡Ya has hecho FIX!"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:96
+msgid "¿Qué quieres hacer ahora?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:98
+msgid "También puedes..."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:102
+msgid "Compártela"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/activity.php:104
+msgid "Arréglala"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/complete_report.php:10
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:9
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:9
+msgid "Elige el tipo de reporte"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/complete_report.php:23
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:92
+msgid "Añadir otra corrección/ampliación"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/complete_report.php:24
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:93
+msgid "Veamos cómo queda"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/complete_report.php:26
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:95
+msgid "Cancelar"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/complete_report.php:32
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:101
+#: /Users/dac/projects/fixmedia/application/views/reports/preview_report.php:66
+msgid "persona (tú) quiere que alguien la arregle"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/complete_report.php:34
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:103
+#: /Users/dac/projects/fixmedia/application/views/reports/preview_report.php:68
+msgid "persona quiere que alguien la arregle"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/complete_report.php:36
+msgid "personas  quieren que alguien la arregle"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/create_report.php:4
+msgid "Si has leído una noticia que crees que puedes corregir o ampliar, comienza introduciendo aquí su URL"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/create_report.php:7
+msgid "Url de la noticia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/create_report.php:8
+msgid "http://ejemplo.com/noticia.html"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/create_report.php:9
+msgid "Si quieres, puedes empezar buscando noticias que reportar <a target=\"_blank\" href=\"https://news.google.es/\">aquí</a>."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/create_report.php:15
+msgid "Siguiente"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:22
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:22
+#, fuzzy
+msgid "¿Qué quieres arreglar?"
+msgstr "What is fixmedia?"
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:22
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:22
+msgid "Dilo en un titular, recuerda que al final puedes seguir añadiendo reportes a esta misma noticia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:26
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:26
+msgid "Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu corrección."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:28
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:28
+msgid "Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu ampliación."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:34
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:36
+msgid "Explícalo"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:34
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:36
+msgid "Si es necesario"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:38
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:40
+msgid "Identifica en breves palabras la parte de la noticia que consideras que debe ser corregida, por qué debe serlo y cuál es tu alternativa."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:40
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:42
+msgid "Identifica en breves palabras por qué crees que a esta noticia la falta más contenido y cuál es."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:46
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:53
+msgid "Fuentes o archivos"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:46
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:53
+msgid "Si es necesario añadie URL a fuentes directas, otras noticias, enlaces, etc."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:56
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:64
+msgid "Por ejemplo, un enlace a otra noticia sobre el mismo asunto o un enlace a un documento, fotografía o archivo que justifiquen tu corrección."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:58
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:66
+msgid "Por ejemplo, un enlace a otra noticia sobre el mismo asunto pero más completa o un enlace a un documento, fotografía, gráfico o archivo que contengan la ampliación."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:61
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:70
+msgid "Agregar otra URL"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:66
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:76
+msgid "Clasifica tu reporte"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:66
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:76
+msgid "Ayuda a la comunidad a comprender rápidamente cual es el problema en esta noticia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:67
+msgid "Ninguna"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:73
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:83
+msgid "Escoge la opción que mejor se ajuste al tipo de corrección que deseas realizar sobre esta noticia."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/edit_report.php:75
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:85
+msgid "Escoge la opción que mejor se ajuste al tipo de ampliación que deseas realizar sobre esta noticia."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/error_report.php:105
+#: /Users/dac/projects/fixmedia/application/views/reports/preview_report.php:70
+msgid "personas quieren que alguien la arregle"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/preview_report.php:6
+msgid "Este es el reporte que vas a publicar"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/preview_report.php:6
+msgid "Así es como se verá si lo envías"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/preview_report.php:31
+#: /Users/dac/projects/fixmedia/application/views/reports/report.php:44
+msgid "Ocultar detalles y fuentes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/preview_report.php:35
+#, fuzzy
+msgid "Fuentes"
+msgstr "Popular"
+
+#: /Users/dac/projects/fixmedia/application/views/reports/preview_report.php:53
+msgid "&larr; Hacer modificaciones"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/preview_report.php:58
+#, fuzzy
+msgid "Enviar reporte"
+msgstr "reports"
+
+#: /Users/dac/projects/fixmedia/application/views/reports/report.php:11
+#: /Users/dac/projects/fixmedia/application/views/reports/report.php:13
+msgid "¿Qué es mejorable en esta noticia?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/report.php:11
+msgid "Listado de reportes recibidos"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/report.php:13
+#, fuzzy
+msgid "No hay reportes recibidos"
+msgstr "news, reports, users"
+
+#: /Users/dac/projects/fixmedia/application/views/reports/report.php:58
+#: /Users/dac/projects/fixmedia/application/views/reports/report.php:61
+msgid "¿Arreglado en la noticia original?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/report.php:59
+#: /Users/dac/projects/fixmedia/application/views/reports/report.php:62
+msgid "Sí"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/report.php:68
+msgid "(tú) "
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/report.php:69
+#, php-format
+msgid "persona %s dice que ya está arreglado"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/report.php:71
+msgid "(y tú) "
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/report.php:72
+#, php-format
+msgid "personas %s dicen que ya está arreglado"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/sent_url_report.php:10
+msgid "Enviado por "
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/sent_url_report.php:16
+msgid "Ya has hecho fix a esta noticia."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/sent_url_report.php:16
+msgid "¿Qué quieres hacer con ella ahora?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/sent_url_report.php:19
+msgid "Para arreglarla entre todos"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/reports/sent_url_report.php:23
+msgid "Empieza tú mismo"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/search/list_news.php:9
+#: /Users/dac/projects/fixmedia/application/views/search/list_reports.php:9
+#: /Users/dac/projects/fixmedia/application/views/search/list_users.php:9
+#: /Users/dac/projects/fixmedia/application/views/sources/list_sources.php:10
+#: /Users/dac/projects/fixmedia/application/views/sources/list_sources.php:40
+msgid "Noticias"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/search/list_news.php:11
+#: /Users/dac/projects/fixmedia/application/views/search/list_reports.php:11
+#: /Users/dac/projects/fixmedia/application/views/search/list_users.php:11
+msgid "Usuarios"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/search/list_news.php:15
+#: /Users/dac/projects/fixmedia/application/views/search/list_reports.php:15
+#: /Users/dac/projects/fixmedia/application/views/search/list_users.php:15
+msgid "Ordernar por"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/search/list_news.php:17
+#: /Users/dac/projects/fixmedia/application/views/search/list_reports.php:17
+#: /Users/dac/projects/fixmedia/application/views/search/list_users.php:17
+msgid "Relevancia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/search/list_news.php:18
+#: /Users/dac/projects/fixmedia/application/views/search/list_reports.php:18
+#: /Users/dac/projects/fixmedia/application/views/search/list_users.php:18
+msgid "Fecha"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/search/list_news.php:44
+msgid "No hay noticias para la cadena de búsqueda"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/search/list_reports.php:36
+msgid "Reportado por"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/search/list_reports.php:48
+msgid "No hay reportes para la cadena de búsqueda"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/search/list_users.php:42
+msgid "No hay usuarios para la cadena de búsqueda"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/services/bookmarklet.php:12
+msgid "¡Ya has hecho fix a esta noticia!"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/services/bookmarklet.php:14
+#, fuzzy
+msgid "Esta noticia ya está en Fixmedia"
+msgstr "What is Fixmedia?"
+
+#: /Users/dac/projects/fixmedia/application/views/services/bookmarklet.php:14
+#, fuzzy
+msgid "¿quieres hacer fix?"
+msgstr "What is fixmedia?"
+
+#: /Users/dac/projects/fixmedia/application/views/services/bookmarklet.php:17
+#, fuzzy
+msgid "Esta noticia no está en Fixmedia"
+msgstr "What is Fixmedia?"
+
+#: /Users/dac/projects/fixmedia/application/views/services/bookmarklet.php:17
+msgid "¿quieres hacer fix y ser su descubridor?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/services/bookmarklet.php:31
+#, fuzzy
+msgid "ver la noticia en fixmedia"
+msgstr "What is Fixmedia?"
+
+#: /Users/dac/projects/fixmedia/application/views/services/bookmarklet.php:32
+msgid "arréglala tú mismo"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/services/share.php:12
+msgid "Compartir en Facebook"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/services/share.php:13
+msgid "Esta noticia necesita %23FIX"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/services/share.php:13
+msgid " enviada por @"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/services/share.php:13
+msgid "Compartir en Twitter"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/services/share.php:14
+msgid "Compartir en Google+"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/source/profile.php:17
+#, php-format
+msgid "Noticias de %s "
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/source/profile.php:45
+msgid "Mes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/source/profile.php:45
+#: /Users/dac/projects/fixmedia/application/views/sources/list_sources.php:8
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:37
+#, fuzzy
+msgid "Fixes"
+msgstr "fixes"
+
+#: /Users/dac/projects/fixmedia/application/views/source/profile.php:71
+#, fuzzy
+msgid "Tipos de reportes"
+msgstr "reports"
+
+#: /Users/dac/projects/fixmedia/application/views/source/profile.php:72
+msgid "¿Se equivoca mucho o se queda corto? Este gráfico de tarta nos indica si los reportes que está recibiendo esta fuente son más correcciones o ampliaciones."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/source/profile.php:78
+msgid "Actividad por meses"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/source/profile.php:79
+msgid "¿En qué momentos recibe esta fuente más fixes y/o más reportes? Este gráfico temporal nos lo muestra."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/sources/list_sources.php:7
+msgid "Global"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/sources/list_sources.php:38
+msgid "Fixes acumulados"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/sources/list_sources.php:39
+#, fuzzy
+msgid "Reportes enviados"
+msgstr "reports"
+
+#: /Users/dac/projects/fixmedia/application/views/sources/list_sources.php:41
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:80
+msgid "Reputación"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:19
+msgid "usuarios"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:23
+#, fuzzy
+msgid "fuentes"
+msgstr "Popular"
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:26
+msgid "Las cifras globales de Fixmeda desde el día de su lanzamiento"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:30
+msgid "Las fuentes más importantes en Fixmedia en los últimos 7 días"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:33
+msgid "Cada globo representa una fuente (un medio, un blog, etc.). Cuanto más alineado esté a la derecha, es que ha recibido más reportes. Cuanto más arriba esté, es que ha recibido más fixes. Cuanto mayor sea el tamaño del globo, es que tiene el total de noticias tienen más importancia dentro de Fixmedia."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:38
+msgid "Fixes acumulados en los últimos 7 días"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:44
+msgid "¿Cuántos fixes se han hecho? ¿Cuál es la proporción de fixes respecto a los reportes recibidos durante el mismo periodo?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:49
+msgid "Reportes acumulados en los últimos 7 días"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:55
+msgid "¿Cuántos reportes han enviado los usuarios esta última semana? De ellos, ¿cuántos han sido ampliaciones y cuántos, correcciones?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:60
+msgid "Tipos de correcciones"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:61
+msgid "¿Dónde fallan los medios? ¿Qué tipo de correcciones se han hecho esta última semana?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:67
+msgid "Tipos de amplaciones"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:68
+msgid "¿Qué tipo de ampliaciones se han hecho esta última semana?"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:80
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:88
+msgid "Número de reportes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:80
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:89
+msgid "Número de fixes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:87
+msgid "Número de fixes, número de reportes y reputación acumulada de las 10 fuentes más importantes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:108
+msgid "Número de fixes en los últimos 7 días"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:123
+msgid "Número de reportes en los últimos 7 días"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:138
+msgid "Número de fixes y reportes en los últimos 7 días"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:146
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:176
+msgid "Tipo"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:154
+msgid "Tipos de reportes en los últimos 7 días"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:169
+msgid "Subtipos de correcciones más utilizados en los últimos 7 días"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:176
+msgid "Total"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:184
+msgid "Reportes vs Fixes en los últimos 7 días"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:189
+msgid "Subtipo"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/stats/stats.php:198
+msgid "Subtipos de ampliaciones más utilizados en los últimos 7 días"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/activity.php:7
+msgid "Cambiar gravatar"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/activity.php:18
+msgid "Web"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/activity.php:21
+msgid "Seguir a "
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/activity.php:30
+msgid "Noticias mejoradas por %"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/activity.php:40
+msgid "Leido"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/activity.php:40
+msgid "Nueva"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/activity.php:45
+msgid "No hay actividad que mostrar"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/activity.php:49
+msgid "Ir a..."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/activity.php:49
+msgid "Mejorar una noticia ahora"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:9
+msgid "Nombre de usuario"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:9
+msgid "Tu nombre de usuario no puede modificarse"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:13
+msgid "Nombre para mostrar"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:13
+msgid "Será tu nombre público, puede ser tu nombre y apellidos, nick, etc."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:18
+msgid "Sobre ti"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:18
+msgid "Puedes escribir una pequeña biografía sobre tí."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:25
+msgid "Página web"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:25
+msgid "Escribe la url de tu blog, web, facebook o lo que quieras."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:30
+msgid "Twitter"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:30
+msgid "Escribe tu nombre de usuario de twitter."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:36
+msgid "Permitir que se me mencione en twitter al compartir mis envíos a Fixmedia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:39
+msgid "Notificaciones"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:39
+msgid "Selecciona cuándo quieres recibir notificaciones en tu correo electrónico"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:40
+msgid "No recibir notificaciones en el correo"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:40
+msgid "Cuando se produzca la acción"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:40
+msgid "Una vez a día"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:44
+msgid "Tipos de notificaciones"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:44
+msgid "Elige qué tipos de notificaciones quieres recibir en tu correo"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:45
+msgid "Cuando alguien hace FIX a una noticia enviada por mí"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:46
+msgid "Cuando alguien envía un REPORTE a una noticia enviada por mí<"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:47
+msgid "Cuando alguien VALORA un reporte enviado por mí"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:48
+msgid "Cuando alguien dice que un reporte envíado por mí está CORREGIDO en la noticia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:51
+msgid "Guardar los cambios"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit.php:53
+#, fuzzy
+msgid "Volver al perfil"
+msgstr "View profile"
+
+#: /Users/dac/projects/fixmedia/application/views/user/edit_email.php:14
+msgid "Terminar registro"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/user.php:109
+#: /Users/dac/projects/fixmedia/application/views/user/user.php:111
+msgid "fixes por cada reporte"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/user.php:113
+msgid "¿Este usuario es más de ‘Fix’ o de ‘Reporte’? Este gráfico nos dice qué porcentaje de Fixes ha hecho por cada reporte aportado."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/user.php:120
+msgid "Este gráfico nos muestra en qué momentos es más activo este usuario y haciendo el qué. Azul: fixes. Rojo: reportes."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/user.php:126
+msgid "Fixes por fuentes"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/user.php:127
+msgid "¿Qué medios, blogs, etc. son los que se benefician más de la edición de este usuario? Ordenados de mayor a menor."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/user.php:131
+#, php-format
+msgid "No hay datos para mostrar, cuando %s haga algún fix o reporte, mostraremos las estadísticas."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/user.php:154
+msgid "reportó su propia mejora en esta noticia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/user.php:156
+msgid "fue el primero en hacer fix en esta noticia"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/user.php:163
+#, php-format
+msgid "No hay datos para mostrar, cuando %s haga algún fix o reporte, mostraremos sus noticias."
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/users/list_users.php:6
+msgid "buscar usuarios"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/users/list_users.php:13
+#: /Users/dac/projects/fixmedia/application/views/users/list_users.php:37
+msgid "Descubrimientos"
+msgstr ""
+
 #~ msgid "quienes-somos"
 #~ msgstr "who-we-are"
-#~ msgid "Quiénes somos"
-#~ msgstr "Who we are?"
-#~ msgid "¿Qué es Fixmedia?"
-#~ msgstr "What is Fixmedia?"
 
