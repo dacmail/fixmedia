@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Fixmedia\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-11 11:08+0100\n"
+"POT-Creation-Date: 2013-03-12 17:17+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Daniel Aguilar <hola@soydac.com>\n"
 "Language-Team: fixmedia <fix@media.org>\n"
@@ -679,7 +679,6 @@ msgid "Blog"
 msgstr ""
 
 #: /Users/dac/projects/fixmedia/application/views/includes/footer.php:31
-#: /Users/dac/projects/fixmedia/application/views/includes/header.php:30
 msgid "que-es-fixmedia"
 msgstr "what-is-fixmedia"
 
@@ -749,7 +748,6 @@ msgid "Alojado en un servidor estable gracias a <a href=\"http://comvive.es\">Co
 msgstr ""
 
 #: /Users/dac/projects/fixmedia/application/views/includes/header-landing.php:24
-#: /Users/dac/projects/fixmedia/application/views/includes/header.php:26
 msgid "Fixmedia.org, arregla las noticias"
 msgstr "Fixmedia.org, fixing the news"
 
@@ -787,10 +785,13 @@ msgid "Ver perfil"
 msgstr "View profile"
 
 #: /Users/dac/projects/fixmedia/application/views/includes/header.php:50
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-user.php:4
 msgid "fixes"
 msgstr "fixes"
 
 #: /Users/dac/projects/fixmedia/application/views/includes/header.php:51
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-source.php:5
+#: /Users/dac/projects/fixmedia/application/views/includes/sidebar-user.php:5
 msgid "reportes"
 msgstr "reports"
 
@@ -942,13 +943,11 @@ msgid "Reputación del usuario (redondeada)"
 msgstr ""
 
 #: /Users/dac/projects/fixmedia/application/views/reports/activity.php:6
-#: /Users/dac/projects/fixmedia/application/views/reports/report.php:6
 #, fuzzy
 msgid "Reportes"
 msgstr "reports"
 
 #: /Users/dac/projects/fixmedia/application/views/reports/activity.php:7
-#: /Users/dac/projects/fixmedia/application/views/reports/report.php:7
 msgid "Actividad"
 msgstr ""
 
@@ -1173,6 +1172,11 @@ msgstr ""
 msgid "personas quieren que alguien la arregle"
 msgstr ""
 
+#: /Users/dac/projects/fixmedia/application/views/reports/list_reports.php:24
+#, fuzzy
+msgid "Reporte popular"
+msgstr "reports"
+
 #: /Users/dac/projects/fixmedia/application/views/reports/preview_report.php:6
 msgid "Este es el reporte que vas a publicar"
 msgstr ""
@@ -1182,7 +1186,6 @@ msgid "Así es como se verá si lo envías"
 msgstr ""
 
 #: /Users/dac/projects/fixmedia/application/views/reports/preview_report.php:31
-#: /Users/dac/projects/fixmedia/application/views/reports/report.php:44
 msgid "Ocultar detalles y fuentes"
 msgstr ""
 
@@ -1656,6 +1659,11 @@ msgstr "View profile"
 
 #: /Users/dac/projects/fixmedia/application/views/user/edit_email.php:14
 msgid "Terminar registro"
+msgstr ""
+
+#: /Users/dac/projects/fixmedia/application/views/user/user.php:30
+#, php-format
+msgid "Noticias mejoradas por %s"
 msgstr ""
 
 #: /Users/dac/projects/fixmedia/application/views/user/user.php:109

@@ -27,7 +27,7 @@
 		<section class="tabs">
 			<ul class="tabs_items">
 				<li><a href="#stats"><? _e('Estadísticas'); ?></a></li>
-				<li class="<?= (($page>1) ? 'ui-tabs-selected' : ''); ?>"><a href="#fixes"><? printf(_('Noticias mejoradas por %'), $user->name); ?></a></li>
+				<li class="<?= (($page>1) ? 'ui-tabs-selected' : ''); ?>"><a href="#fixes"><? printf(_('Noticias mejoradas por %s'), $user->name); ?></a></li>
 				<? if ($logged_in && $user->id==$the_user->id) : ?>
 				<li><a data-ajax="false" href="<?=site_url($this->router->reverseRoute('user-activity'));?>"><? _e('Actividad'); ?> <? if (count($the_user->unread_activity)) : ?> (<?= count($the_user->unread_activity); ?>)<? endif; ?></a></li>
 				<? endif; ?>
@@ -137,9 +137,9 @@
 					<article class="report_info clearfix vote-<?=$vote->id;?> <?= $vote->report->has_subreport($user->id) ? 'has_reported' : 'only_fix'; ?> <?= $vote->report->user_id==$user->id ? 'first_fix' : ''; ?>">
 						<div class="screenshot">
 							<? if (is_null($vote->report->screenshot) || $vote->report->screenshot=="ERROR") : ?>
-								<img src="<?php echo base_url(); ?>static/screenshot-thumb.jpg" alt="<? printf(_('Captura de %s'), $report->title); ?>"  title="karma <?= $vote->report->karma ?> / coef <?= $vote->report->karma_value ?> / valor <?= $vote->report->karma*$vote->report->karma_value?>"/>
+								<img src="<?php echo base_url(); ?>static/screenshot-thumb.jpg" alt="<? printf(_('Captura de %s'), $vote->report->title); ?>"  title="karma <?= $vote->report->karma ?> / coef <?= $vote->report->karma_value ?> / valor <?= $vote->report->karma*$vote->report->karma_value?>"/>
 							<? else : ?>
-								<img src="<?=base_url('images/sources/thumb-home-' . $vote->report->id . '.png'); ?>" width="150" alt="<? printf(_('Captura de %s'), $report->title); ?>"  title="karma <?= $vote->report->karma ?> / coef <?= $vote->report->karma_value ?> / valor <?= $vote->report->karma*$vote->report->karma_value?>"/>
+								<img src="<?=base_url('images/sources/thumb-home-' . $vote->report->id . '.png'); ?>" width="150" alt="<? printf(_('Captura de %s'), $vote->report->title); ?>"  title="karma <?= $vote->report->karma ?> / coef <?= $vote->report->karma_value ?> / valor <?= $vote->report->karma*$vote->report->karma_value?>"/>
 							<? endif; ?>
 							<div class="clearfix fix_reports_counters">
 								<div class="fixes"><span class="count"><?= $vote->report->votes_count; ?></span> <? _e('fixes'); ?></div>

@@ -26,7 +26,7 @@
 							<? if (is_null($report->screenshot) || $report->screenshot=="ERROR") : ?>
 								<a href="<?=$report->url; ?>" target="_blank"><img src="<?php echo base_url(); ?>static/screenshot-thumb.jpg" alt="<? printf(_('Captura de %s'), $report->title); ?>"  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/></a>
 							<? else : ?>
-								<a href="<?=$report->url; ?>" target="_blank"><img src="<?=base_url('images/sources/thumb-home-' . $report->id . '.png'); ?>" width="150" alt="<? printf(_('Captura de %s'), $report->title); ? "  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/></a>
+								<a href="<?=$report->url; ?>" target="_blank"><img src="<?=base_url('images/sources/thumb-home-' . $report->id . '.png'); ?>" width="150" alt="<? printf(_('Captura de %s'), $report->title); ?>"  title="karma <?= $report->karma ?> / coef <?= $report->karma_value ?> / valor <?= $report->karma*$report->karma_value?>"/></a>
 							<? endif; ?>
 							<div class="clearfix fix_reports_counters">
 								<div class="fixes"><span class="count"><?= $report->votes_count; ?></span> <? _e('fixes'); ?></div>
