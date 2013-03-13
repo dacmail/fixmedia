@@ -12,10 +12,10 @@ class Reports extends MY_Controller {
 		$config['first_url'] = site_url();
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
-		$data['page_title'] = 'Portada - Más urgentes';
-		$data['title'] = "Más urgentes";
-		$data['description'] = "Noticias para arreglar con más repercusión en este momento. Fixmedia es la herramienta que te permite mejorar las noticias, pidiendo que alguien las arregle, añadiendo más y mejor información o corrigiendo la existente.";
-		$data['subtitle'] = "Noticias para arreglar con más repercusión en este momento";
+		$data['page_title'] =  _('Portada - Más urgentes');
+		$data['title'] = _("Más urgentes");
+		$data['description'] =  _("Noticias para arreglar con más repercusión en este momento. Fixmedia es la herramienta que te permite mejorar las noticias, pidiendo que alguien las arregle, añadiendo más y mejor información o corrigiendo la existente.");
+		$data['subtitle'] =  _("Noticias para arreglar con más repercusión en este momento");
 		$data['main_content'] = 'reports/list_reports';
 		$data['reports'] = Report::all(array(
 									'select' => '*, (karma*karma_value) as value',
@@ -34,10 +34,10 @@ class Reports extends MY_Controller {
 		$config['uri_segment'] = 3;
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
-		$data['page_title'] = 'Portada - Recientes';
-		$data['description'] = "Últimas noticias enviadas. Fixmedia es la herramienta que te permite mejorar las noticias, pidiendo que alguien las arregle, añadiendo más y mejor información o corrigiendo la existente.";
-		$data['title'] = "Recientes";
-		$data['subtitle'] = "Últimas noticias enviadas";
+		$data['page_title'] =  _('Portada - Recientes');
+		$data['description'] =  _("Últimas noticias enviadas. Fixmedia es la herramienta que te permite mejorar las noticias, pidiendo que alguien las arregle, añadiendo más y mejor información o corrigiendo la existente.");
+		$data['title'] =  _("Recientes");
+		$data['subtitle'] =  _("Últimas noticias enviadas");
 		$data['main_content'] = 'reports/list_reports';
 		$data['reports'] = Report::all(array(
 									'select' => '*, (karma*karma_value) as value',
@@ -56,11 +56,11 @@ class Reports extends MY_Controller {
 		$config['uri_segment'] = 3;
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
-		$data['page_title'] = 'Portada - Pendientes';
-		$data['description'] = "Noticias enviadas que todavía tienen pocos o ningún reporte. Fixmedia es la herramienta que te permite mejorar las noticias, pidiendo que alguien las arregle, añadiendo más y mejor información o corrigiendo la existente.";
+		$data['page_title'] =  _('Portada - Pendientes');
+		$data['description'] =  _("Noticias enviadas que todavía tienen pocos o ningún reporte. Fixmedia es la herramienta que te permite mejorar las noticias, pidiendo que alguien las arregle, añadiendo más y mejor información o corrigiendo la existente.");
 		$data['main_content'] = 'reports/list_reports';
-		$data['title'] = "Pendientes";
-		$data['subtitle'] = "Noticias enviadas que todavía tienen pocos o ningún reporte";
+		$data['title'] =  _("Pendientes");
+		$data['subtitle'] =  _("Noticias enviadas que todavía tienen pocos o ningún reporte");
 		$per_page = $this->pagination->per_page;
 		$offset = $this->pagination->per_page*($page-1);
 		$data['reports'] = Report::find_by_sql("SELECT r.*, (r.karma*r.karma_value) as value, count(rd.id) as subs
@@ -78,7 +78,7 @@ class Reports extends MY_Controller {
 		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 		$this->form_validation->set_rules('url', 'URL', 'required|prep_url|valid_url');
 		if ($this->form_validation->run() === FALSE) :
-			$data['page_title'] = 'Envía una noticia';
+			$data['page_title'] =  _('Envía una noticia');
 			$data['url'] = $this->input->get('url');
 			$data['main_content'] = 'reports/create_report';
 			$data['error_url_check'] = '';
@@ -102,7 +102,7 @@ class Reports extends MY_Controller {
 							'vote_value' => 1,
 							'ip' => $this->input->ip_address()));
 					$data['report'] = $report;
-					$data['page_title'] = 'Noticia enviada';
+					$data['page_title'] =  _('Noticia enviada');
 					$data['main_content'] = 'reports/sent_url_report';
 				else : // Si existe, hacemos fix y redirigimos a la página del reporte
 					$vote = Vote::create(array(
@@ -120,8 +120,8 @@ class Reports extends MY_Controller {
 					redirect($this->router->reverseRoute('reports-view', array('slug' => $report->slug)));
 				endif;
 			else :
-				$data['error_url_check'] = 'La URL no responde o no puede ser obtenida';
-				$data['page_title'] = 'Envía una noticia';
+				$data['error_url_check'] =  _('La URL no responde o no puede ser obtenida');
+				$data['page_title'] =  _('Envía una noticia');
 				$data['main_content'] = 'reports/create_report';
 			endif;
 		endif;
@@ -136,10 +136,10 @@ class Reports extends MY_Controller {
 			if (!$edit_draf) : //si es un envío nuevo
 				$data['report'] = $report;
 				$data['reports_types_tree'] = Reports_type::find_all_by_parent(0);
-				$data['page_title'] = 'Completa el reporte';
+				$data['page_title'] =  _('Completa el reporte');
 				$data['main_content'] = 'reports/complete_report';
 			else : // si se va a editar el envío
-				$data['page_title'] = 'Modificar reporte';
+				$data['page_title'] =  _('Modificar reporte');
 				$data['main_content'] = 'reports/edit_report';
 				$data['reports_types_tree'] = Reports_type::find_all_by_parent(0);
 				$data['report_sent'] = $report;
@@ -158,7 +158,7 @@ class Reports extends MY_Controller {
 		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 		foreach ($this->input->post('type') as $i => $value) {
 			//$this->form_validation->set_rules('content['.$i.']', 'contenido', 'required');
-			$this->form_validation->set_rules('title['.$i.']', 'título', 'required');
+			$this->form_validation->set_rules('title['.$i.']',  _('título'), 'required');
 		}
 		foreach ($this->input->post('urls') as $i => $urls) {
 			foreach ($urls as $k => $url) {
@@ -169,7 +169,7 @@ class Reports extends MY_Controller {
 			$data['reports_types_tree'] = Reports_type::find_all_by_parent(0);
 			$data['report_sent'] = Report::find($this->input->post('report_id', TRUE));
 			$data['report'] = $this->input->post(NULL, TRUE);
-			$data['page_title'] = 'Corrige el reporte';
+			$data['page_title'] =  _('Corrige el reporte');
 			$data['main_content'] = 'reports/error_report';
 		else :
 			$data['report'] = $this->input->post(NULL, TRUE);
@@ -190,7 +190,7 @@ class Reports extends MY_Controller {
 			$data['types'] = $types;
 			$data['report_sent'] = Report::find($this->input->post('report_id', TRUE));
 
-			$data['page_title'] = 'Previsualización del reporte';
+			$data['page_title'] =  _('Previsualización del reporte');
 			$data['main_content'] = 'reports/preview_report';
 		endif;
 			$this->load->view('includes/template', $data);
@@ -202,7 +202,7 @@ class Reports extends MY_Controller {
 			$report = Report::find_by_slug($slug);
 			if (!empty($report)) :
 				$data['page_title'] = $report->title;
-				$data['description'] = "Noticia enviada a fixmedia: $report->title. $report->votes_count personas quieren que se mejore o arregle esta noticia";
+				$data['description'] = sprintf( _("Noticia enviada a fixmedia: %s. %s personas quieren que se mejore o arregle esta noticia"),$report->title, $report->votes_count);
 				$data['report'] = $report;
 				$data['main_content'] = 'reports/report';
 				if (isset($share)) :
@@ -223,8 +223,8 @@ class Reports extends MY_Controller {
 		if (!empty($slug)) :
 			$report = Report::find_by_slug($slug);
 			if (!empty($report)) :
-				$data['page_title'] = 'Actividad de "' . $report->title . '"';
-				$data['description'] = "Actividad de la noticia enviada a fixmedia: $report->title. $report->votes_count personas quieren que se mejore o arregle esta noticia";
+				$data['page_title'] = sprintf( _('Actividad de "%s"'), $report->title);
+				$data['description'] = sprintf( _("Actividad de la noticia enviada a fixmedia: %s. %s personas quieren que se mejore o arregle esta noticia"), $report->title, $report->votes_count );
 				$data['report'] = $report;
 				$data['main_content'] = 'reports/activity';
 				$data['reporting_users'] = User::find_by_sql("SELECT distinct(u.id), u.* FROM users u INNER JOIN reports_data rd

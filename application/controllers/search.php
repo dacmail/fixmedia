@@ -16,9 +16,9 @@ class Search extends MY_Controller {
 		$config['total_rows'] = count($results);
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
-		$data['page_title'] = "Resultados de búsqueda: $term";
-		$data['title'] = "Resultados de búsqueda";
-		$data['subtitle'] = "Resultados de búsqueda para el término: $term";
+		$data['page_title'] = sprintf( _("Resultados de búsqueda: %s"), $term);
+		$data['title'] =  _("Resultados de búsqueda");
+		$data['subtitle'] = sprintf( _("Resultados de búsqueda para el término: %s"), $term);
 		$data['main_content'] = 'search/list_news';
 		$page = $this->input->get('pagina') ? $this->input->get('pagina') : 1;
 		$order = $this->input->get('order') ? 'created_at desc, value desc' : 'value desc, karma desc, created_at desc, votes_count desc';
@@ -44,9 +44,9 @@ class Search extends MY_Controller {
 		$config['total_rows'] = count($results);
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
-		$data['page_title'] = "Resultados de búsqueda: $term";
-		$data['title'] = "Resultados de búsqueda";
-		$data['subtitle'] = "Resultados de búsqueda para el término: $term";
+		$data['page_title'] = sprintf( _("Resultados de búsqueda: %s"), $term);
+		$data['title'] =  _("Resultados de búsqueda");
+		$data['subtitle'] = sprintf( _("Resultados de búsqueda para el término: %s"), $term);
 		$data['main_content'] = 'search/list_users';
 		$page = $this->input->get('pagina') ? $this->input->get('pagina') : 1;
 		$order = $this->input->get('order') ? 'created_on desc' : 'karma desc, created_on desc';
@@ -71,9 +71,9 @@ class Search extends MY_Controller {
 		$config['total_rows'] = count($results);
 		$this->pagination->initialize($config);
 		$data['pagination_links'] = $this->pagination->create_links();
-		$data['page_title'] = "Resultados de búsqueda: $term";
-		$data['title'] = "Resultados de búsqueda";
-		$data['subtitle'] = "Resultados de búsqueda para el término: $term";
+		$data['page_title'] = sprintf( _("Resultados de búsqueda: %s"), $term);
+		$data['title'] =  _("Resultados de búsqueda");
+		$data['subtitle'] = sprintf( _("Resultados de búsqueda para el término: %s"), $term);
 		$data['main_content'] = 'search/list_reports';
 		$page = $this->input->get('pagina') ? $this->input->get('pagina') : 1;
 		$order = $this->input->get('order') ? 'reports_data.created_at desc' : 'reports_data.karma desc, reports_data.created_at desc';

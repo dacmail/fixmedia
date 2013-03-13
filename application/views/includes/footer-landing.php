@@ -2,11 +2,11 @@
 	<section class="logos-footer <?= is_cur_page($this, 'auth','create_user') ? 'create_user' : ''; ?> <?= is_cur_page($this, 'auth','forgot_password') ? 'forgot' : ''; ?>">
 		<div class="wrap clearfix">
 			<div class="develop">
-				<h3 class="title">Desarrollado por:</h3>
+				<h3 class="title"><? _e('Desarrollado por'); ?>:</h3>
 				<a href="http://nxtmdia.com"><img alt="Nxtmdia" src="<?= base_url('images/logos/logo-nxtmdia.jpg'); ?>"/></a>
 			</div>
 			<div class="cofin">
-				<h3 class="title">Cofinanciadores destacados:</h3>
+				<h3 class="title"><? _e('Cofinanciadores destacados'); ?>:</h3>
 				<a href="http://agitalo.es/"><img alt="Agitalo 3.0" src="<?= base_url('images/logos/logo-agitalo.jpg'); ?>"/></a>
 				<a href="http://formadepie.org/"><img alt="Forma de pie" src="<?= base_url('images/logos/logo-formadepie.jpg'); ?>"/></a>
 				<a href="http://www.irekia.euskadi.net/"><img alt="Irekia" src="<?= base_url('images/logos/logo-irekia.jpg'); ?>"/></a>

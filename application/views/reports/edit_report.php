@@ -6,7 +6,7 @@
 		<?php echo form_open($this->router->reverseRoute('reports-preview'), array('id' => 'form_report', 'class' => 'clearfix'), $hidden_fields) ?>
 			<? foreach ($report['type'] as $index => $type) : $count=$index+1;?>
 				<div class="report_data">
-					<p><label class="label">Elige el tipo de reporte</label>
+					<p><label class="label"><? _e('Elige el tipo de reporte'); ?></label>
 					<div class="wrap_types clearfix">
 					<? foreach ($reports_types_tree as $report_type) : ?>
 						<span class="wrap_type <? echo (($type==$report_type->id) ? 'active' : '');?>">
@@ -19,31 +19,31 @@
 					</p>
 					<div class="fields_wrap open" id="fields_<?=$count;?>">
 						<div class="row wrap_title">
-							<label class="label" for="title">¿Qué quieres arreglar? <span class="tip">Dilo en un titular, recuerda que al final puedes seguir añadiendo reportes a esta misma noticia</span></label>
+							<label class="label" for="title"><? _e('¿Qué quieres arreglar?'); ?> <span class="tip"><? _e('Dilo en un titular, recuerda que al final puedes seguir añadiendo reportes a esta misma noticia'); ?></span></label>
 							<input class="text" type="text" id="title_<?=$count;?>" name="title[]" value="<?=htmlspecialchars($report['title'][$index]);?>"  maxlength="120"/>
 							<span class="help">
 								<? if ($type==1) : ?>
-								Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu corrección. [+] aprender más
+								<? _e('Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu corrección.'); ?>
 								<? else : ?>
-								Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu ampliación. [+] aprender más
+								<? _e('Esto es lo primero que verán el resto de usuarios, es importante titular bien: destaca en una frase la esencia de tu ampliación.'); ?>
 								<? endif ?>
 								<span class="charcount">120</span>
 							</span>
 						</div>
 						<div class="row wrap_content">
-							<label class="label" for="content">Explícalo <span class="tip">Si es necesario</span></label>
+							<label class="label" for="content"><? _e('Explícalo'); ?> <span class="tip"><? _e('Si es necesario'); ?></span></label>
 							<textarea class="textarea" id="content_<?=$count;?>" name="content[]" maxlength="400"><?=$report['content'][$index];?></textarea>
 							<div class="help">
 								<? if ($type==1) : ?>
-								Identifica en breves palabras la parte de la noticia que consideras que debe ser corregida, por qué debe serlo y cuál es tu alternativa. [+] aprender más
+								<? _e('Identifica en breves palabras la parte de la noticia que consideras que debe ser corregida, por qué debe serlo y cuál es tu alternativa.'); ?>
 								<? else : ?>
-								Identifica en breves palabras por qué crees que a esta noticia la falta más contenido y cuál es. [+] aprender más
+								<? _e('Identifica en breves palabras por qué crees que a esta noticia la falta más contenido y cuál es.'); ?>
 								<? endif ?>
 								<span class="charcount">400</span>
 							</div>
 						</div>
 						<div class="row wrap_urls">
-							<label class="label" for="urls">Fuentes o archivos <span class="tip">Si es necesario añadie URL a fuentes directas, otras noticias, enlaces, etc.</span></label>
+							<label class="label" for="urls"><? _e('Fuentes o archivos'); ?> <span class="tip"><? _e('Si es necesario añadie URL a fuentes directas, otras noticias, enlaces, etc.'); ?></span></label>
 							<? if ($report['urls'][$index]) :?>
 								<? foreach ($report['urls'][$index] as $url) : ?>
 									<input type="text" class="urls text" id="urls_<?=$count;?>" name="urls[<?=$count-1;?>][]" value="<?=$url?>"/>
@@ -53,26 +53,26 @@
 							<? endif; ?>
 							<span class="help">
 								<? if ($type==1) : ?>
-								Por ejemplo, un enlace a otra noticia sobre el mismo asunto o un enlace a un documento, fotografía o archivo que justifiquen tu corrección. [+] aprender más
+								<? _e('Por ejemplo, un enlace a otra noticia sobre el mismo asunto o un enlace a un documento, fotografía o archivo que justifiquen tu corrección.'); ?>
 								<? else : ?>
-								Por ejemplo, un enlace a otra noticia sobre el mismo asunto pero más completa o un enlace a un documento, fotografía, gráfico o archivo que contengan la ampliación. [+] aprender más
+								<? _e('Por ejemplo, un enlace a otra noticia sobre el mismo asunto pero más completa o un enlace a un documento, fotografía, gráfico o archivo que contengan la ampliación.'); ?>
 								<? endif ?>
 							</span>
-							<? if (count($report['urls'][$index])<3) : ?><a href="#" class="add_url">Agregar otra URL</a><? endif; ?>
+							<? if (count($report['urls'][$index])<3) : ?><a href="#" class="add_url"><? _e('Agregar otra URL'); ?></a><? endif; ?>
 						</div>
 
 						<div class="row wrap_type_info">
 
-							<label class="label" for="type_info">Clasifica tu reporte <span class="tip">Ayuda a la comunidad a comprender rápidamente cual es el problema en esta noticia</span></label>
-								<p class="<? echo (($report['type_info'][$index]==0) ? 'checked' : ''); ?> option clearfix"><input type="radio" name="type_info[<?=$count-1;?>]" value="0" id="type0-<?=$count-1;?>" checked /><label for="type0-<?=$count-1;?>">Ninguna</label></p>
+							<label class="label" for="type_info"><? _e('Clasifica tu reporte'); ?> <span class="tip"><? _e('Ayuda a la comunidad a comprender rápidamente cual es el problema en esta noticia'); ?></span></label>
+								<p class="<? echo (($report['type_info'][$index]==0) ? 'checked' : ''); ?> option clearfix"><input type="radio" name="type_info[<?=$count-1;?>]" value="0" id="type0-<?=$count-1;?>" checked /><label for="type0-<?=$count-1;?>"><? _e('Ninguna'); ?></label></p>
 							<? foreach ($selected_type->childrens as $children) : ?>
 								<p class="<? echo (($report['type_info'][$index]==$children->id) ? 'checked' : ''); ?> option clearfix"><input type="radio" name="type_info[<?=$count-1;?>]" id="type<?=$children->id; ?>-<?=$count-1;?>" value="<?=$children->id; ?>" <? echo (($report['type_info'][$index]==$children->id) ? 'checked' : ''); ?> /><label for="type<?=$children->id; ?>-<?=$count-1;?>"><?=$children->type;?></label></p>
 							<? endforeach; ?>
 							<span class="help">
 								<? if ($type==1) : ?>
-									Escoge la opción que mejor se ajuste al tipo de corrección que deseas realizar sobre esta noticia. [+] aprender más
+									<? _e('Escoge la opción que mejor se ajuste al tipo de corrección que deseas realizar sobre esta noticia.'); ?>
 								<? else : ?>
-									Escoge la opción que mejor se ajuste al tipo de ampliación que deseas realizar sobre esta noticia. [+] aprender más
+									<? _e('Escoge la opción que mejor se ajuste al tipo de ampliación que deseas realizar sobre esta noticia.'); ?>
 								<? endif ?>
 							</span>
 						</div>
