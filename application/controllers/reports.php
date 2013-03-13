@@ -287,4 +287,42 @@ class Reports extends MY_Controller {
 			show_404();
 		endif;
 	}
+
+	public function delete($report_id) {
+		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
+		$report = Report::find($report_id);
+		if (!empty($report)) :
+			if ($report->user_id==$this->the_user->id) :
+				$votes = Vote::find(array('conditions' => array("item_id = ? AND vote_type LIKE 'FIX'", $report->id)));
+				$activity = Activity::find(array('conditions' => array("notificable_id = ? AND notification_type LIKE 'FIX'", $report->id)));
+				$activity->delete();
+				$votes->delete();
+				$report->delete();
+				redirect(site_url());
+			else :
+				redirect($this->router->reverseRoute('reports-view', array('slug' => $report->slug)));
+			endif;
+		else :
+			show_404();
+		endif;
+	}
+	public function delete_subreport($subreport_id) {
+		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
+		$subreport = Reports_data::find($subreport_id);
+		if (!empty($subreport)) :
+			$report = $subreport->report;
+			if ($subreport->user_id==$this->the_user->id) :
+				$votes = Vote::find(array('conditions' => array("item_id = ? AND vote_type LIKE 'REPORT'", $subreport->id)));
+				$activity = Activity::find(array('conditions' => array("notificable_id = ? AND notification_type LIKE 'VOTE'", $subreport->id)));
+				$activity->delete();
+				$votes->delete();
+				$subreport->delete();
+				redirect($this->router->reverseRoute('reports-view', array('slug' => $report->slug)));
+			else :
+				redirect($this->router->reverseRoute('reports-view', array('slug' => $report->slug)));
+			endif;
+		else :
+			show_404();
+		endif;
+	}
 }

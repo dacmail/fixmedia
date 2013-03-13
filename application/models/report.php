@@ -43,5 +43,9 @@ class Report extends ActiveRecord\Model {
 		endforeach;
 		return $solved;
 	}
+	public function is_removable($user_id) {
+		return ((count($this->votes)==1) && (count($this->data)==0) && ($this->user_id==$user_id));
+	}
+
 
 }
