@@ -34,18 +34,18 @@ class CI_Pagination {
 	var $per_page			= 10; // Max number of items you want shown per page
 	var $num_links			=  2; // Number of "digit" links to show before/after the currently viewed page
 	var $cur_page			=  0; // The current page being viewed
-	var $use_page_numbers	= TRUE; // Use page number for segment instead of offset
-	var $first_link			= '&lsaquo; Primera';
+	var $use_page_numbers	= FALSE; // Use page number for segment instead of offset
+	var $first_link			= '&lsaquo; First';
 	var $next_link			= '&gt;';
 	var $prev_link			= '&lt;';
-	var $last_link			= 'Última &rsaquo;';
-	var $uri_segment		= 2;
+	var $last_link			= 'Last &rsaquo;';
+	var $uri_segment		= 3;
 	var $full_tag_open		= '';
 	var $full_tag_close		= '';
-	var $first_tag_open		= '<div class="first">';
-	var $first_tag_close	= '</div>';
-	var $last_tag_open		= '<div class="last">';
-	var $last_tag_close		= '</div>';
+	var $first_tag_open		= '';
+	var $first_tag_close	= '&nbsp;';
+	var $last_tag_open		= '&nbsp;';
+	var $last_tag_close		= '';
 	var $first_url			= ''; // Alternative URL for the First Page.
 	var $cur_tag_open		= '&nbsp;<strong>';
 	var $cur_tag_close		= '</strong>';
