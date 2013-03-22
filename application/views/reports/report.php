@@ -32,11 +32,11 @@
 
 					</span>
 					<div class="subreport_info">
+						<? if ($logged_in && $subreport->is_removable($the_user->id)) : ?>
+							<p class="remove-report"><? _e('Este reporte lo has enviado tú y todavía puedes eliminarlo.'); ?> <a href="<?= site_url('reports/delete_subreport/' . $subreport->id); ?>"><? _e('¿Eliminar reporte?'); ?></a></p>
+						<? endif; ?>
 						<h3 class="subreport_title"><?=$subreport->title; ?></h3>
 						<p class="authorship"><? _e('Enviado por'); ?> <a href="<?= site_url($this->router->reverseRoute('user-profile', array('username' => $subreport->user->username))); ?>"><?= $subreport->user->name; ?></a> <? _e('el'); ?> <?= $subreport->created_at->format('d/m/Y'); ?></p>
-						<? if ($logged_in && $subreport->is_removable($the_user->id)) : ?>
-							<p style="margin-bottom:15px;"><? _e('Este reporte lo has enviado tu y todavía puedes eliminarlo.'); ?> <a href="<?= site_url('reports/delete_subreport/' . $subreport->id); ?>"><? _e('¿Eliminar reporte?'); ?></a></p>
-						<? endif; ?>
 						<p class="clearfix subreport_types type_<?= preg_replace('/[^a-z0-9]+/i','-',strtolower($subreport->type));?>">
 							<span class="type"><?=$subreport->type;?></span>,
 							<? if ($subreport->type_info!=$subreport->type) : ?>

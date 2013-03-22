@@ -100,6 +100,12 @@ $('document').ready(function() {
 		});
 	}
 
+	if ($('.remove-report').length>0) {
+		$('.remove-report').click(function(e) {
+			if (!confirm('¿Estás seguro que quieres eliminarlo? Esta acción no podrá deshacerse.'))
+				e.preventDefault();
+		});
+	}
 	if ($('.toggle_info').length>0) {
 		$('.toggle_info').click(function(e) {
 			$(this).next('.subreport_content').toggle();
