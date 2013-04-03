@@ -19,7 +19,7 @@ if( ! function_exists('relative_time'))
         $periods = array("second", "minute", "hour", "day", "week", "month", "year", "decade");
         $lengths = array("60","60","24","7","4.35","12","10");
 
-        if ($difference > 0)
+        if ($difference >= 0)
         {
             $ending = $CI->lang->line('date_ago');
         }

@@ -333,6 +333,18 @@ $('document').ready(function() {
 
 	if ($('.comments').length>0) {
 		$('.comments').addClass('hide');
+		if (/#comment/i.test(location.hash)) {
+			$(location.hash).closest('.comments').removeClass('hide');
+			toggleButton = $(location.hash).closest('.comments').find('.toggle');
+			alttext = toggleButton.data('alttext');
+			toggleButton.data('alttext', toggleButton.text());
+			toggleButton.text(alttext);
+			toggleButton.toggleClass('show');
+		}
+
+		if (/#report/i.test(location.hash))
+			$(location.hash + ' .comments').removeClass('hide');
+
 		$('.comments .toggle').click(function(e) {
 			if ($(this).hasClass('show'))
 				$(this).closest('.comments').removeClass('hide', 500);
@@ -343,6 +355,23 @@ $('document').ready(function() {
 			$(this).text(alttext);
 			$(this).toggleClass('show');
 			e.preventDefault();
+		});
+
+		$('.comment .reply').click(function(e) {
+			form = $('#' + $(this).data('form'))
+			if ($(this).hasClass('cancel-reply')) {
+				$(this).closest('.comments-list.main').append(form);
+				form.find('input[name=parent]').val(0);
+			} else {
+				wrapper = $('<ul class="comments-list children"></ul>').append(form)
+				$(this).closest('.comment').after(wrapper);
+				form.find('input[name=parent]').val($(this).data('replyto'));
+				$('.cancel-reply').removeClass('cancel-reply');
+			}
+			$(this).toggleClass('cancel-reply');
+			e.preventDefault();
+
+
 		});
 	}
 
