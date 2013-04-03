@@ -331,4 +331,19 @@ $('document').ready(function() {
 		});
 	}
 
+	if ($('.comments').length>0) {
+		$('.comments').addClass('hide');
+		$('.comments .toggle').click(function(e) {
+			if ($(this).hasClass('show'))
+				$(this).closest('.comments').removeClass('hide', 500);
+			else
+				$(this).closest('.comments').addClass('hide', 500);
+			alttext = $(this).data('alttext');
+			$(this).data('alttext', $(this).text());
+			$(this).text(alttext);
+			$(this).toggleClass('show');
+			e.preventDefault();
+		});
+	}
+
 });

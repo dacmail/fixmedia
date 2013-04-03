@@ -77,6 +77,8 @@
 								<? endif; ?>
 							</span>
 						</div>
+						<?php $this->load->view('comments/comments', array('subreport' => $subreport)); ?>
+
 					</div>
 				</div>
 			</div>

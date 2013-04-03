@@ -12,7 +12,9 @@ class Reports_data extends ActiveRecord\Model {
     	array('user', 'class_name' => 'User')
 	);
 	static $has_many = array(
-		array('votes', 'foreign_key' => 'item_id' ,'conditions' => "vote_type LIKE 'REPORT'")
+		array('votes', 'foreign_key' => 'item_id' ,'conditions' => "vote_type LIKE 'REPORT'"),
+		array('comments', 'class_name' => 'Comment'),
+		array('parent_comments', 'class_name' => 'Comment', 'conditions' => "parent = 0")
 	);
     static $validates_presence_of = array(
 		array('type'),
