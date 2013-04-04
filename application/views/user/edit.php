@@ -46,6 +46,7 @@
 					<p class="notification_option clearfix"><input type="checkbox" id="report" name="notifications_types[REPORT]"  value="1"  <?= ($ntypes['REPORT']) ? 'checked' : '' ?>  /><label for="report"><? _e('Cuando alguien envía un REPORTE a una noticia enviada por mí<'); ?>/label></p>
 					<p class="notification_option clearfix"><input type="checkbox" id="vote" name="notifications_types[VOTE]"  value="1"  <?= ($ntypes['VOTE']) ? 'checked' : '' ?>  /><label for="vote"><? _e('Cuando alguien VALORA un reporte enviado por mí'); ?></label></p>
 					<p class="notification_option clearfix"><input type="checkbox" id="solved" name="notifications_types[SOLVED]"  value="1"  <?= ($ntypes['SOLVED']) ? 'checked' : '' ?>  /><label for="solved"><? _e('Cuando alguien dice que un reporte envíado por mí está CORREGIDO en la noticia'); ?></label></p>
+					<p class="notification_option clearfix"><input type="checkbox" id="comment" name="notifications_types[COMMENT]"  value="1"  <?= ($ntypes['COMMENT']) ? 'checked' : '' ?>  /><label for="comment"><? _e('Cuando alguien COMENTA un reporte enviado por mí'); ?></label></p>
 				</div>
 			</div>
 			<input type="submit" class="button submit" name="submit" value="<? _e('Guardar los cambios'); ?>" />
