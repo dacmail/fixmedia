@@ -84,11 +84,16 @@ class Auth extends MY_Controller {
           		'size' => '30',
           		'class' => 'text'
 			);
-			if (strpos($this->input->server('HTTP_REFERER'), base_url()) === 0) {
-			    $this->session->set_userdata('prev_url', $this->input->server('HTTP_REFERER'));
+			if ($this->input->get('prev')) {
+				$this->session->set_userdata('prev_url', site_url($this->input->get('prev') . '#' . $this->input->get('hash') ));
 			} else {
-			    $this->session->set_userdata('prev_url', base_url());
+				if (strpos($this->input->server('HTTP_REFERER'), base_url()) === 0) {
+				    $this->session->set_userdata('prev_url', $this->input->server('HTTP_REFERER'));
+				} else {
+				    $this->session->set_userdata('prev_url', base_url());
+				}
 			}
+
 			if ($this->form_validation->run() == true) { //check to see if the user is logging in
 				//check for "remember me"
 				$remember = (bool) $this->input->post('remember');

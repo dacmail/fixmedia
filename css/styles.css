@@ -301,7 +301,7 @@ a:hover {text-decoration:underline;}
 			left:0px;
 			width:100%;
 		}
-		.remove-report {
+		.remove-report, .login-comment {
 			background:#F1F1F1;
 			line-height: 45px;
 			text-align: center;
@@ -1915,6 +1915,11 @@ input.button {height:40px;}
 				height:32px;
 				line-height: 32px;
 			}
+		.login-comment {
+			margin-top:30px;
+			width: 100%
+		}
+		.login-comment a {font-weight: bold;}
 .reports_list {
 	list-style:none;
 }

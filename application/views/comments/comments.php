@@ -16,7 +16,9 @@
 						<?= $comment->user->name; ?>
 					</a>
 					<span class="date"><?= relative_time($comment->created_at->format('db')); ?></span>
+					<? if ($logged_in) : ?>
 					<a href="#" data-replyto="<?= $comment->id; ?>" data-form="comment-form-<?= $subreport->id; ?>" class="reply"><? _e('Responder'); ?></a>
+					<? endif; ?>
 				</h4>
 				<div class="comment-content"><?= $comment->content; ?></div>
 			</li>
@@ -37,10 +39,16 @@
 					</ul>
 				<? endif; ?>
 		<? endforeach; ?>
-		<?= form_open('comments/create', array('class' => 'clearfix comment-form', 'id' => 'comment-form-' . $subreport->id), array('reports_data_id' => $subreport->id, 'parent' => 0)); ?>
-			<div class="avatar"><?=get_avatar( $the_user, 30, $the_user->name); ?></div>
-			<textarea name="content" placeholder="<? _e('Escribe un comentario'); ?>"></textarea>
-			<input class="submit-comment button" type="submit" name="submit" value="<? _e('Comentar'); ?>" />
-		</form>
+		<? if ($logged_in) : ?>
+			<?= form_open('comments/create', array('class' => 'clearfix comment-form', 'id' => 'comment-form-' . $subreport->id), array('reports_data_id' => $subreport->id, 'parent' => 0)); ?>
+				<div class="avatar"><?=get_avatar( $the_user, 30, $the_user->name); ?></div>
+				<textarea name="content" placeholder="<? _e('Escribe un comentario'); ?>"></textarea>
+				<input class="submit-comment button" type="submit" name="submit" value="<? _e('Comentar'); ?>" />
+			</form>
 		</ul>
+		<? else : ?>
+			</ul>
+			<p class="login-comment"><? _e('Para poder comentar necesitas estár logueado...'); ?> <a class="log_in" href="<?= site_url($this->router->reverseRoute('login')) . "?prev=" .  $this->router->reverseRoute('reports-view', array('slug' => $subreport->report->slug)) . '&hash=comment-form-' . $subreport->id; ?>"><? _e('Inicia sesión'); ?></a></p>
+		<? endif; ?>
+
 </div>

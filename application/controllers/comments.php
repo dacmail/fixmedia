@@ -6,7 +6,7 @@ class Comments extends MY_Controller {
 	   parent::__construct();
 	}
 	public function create() {
-		if (!$this->ion_auth->logged_in()) { redirect_back(); }
+		if (!$this->ion_auth->logged_in()) { redirect('auth/login', 'refresh'); }
 
 		$this->form_validation->set_rules('content',  _('Comentario'), 'required|xss_clean|strip_tags');
 		$comment = $this->input->post(NULL, TRUE);
