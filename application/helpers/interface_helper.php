@@ -88,6 +88,11 @@
    				$var = !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->slug))) . "'>$item->title</a> ";
    				$text =  sprintf(_("reportó en la noticia %s que tú descubriste"), $var);
 				break;
+			case 'COMMENT':
+				$item = Comment::find($activity->notificable_id);
+   				$var = !$title ? "" : "<a href='". site_url($el->router->reverseRoute('reports-view', array('slug' => $item->report->report->slug))) . '#comment-' . $item->id . "'>" . $item->report->title . "</a> ";
+   				$text =  sprintf(_("comentó tu reporte %s"), $var);
+				break;
    		}
    		return $text;
 	}

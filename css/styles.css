@@ -887,6 +887,7 @@ a:hover {text-decoration:underline;}
 	.activity-item.vote .icon {background-position: 0px -754px;}
 	.activity-item.report .icon {background-position: 0px -789px;}
 	.activity-item.solved .icon {background-position: 0px -824px;}
+	.activity-item.comment .icon {background-position: 0px -934px;}
 	.activity-item.read {opacity:0.6;}
 	.activity-item.read:hover {opacity:1;}
 /* STATS */
@@ -1846,7 +1847,7 @@ input.button {height:40px;}
 		.comments-list.children {
 			margin-left:50px;
 		}
-		.comment {
+		.subreport .comment {
 			border:1px solid #E5E5E5;
 			padding:16px;
 			margin-top:35px;
@@ -1855,7 +1856,7 @@ input.button {height:40px;}
 			line-height: 20px;
 			color:#7F7F7F;
 		}
-		.comment .avatar {
+		.subreport .comment .avatar {
 			position: absolute;
 			left:-50px;
 			top:0px;
@@ -1863,18 +1864,18 @@ input.button {height:40px;}
 			height: 30px;
 			overflow: hidden;
 		}
-		.comment .avatar img {width: 30px; height: 30px;}
-		.comment .comment-author {
+		.comments .avatar img {width: 30px; height: 30px;}
+		.subreport .comment .comment-author {
 			font-size: 17px;
 			font-weight: normal;
 			margin-bottom:20px;
 		}
-			.comment .comment-author .date {
+			.subreport .comment .comment-author .date {
 				display: inline;
 				font-size: 13px;
 				color:#B2B2B2;
 			}
-			.comment .comment-author .reply {
+			.subreport .comment .comment-author .reply {
 				display:block;
 				float:right;
 				font-size: 13px;
@@ -1882,7 +1883,7 @@ input.button {height:40px;}
 				padding-left:17px;
 				background: url('../images/icons.png') no-repeat 0px -999px;
 			}
-			.comment .comment-author .reply.cancel-reply {background-position: 0px -507px;}
+			.subreport .comment .comment-author .reply.cancel-reply {background-position: 0px -507px;}
 		.comment-form {
 			margin-top:30px;
 			position: relative;
