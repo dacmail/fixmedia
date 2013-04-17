@@ -374,5 +374,8 @@ $('document').ready(function() {
 
 		});
 	}
+	$('.confirm-delete').click(function(e) {
+		return confirm('¿Seguro que deseas eliminar el elemento seleccionado? Esta acción no puede deshacerse')
+	});
 
 });
