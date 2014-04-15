@@ -23,3 +23,8 @@ Colaboradores
 -------------
 
 Si quieres colaborar en el desarrollo de la herramienta o tienes algo que aportar, ponte en contacto con el equipo en el correo pau(arroba)fixmedia.org
+
+Licencia
+--------
+
+El código de Fixmedia está licenciado bajo una licencia GPL (http://www.gnu.org/licenses/gpl.html)
